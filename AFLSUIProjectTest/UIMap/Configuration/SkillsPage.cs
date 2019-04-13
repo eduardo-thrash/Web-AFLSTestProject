@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AFLSTestProjectUI.AFLSUIProjectTest.UIMap.ElementsConfiguration
+namespace AFLSUIProjectTest.UIMap.Configuration
 {
-    public class ElementsSkill
+    public class SkillsPage
     {
         public string SkillModule;
 

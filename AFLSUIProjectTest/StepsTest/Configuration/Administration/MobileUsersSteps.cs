@@ -1,4 +1,5 @@
 ﻿using AFLSUIProjectTest.UIMap;
+using AFLSUIProjectTest.UIMap.AFLS;
 using AFLSUIProjectTest.UIMap.Configuration;
 
 using CommonTest.CommonTest;

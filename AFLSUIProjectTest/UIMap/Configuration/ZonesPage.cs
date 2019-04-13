@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AFLSTestProjectUI.AFLSUIProjectTest.UIMap.ElementsConfiguration
 {
-    class ElementsZone
+    class ZonesPage
     {
         //Elements SubMenu y option
         public string ZoneModule = "Zones";

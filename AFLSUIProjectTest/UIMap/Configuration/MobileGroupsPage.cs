@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AFLSUIProjectTest.UIMap
+namespace AAFLSUIProjectTest.UIMap.Configuration
 {
-    class ElementsMobileGroup
+    public class MobileGroupPage
     {
         //Elements SubMenu y option
         public string MobileGroupsModulePath = "//div[contains(@class, 'icon iconsAd groupsWeb')]";

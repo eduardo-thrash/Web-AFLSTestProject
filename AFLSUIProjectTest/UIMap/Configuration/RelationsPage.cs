@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AFLSUIProjectTest.UIMap.Configuration.MenuServiceCatalogue
+namespace AFLSUIProjectTest.UIMap.ConfigurationMenuServiceCatalogue
 {
-    public class ElementsRelation
+    public class RelationsPage
     {
         //ListContent
 

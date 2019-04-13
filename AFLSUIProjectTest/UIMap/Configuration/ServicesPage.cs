@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AFLSUIProjectTest.UIMap
+namespace AFLSUIProjectTest.UIMap.Configuration
 {
-    public class ElementsService
+    public class ServicesPage
     {
         //Elements SubMenu y option
         public string ServiceModule = "Services";

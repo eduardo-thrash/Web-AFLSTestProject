@@ -1,10 +1,11 @@
 ﻿using AFLSUIProjectTest.StepsTest;
+using AFLSUIProjectTest.StepsTest.AFLS;
 
 namespace AFLSUIProjectTest.CommonAFLS
 {
     public class Login
     {
-        private LoginLogoutSteps AFLSLogin = new LoginLogoutSteps();
+        public LoginLogoutSteps AFLSLogin = new LoginLogoutSteps();
 
         public void AdministratorLogin()
         {

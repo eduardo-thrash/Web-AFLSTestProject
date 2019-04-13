@@ -1,4 +1,4 @@
-﻿namespace AFLSUIProjectTest.UIMap
+﻿namespace AFLSUIProjectTest.UIMap.Configuration
 {
     public class ModelsPage
     {

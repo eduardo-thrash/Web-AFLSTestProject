@@ -104,69 +104,657 @@
     <Compile Include="CommonTest\CommonHooks.cs" />
     <Compile Include="CommonTest\CommonQuery.cs" />
     <Compile Include="CommonTest\SystemTask.cs" />
+    <Compile Include="Features\AFLS\AFLSPages.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AFLSPages.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Alerts\GeneralAlerts.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralAlerts.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Alerts\ProviderAlerts.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProviderAlerts.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Monitor\GroupsMonitorConfiguration.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupsMonitorConfiguration.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Monitor\SpecialistMonitorConfiguration.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpecialistMonitorConfiguration.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Dashboard\PrincipalDashboard.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrincipalDashboard.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Inventory\Assigment.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assigment.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Inventory\Movements.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Movements.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Inventory\Returns.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Returns.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Inventory\SerachEngine.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SerachEngine.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Monitoring\ClientsMonitor.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientsMonitor.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Monitoring\PlaningMonitor.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlaningMonitor.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Monitoring\ReassignMonitor.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReassignMonitor.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Monitoring\SpecialistMonitor.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpecialistMonitor.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Administration\Clients.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Clients.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Administration\Companies.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Companies.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Administration\MeansTransport.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MeansTransport.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Administration\MobileGroups.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MobileGroups.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Configuration\Administration\MobileUsers.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MobileUsers.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Administration\Positions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Positions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Administration\Providers.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Providers.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Administration\Skills.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Skills.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Administration\WebGroups.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebGroups.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Administration\WebUsers.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebUsers.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Administration\Zones.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Zones.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\AFClients.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AFClients.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\AFCompanies.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AFCompanies.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\AFGeneralOrders.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AFGeneralOrders.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\AFServices.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AFServices.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\AlertManagement.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlertManagement.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\AssignmentRules.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssignmentRules.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\AssitMe.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssitMe.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\EmailTemplates.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailTemplates.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\Establishment.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Establishment.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\Licensing.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Licensing.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\LocationAccuracy.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocationAccuracy.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\MailServer.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MailServer.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\NonWorkingDays.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NonWorkingDays.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\QuickAnswers.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuickAnswers.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\Surveys.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Surveys.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Configuration\SurveyTemplates.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SurveyTemplates.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Integration\ASDK.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASDK.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Integration\LDAP.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LDAP.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Integration\ThirdParty.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThirdParty.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\ServiceCataloge\Calendars.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Calendars.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\ServiceCataloge\Chonometer.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Chonometer.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\ServiceCataloge\Models.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Models.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\ServiceCataloge\OLAs.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OLAs.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\ServiceCataloge\Relations.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Relations.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\Configuration\ServiceCataloge\Services.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Services.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\LoginLogout.feature.cs">
+    <Compile Include="Features\Configuration\Inventory\Locations.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Locations.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Inventory\Meassures.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Meassures.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\Inventory\Products.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Products.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\ServiceCataloge\SLAs.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SLAs.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuration\ServiceCataloge\UCs.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UCs.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\AFLS\LoginLogout.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginLogout.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\Orders\WorkOrdersBasic.feature.cs">
+    <Compile Include="Features\Orders\AvailableOrders.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WorkOrdersBasic.feature</DependentUpon>
+      <DependentUpon>AvailableOrders.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Orders\WorkOrders.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkOrders.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Orders\WorkOrdersCreate.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkOrdersCreate.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Reports\GeneralReports.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralReports.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Reports\InventoryReports.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryReports.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Reports\WorkordersReports.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkordersReports.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepsTest\Configuration\Administration\ClientsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Administration\CompaniesSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Administration\MeansTransportSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Administration\MobileGroupsSteps.cs" />
     <Compile Include="StepsTest\Configuration\Administration\MobileUsersSteps.cs" />
-    <Compile Include="StepsTest\LoginLogoutSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Administration\PositionsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Administration\ProvidersSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Administration\SkillsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Administration\WebGroupsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Administration\WebUsersSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Administration\ZonesSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\AFClientsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\AFCompaniesSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\AFOrdersSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\AFServicesSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\AssigmentRulesSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\AssistMeBasicConfigurationSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\EmailTemplatesSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\EstablishmentSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\LicensingSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\LocationAccuracySteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\MailServerSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\NonWorkingDaysSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\QuickAnswersSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Configuration\SurveysSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Integration\ASDKSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Integration\LDAPSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Inventory\LocationsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Inventory\MeassuresSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Inventory\ProductsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\ServiceCataloge\CalendarsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\ServiceCataloge\ChronometersSteps.cs" />
+    <Compile Include="StepsTest\Configuration\ServiceCataloge\ModelsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\ServiceCataloge\OLAsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\ServiceCataloge\RelationsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\ServiceCataloge\ServicesSteps.cs" />
+    <Compile Include="StepsTest\Configuration\ServiceCataloge\SLAsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\ServiceCataloge\UCsSteps.cs" />
+    <Compile Include="StepsTest\AFLS\LoginLogoutSteps.cs" />
+    <Compile Include="UIMap\AFLS\ConfigurationMenuPage.cs" />
+    <Compile Include="UIMap\Configuration\AccuracyPage.cs" />
     <Compile Include="UIMap\Configuration\AFClientsPage.cs" />
     <Compile Include="UIMap\Configuration\AFCompaniesPage.cs" />
     <Compile Include="UIMap\Configuration\AFOrdersPage.cs" />
     <Compile Include="UIMap\Configuration\AFServicesPage.cs" />
+    <Compile Include="UIMap\Configuration\ASDKPage.cs" />
+    <Compile Include="UIMap\Configuration\AssignmentRulesPage.cs" />
+    <Compile Include="UIMap\Configuration\AssistMePage.cs" />
+    <Compile Include="UIMap\Configuration\CalendarsPage.cs" />
+    <Compile Include="UIMap\Configuration\ChronometersPage.cs" />
     <Compile Include="UIMap\Configuration\ClientsPage.cs" />
     <Compile Include="UIMap\Configuration\CompaniesPage.cs" />
-    <Compile Include="UIMap\Configuration\ConfigurationMenuPage.cs" />
+    <Compile Include="UIMap\Configuration\EmailTemplatesPage.cs" />
+    <Compile Include="UIMap\Configuration\EstablishmentPage.cs" />
+    <Compile Include="UIMap\Configuration\LDAPPage.cs" />
+    <Compile Include="UIMap\Configuration\LicensingPage.cs" />
+    <Compile Include="UIMap\Configuration\LocationsPage.cs" />
+    <Compile Include="UIMap\Configuration\MailServerPage.cs" />
+    <Compile Include="UIMap\Configuration\MeansTransportPage.cs" />
+    <Compile Include="UIMap\Configuration\MeasuresPage.cs" />
     <Compile Include="UIMap\Configuration\MobileGroupsPage.cs" />
     <Compile Include="UIMap\Configuration\MobileUsersPage.cs" />
     <Compile Include="UIMap\Configuration\ModelsPage.cs" />
+    <Compile Include="UIMap\Configuration\NonWorkingDaysPage.cs" />
+    <Compile Include="UIMap\Configuration\OLAsPage.cs" />
+    <Compile Include="UIMap\Configuration\PositionsPage.cs" />
+    <Compile Include="UIMap\Configuration\ProductsPage.cs" />
+    <Compile Include="UIMap\Configuration\ProvidersPage.cs" />
+    <Compile Include="UIMap\Configuration\QuickAnswersPage.cs" />
     <Compile Include="UIMap\Configuration\RelationsPage.cs" />
     <Compile Include="UIMap\Configuration\ServicesPage.cs" />
     <Compile Include="UIMap\Configuration\SkillsPage.cs" />
+    <Compile Include="UIMap\Configuration\SLAsPage.cs" />
+    <Compile Include="UIMap\Configuration\SurveysPage.cs" />
+    <Compile Include="UIMap\Configuration\ThirdPartyPage.cs" />
+    <Compile Include="UIMap\Configuration\UCsPage.cs" />
     <Compile Include="UIMap\Configuration\WebGroupsPage.cs" />
     <Compile Include="UIMap\Configuration\WebUsersPage.cs" />
     <Compile Include="UIMap\Configuration\ZonesPage.cs" />
-    <Compile Include="UIMap\PrincipalMenuPage.cs" />
+    <Compile Include="UIMap\Messages\PageMessages.cs" />
+    <Compile Include="UIMap\AFLS\PrincipalMenuPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\AFLS\AFLSPages.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AFLSPages.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Alerts\GeneralAlerts.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GeneralAlerts.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Alerts\ProviderAlerts.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ProviderAlerts.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Monitor\GroupsMonitorConfiguration.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GroupsMonitorConfiguration.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Monitor\SpecialistMonitorConfiguration.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SpecialistMonitorConfiguration.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Dashboard\PrincipalDashboard.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PrincipalDashboard.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Inventory\Assigment.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Assigment.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Inventory\Movements.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Movements.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Inventory\Returns.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Returns.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Inventory\SerachEngine.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SerachEngine.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Monitoring\ClientsMonitor.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ClientsMonitor.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Monitoring\PlaningMonitor.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PlaningMonitor.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Monitoring\ReassignMonitor.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ReassignMonitor.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Monitoring\SpecialistMonitor.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SpecialistMonitor.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Administration\Clients.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Clients.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Administration\Companies.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Companies.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Administration\MeansTransport.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MeansTransport.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Administration\MobileGroups.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MobileGroups.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\Configuration\Administration\MobileUsers.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MobileUsers.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Administration\Positions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Positions.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Administration\Providers.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Providers.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Administration\Skills.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Skills.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Administration\WebGroups.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>WebGroups.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Administration\WebUsers.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>WebUsers.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Administration\Zones.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Zones.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\AFClients.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AFClients.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\AFCompanies.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AFCompanies.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\AFGeneralOrders.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AFGeneralOrders.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\AFServices.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AFServices.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\AlertManagement.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AlertManagement.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\AssignmentRules.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AssignmentRules.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\AssitMe.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AssitMe.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\EmailTemplates.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EmailTemplates.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\Establishment.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Establishment.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\Licensing.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Licensing.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\LocationAccuracy.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LocationAccuracy.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\MailServer.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MailServer.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\NonWorkingDays.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>NonWorkingDays.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\QuickAnswers.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>QuickAnswers.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\Surveys.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Surveys.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Configuration\SurveyTemplates.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SurveyTemplates.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Integration\ASDK.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ASDK.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Integration\LDAP.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LDAP.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Integration\ThirdParty.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ThirdParty.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\ServiceCataloge\Calendars.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Calendars.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\ServiceCataloge\Chonometer.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Chonometer.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\ServiceCataloge\Models.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Models.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\ServiceCataloge\OLAs.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OLAs.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\ServiceCataloge\Relations.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Relations.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Configuration\ServiceCataloge\Services.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Services.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\LoginLogout.feature">
+    <None Include="Features\Configuration\Inventory\Locations.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Locations.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Inventory\Meassures.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Meassures.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\Inventory\Products.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Products.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\ServiceCataloge\SLAs.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SLAs.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Configuration\ServiceCataloge\UCs.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UCs.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\AFLS\LoginLogout.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoginLogout.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\Orders\WorkOrdersBasic.feature">
+    <None Include="Features\Orders\AvailableOrders.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>WorkOrdersBasic.feature.cs</LastGenOutput>
+      <LastGenOutput>AvailableOrders.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Orders\WorkOrders.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>WorkOrders.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Orders\WorkOrdersCreate.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>WorkOrdersCreate.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Reports\GeneralReports.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GeneralReports.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Reports\InventoryReports.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>InventoryReports.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Reports\WorkordersReports.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>WorkordersReports.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Configuration\Configuration\" />
+    <Folder Include="StepsTest\Configuration\Monitor\" />
+    <Folder Include="StepsTest\Inventory\" />
+    <Folder Include="StepsTest\Monitoring\" />
+    <Folder Include="StepsTest\Orders\" />
+    <Folder Include="StepsTest\Reports\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Drivers\chromedriver.exe" />
