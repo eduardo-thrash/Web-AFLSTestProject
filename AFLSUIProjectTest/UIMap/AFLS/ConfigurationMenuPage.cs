@@ -1,4 +1,4 @@
-﻿namespace AFLSUIProjectTest.UIMap.Configuration
+﻿namespace AFLSUIProjectTest.UIMap
 {
     public class ConfigurationMenuPage
     {

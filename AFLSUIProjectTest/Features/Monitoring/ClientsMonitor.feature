@@ -3,9 +3,12 @@
 	As a math idiot
 	I want to be told the sum of two numbers
 
-#@mytag
-#Scenario: Add two numbers
-#	Given I have entered 50 into the calculator
-#	And I have entered 70 into the calculator
-#	When I press add
-#	Then the result should be 120 on the screen
+@mytag
+Scenario: Carga exitosa de pantalla de Monitoreo de clientes
+	Given Tengo un usuario con rol monitor
+	And El usuario monitor tiene proveedores asociados
+	And Existen clientes con ordenes del día en curso
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol monitor
+	And Selecciono la opción de item de Monitoreo de clientes
+	Then Se carga la pantalla principal de monitoreo de clientes

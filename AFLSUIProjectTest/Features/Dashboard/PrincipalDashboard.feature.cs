@@ -69,6 +69,28 @@ namespace AFLSUIProjectTest.Features.Dashboard
         {
             testRunner.CollectScenarioErrors();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Carga exitosa de modulo Panel de control")]
+        public virtual void CargaExitosaDeModuloPanelDeControl()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Carga exitosa de modulo Panel de control", null, ((string[])(null)));
+#line 6
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 7
+ testRunner.Given("Tengo un usuario con rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 9
+ testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("Accedo a ítem Panel de control", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.Then("Se carga la pantalla principal de alertas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

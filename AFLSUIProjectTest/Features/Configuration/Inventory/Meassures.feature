@@ -3,21 +3,45 @@
 
 Scenario: 1 Creación exitosa de Medidas
 	Given Tengo un usuario con rol administrador
-	When Creación exitosa de Medidas
+	And La medida no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Inventario
+	And Selecciono la opción Medidas
+	And Creación exitosa de Medidas
 	Then Finaliza exitosa la prueba
 
 Scenario: 2 Busqueda exitosa de Medida existente
 	Given Tengo un usuario con rol administrador
-	When Busqueda exitosa de Medida existente
+	And La medida existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Inventario
+	And Selecciono la opción Medidas
+	And Busqueda exitosa de Medida existente
 	Then Finaliza exitosa la prueba
 
 Scenario: 3 Modificación exitosa de Medidas
 	Given Tengo un usuario con rol administrador
-	When Modificación exitosa de Medidas
+	And La medida existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Inventario
+	And Selecciono la opción Medidas
+	And Modificación exitosa de Medidas
 	Then Finaliza exitosa la prueba
 
 Scenario: 4 Borrado exitoso de Medida existente
 	Given Tengo un usuario con rol administrador
-	When Borrado exitoso de Medida existente
+	And La medida existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Inventario
+	And Selecciono la opción Medidas
+	And Borrado exitoso de Medida existente
 	Then Finaliza exitosa la prueba
 

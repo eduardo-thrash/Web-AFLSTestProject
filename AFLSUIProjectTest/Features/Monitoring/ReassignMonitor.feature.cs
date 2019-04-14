@@ -69,6 +69,30 @@ namespace AFLSUIProjectTest.Features.Monitoring
         {
             testRunner.CollectScenarioErrors();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Carga exitosa de pantalla de Monitoreo y reasignación")]
+        public virtual void CargaExitosaDePantallaDeMonitoreoYReasignacion()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Carga exitosa de pantalla de Monitoreo y reasignación", null, ((string[])(null)));
+#line 6
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 7
+ testRunner.Given("Tengo un usuario con rol monitor y administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.And("El usuario monitor y administrador tiene proveedores asociados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("Selecciono la opción de item de Monitoreo  y reasignación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.Then("Se carga la pantalla principal de monitoreo  y reasignación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

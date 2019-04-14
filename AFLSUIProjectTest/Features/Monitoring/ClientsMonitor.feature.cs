@@ -69,6 +69,34 @@ namespace AFLSUIProjectTest.Features.Monitoring
         {
             testRunner.CollectScenarioErrors();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Carga exitosa de pantalla de Monitoreo de clientes")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public virtual void CargaExitosaDePantallaDeMonitoreoDeClientes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Carga exitosa de pantalla de Monitoreo de clientes", null, new string[] {
+                        "mytag"});
+#line 7
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 8
+ testRunner.Given("Tengo un usuario con rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
+ testRunner.And("El usuario monitor tiene proveedores asociados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("Existen clientes con ordenes del día en curso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
+ testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.And("Selecciono la opción de item de Monitoreo de clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.Then("Se carga la pantalla principal de monitoreo de clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

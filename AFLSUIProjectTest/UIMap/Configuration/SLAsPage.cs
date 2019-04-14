@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AFLSUIProjectTest.UIMap.Configuration
 {
-    public class ElementsSLA
+    public class SLAsPage
     {
         //Elements SubMenu y option
         public string SLAModule = "SLA";
