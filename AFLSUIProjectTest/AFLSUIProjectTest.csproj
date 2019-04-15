@@ -101,6 +101,7 @@
     <Compile Include="CommonAFLS\AFLSCommonFunctions.cs" />
     <Compile Include="CommonAFLS\Login.cs" />
     <Compile Include="CommonAFLS\Logout.cs" />
+    <Compile Include="CommonAFLS\ResponseValidation.cs" />
     <Compile Include="CommonTest\CommonElementsAction.cs" />
     <Compile Include="CommonTest\CommonHooks.cs" />
     <Compile Include="CommonTest\CommonQuery.cs" />
@@ -458,6 +459,7 @@
     <Compile Include="StepsTest\Configuration\ServiceCataloge\UCsSteps.cs" />
     <Compile Include="StepsTest\AFLS\LoginLogoutSteps.cs" />
     <Compile Include="UIMap\AFLS\ConfigurationMenuPage.cs" />
+    <Compile Include="UIMap\AFLS\MessagesPage.cs" />
     <Compile Include="UIMap\Configuration\AccuracyPage.cs" />
     <Compile Include="UIMap\Configuration\AFClientsPage.cs" />
     <Compile Include="UIMap\Configuration\AFCompaniesPage.cs" />

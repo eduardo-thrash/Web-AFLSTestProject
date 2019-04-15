@@ -2,7 +2,6 @@
 using AFLSUIProjectTest.UIMap;
 using AFLSUIProjectTest.UIMap.Configuration;
 using CommonTest.CommonTest;
-using System;
 using TechTalk.SpecFlow;
 
 namespace AFLSUIProjectTest.StepsTest.AFLS
@@ -19,7 +18,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [Given(@"Tengo un usuario con rol administrador")]
         public void GivenTengoUnUsuarioConRolAdministrador()
         {
-            ScenarioContext.Current.Pending();
+            CommonQuery.DBSelectAValue("SELECT user_nick_name FROM AFW_USERS WHERE user_nick_name = 'administrator';", 1);
         }
 
         [When(@"Selecciono la opción ANS's")]

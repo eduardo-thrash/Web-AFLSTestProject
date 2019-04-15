@@ -41,14 +41,14 @@ namespace CommonTest.CommonTest
         ///     string Element: Elemento sobre el que se hará click
         ///
         /// </summary>
-        public static void Click(string ElementType,string Element)
+        public static void Click(string ElementType, string Element)
         {
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
-                    switch(ElementType)
+                    switch (ElementType)
                     {
                         case "Id":
                             ElementWait = CommonHooks.driver.FindElement(By.Id(Element));
@@ -76,9 +76,9 @@ namespace CommonTest.CommonTest
                     }
                     break;
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
-                    if(ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CssSelector, XPath, Id, Name, ClassName)");
                     }
@@ -87,19 +87,18 @@ namespace CommonTest.CommonTest
                 }
             }
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     ElementWait.Click();
                     break;
                 }
-
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -114,14 +113,14 @@ namespace CommonTest.CommonTest
         ///     string Value: Information or text for field
         ///
         /// </summary>
-        public static void SendKeys_InputText(string ElementType,string Input,string Value)
+        public static void SendKeys_InputText(string ElementType, string Input, string Value)
         {
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 15) Assert.Fail(Error);
+                if (second >= 15) Assert.Fail(Error);
                 try
                 {
-                    switch(ElementType)
+                    switch (ElementType)
                     {
                         case "Id":
                             ElementWait = CommonHooks.driver.FindElement(By.Id(Input));
@@ -149,9 +148,9 @@ namespace CommonTest.CommonTest
                     }
                     break;
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
-                    if(ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CssSelector, XPath, Id, Name, ClassName)");
                     }
@@ -160,20 +159,19 @@ namespace CommonTest.CommonTest
                 }
             }
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     ElementWait.Click();
                     ElementWait.SendKeys(Value);
                     break;
                 }
-
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -188,14 +186,14 @@ namespace CommonTest.CommonTest
         ///     string Value: text on the input
         ///
         /// </summary>
-        public static void ClearAndSendKeys_InputText(string ElementType,string Input,string Value)
+        public static void ClearAndSendKeys_InputText(string ElementType, string Input, string Value)
         {
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
-                    switch(ElementType)
+                    switch (ElementType)
                     {
                         case "Id":
                             ElementWait = CommonHooks.driver.FindElement(By.Id(Input));
@@ -223,9 +221,9 @@ namespace CommonTest.CommonTest
                     }
                     break;
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
-                    if(ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CssSelector, XPath, Id, Name, ClassName)");
                     }
@@ -234,21 +232,20 @@ namespace CommonTest.CommonTest
                 }
             }
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     ElementWait.Click();
                     ElementWait.Clear();
                     ElementWait.SendKeys(Value);
                     break;
                 }
-
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -263,14 +260,14 @@ namespace CommonTest.CommonTest
         ///     string Value: text on the input
         ///
         /// </summary>
-        public static void EnterAfterSendKeys_InputText(string ElementType,string Input,string Value)
+        public static void EnterAfterSendKeys_InputText(string ElementType, string Input, string Value)
         {
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
-                    switch(ElementType)
+                    switch (ElementType)
                     {
                         case "Id":
                             ElementWait = CommonHooks.driver.FindElement(By.Id(Input));
@@ -298,9 +295,9 @@ namespace CommonTest.CommonTest
                     }
                     break;
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
-                    if(ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CssSelector, XPath, Id, Name, ClassName)");
                     }
@@ -309,22 +306,21 @@ namespace CommonTest.CommonTest
                 }
             }
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     ElementWait.Click();
                     ElementWait.SendKeys(Value);
                     ElementWait.SendKeys(Keys.Enter);
                     Thread.Sleep(2000);
                     break;
                 }
-
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -340,14 +336,14 @@ namespace CommonTest.CommonTest
         ///     string tag: Tag of HTML (label,a,div,input,ul,etc)
         ///
         /// </summary>
-        public static void Select_ComboboxAutocomplete(string ElementType,string List,string Option,string tag)
+        public static void Select_ComboboxAutocomplete(string ElementType, string List, string Option, string tag)
         {
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
-                    switch(ElementType)
+                    switch (ElementType)
                     {
                         case "Id":
                             ElementWait = CommonHooks.driver.FindElement(By.Id(List));
@@ -375,9 +371,9 @@ namespace CommonTest.CommonTest
                     }
                     break;
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
-                    if(ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CssSelector, XPath, Id, Name, ClassName)");
                     }
@@ -386,41 +382,40 @@ namespace CommonTest.CommonTest
                 }
             }
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     ElementWait.Click();
                     ElementWait.SendKeys(Option);
                     Thread.Sleep(2000);
                     break;
                 }
-
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
                 }
             }
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
                     ElementWait = CommonHooks.driver.FindElement(By.XPath("//" + tag + "[contains(text(),'" + Option + "')]"));
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     ElementWait.Click();
                     Thread.Sleep(2000);
                     break;
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -428,8 +423,10 @@ namespace CommonTest.CommonTest
             }
         }
 
-        public static void ClickAndSelect_Random_ComboboxAutocomplete(string ElementType,string Select,string Option)
+        public static void ClickAndSelect_Random_ComboboxAutocomplete(string ElementType, string Select, string Option)
         {
+            int IndexStart = 0;
+            int NumRandom = 0;
             IWebElement SelectElement = CommonHooks.driver.FindElement(By.XPath(Select));
             SelectElement.SendKeys(" ");
             Thread.Sleep(2000);
@@ -437,40 +434,51 @@ namespace CommonTest.CommonTest
             IList<IWebElement> AllOptions = CommonHooks.driver.FindElements(By.XPath(Option));
             int NumOptions = AllOptions.Count;
 
-            Random rnd = new Random();
-            int NumRandom = rnd.Next(1,NumOptions);
-            int start = 1;
-
-            foreach(IWebElement Elements in AllOptions)
+            foreach (IWebElement Options in AllOptions)
             {
-                if(start == NumRandom)
+                Random rnd = new Random();
+                NumRandom = rnd.Next(1, NumOptions);
+
+                string TextNull = Options.Text;
+                if (TextNull != "")
                 {
-                    for(second = 0;;second++)
+                    IndexStart = 1;
+                    break;
+                }
+            }
+
+            Assert.IsTrue(NumRandom != 0);
+
+            foreach (IWebElement Elements in AllOptions)
+            {
+                if (IndexStart == NumRandom)
+                {
+                    for (second = 0; ; second++)
                     {
-                        if(second >= 10) Assert.Fail(Error);
+                        if (second >= 10) Assert.Fail(Error);
                         try
                         {
                             Assert.IsTrue(Elements.Enabled);
                             Assert.IsTrue(Elements.Displayed);
-                            Assert.AreNotEqual(Elements.Size,0);
+                            Assert.AreNotEqual(Elements.Size, 0);
                             Elements.Click();
                             Thread.Sleep(2000);
                             break;
                         }
-                        catch(Exception Ex)
+                        catch (Exception Ex)
                         {
                             Error = Ex.Message;
                             Thread.Sleep(1000);
                         }
                     }
                 }
-                start++;
+                IndexStart++;
             }
         }
 
         #region Select DropDown List
 
-        public static void ClickAndSelect_DropDownList(string ElementType,string List,string Option,string tag)
+        public static void ClickAndSelect_DropDownList(string ElementType, string List, string Option, string tag)
         {
             /*Método para dar click en un listado de opciones y despues seleccionar una opción*/
 
@@ -478,12 +486,12 @@ namespace CommonTest.CommonTest
             //string List: UIMap List
             //string Option: Option for search
             //string tag: Tag of HTML (label,a,div,input,etc)
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
-                    switch(ElementType)
+                    switch (ElementType)
                     {
                         case "Id":
                             ElementWait = CommonHooks.driver.FindElement(By.Id(List));
@@ -511,9 +519,9 @@ namespace CommonTest.CommonTest
                     }
                     break;
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
-                    if(ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CSS, XPath, Id, Name, ClassName)");
                     }
@@ -522,43 +530,42 @@ namespace CommonTest.CommonTest
                 }
             }
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Ex.ToString());
+                if (second >= 10) Assert.Fail(Ex.ToString());
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     ElementWait.Click();
 
                     Thread.Sleep(2000);
 
                     break;
                 }
-
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
                 }
             }
 
-            for(int second = 0;;second++)
+            for (int second = 0; ; second++)
             {
-                if(second >= 5) Assert.Fail(Error);
+                if (second >= 5) Assert.Fail(Error);
                 try
                 {
                     ElementWait = CommonHooks.driver.FindElement(By.XPath("//" + tag + "[contains(text(),'" + Option + "')]"));
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
 
                     ElementWait.Click();
                     Thread.Sleep(2000);
                     break;
                 }
-                catch(Exception)
+                catch (Exception)
                 { Thread.Sleep(1000); }
             }
         }
@@ -570,16 +577,16 @@ namespace CommonTest.CommonTest
         ///<summary> Clear
         ///
         /// </summary>
-        public static void Clear(string ElementType,string Input)
+        public static void Clear(string ElementType, string Input)
         {
             // string ElementType: CSS, XPath, Id, Name, ClassName
             // string Element: Elemento de UIMap
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
-                    switch(ElementType)
+                    switch (ElementType)
                     {
                         case "Id":
                             ElementWait = CommonHooks.driver.FindElement(By.Id(Input));
@@ -607,9 +614,9 @@ namespace CommonTest.CommonTest
                     }
                     break;
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
-                    if(ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CSS, XPath, Id, Name, ClassName)");
                     }
@@ -618,19 +625,18 @@ namespace CommonTest.CommonTest
                 }
             }
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Ex.ToString());
+                if (second >= 10) Assert.Fail(Ex.ToString());
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     ElementWait.Clear();
                     break;
                 }
-
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -645,7 +651,7 @@ namespace CommonTest.CommonTest
         ///<summary> TextExtract
         ///
         /// </summary>
-        public static string TextExtract(string ElementType,string Input)
+        public static string TextExtract(string ElementType, string Input)
         {
             /*Método para extraer texto entre una etiqueta. Ejemplo: <label> Texto </label>*/
 
@@ -654,12 +660,12 @@ namespace CommonTest.CommonTest
 
             string Text;
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
-                    switch(ElementType)
+                    switch (ElementType)
                     {
                         case "Id":
                             ElementWait = CommonHooks.driver.FindElement(By.Id(Input));
@@ -687,9 +693,9 @@ namespace CommonTest.CommonTest
                     }
                     break;
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
-                    if(ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CSS, XPath, Id, Name, ClassName)");
                     }
@@ -698,19 +704,18 @@ namespace CommonTest.CommonTest
                 }
             }
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     Text = ElementWait.Text;
                     break;
                 }
-
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -723,7 +728,7 @@ namespace CommonTest.CommonTest
         ///<summary> VallueExtract
         ///
         /// </summary>
-        public static string VallueExtract(string ElementType,string Input)
+        public static string VallueExtract(string ElementType, string Input)
         {
             string Value;
 
@@ -731,12 +736,12 @@ namespace CommonTest.CommonTest
 
             // string ElementType: CSS, XPath, Id, Name, ClassName
             // string Input: Elemento de UIMap
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
-                    switch(ElementType)
+                    switch (ElementType)
                     {
                         case "Id":
                             ElementWait = CommonHooks.driver.FindElement(By.Id(Input));
@@ -764,9 +769,9 @@ namespace CommonTest.CommonTest
                     }
                     break;
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
-                    if(ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CSS, XPath, Id, Name, ClassName)");
                     }
@@ -775,19 +780,18 @@ namespace CommonTest.CommonTest
                 }
             }
 
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     Value = ElementWait.GetAttribute("value");
                     break;
                 }
-
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -831,7 +835,7 @@ namespace CommonTest.CommonTest
 
         #region Select option of dropdown list
 
-        public static void ClickAndSelect_Random_DropDownList(string ElementType,string Select,string Option)
+        public static void ClickAndSelect_Random_DropDownList(string ElementType, string Select, string Option)
         {
             IWebElement SelectElement = CommonHooks.driver.FindElement(By.XPath(Select));
             SelectElement.Click();
@@ -841,26 +845,26 @@ namespace CommonTest.CommonTest
             int NumOptions = AllOptions.Count;
 
             Random rnd = new Random();
-            int RandomNum = rnd.Next(1,NumOptions);
+            int RandomNum = rnd.Next(1, NumOptions);
             int start = 1;
 
-            foreach(IWebElement Elements in AllOptions)
+            foreach (IWebElement Elements in AllOptions)
             {
-                if(start == RandomNum)
+                if (start == RandomNum)
                 {
-                    for(second = 0;;second++)
+                    for (second = 0; ; second++)
                     {
-                        if(second >= 10) Assert.Fail(Error);
+                        if (second >= 10) Assert.Fail(Error);
                         try
                         {
                             Assert.IsTrue(Elements.Enabled);
                             Assert.IsTrue(Elements.Displayed);
-                            Assert.AreNotEqual(Elements.Size,0);
+                            Assert.AreNotEqual(Elements.Size, 0);
                             Elements.Click();
                             Thread.Sleep(2000);
                             break;
                         }
-                        catch(Exception Ex)
+                        catch (Exception Ex)
                         {
                             Error = Ex.Message;
                             Thread.Sleep(1000);
@@ -875,7 +879,7 @@ namespace CommonTest.CommonTest
 
         #region Select random option of List
 
-        public static string ClickOn_Random_List(string ElementType,string Option)
+        public static string ClickOn_Random_List(string ElementType, string Option)
         {
             string TextOption = "";
             IList<IWebElement> AllOptions = CommonHooks.driver.FindElements(By.XPath(Option));
@@ -883,12 +887,12 @@ namespace CommonTest.CommonTest
             int NumOptions = AllOptions.Count;
 
             Random rnd = new Random();
-            int numeroConDosCotas = rnd.Next(1,NumOptions);
+            int numeroConDosCotas = rnd.Next(1, NumOptions);
             int start = 1;
 
-            foreach(IWebElement Elements in AllOptions)
+            foreach (IWebElement Elements in AllOptions)
             {
-                if(start == numeroConDosCotas)
+                if (start == numeroConDosCotas)
                 {
                     TextOption = Elements.Text;
                     Elements.Click();
@@ -910,7 +914,7 @@ namespace CommonTest.CommonTest
         /// </summary>
         public static string ExtractNumberOfText(string Text)
         {
-            Match number = Regex.Match(Text,"(\\d+)");
+            Match number = Regex.Match(Text, "(\\d+)");
             string result = Convert.ToString(number);
             return result;
         }
@@ -922,20 +926,19 @@ namespace CommonTest.CommonTest
         ///
         public static void WaitElement(string Element)
         {
-            for(second = 0;;second++)
+            for (second = 0; ; second++)
             {
-                if(second >= 10) Assert.Fail(Error);
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
                     ElementWait = CommonHooks.driver.FindElement(By.XPath(Element));
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
-                    Assert.AreNotEqual(ElementWait.Size,0);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
                     Thread.Sleep(2000);
                     break;
                 }
-
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);

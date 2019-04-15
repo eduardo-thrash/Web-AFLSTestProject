@@ -67,6 +67,8 @@
 
         public string MobileUserState = "//div[@class='users']//div[@id='tabs-1']//label[@class='onoffswitch-label']";
 
+        public string MobileUserLinkMail = /*"//div[@id='users']//div[@id='tabs-1']*/"//div[@class='sendEmail']/span[@class='msg']";
+
         //Tab Mobile User Skills
         public string TabMobileUserSkills = "a[href = '#tabs-5'] > span.ui-icon.icon-skills.icons_Usr"; //cambiar por MobileUserTabSkills
 

@@ -1,7 +1,6 @@
 ﻿using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -17,7 +16,7 @@ namespace AFLSUIProjectTest.CommonAFLS
             string ErrorFindText = null;
             int secondFindText = 0;
             int NumIteractionFindText = 0;
-            string FindText = "Form";
+            string FindText = "missing key";
             string UrlFindText;
             bool State = false;
 
