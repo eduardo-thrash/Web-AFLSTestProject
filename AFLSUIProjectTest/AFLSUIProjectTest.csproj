@@ -331,10 +331,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Calendars.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\Configuration\ServiceCataloge\Chonometer.feature.cs">
+    <Compile Include="Features\Configuration\ServiceCataloge\Chronometers.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Chonometer.feature</DependentUpon>
+      <DependentUpon>Chronometers.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\Configuration\ServiceCataloge\Models.feature.cs">
       <AutoGen>True</AutoGen>
@@ -684,9 +684,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Calendars.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\Configuration\ServiceCataloge\Chonometer.feature">
+    <None Include="Features\Configuration\ServiceCataloge\Chronometers.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Chonometer.feature.cs</LastGenOutput>
+      <LastGenOutput>Chronometers.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Configuration\ServiceCataloge\Models.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
