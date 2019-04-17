@@ -24,6 +24,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         private string user_name = "Ui Eduardo Montenegro Mobile";
         private int UserId;
         private string user_mail;
+        private int GroupId;
 
         [Given(@"No existe el usuario móvil")]
         public void GivenNoExisteElUsuarioMovil()
@@ -49,6 +50,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         {
             CommonElementsAction.Click("XPath", MobileUsersPage.MobileUsersModulePath);
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.MobileUserOption);
+            ResponseValidation.ValidateErrorAplication();
         }
 
         [When(@"Doy click en Nuevo usuario móvil")]
@@ -180,6 +182,12 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
             CommonElementsAction.ClickAndSelect_Random_ComboboxAutocomplete("XPath", MobileUsersPage.MobileUserMobileGroups, MobileUsersPage.MobileUserMobileGroupsOption);
         }
 
+        [When(@"Diligencio y selecciono el grupo móvil para usuario móvil")]
+        public void WhenDiligencioYSeleccionoElGrupoMovilParaUsuarioMovil()
+        {
+            CommonElementsAction.Select_ComboboxAutocomplete("XPath", MobileUsersPage.MobileUserMobileGroups, CommonQuery.DBSelectAValue("SELECT grou_name FROM AFW_GROUPS WHERE grou_id = " + GroupId + ";", 1), "a");
+        }
+
         [When(@"Diligencio y selecciono una habilidad para usuario móvil")]
         public void WhenDiligencioYSeleccionoUnaHabilidadParaUsuarioMovil()
         {
@@ -291,17 +299,117 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
             CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserButtonSearch);
             Thread.Sleep(1000);
             CommonElementsAction.Click("XPath", MobileUsersPage.MobileUserView);
-            Assert.AreEqual(user_name, CommonElementsAction.TextExtract("XPath", MobileUsersPage.MobileUserView));
+            Thread.Sleep(1000);
+            Assert.AreEqual(CommonQuery.DBSelectAValue("SELECT user_name FROM  AFW_USERS WHERE user_id = '" + UserId + "';", 1), CommonElementsAction.TextExtract("XPath", MobileUsersPage.MobileUserView));
         }
 
         [Given(@"El usuario móvil existe sin disponibilidad y habilidades")]
         public void GivenElUsuarioMovilExisteSinDisponibilidadYHabilidades()
         {
-            CommonQuery.DBSelectAValue("SELECT TOP 1 usr.user_id FROM AFW_USERS usr left join AFLS_USER_SKILLS usk on usr.user_id = usk.aus_user_id left join AFLS_USER_AVAILABILITIES uav on usr.user_id = uav.user_id where usk.aus_user_id is null and uav.user_id is null order by NEWID();", 1);
+            UserId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 usr.user_id FROM AFLS_USERS_SPECIALISTS usr left join AFLS_USER_SKILLS usk on usr.user_id = usk.aus_user_id left join AFLS_USER_AVAILABILITIES uav on usr.user_id = uav.user_id where usk.aus_user_id is null and uav.user_id is null order by NEWID();", 1));
         }
 
         [Given(@"Existe un grupo móvil con habilidades y disponibilidad")]
         public void GivenExisteUnGrupoMovilConHabilidadesYDisponibilidad()
+        {
+            GroupId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 GRP.grou_id FROM AFW_GROUPS GRP INNER JOIN AFLS_GROUP_AVAILABILITIES GAV ON GRP.grou_id = GAV.grou_id INNER JOIN AFLS_GROUP_SKILLS GSK ON GRP.grou_id = GSK.grou_id WHERE GAV.grou_id IS NOT NULL AND GSK.grou_id IS NOT NULL ORDER BY NEWID();", 1));
+        }
+
+        [Then(@"Se registra disponibilidad en la tabla AFLS_USER_AVAILABILITIES")]
+        public void ThenSeRegistraDisponibilidadEnLaTablaAFLS_USER_AVAILABILITIES()
+        {
+            CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFLS_USER_AVAILABILITIES WHERE user_id = " + UserId + ";", 1);
+        }
+
+        [Then(@"Se registra disponibilidad heredada en la tabla AFLS_SPECIALIST_AVAILABILITY_CONSOLIDATED")]
+        public void ThenSeRegistraDisponibilidadHeredadaEnLaTablaAFLS_SPECIALIST_AVAILABILITY_CONSOLIDATED()
+        {
+            int NumBlockGroup = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFLS_GROUP_AVAILABILITIES WHERE grou_id = " + GroupId + ";", 1));
+            int NumBlockUser = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT * FROM AFLS_SPECIALIST_AVAILABILITY_CONSOLIDATED WHERE specialist_id = " + UserId + ";", 1));
+            try
+            {
+                Assert.IsTrue(UserId >= NumBlockGroup);
+            }
+            catch
+            {
+                Assert.Fail("Failure in inheritance of availability of specialist.");
+            }
+        }
+
+        [Then(@"Se muestra la habilidad asociada en el tab Habilidades del usuario móvil")]
+        public void ThenSeMuestraLaHabilidadAsociadaEnElTabHabilidadesDelUsuarioMovil()
+        {
+            CommonElementsAction.Click("CssSelector", MobileUsersPage.TabMobileUserSkills);
+            CommonElementsAction.WaitElement("//div[@class='users']//div[@id='tabs-5']//div[@class='itemView']//div[@class='block Name value label']");
+            CommonElementsAction.WaitElement("//div[@class='users']//div[@id='tabs-5']//div[@class='itemView']//span[@class='inherited-icon']");
+        }
+
+        [Then(@"Se muestra el grupo móvil asociado en el tab Habilidades del usuario móvil")]
+        public void ThenSeMuestraElGrupoMovilAsociadoEnElTabHabilidadesDelUsuarioMovil()
+        {
+            CommonElementsAction.Click("CssSelector", MobileUsersPage.TabMobileUserMobileGroups);
+
+            CommonElementsAction.WaitElement(MobileUsersPage.GroupCardView);
+        }
+
+        [Then(@"Se muestra la disponibilidad asociada en el tab disponibilidad del usuario móvil")]
+        public void ThenSeMuestraLaDisponibilidadAsociadaEnElTabDisponibilidadDelUsuarioMovil()
+        {
+            CommonElementsAction.Click("CssSelector", MobileUsersPage.TabMobileUserAvilibily);
+
+            CommonElementsAction.WaitElement(MobileUsersPage.AvailabilttyBlockInherited);
+        }
+
+        [Then(@"Se muestra la tarjeta de usuario móvil y se carga formulario de información básica")]
+        public void ThenSeMuestraLaTarjetaDeUsuarioMovilYSeCargaFormularioDeInformacionBasica()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Selecciono disponibilidad de (.*) días a usuario móvil")]
+        public void WhenSeleccionoDisponibilidadDeDiasAUsuarioMovil(int p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra disponibilidad de (.*) días en la tabla AFLS_USER_AVAILABILITIES")]
+        public void ThenSeRegistraDisponibilidadDeDiasEnLaTablaAFLS_USER_AVAILABILITIES(int p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Doy click en eliminar usuario móvil")]
+        public void WhenDoyClickEnEliminarUsuarioMovil()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Selecciono Aceptar en mensaje de confirmación")]
+        public void WhenSeleccionoAceptarEnMensajeDeConfirmacion()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se muestra mensaje indicando que se borro el registro exitosamente")]
+        public void ThenSeMuestraMensajeIndicandoQueSeBorroElRegistroExitosamente()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se borra usuario de la tabla AFW_USERS")]
+        public void ThenSeBorraUsuarioDeLaTablaAFW_USERS()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se borra usuario móvil de la tabla AFLS_USERS_SPECIALISTS")]
+        public void ThenSeBorraUsuarioMovilDeLaTablaAFLS_USERS_SPECIALISTS()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Al buscar el usuario móvil en la aplicación, no se lista en la búsqueda")]
+        public void ThenAlBuscarElUsuarioMovilEnLaAplicacionNoSeListaEnLaBusqueda()
         {
             ScenarioContext.Current.Pending();
         }
