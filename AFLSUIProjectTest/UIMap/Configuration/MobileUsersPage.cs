@@ -84,5 +84,14 @@
         public string TextServiceTitleSkillName = "Skill name";
         public string TextServiceButtonSkillLevel = "Skill level";
         public string TextServiceButtonSkillRemoved = "Skill removed";
+
+        #region Availabiltty
+
+        public string AvailabilttyBlock = "//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']//td//a[@class='fc-time-grid-event fc-v-event fc-event fc-start fc-end fc-draggable fc-resizable']";
+        public string AvailabilttyBlockInherited = "//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']//td//a[@class='fc-time-grid-event fc-v-event fc-event fc-start fc-end inherited fc-resizable']";
+
+        public string GroupCardView = "//div[@class='users']//div[@id='tabs-3']//div[@class='itemView']//div[@class='block Name value']";
+
+        #endregion
     }
 }

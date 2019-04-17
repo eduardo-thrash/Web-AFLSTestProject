@@ -3,6 +3,7 @@
     public class MessagesElements
     {
         public string ResponseElement = "//div[@id='growls']";
+        public string ResponseError = "//div[@id='growls']/div[@class='growl growl-error growl-medium']";
     }
 
     public class MessagesCopies

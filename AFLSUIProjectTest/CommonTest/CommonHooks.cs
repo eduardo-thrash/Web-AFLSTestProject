@@ -37,8 +37,8 @@ namespace CommonTest.CommonTest
         public static string InitDate = DateTime.Now.ToString("dd/MM/yyyy");
         public static string InitTime = DateTime.Now.ToString("HH:mm");
 
-        public static string ConvertDate = Regex.Replace(InitDate,"/","").Replace(":","-");
-        public static string ConvertTime = Regex.Replace(InitTime,":","-");
+        public static string ConvertDate = Regex.Replace(InitDate, "/", "").Replace(":", "-");
+        public static string ConvertTime = Regex.Replace(InitTime, ":", "-");
 
         public static string Date = ConvertDate + "T" + ConvertTime;
 
@@ -56,14 +56,14 @@ namespace CommonTest.CommonTest
         {
             string Image;
 
-            if(!Directory.Exists(BaseScreenshotFolder))
+            if (!Directory.Exists(BaseScreenshotFolder))
                 Directory.CreateDirectory(BaseScreenshotFolder);
 
-            if(!Directory.Exists(ScreenshotFolder))
+            if (!Directory.Exists(ScreenshotFolder))
                 Directory.CreateDirectory(ScreenshotFolder);
 
             Image = ScreenshotFolder + @"\Error " + FeatureContext.Current.FeatureInfo.Title + "-" + ScenarioContext.Current.ScenarioInfo.Title + ".jpg";
-            driver.TakeScreenshot().SaveAsFile(Image,ScreenshotImageFormat.Jpeg);
+            driver.TakeScreenshot().SaveAsFile(Image, ScreenshotImageFormat.Jpeg);
 
             return Image;
         }
@@ -72,14 +72,14 @@ namespace CommonTest.CommonTest
         {
             string Image;
 
-            if(!Directory.Exists(BaseScreenshotFolder))
+            if (!Directory.Exists(BaseScreenshotFolder))
                 Directory.CreateDirectory(BaseScreenshotFolder);
 
-            if(!Directory.Exists(ScreenshotFolder))
+            if (!Directory.Exists(ScreenshotFolder))
                 Directory.CreateDirectory(ScreenshotFolder);
 
             Image = ScreenshotFolder + @"\ErrorT" + num + " " + FeatureContext.Current.FeatureInfo.Title + "-" + ScenarioContext.Current.ScenarioInfo.Title + ".jpg";
-            driver.TakeScreenshot().SaveAsFile(Image,ScreenshotImageFormat.Jpeg);
+            driver.TakeScreenshot().SaveAsFile(Image, ScreenshotImageFormat.Jpeg);
 
             return Image;
         }
@@ -88,13 +88,13 @@ namespace CommonTest.CommonTest
         public static void BeforeExecution()
 
         {
-            switch(ValidateGenerateReport)
+            switch (ValidateGenerateReport)
             {
                 case "true":
-                    if(!Directory.Exists(BaseReportFolder))
+                    if (!Directory.Exists(BaseReportFolder))
                         Directory.CreateDirectory(BaseReportFolder);
 
-                    if(!Directory.Exists(ReportFolder))
+                    if (!Directory.Exists(ReportFolder))
                         Directory.CreateDirectory(ReportFolder);
 
                     var htmlReporter = new ExtentV3HtmlReporter(ReportFolder + @"\ReportTest_" + Date + ".html");
@@ -118,7 +118,7 @@ namespace CommonTest.CommonTest
         [AfterTestRun]
         public static void AfterExecution()
         {
-            switch(ValidateGenerateReport)
+            switch (ValidateGenerateReport)
             {
                 case "true":
                     extent.Flush();
@@ -136,7 +136,7 @@ namespace CommonTest.CommonTest
         [BeforeFeature]
         public static void FeatureIn()
         {
-            switch(ValidateGenerateReport)
+            switch (ValidateGenerateReport)
             {
                 case "true":
                     feature = extent.CreateTest<Feature>(FeatureContext.Current.FeatureInfo.Title);
@@ -154,7 +154,7 @@ namespace CommonTest.CommonTest
         [AfterFeature]
         public static void FeatureOut()
         {
-            switch(ValidateGenerateReport)
+            switch (ValidateGenerateReport)
             {
                 case "true":
                     FeatureContext.Current.FeatureInfo.Title.ToString();
@@ -172,7 +172,7 @@ namespace CommonTest.CommonTest
         [BeforeScenario]
         public static IWebDriver Initalize()
         {
-            switch(ValidateGenerateReport)
+            switch (ValidateGenerateReport)
             {
                 case "true":
                     scenario = feature.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
@@ -187,7 +187,7 @@ namespace CommonTest.CommonTest
             }
 
             //TODO: implement logic that has to run before executing each scenario
-            switch(Browser)
+            switch (Browser)
             {
                 case "Chrome":
                     driver = new ChromeDriver(ConfigurationManager.AppSettings["BrowserDriverPath"]);
@@ -199,7 +199,7 @@ namespace CommonTest.CommonTest
 
                 case "Explorer":
                     InternetExplorerOptions options = new InternetExplorerOptions { IgnoreZoomLevel = true };
-                    driver = new InternetExplorerDriver(ConfigurationManager.AppSettings["BrowserDriverPath"],options);
+                    driver = new InternetExplorerDriver(ConfigurationManager.AppSettings["BrowserDriverPath"], options);
                     break;
 
                 case "Edge":
@@ -225,10 +225,10 @@ namespace CommonTest.CommonTest
         [AfterScenario]
         public static void Teardown()
         {
-            switch(ValidateGenerateReport)
+            switch (ValidateGenerateReport)
             {
                 case "true":
-                    if(ScenarioContext.Current.TestError != null)
+                    if (ScenarioContext.Current.TestError != null)
                     {
                         var error = ScenarioContext.Current.TestError;
 
@@ -266,7 +266,7 @@ namespace CommonTest.CommonTest
         [BeforeStep]
         public static void StepUp()
         {
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.WriteLine("\n");
         }
 
@@ -275,55 +275,55 @@ namespace CommonTest.CommonTest
         {
             string ImageLink = "Error " + FeatureContext.Current.FeatureInfo.Title + "-" + ScenarioContext.Current.ScenarioInfo.Title + ".jpg";
 
-            switch(ValidateGenerateReport)
+            switch (ValidateGenerateReport)
             {
                 case "true":
                     var stepType = ScenarioStepContext.Current.StepInfo.StepDefinitionType.ToString();
 
-                    if(ScenarioContext.Current.TestError == null)
+                    if (ScenarioContext.Current.TestError == null)
                     {
-                        if(stepType == "Given")
+                        if (stepType == "Given")
                             scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
-                        else if(stepType == "When")
+                        else if (stepType == "When")
                             scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text);
-                        else if(stepType == "Then")
+                        else if (stepType == "Then")
                             scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text);
-                        else if(stepType == "And")
+                        else if (stepType == "And")
                             scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text);
                     }
-                    else if(ScenarioContext.Current.TestError != null)
+                    else if (ScenarioContext.Current.TestError != null)
                     {
-                        string MessageError = Regex.Replace(ScenarioContext.Current.TestError.Message,"<","").Replace(">","");
+                        string MessageError = Regex.Replace(ScenarioContext.Current.TestError.Message, "<", "").Replace(">", "");
 
-                        if(stepType == "Given")
+                        if (stepType == "Given")
                         {
                             scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail("<i style=\"color: #ca6767;\">" + MessageError + ".</i>")
                                 .Fail("Error evidence path: " + "<u><a href='" + Screenshot().ToString() + "'>" + ImageLink + "</a></u>");
                         }
-                        else if(stepType == "When")
+                        else if (stepType == "When")
                         {
                             scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail("<i style=\"color: #ca6767;\">" + MessageError + ".</i>")
                                 .Fail("Error evidence path: " + "<u><a href='" + Screenshot().ToString() + "'>" + ImageLink + "</a></u>");
                         }
-                        else if(stepType == "Then")
+                        else if (stepType == "Then")
                         {
                             scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail("<i style=\"color: #ca6767;\">" + MessageError + ".</i>")
                                 .Fail("Error evidence path: " + "<u><a href='" + Screenshot().ToString() + "'>" + ImageLink + "</a></u>");
                         }
-                        else if(stepType == "And")
+                        else if (stepType == "And")
                         {
                             scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail("<i style=\"color: #ca6767;\">" + MessageError + ".</i>")
                                 .Fail("Error evidence path: " + "<u><a href='" + Screenshot().ToString() + "'>" + ImageLink + "</a></u>");
                         }
                     }
 
-                    if(ScenarioContext.Current.ScenarioExecutionStatus.ToString() == "StepDefinitionPending")
+                    if (ScenarioContext.Current.ScenarioExecutionStatus.ToString() == "StepDefinitionPending")
                     {
-                        if(stepType == "Given")
+                        if (stepType == "Given")
                             scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending.");
-                        else if(stepType == "When")
+                        else if (stepType == "When")
                             scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending.");
-                        else if(stepType == "Then")
+                        else if (stepType == "Then")
                             scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending.");
                     }
                     break;
@@ -335,17 +335,17 @@ namespace CommonTest.CommonTest
                     Assert.Fail("Incorrect condition" + ValidateGenerateReport + ". suggestion(true or false)");
                     break;
             }
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
         }
 
-        public static void MassiveScenarioResult(int NumberTest,bool IsSuccess,string MessageError)
+        public static void MassiveScenarioResult(int NumberTest, bool IsSuccess, string MessageError)
         {
-            MessageError = Regex.Replace(MessageError,"<","").Replace(">","");
+            MessageError = Regex.Replace(MessageError, "<", "").Replace(">", "");
 
-            switch(ValidateGenerateReport)
+            switch (ValidateGenerateReport)
             {
                 case "true":
-                    if(IsSuccess)
+                    if (IsSuccess)
                     {
                         scenario.CreateNode<When>("Test " + NumberTest + ": " + ScenarioStepContext.Current.StepInfo.Text).Pass("Sucess.");
                     }
