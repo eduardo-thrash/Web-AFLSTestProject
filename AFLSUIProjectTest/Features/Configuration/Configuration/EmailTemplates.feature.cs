@@ -80,8 +80,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
- testRunner.When("Configuración exitosa de plantilla de correo Registro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 7
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 8
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.And("Selecciono la opción plantillas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.When("Configuración exitosa de plantilla de correo Registro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -92,14 +100,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeCorreoAsignacion()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Asignación", null, ((string[])(null)));
-#line 9
+#line 13
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 10
+#line 14
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 11
+#line 15
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+ testRunner.And("Selecciono la opción plantillas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
  testRunner.When("Configuración exitosa de plantilla de correo Asignación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
+#line 20
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -110,14 +126,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeCorreoRetraso()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Retraso", null, ((string[])(null)));
-#line 14
+#line 22
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 15
+#line 23
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 16
+#line 24
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.And("Selecciono la opción plantillas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
  testRunner.When("Configuración exitosa de plantilla de correo Retraso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
+#line 29
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -128,14 +152,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeCorreoCambioDeEspecialista()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Cambio de especialista", null, ((string[])(null)));
-#line 19
+#line 31
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 20
+#line 32
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 21
+#line 33
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 34
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
+ testRunner.And("Selecciono la opción plantillas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
  testRunner.When("Configuración exitosa de plantilla de correo Cambio de especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 22
+#line 38
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -146,14 +178,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeCorreoCancelacion()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Cancelación", null, ((string[])(null)));
-#line 24
+#line 40
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 25
+#line 41
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 26
+#line 42
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 43
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 44
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 45
+ testRunner.And("Selecciono la opción plantillas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 46
  testRunner.When("Configuración exitosa de plantilla de correo Cancelación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 27
+#line 47
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -164,14 +204,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeCorreoEjecutada()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Ejecutada", null, ((string[])(null)));
-#line 29
+#line 49
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 30
+#line 50
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 31
+#line 51
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 52
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
+ testRunner.And("Selecciono la opción plantillas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
  testRunner.When("Configuración exitosa de plantilla de correo Ejecutada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 32
+#line 56
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -182,14 +230,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeCorreoVinculacion()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Vinculación", null, ((string[])(null)));
-#line 34
+#line 58
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 35
+#line 59
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 36
+#line 60
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 61
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 62
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 63
+ testRunner.And("Selecciono la opción plantillas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 64
  testRunner.When("Configuración exitosa de plantilla de correo Vinculación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 37
+#line 65
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -200,14 +256,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeCorreoProveedores()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Proveedores", null, ((string[])(null)));
-#line 39
+#line 67
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 40
+#line 68
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 41
+#line 69
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 70
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 71
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 72
+ testRunner.And("Selecciono la opción plantillas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
  testRunner.When("Configuración exitosa de plantilla de correo Proveedores", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 42
+#line 74
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -218,14 +282,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeCorreoEncuestaDeSatisfaccionAlCliente()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Encuesta de satisfacción al Cliente", null, ((string[])(null)));
-#line 44
+#line 76
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 45
+#line 77
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 46
+#line 78
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 79
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 81
+ testRunner.And("Selecciono la opción plantillas de encuestas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 82
  testRunner.When("Configuración exitosa de plantilla de correo Encuesta de satisfacción al Cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 47
+#line 83
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -236,14 +308,24 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeCorreoAlertaDeNivelDeSatisfaccion()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Alerta de Nivel de satisfacción", null, ((string[])(null)));
-#line 49
+#line 85
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 50
+#line 86
+ testRunner.Given("Tengo un usuario con rol", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 87
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 51
+#line 88
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 89
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 90
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 91
+ testRunner.And("Selecciono la opción plantillas de encuestas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 92
  testRunner.When("Configuración exitosa de plantilla de correo Alerta de Nivel de satisfacción", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 52
+#line 93
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -256,15 +338,25 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Notificación de medición de encuesta" +
                     "", null, ((string[])(null)));
-#line 54
+#line 95
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 55
+#line 96
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 56
+#line 97
+ testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 98
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 99
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 100
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 101
+ testRunner.And("Selecciono la opción plantillas de encuestas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 102
  testRunner.When("Configuración exitosa de plantilla de correo Notificación de medición de encuesta" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 57
+#line 103
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -275,14 +367,24 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeCorreoNotificacionDeResumenDeEncuesta()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de correo Notificación de resumen de encuesta", null, ((string[])(null)));
-#line 59
+#line 105
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 60
+#line 106
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 61
+#line 107
+ testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 108
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 109
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 110
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 111
+ testRunner.And("Selecciono la opción plantillas de encuestas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 112
  testRunner.When("Configuración exitosa de plantilla de correo Notificación de resumen de encuesta", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 62
+#line 113
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -293,14 +395,24 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeANSDeCorreoRevision()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de ANS de correo Revisión", null, ((string[])(null)));
-#line 64
+#line 115
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 65
+#line 116
+ testRunner.Given("Tengo un usuario con rol", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 117
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 66
+#line 118
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 119
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 120
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 121
+ testRunner.And("Selecciono la opción plantillas de ANS\'s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 122
  testRunner.When("Configuración exitosa de plantilla de ANS de correo Revisión", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 67
+#line 123
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -311,14 +423,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeANSDeCorreoFinalizacion()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de ANS de correo Finalización", null, ((string[])(null)));
-#line 69
+#line 125
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 70
+#line 126
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 71
+#line 127
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 128
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 129
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 130
+ testRunner.And("Selecciono la opción plantillas de ANS\'s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 131
  testRunner.When("Configuración exitosa de plantilla de ANS de correo Finalización", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 72
+#line 132
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -329,14 +449,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeUCDeCorreoRevision()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de UC de correo Revisión", null, ((string[])(null)));
-#line 74
+#line 134
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 75
+#line 135
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 76
+#line 136
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 137
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 138
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 139
+ testRunner.And("Selecciono la opción plantillas de UC\'s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 140
  testRunner.When("Configuración exitosa de plantilla de UC de correo Revisión", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 77
+#line 141
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -347,14 +475,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeUCDeCorreoFinalizacion()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de UC de correo Finalización", null, ((string[])(null)));
-#line 79
+#line 143
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 80
+#line 144
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 81
+#line 145
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 146
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 147
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 148
+ testRunner.And("Selecciono la opción plantillas de UC\'s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 149
  testRunner.When("Configuración exitosa de plantilla de UC de correo Finalización", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 82
+#line 150
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -365,14 +501,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeOLADeCorreoRevision()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de OLA de correo Revisión", null, ((string[])(null)));
-#line 84
+#line 152
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 85
+#line 153
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 86
+#line 154
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 155
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 156
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 157
+ testRunner.And("Selecciono la opción plantillas de OLA\'s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 158
  testRunner.When("Configuración exitosa de plantilla de OLA de correo Revisión", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 87
+#line 159
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -383,14 +527,22 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void ConfiguracionExitosaDePlantillaDeOLADeCorreoFinalizacion()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla de OLA de correo Finalización", null, ((string[])(null)));
-#line 89
+#line 161
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 90
+#line 162
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 91
+#line 163
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 164
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 165
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 166
+ testRunner.And("Selecciono la opción plantillas de OLA\'s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 167
  testRunner.When("Configuración exitosa de plantilla de OLA de correo Finalización", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 92
+#line 168
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -403,15 +555,23 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla AssistMe de correo Notificación de cuenta de u" +
                     "suarios Assistme", null, ((string[])(null)));
-#line 94
+#line 170
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 95
+#line 171
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 96
+#line 172
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 173
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 174
+ testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 175
+ testRunner.And("Selecciono la opción plantillas de AssistMe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 176
  testRunner.When("Configuración exitosa de plantilla AssistMe de correo Notificación de cuenta de u" +
                     "suarios Assistme", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 97
+#line 177
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -424,15 +584,17 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla AssistMe de correo Notificación orden registra" +
                     "da desde Assistme", null, ((string[])(null)));
-#line 99
+#line 179
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 100
+#line 180
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 101
+#line 181
+ testRunner.And("Selecciono la opción plantillas de AssistMe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 182
  testRunner.When("Configuración exitosa de plantilla AssistMe de correo Notificación orden registra" +
                     "da desde Assistme", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 102
+#line 183
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -445,15 +607,17 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configuración exitosa de plantilla AssistMe de correo Verificación datos de usuar" +
                     "io", null, ((string[])(null)));
-#line 104
+#line 185
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 105
+#line 186
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 106
+#line 187
+ testRunner.And("Selecciono la opción plantillas de AssistMe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 188
  testRunner.When("Configuración exitosa de plantilla AssistMe de correo Verificación datos de usuar" +
                     "io", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 107
+#line 189
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

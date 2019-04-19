@@ -70,17 +70,17 @@ namespace AFLSUIProjectTest.Features.Configuration.Configuration
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Creación exitosa de campos adicionales compañias")]
+        [NUnit.Framework.DescriptionAttribute("Creación exitosa de campos adicionales compañías")]
         public virtual void CreacionExitosaDeCamposAdicionalesCompanias()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de campos adicionales compañias", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de campos adicionales compañías", null, ((string[])(null)));
 #line 4
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 5
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
- testRunner.And("No existe el campo adicional de cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("No existe el campo adicional de compañía", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 7
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 8
@@ -90,9 +90,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("Selecciono la opción Campos adicionales compañías", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Campos adicionales compañías  de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
- testRunner.When("Creación exitosa de campos adicionales compañias", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Creación exitosa de campos adicionales compañías", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -100,17 +100,17 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Modificación exitosa de campos adicionales compañias")]
-        public virtual void ModificacionExitosaDeCamposAdicionalesCompanias()
+        [NUnit.Framework.DescriptionAttribute("Modificación exitosa de campos adicionales compañías  de tipo simple")]
+        public virtual void ModificacionExitosaDeCamposAdicionalesCompaniasDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modificación exitosa de campos adicionales compañias", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modificación exitosa de campos adicionales compañías  de tipo simple", null, ((string[])(null)));
 #line 15
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 16
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 17
- testRunner.And("No existe el campo adicional de cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("No existe el campo adicional de compañía", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
@@ -122,7 +122,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 22
  testRunner.And("Selecciono la opción Campos adicionales compañías", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
- testRunner.When("Modificación exitosa de campos adicionales compañias", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Modificación exitosa de campos adicionales compañías", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 24
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -130,17 +130,17 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Eliminación exitosa de campos adicionales compañias")]
-        public virtual void EliminacionExitosaDeCamposAdicionalesCompanias()
+        [NUnit.Framework.DescriptionAttribute("Eliminación exitosa de campos adicionales compañías de tipo simple")]
+        public virtual void EliminacionExitosaDeCamposAdicionalesCompaniasDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Eliminación exitosa de campos adicionales compañias", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Eliminación exitosa de campos adicionales compañías de tipo simple", null, ((string[])(null)));
 #line 26
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 27
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 28
- testRunner.And("No existe el campo adicional de cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("No existe el campo adicional de compañía", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 30
@@ -152,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 33
  testRunner.And("Selecciono la opción Campos adicionales compañías", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
- testRunner.When("Eliminación exitosa de campos adicionales compañias", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Eliminación exitosa de campos adicionales compañías", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 35
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

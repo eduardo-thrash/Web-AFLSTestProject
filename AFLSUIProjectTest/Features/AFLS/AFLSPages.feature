@@ -97,16 +97,16 @@ Scenario: Revisión Exitosa de Keys en pantallas de Configuración
 	And Valido que no existan MissingKey en pantalla principal Campos adicionales servicios
 	And Selecciono la opción Campos adicionales compañías
 	And Valido que no existan MissingKey en pantalla principal Campos adicionales ordenes
-	And Selecciono la opción Dias no laborales
+	And Selecciono la opción Días no laborales
 	And Valido que no existan MissingKey en pantalla principal Dias no laborales
 	And Selecciono la opción Servidor de correo
 	And Valido que no existan MissingKey en pantalla principal Servidor de correo
-	And Selecciono la opción Encuentas general
+	And Selecciono la opción Encuestas general
 	And Valido que no existan MissingKey en pantalla principal Encuentas general
 	And Selecciono la opción Plantillas de Encuentas
 	And Valido que no existan MissingKey en pantalla principal Plantillas de Encuentas
-	And Selecciono la opción Respuestas rapidas
-	And Valido que no existan MissingKey en pantalla principal Respuestas rapidas
+	And Selecciono la opción Respuestas rápidas
+	And Valido que no existan MissingKey en pantalla principal Respuestas rápidas
 	And Selecciono la opción Plantillas de correo
 	And Valido que no existan MissingKey en pantalla principal Plantillas de correo
 	And Selecciono la opción Reglas de asignación

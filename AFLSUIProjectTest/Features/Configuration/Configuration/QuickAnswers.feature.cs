@@ -80,7 +80,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
- testRunner.And("La respuesta rapida no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("La respuesta rápida no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 7
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 8
@@ -90,7 +90,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("Selecciono la opción Respuestas rapidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
  testRunner.When("Creación exitosa de respuesta rápida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
@@ -110,7 +110,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 16
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 17
- testRunner.And("La respuesta rapida no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("La respuesta rápida no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
@@ -120,7 +120,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 21
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
- testRunner.And("Selecciono la opción Respuestas rapidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
  testRunner.When("Creación fallida de respuestas rápidas con nombre repetido", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 24
@@ -140,7 +140,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 27
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 28
- testRunner.And("La respuesta rapida no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("La respuesta rápida no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 30
@@ -150,7 +150,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 32
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 33
- testRunner.And("Selecciono la opción Respuestas rapidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
  testRunner.When("Cancelación exitosa de creación de respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 35
@@ -170,7 +170,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 38
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 39
- testRunner.And("La respuesta rapida no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("La respuesta rápida no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 41
@@ -180,7 +180,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 43
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 44
- testRunner.And("Selecciono la opción Respuestas rapidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 45
  testRunner.When("Modificación exitosa de respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 46
@@ -190,17 +190,17 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("3 Modificación fallida de respuestas rápidas dejando nombre o descripción vacios")]
+        [NUnit.Framework.DescriptionAttribute("3 Modificación fallida de respuestas rápidas dejando nombre o descripción vacíos")]
         public virtual void _3ModificacionFallidaDeRespuestasRapidasDejandoNombreODescripcionVacios()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Modificación fallida de respuestas rápidas dejando nombre o descripción vacios", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Modificación fallida de respuestas rápidas dejando nombre o descripción vacíos", null, ((string[])(null)));
 #line 48
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 49
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 50
- testRunner.And("La respuesta rapida no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("La respuesta rápida no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 52
@@ -210,9 +210,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 54
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
- testRunner.And("Selecciono la opción Respuestas rapidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 56
- testRunner.When("Modificación fallida de respuestas rápidas dejando nombre o descripción vacios", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Modificación fallida de respuestas rápidas dejando nombre o descripción vacíos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 57
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -230,7 +230,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 60
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 61
- testRunner.And("La respuesta rapida existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("La respuesta rápida existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 62
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 63
@@ -240,7 +240,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 65
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 66
- testRunner.And("Selecciono la opción Respuestas rapidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 67
  testRunner.When("Inactivación exitosa de respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 68
@@ -260,7 +260,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 71
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 72
- testRunner.And("La respuesta rapida existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("La respuesta rápida existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 73
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 74
@@ -270,7 +270,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 76
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 77
- testRunner.And("Selecciono la opción Respuestas rapidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 78
  testRunner.When("Eliminación exitosa de respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 79
