@@ -12,7 +12,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
             ScenarioContext.Current.Pending();
         }
         
-        [When(@"Busqueda exitosa de un producto existente")]
+        [When(@"Búsqueda exitosa de un producto existente")]
         public void WhenBusquedaExitosaDeUnProductoExistente()
         {
             ScenarioContext.Current.Pending();
