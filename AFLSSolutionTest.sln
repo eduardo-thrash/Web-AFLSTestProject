@@ -10,7 +10,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{71CC4051-636C-4566-B559-6AEE8B83C346}"
 	ProjectSection(SolutionItems) = preProject
 		AFLSSolutionTest.sln.vsspell = AFLSSolutionTest.sln.vsspell
+		Local.testsettings = Local.testsettings
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebTest", "WebTest", "{9E805F1C-527D-4165-809C-A0E9E247C305}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFLSWebProjectTest", "AFLSWebProjectTest\AFLSWebProjectTest.csproj", "{3EFC3CAA-8FA6-4688-B67F-D2EBFBC03D94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +31,16 @@ Global
 		{7C5BD35E-D4B8-4BE3-95CF-58934F426F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C5BD35E-D4B8-4BE3-95CF-58934F426F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C5BD35E-D4B8-4BE3-95CF-58934F426F74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EFC3CAA-8FA6-4688-B67F-D2EBFBC03D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EFC3CAA-8FA6-4688-B67F-D2EBFBC03D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EFC3CAA-8FA6-4688-B67F-D2EBFBC03D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EFC3CAA-8FA6-4688-B67F-D2EBFBC03D94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3EFC3CAA-8FA6-4688-B67F-D2EBFBC03D94} = {9E805F1C-527D-4165-809C-A0E9E247C305}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6833765-EC72-42F1-ABEA-E0168BACFF86}
