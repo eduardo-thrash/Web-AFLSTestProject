@@ -306,7 +306,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("Valido que no existan MissingKey en pantalla principal Campos adicionales ordenes" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 100
- testRunner.And("Selecciono la opción Dias no laborales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Días no laborales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 101
  testRunner.And("Valido que no existan MissingKey en pantalla principal Dias no laborales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 102
@@ -314,7 +314,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 103
  testRunner.And("Valido que no existan MissingKey en pantalla principal Servidor de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 104
- testRunner.And("Selecciono la opción Encuentas general", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Encuestas general", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 105
  testRunner.And("Valido que no existan MissingKey en pantalla principal Encuentas general", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 106
@@ -322,9 +322,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 107
  testRunner.And("Valido que no existan MissingKey en pantalla principal Plantillas de Encuentas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 108
- testRunner.And("Selecciono la opción Respuestas rapidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 109
- testRunner.And("Valido que no existan MissingKey en pantalla principal Respuestas rapidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Valido que no existan MissingKey en pantalla principal Respuestas rápidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 110
  testRunner.And("Selecciono la opción Plantillas de correo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 111

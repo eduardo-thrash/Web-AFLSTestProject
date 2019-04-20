@@ -13,37 +13,37 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         }
         
         [When(@"Creación fallida de respuestas rápidas con nombre repetido")]
-        public void WhenCreacionFallidaDeRespuestasRapidasConNombreRepetido()
+        public void WhenCreacionFallidaDeRespuestasrápidasConNombreRepetido()
         {
             ScenarioContext.Current.Pending();
         }
         
         [When(@"Cancelación exitosa de creación de respuestas rápidas")]
-        public void WhenCancelacionExitosaDeCreacionDeRespuestasRapidas()
+        public void WhenCancelacionExitosaDeCreacionDeRespuestasrápidas()
         {
             ScenarioContext.Current.Pending();
         }
         
         [When(@"Modificación exitosa de respuestas rápidas")]
-        public void WhenModificacionExitosaDeRespuestasRapidas()
+        public void WhenModificacionExitosaDeRespuestasrápidas()
         {
             ScenarioContext.Current.Pending();
         }
         
-        [When(@"Modificación fallida de respuestas rápidas dejando nombre o descripción vacios")]
-        public void WhenModificacionFallidaDeRespuestasRapidasDejandoNombreODescripcionVacios()
+        [When(@"Modificación fallida de respuestas rápidas dejando nombre o descripción vacíos")]
+        public void WhenModificacionFallidaDeRespuestasrápidasDejandoNombreODescripcionVacios()
         {
             ScenarioContext.Current.Pending();
         }
         
         [When(@"Inactivación exitosa de respuestas rápidas")]
-        public void WhenInactivacionExitosaDeRespuestasRapidas()
+        public void WhenInactivacionExitosaDeRespuestasrápidas()
         {
             ScenarioContext.Current.Pending();
         }
         
         [When(@"Eliminación exitosa de respuestas rápidas")]
-        public void WhenEliminacionExitosaDeRespuestasRapidas()
+        public void WhenEliminacionExitosaDeRespuestasrápidas()
         {
             ScenarioContext.Current.Pending();
         }

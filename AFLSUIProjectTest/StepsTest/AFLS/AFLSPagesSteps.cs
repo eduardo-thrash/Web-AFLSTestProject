@@ -369,7 +369,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             Functions.MissingKeyFind();
         }
 
-        [When(@"Selecciono la opción Dias no laborales")]
+        [When(@"Selecciono la opción Días no laborales")]
         public void WhenSeleccionoLaOpcionDiasNoLaborales()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.NonWorkingDaysOption);
@@ -393,7 +393,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             Functions.MissingKeyFind();
         }
 
-        [When(@"Selecciono la opción Encuentas general")]
+        [When(@"Selecciono la opción Encuestas general")]
         public void WhenSeleccionoLaOpcionEncuentasGeneral()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.SurveyGeneralConfigurationOption);
@@ -417,14 +417,14 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             Functions.MissingKeyFind();
         }
 
-        [When(@"Selecciono la opción Respuestas rapidas")]
-        public void WhenSeleccionoLaOpcionRespuestasRapidas()
+        [When(@"Selecciono la opción Respuestas rápidas")]
+        public void WhenSeleccionoLaOpcionRespuestasrápidas()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.QuickAnswersOption);
         }
 
-        [When(@"Valido que no existan MissingKey en pantalla principal Respuestas rapidas")]
-        public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalRespuestasRapidas()
+        [When(@"Valido que no existan MissingKey en pantalla principal Respuestas rápidas")]
+        public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalRespuestasrápidas()
         {
             Functions.MissingKeyFind();
         }
