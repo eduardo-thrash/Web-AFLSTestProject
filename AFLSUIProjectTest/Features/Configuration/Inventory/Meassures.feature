@@ -12,7 +12,7 @@ Scenario: 1 Creación exitosa de Medidas
 	And Creación exitosa de Medidas
 	Then Finaliza exitosa la prueba
 
-Scenario: 2 Busqueda exitosa de Medida existente
+Scenario: 2 Búsqueda exitosa de Medida existente
 	Given Tengo un usuario con rol administrador
 	And La medida existe
 	When Accedo a la aplicación
@@ -20,7 +20,7 @@ Scenario: 2 Busqueda exitosa de Medida existente
 	And Accedo a ítem Configuración
 	And Accedo al menú Inventario
 	And Selecciono la opción Medidas
-	And Busqueda exitosa de Medida existente
+	And Búsqueda exitosa de Medida existente
 	Then Finaliza exitosa la prueba
 
 Scenario: 3 Modificación exitosa de Medidas

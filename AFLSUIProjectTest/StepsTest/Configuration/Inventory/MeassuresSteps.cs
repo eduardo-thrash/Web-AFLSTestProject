@@ -56,7 +56,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
             //End LogOut.
         }
 
-        [When(@"Busqueda exitosa de Medida existente")]
+        [When(@"Búsqueda exitosa de Medida existente")]
         public void WhenBusquedaExitosaDeMedidaExistente()
         {
             

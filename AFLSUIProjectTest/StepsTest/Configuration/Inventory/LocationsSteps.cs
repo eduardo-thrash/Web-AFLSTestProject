@@ -12,7 +12,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
             ScenarioContext.Current.Pending();
         }
         
-        [When(@"Busqueda exitosa de Ubicación existente")]
+        [When(@"Búsqueda exitosa de Ubicación existente")]
         public void WhenBusquedaExitosaDeUbicacionExistente()
         {
             ScenarioContext.Current.Pending();

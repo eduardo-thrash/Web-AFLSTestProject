@@ -100,10 +100,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("2 Busqueda exitosa de Medida existente")]
+        [NUnit.Framework.DescriptionAttribute("2 Búsqueda exitosa de Medida existente")]
         public virtual void _2BusquedaExitosaDeMedidaExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Busqueda exitosa de Medida existente", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Búsqueda exitosa de Medida existente", null, ((string[])(null)));
 #line 15
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -122,7 +122,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 22
  testRunner.And("Selecciono la opción Medidas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
- testRunner.And("Busqueda exitosa de Medida existente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Búsqueda exitosa de Medida existente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 24
  testRunner.Then("Finaliza exitosa la prueba", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
