@@ -23,6 +23,24 @@ namespace AFLSUIProjectTest.CommonAFLS
             }
         }
 
+        public void ValidationSuccessDelete()
+        {
+            IList<IWebElement> Messsages = CommonHooks.driver.FindElements(By.XPath(MessagesElements.ResponseElement));
+
+            foreach (IWebElement Elements in Messsages)
+            {
+                string TextMessage = Elements.Text;
+                try
+                {
+                    Assert.IsTrue(TextMessage.Contains(MessagesCopies.SuccessElementConfigurationDelete));
+                }
+                catch
+                {
+                    Assert.Fail(TextMessage);
+                }
+            }
+        }
+
         public void ValidateErrorAplication()
         {
             string Error = null;

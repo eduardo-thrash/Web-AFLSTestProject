@@ -69,14 +69,14 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             Functions.MissingKeyFind();
         }
 
-        [When(@"Selecciono la opción Cronometros")]
-        public void WhenSeleccionoLaOpcionCronometros()
+        [When(@"Selecciono la opción Cronómetros")]
+        public void WhenSeleccionoLaOpcionCronómetros()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.ChronometerOption);
         }
 
-        [When(@"Valido que no existan MissingKey en pantalla principal Cronometros")]
-        public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalCronometros()
+        [When(@"Valido que no existan MissingKey en pantalla principal Cronómetros")]
+        public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalCronómetros()
         {
             Functions.MissingKeyFind();
         }

@@ -102,9 +102,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 15
  testRunner.And("Valido que no existan MissingKey en pantalla principal Calendarios", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
- testRunner.And("Selecciono la opción Cronometros", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Cronómetros", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.And("Valido que no existan MissingKey en pantalla principal Cronometros", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Valido que no existan MissingKey en pantalla principal Cronómetros", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
  testRunner.And("Selecciono la opción Modelos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19

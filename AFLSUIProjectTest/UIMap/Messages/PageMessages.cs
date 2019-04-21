@@ -11,5 +11,7 @@
         public string SuccessElementConfigurationDelete = "Registro eliminado correctamente";
 
         public string SuccessElementConfigurationCreateOrUpdateFail = "Existen campos invalidos";
+
+        public string FailedElementConfigurationCreateOrUpdateRepeat = "Ya existe un elemento con la información";
     }
 }

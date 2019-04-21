@@ -120,6 +120,14 @@ namespace AFLSUIProjectTest.CommonAFLS
             }
         }
 
+        public string RandomText()
+        {
+            int longitud = 7;
+            Guid miGuid = Guid.NewGuid();
+            string token = miGuid.ToString().Replace("-", string.Empty).Substring(0, longitud);
+            return token;
+        }
+
         //public static void GetTextPage(IWebDriver driver,string FileSectionModule,string LocalDateTimeExecution)
         //{
         //    WebDriverWait wait = new WebDriverWait(CommonHooks.driver,TimeSpan.FromSeconds(30));

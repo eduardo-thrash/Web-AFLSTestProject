@@ -996,6 +996,78 @@ namespace CommonTest.CommonTest
             }
         }
 
+        public static void WaitElementNoFound(string Element, string ElementType = null)
+        {
+            for (second = 0; ; second++)
+            {
+                if (second >= 10) break;
+                try
+                {
+                    if (ElementType == null)
+                    {
+                        ElementWait = CommonHooks.driver.FindElement(By.XPath(Element));
+                    }
+                    else
+                    {
+                        switch (ElementType)
+                        {
+                            case "Id":
+                                ElementWait = CommonHooks.driver.FindElement(By.Id(Element));
+                                break;
+
+                            case "Name":
+                                ElementWait = CommonHooks.driver.FindElement(By.Name(Element));
+                                break;
+
+                            case "ClassName":
+                                ElementWait = CommonHooks.driver.FindElement(By.ClassName(Element));
+                                break;
+
+                            case "CssSelector":
+                                ElementWait = CommonHooks.driver.FindElement(By.CssSelector(Element));
+                                break;
+
+                            case "XPath":
+                                ElementWait = CommonHooks.driver.FindElement(By.XPath(Element));
+                                break;
+
+                            default:
+                                Assert.Fail("Incorrect Element");
+                                break;
+                        }
+                    }
+
+                    break;
+                }
+                catch (Exception Ex)
+                {
+                    if (ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName" && ElementType != null)
+                    {
+                        Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CssSelector, XPath, Id, Name, ClassName)");
+                    }
+                    Error = Ex.Message;
+                    Thread.Sleep(1000);
+                }
+            }
+
+            for (second = 0; ; second++)
+            {
+                if (second >= 10) break;
+                try
+                {
+                    Assert.IsTrue(ElementWait.Enabled);
+                    Assert.IsTrue(ElementWait.Displayed);
+                    Assert.AreNotEqual(ElementWait.Size, 0);
+                    Assert.Fail("Unexpected element is visible");
+                }
+                catch (Exception Ex)
+                {
+                    Error = Ex.Message;
+                    Thread.Sleep(1000);
+                }
+            }
+        }
+
         public static void WaitUrl(string UrlExpected, string UrlActual)
         {
             for (second = 0; ; second++)
@@ -1003,7 +1075,7 @@ namespace CommonTest.CommonTest
                 if (second >= 10) Assert.Fail(Error);
                 try
                 {
-                    Assert.AreEqual(UrlExpected, UrlActual);
+                    Assert.IsTrue(UrlExpected.Contains(UrlActual));
                     break;
                 }
                 catch (Exception Ex)

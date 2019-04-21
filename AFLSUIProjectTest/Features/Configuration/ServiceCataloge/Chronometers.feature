@@ -1,42 +1,60 @@
 ﻿Feature: Chronometers
-	#Configuración de cronometros para uso sobre ANS y Ordenes de trabajo
+	#Configuración de Cronómetros para uso sobre ANS y Ordenes de trabajo
 
-Scenario: 1 Creación completa de cronometros
+Scenario: 1 Creación completa de Cronómetros
 	Given Tengo un usuario con rol administrador
-	And El cronometro no existe
+	And El cronómetro no existe
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
-	And Selecciono la opción Cronometros
-	When Creación completa de cronometros
-	Then Finaliza exitosa la prueba
+	And Selecciono la opción Cronómetros
+	And Doy click en Nuevo cronometro
+	And Diligencio nombre de cronometro
+	And Diligencio descripción de cronometro
+	And Doy click en Guardar cronometro
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el cronometro en la tabla AFW_ITEM_TIMES
+	And Cierro Sesión en la aplicación
 
-Scenario: 2 consulta exitosa de cronometro por nombre
+
+Scenario: 2 consulta exitosa de cronómetro por nombre
 	Given Tengo un usuario con rol administrador
-	And El cronometro existe
+	And El cronómetro existe
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
-	And Selecciono la opción Cronometros
-	When consulta exitosa de cronometro por nombre
-	Then Finaliza exitosa la prueba
+	And Selecciono la opción Cronómetros
+	And Busco y selecciono el cronómetro
+	Then Se muestra la tarjeta del cronómetro y el detalle del mismo
+	And Cierro Sesión en la aplicación
+
 	
-Scenario: 3 Modificación parcial de cronometeros
+Scenario: 3 Modificación parcial de cronómetros
 	Given Tengo un usuario con rol administrador
-	And El cronometro existe
+	And El cronómetro existe
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
-	And Selecciono la opción Cronometros
-	When Modificación parcial de cronometeros
-	Then Finaliza exitosa la prueba
+	And Selecciono la opción Cronómetros
+	And Busco y selecciono el cronómetro
+	And Modifico nombre de cronometro
+	And Doy click en Guardar cronometro
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se modifica la información del cronómetro en la tabla AFW_ITEM_TIMES
+	And Cierro Sesión en la aplicación
 
-Scenario: 4 Borrar cronometro existente
+
+Scenario: 4 Borrar cronómetro existente
 	Given Tengo un usuario con rol administrador
-	And El cronometro existe
+	And El cronómetro existe
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
-	And Selecciono la opción Cronometros
-	When Borrar cronometro existente
-	Then Finaliza exitosa la prueba
+	And Selecciono la opción Cronómetros
+	And Busco y selecciono el cronómetro
+	And Doy click en eliminar cronómetro
+	And Selecciono Aceptar en mensaje de confirmación
+	Then Se muestra mensaje indicando que se borro el registro exitosamente
+	And Se marca como eliminada la información del cronómetro en la tabla AFW_ITEM_TIMES
+	And Al buscar el cronómetro en la aplicación, no se lista en la búsqueda
+	And Cierro Sesión en la aplicación

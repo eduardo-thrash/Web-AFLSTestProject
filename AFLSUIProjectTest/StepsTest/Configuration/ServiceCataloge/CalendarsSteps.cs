@@ -192,7 +192,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             //End Navigate SubMenu and selected option.
 
             //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",CalendarsPage.CalendarFieldSearch,"Cronometro Resolución WT");
+            CommonElementsAction.SendKeys_InputText("CssSelector",CalendarsPage.CalendarFieldSearch,"cronómetro Resolución WT");
             CommonElementsAction.Click("CssSelector",CalendarsPage.CalendarButtonSearch);
 
             //End Navigate Module List Content

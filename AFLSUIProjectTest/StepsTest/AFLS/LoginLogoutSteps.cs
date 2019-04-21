@@ -65,7 +65,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             CommonElementsAction.WaitElement("//div[@class='logo']");
             UrlNow = CommonHooks.driver.Url;
             Thread.Sleep(2000);
-            CommonElementsAction.WaitUrl(ConfigurationManager.AppSettings["url"] + @"/#admin/sla", UrlNow);
+            CommonElementsAction.WaitUrl(UrlNow, ConfigurationManager.AppSettings["url"] + @"/#admin");
         }
 
         [Then(@"se registra en base de datos el usuario con sesión activa en la tabla AFW_USER_SESSION_TOKEN")]

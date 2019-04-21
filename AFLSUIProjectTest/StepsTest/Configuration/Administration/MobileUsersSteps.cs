@@ -19,6 +19,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         private PrincipalMenuPage PrincipalMenuPage = new PrincipalMenuPage();
         private MobileUsersPage MobileUsersPage = new MobileUsersPage();
         private ResponseValidation ResponseValidation = new ResponseValidation();
+        private MessagesElements MessagesElements = new MessagesElements();
 
         private string user_nickname = "ui.eduardo.mobile";
         private string user_name = "Ui Eduardo Montenegro Mobile";
@@ -387,13 +388,21 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [When(@"Selecciono Aceptar en mensaje de confirmación")]
         public void WhenSeleccionoAceptarEnMensajeDeConfirmacion()
         {
-            ScenarioContext.Current.Pending();
+            CommonElementsAction.Click("CssSelector", MessagesElements.SubmitButton);
         }
 
         [Then(@"Se muestra mensaje indicando que se borro el registro exitosamente")]
         public void ThenSeMuestraMensajeIndicandoQueSeBorroElRegistroExitosamente()
         {
-            ScenarioContext.Current.Pending();
+            try
+            {
+            }
+            catch
+            {
+                Assert.Fail();
+            }
+
+            ResponseValidation.ValidationSuccessDelete();
         }
 
         [Then(@"Se borra usuario de la tabla AFW_USERS")]

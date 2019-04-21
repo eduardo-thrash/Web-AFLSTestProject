@@ -13,8 +13,8 @@ Scenario: Revisión Exitosa de Keys en pantallas de Catalogo de servicios
 	And Valido que no existan MissingKey en pantalla principal UC's
 	And Selecciono la opción Calendarios					   
 	And Valido que no existan MissingKey en pantalla principal Calendarios
-	And Selecciono la opción Cronometros					   
-	And Valido que no existan MissingKey en pantalla principal Cronometros
+	And Selecciono la opción Cronómetros					   
+	And Valido que no existan MissingKey en pantalla principal Cronómetros
 	And Selecciono la opción Modelos						   
 	And Valido que no existan MissingKey en pantalla principal Modelos
 	And selecciono la opción Servicios						   

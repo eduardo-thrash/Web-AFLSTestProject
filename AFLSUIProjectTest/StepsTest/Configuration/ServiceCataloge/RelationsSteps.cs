@@ -1,10 +1,10 @@
-﻿
+﻿using AFLSUIProjectTest.CommonAFLS;
+using AFLSUIProjectTest.UIMap.AFLS;
 using AFLSUIProjectTest.UIMap.ConfigurationMenuServiceCatalogue;
 using AFLSUIProjectTest.UIMap.Messages;
 using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using System;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -13,345 +13,241 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
     [Binding]
     public class RelationsSteps
     {
-        
-        
         private RelationsPage RelationsPage = new RelationsPage();
-        private object ElementsMessages;
+        private MessagesElements MessagesElements = new MessagesElements();
         private PageMessages PageMessages = new PageMessages();
-        
+        private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
+        private MessagesCopies MessagesCopies = new MessagesCopies();
 
-        [When(@"Creación exitosa de relación")]
-        public void WhenCreacionExitosaDeRelacion()
+        private static string DefaultRelationName = "UI Relation";
+        private string RelationName;
+        private string EditRelationName;
+        private string EditRelationSource;
+        private string EditRelationTarget;
+
+        [Given(@"La relación no existe")]
+        public void GivenLaRelacionNoExiste()
         {
-            //Login.
-            
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-           // CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ServiceCatalogueMenu,SectionAdminLeftColumn.RelationOption,"");
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module Content
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationButtonNew);
-            //End Navigate Module Content
-
-            Console.WriteLine("Navigate from Principal tab." + "\n");
-            Thread.Sleep(3000);
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationTab);
-
-            ///     And diligencio el campo de nombre
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputName,"Relacion Principal");
-
-            ///     And diligencio el campo de conector de origen
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputSource,"se conecta con");
-
-            ///     And diligencio el campo de conector de destino
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputTarget,"se vincula desde");
-            Console.WriteLine("\n" + "End Navigate from Principal tab.");
-
-            //Save
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            RelationName = DefaultRelationName + " " + Functions.RandomText();
+            CommonQuery.DBSelectAValue("SELECT ar_name FROM AFLS_RELATIONSHIP WHERE ar_name = '" + RelationName + "';", 0);
         }
 
-        [When(@"Creación fallida de relación con nombre repetido")]
-        public void WhenCreacionFallidaDeRelacionConNombreRepetido()
+        [Given(@"La relación existe")]
+        public void GivenLaRelacionExiste()
         {
-            //Login.
-            
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ServiceCatalogueMenu,SectionAdminLeftColumn.RelationOption,"");
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module Content
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationButtonNew);
-            //End Navigate Module Content
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputName,"Relacion Principal");
-
-            ///     And diligencio el campo de conector de origen
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputSource,"se conecta con");
-
-            ///     And diligencio el campo de conector de destino
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputTarget,"se vincula desde");
-
-            //Save
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            RelationName = CommonQuery.DBSelectAValue("SELECT TOP 1 ar_name FROM AFLS_RELATIONSHIP ORDER BY NEWID();", 1);
         }
 
-        [When(@"Cancelación exitosa de creación de relación")]
-        public void WhenCancelacionExitosaDeCreacionDeRelacion()
+        [Given(@"La relación existe activa")]
+        public void GivenLaRelacionExisteActiva()
         {
-            //Login.
-            
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ServiceCatalogueMenu,SectionAdminLeftColumn.RelationOption,"");
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module Content
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationButtonNew);
-            //End Navigate Module Content
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputName,"Relacion contingencia");
-
-            ///     And diligencio el campo de conector de origen
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputSource,"se conecta con");
-
-            ///     And diligencio el campo de conector de destino
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputTarget,"se vincula desde");
-
-            ///     And Pulso el botón cancelar
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationCancel);
-
-            ///     And Pulso el botón Si
-            Thread.Sleep(3000);
-           
-            //LogOut.
-            
-            //End LogOut.
+            RelationName = CommonQuery.DBSelectAValue("SELECT TOP 1 ar_name FROM AFLS_RELATIONSHIP WHERE ar_is_active = 1 ORDER BY NEWID();", 1);
         }
 
-        [When(@"Consulta exitosa de relación por nombre")]
-        public void WhenConsultaExitosaDeRelacionPorNombre()
+        [When(@"Diligencio nombre de relación existente")]
+        public void WhenDiligencioNombreDeRelacionExistente()
         {
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationFieldSearch,"Relacion Principal");
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationButtonSearch);
+            CommonElementsAction.SendKeys_InputText("CssSelector", RelationsPage.RelationInputName, RelationName);
+        }
 
-            //End Navigate Module List Content
+        [When(@"Doy click en switch de estado de relación")]
+        public void WhenDoyClickEnSwitchDeEstadoDeRelacion()
+        {
+            CommonElementsAction.Click("XPath", RelationsPage.RelationState);
+        }
 
+        [Then(@"Se registra la relación en la tabla AFLS_RELATIONSHIP como inactiva")]
+        public void ThenNoSeRegistraLaRelacionEnLaTablaAFLS_RELATIONSHIPComoInactiva()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_RELATIONSHIP WHERE ar_name = '" + RelationName + "' AND ar_is_active = 0", 1);
+        }
+
+        [When(@"Doy click en Nueva relación")]
+        public void WhenDoyClickEnNuevaRelacion()
+        {
+            CommonElementsAction.Click("CssSelector", RelationsPage.RelationTab);
+            CommonElementsAction.Click("CssSelector", RelationsPage.RelationButtonNew);
+        }
+
+        [Then(@"Se borra la relación de la tabla AFLS_RELATIONSHIP")]
+        public void ThenSeBorraLaRelacionDeLaTablaAFLS_RELATIONSHIP()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_RELATIONSHIP WHERE ar_name = '" + RelationName + ";", 0);
+        }
+
+        [When(@"Diligencio nombre de relación")]
+        public void WhenDiligencioNombreDeRelacion()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", RelationsPage.RelationInputName, RelationName);
+        }
+
+        [When(@"Doy click en Cancelar relación")]
+        public void WhenDoyClickEnCancelarRelacion()
+        {
+            CommonElementsAction.Click("CssSelector", RelationsPage.RelationCancel);
             Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
+        }
 
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationView);
+        [When(@"Doy click en Si de mensaje de confirmación")]
+        public void WhenDoyClickEnSiDeMensajeDeConfirmacion()
+        {
+            try
+            {
+                Thread.Sleep(2000);
+                CommonElementsAction.Click("CssSelector", MessagesElements.SubmitButton);
+            }
+            catch
+            {
+                Thread.Sleep(2000);
+                CommonElementsAction.Click("CssSelector", MessagesElements.SubmitButton);
+            }
+        }
 
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
+        [When(@"Selecciono tipo de relación Vinculo")]
+        public void WhenSeleccionoTipoDeRelacionVinculo()
+        {
+            CommonElementsAction.Click("XPath", RelationsPage.RelationButtonLink);
+        }
 
-            //Validate response of search.
+        [When(@"Diligencio campo origen de relación")]
+        public void WhenDiligencioCampoOrigenDeRelacion()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", RelationsPage.RelationInputSource, "se conecta con");
+        }
+
+        [When(@"Diligencio campo destino de relación")]
+        public void WhenDiligencioCampoDestinoDeRelacion()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", RelationsPage.RelationInputTarget, "se vincula desde");
+        }
+
+        [When(@"Doy click en Guardar relación")]
+        public void WhenDoyClickEnGuardarRelacion()
+        {
+            EditRelationName = CommonElementsAction.VallueExtract("CssSelector", RelationsPage.RelationInputName);
+            EditRelationSource = CommonElementsAction.VallueExtract("CssSelector", RelationsPage.RelationInputSource);
+            EditRelationTarget = CommonElementsAction.VallueExtract("CssSelector", RelationsPage.RelationInputTarget);
+            CommonElementsAction.Click("CssSelector", RelationsPage.RelationSubmit);
+        }
+
+        [When(@"Edito nombre de relación dejándolo vacío")]
+        public void WhenEditoNombreDeRelacionDejandoloVacio()
+        {
+            CommonElementsAction.Clear("CssSelector", RelationsPage.RelationInputName);
+        }
+
+        [Then(@"Se muestra mensaje indicando que existen campos inválidos")]
+        public void ThenSeMuestraMensajeIndicandoQueExistenCamposInvalidos()
+        {
+            string Response = CommonElementsAction.TextExtract("XPath", MessagesElements.ResponseError);
+            try
+            {
+                Assert.IsTrue(Response.Contains(MessagesCopies.FailedElementConfigurationCreateOrUpdate));
+            }
+            catch
+            {
+                Assert.Fail(Response);
+            }
+        }
+
+        [Then(@"Al buscar la relación con anterior nombre se muestra exitosamente")]
+        public void ThenAlBuscarLaRelacionConAnteriorNombreSeMuestraExitosamente()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", RelationsPage.RelationFieldSearch, RelationName);
+            CommonElementsAction.Click("CssSelector", RelationsPage.RelationButtonSearch);
+            CommonElementsAction.Click("XPath", RelationsPage.RelationView);
+        }
+
+        [Then(@"Se muestra mensaje indicando que el elemento ya existe")]
+        public void ThenSeMuestraMensajeIndicandoQueElElementoYaExiste()
+        {
+            string Response = CommonElementsAction.TextExtract("XPath", MessagesElements.ResponseError);
+            try
+            {
+                Assert.IsTrue(Response.Contains(MessagesCopies.FailedElementConfigurationCreateOrUpdateRepeat));
+            }
+            catch
+            {
+                Assert.Fail(Response);
+            }
+        }
+
+        [When(@"Edito nombre de relación")]
+        public void WhenEditoNombreDeRelacion()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", RelationsPage.RelationInputName, " edit");
+        }
+
+        [When(@"Doy click en eliminar relación")]
+        public void WhenDoyClickEnEliminarRelacion()
+        {
+            CommonElementsAction.Click("XPath", RelationsPage.RelationIconRemoved);
+        }
+
+        [Then(@"Al buscar la relación en la aplicación, no se lista en la búsqueda")]
+        public void ThenAlBuscarLaRelacionEnLaAplicacionNoSeListaEnLaBusqueda()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", RelationsPage.RelationFieldSearch, RelationName);
+            CommonElementsAction.Click("CssSelector", RelationsPage.RelationButtonSearch);
+            IWebElement ElementWait = CommonHooks.driver.FindElement(By.XPath(RelationsPage.RelationView));
+            Assert.IsFalse(ElementWait.Enabled);
+            Assert.IsFalse(ElementWait.Displayed);
+            Assert.AreEqual(ElementWait.Size, 0);
+        }
+
+        [When(@"Edito campo origen de relación")]
+        public void WhenEditoCampoOrigenDeRelacion()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", RelationsPage.RelationInputSource, "Edit source");
+        }
+
+        [When(@"Edito campo destino de relación")]
+        public void WhenEditoCampoDestinoDeRelacion()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", RelationsPage.RelationInputTarget, "Edit Target");
+        }
+
+        [Then(@"Se modifica la información de la relación en la tabla AFLS_RELATIONSHIP")]
+        public void ThenSeModificaLaInformacionDeLaRelacionEnLaTablaAFLS_RELATIONSHIP()
+        {
+            CommonQuery.DBSelectAValue("SELECT ar_name FROM AFLS_RELATIONSHIP WHERE ar_name = '" + EditRelationName + "' and ar_source_name = '" + EditRelationSource + "' and ar_target_name = '" + EditRelationTarget + "';", 1);
+        }
+
+        [Then(@"No se registra la relación en la tabla AFLS_RELATIONSHIP de tipo vinculo")]
+        public void ThenNoSeRegistraLaRelacionEnLaTablaAFLS_RELATIONSHIPDeTipoVinculo()
+        {
+            CommonQuery.DBSelectAValue("SELECT ar_name FROM AFLS_RELATIONSHIP WHERE ar_name = '" + RelationName + "' AND art_id = 2", 0);
+        }
+
+        [Then(@"Se registra la relación en la tabla AFLS_RELATIONSHIP de tipo vinculo")]
+        public void ThenSeRegistraLaRelacionEnLaTablaAFLS_RELATIONSHIPDeTipoVinculo()
+        {
+            CommonQuery.DBSelectAValue("SELECT ar_name FROM AFLS_RELATIONSHIP WHERE ar_name = '" + RelationName + "' AND art_id = 2", 1);
+        }
+
+        [When(@"Busco y selecciono la relación")]
+        public void WhenBuscoYSeleccionoLaRelacion()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", RelationsPage.RelationFieldSearch, RelationName);
+            CommonElementsAction.Click("CssSelector", RelationsPage.RelationButtonSearch);
+            CommonElementsAction.Click("XPath", RelationsPage.RelationView);
+        }
+
+        [Then(@"Al buscar la relación con nuevo nombre se muestra exitosamente")]
+        public void ThenAlBuscarLaRelacionConNuevoNombreSeMuestraExitosamente()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", RelationsPage.RelationFieldSearch, EditRelationName);
+            CommonElementsAction.Click("CssSelector", RelationsPage.RelationButtonSearch);
+            CommonElementsAction.Click("XPath", RelationsPage.RelationView);
+        }
+
+        [Then(@"Se muestra la tarjeta de la relación y el detalle del mismo")]
+        public void ThenSeMuestraLaTarjetaDeLaRelacionYElDetalleDelMismo()
+        {
+            string RelationTextView = CommonHooks.driver.FindElement(By.XPath(RelationsPage.RelationView)).Text;
             Thread.Sleep(3000);
             string Value = CommonHooks.driver.FindElement(By.CssSelector(RelationsPage.RelationInputName)).GetAttribute("value");
-            Assert.AreEqual("Relacion Principal",Value);
-
-            //LogOut.
-            
-            //End LogOut.
-        }
-
-        [When(@"Modificación exitosa de relaciones")]
-        public void WhenModificacionExitosaDeRelaciones()
-        {
-            //Login.
-            
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ServiceCatalogueMenu,SectionAdminLeftColumn.RelationOption,"");
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationFieldSearch,"Relacion Principal");
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationButtonSearch);
-
-            //End Navigate Module List Content
-
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationView);
-
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationTab);
-
-            ///     And diligencio el campo de nombre
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputName,"Relacion Principal Update");
-
-            ///     And diligencio el campo de conector de origen
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputSource,"se conecta con update");
-
-            ///     And diligencio el campo de conector de destino
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationInputTarget,"se vincula desde update");
-            Console.WriteLine("\n" + "End Navigate from Principal tab.");
-
-            //Save
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationSubmit);
-            //End Save
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationFieldSearch,"Relacion Principal Update");
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationButtonSearch);
-
-            //End Navigate Module List Content
-
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Validate response of search.
-            Thread.Sleep(3000);
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(RelationsPage.RelationInputName)).GetAttribute("value");
-            Assert.AreEqual("Relacion Principal Update",Value);
-
-            //LogOut.
-            
-            //End LogOut.
-        }
-
-        [When(@"Modificación fallida de relaciones dejando nombre o conectores vacios")]
-        public void WhenModificacionFallidaDeRelacionesDejandoNombreOConectoresVacios()
-        {
-            //Login.
-            
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-           // CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ServiceCatalogueMenu,SectionAdminLeftColumn.RelationOption,"");
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationFieldSearch,"Relacion Principal Update");
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationButtonSearch);
-
-            //End Navigate Module List Content
-
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            ///     And diligencio el campo de nombre
-            CommonElementsAction.Clear("CssSelector",RelationsPage.RelationInputName);
-
-            ///     And diligencio el campo de conector de origen
-            CommonElementsAction.Clear("CssSelector",RelationsPage.RelationInputSource);
-
-            ///     And diligencio el campo de conector de destino
-            CommonElementsAction.Clear("CssSelector",RelationsPage.RelationInputTarget);
-            Console.WriteLine("\n" + "End Navigate from Principal tab.");
-
-            //Save
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationSubmit);
-            //End Save
-
-            //Validate response.
-            
-            //End Validate response.
-        }
-
-        [When(@"Inactivación exitosa de relaciones")]
-        public void WhenInactivacionExitosaDeRelaciones()
-        {
-            //Login.
-            
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ServiceCatalogueMenu,SectionAdminLeftColumn.RelationOption,"");
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationFieldSearch,"Relacion Principal Update");
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationButtonSearch);
-
-            //End Navigate Module List Content
-
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            ///And pulso el switch de estado de relación
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationTab);
-
-            CommonElementsAction.Click("XPath",RelationsPage.RelationState);
-
-            //Save
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationSubmit);
-            //End Save
-
-            //Validate response.
-            
-            //End Validate response.
-        }
-
-        [When(@"Eliminación exitosa de relaciones")]
-        public void WhenEliminacionExitosaDeRelaciones()
-        {
-            //Login.
-            
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ServiceCatalogueMenu,SectionAdminLeftColumn.RelationOption,"");
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",RelationsPage.RelationFieldSearch,"Relacion Principal Update");
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationButtonSearch);
-
-            //End Navigate Module List Content
-
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("CssSelector",RelationsPage.RelationView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Delete element of List
-            CommonElementsAction.Click("XPath",RelationsPage.RelationIconRemoved);
-
-            Thread.Sleep(2000);
-
-            
-            //End Delete element of List
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            Assert.AreEqual(RelationTextView, Value);
         }
     }
 }

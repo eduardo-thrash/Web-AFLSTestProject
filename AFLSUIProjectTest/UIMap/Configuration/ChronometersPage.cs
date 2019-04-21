@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AFLSUIProjectTest.UIMap.Configuration
+﻿namespace AFLSUIProjectTest.UIMap.Configuration
 {
     public class ChronometersPage
     {
@@ -32,5 +26,7 @@ namespace AFLSUIProjectTest.UIMap.Configuration
 
         public string ChronometerIconRemoved = "//div[@class='chronometers']/div/div[2]/div/div/div[@class='itemView selected']/div[2]/div[@class='icon Remove']/input[@id='Button1']";
         public string TextChronometerIconRemoved = "Delete chronometer icon";
+
+        public string ChronometerViewNoFound = "//div[@class='mCSB_container mCS_y_hidden mCS_no_scrollbar_y']/div/div";
     }
 }
