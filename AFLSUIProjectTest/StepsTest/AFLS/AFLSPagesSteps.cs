@@ -240,7 +240,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Accedo al menú Inventario")]
         public void WhenAccedoAlMenuInventario()
         {
-            CommonElementsAction.Click("XPath", ConfigurationMenuPage.InventoryMenu);
+            CommonElementsAction.Click("CssSelector", ConfigurationMenuPage.InventoryMenu);
         }
 
         [When(@"Selecciono la opción Medidas")]

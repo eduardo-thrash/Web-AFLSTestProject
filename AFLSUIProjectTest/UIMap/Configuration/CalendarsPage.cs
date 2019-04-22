@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AFLSUIProjectTest.UIMap.ConfigurationElementsConfiguration
+﻿namespace AFLSUIProjectTest.UIMap.ConfigurationElementsConfiguration
 {
     public class CalendarsPage
     {
@@ -48,12 +42,20 @@ namespace AFLSUIProjectTest.UIMap.ConfigurationElementsConfiguration
         public string CalendarAddDay = "#addDay";
         public string TextCalendarAddDay = "Add button";
 
-        public string CalendarLoadHolidays = "#tabs-3 > div.innerTab.row > form > div.row.top.searchr > div > div.row.controls > div:nth-child(3) > label > span:nth-child(1)";
+        public string CalendarLoadHolidays = "//div[@class='calendars']//div[@id='tabs-3']//label[@for='loadHolidays']/span";
         public string TextCalendarLoadHolidays = "Check Non Working Days";
 
         public string ItemViewCalendar = "//div[@class='calendars']/div/div[2]/div/div/div[@class='itemView selected']/div/div/h3";//XPath
 
         public string CalendarIconRemoved = "//div[@class='calendars']/div/div[2]/div/div/div[@class='itemView selected']/div[2]/div[@class='icon Remove']/input[@id='btnRemove']";
         public string TextCalendarIconRemoved = "Delete calendar icon";
+
+        public string CalendarSunday = "//div[@class='calendars']//div[@id='tabs-2']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[@class='fc-content-skeleton']/table/tbody/tr/td[2]";
+        public string CalendarMonday = "//div[@class='calendars']//div[@id='tabs-2']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[@class='fc-content-skeleton']/table/tbody/tr/td[3]";
+        public string CalendarTuesday = "//div[@class='calendars']//div[@id='tabs-2']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[@class='fc-content-skeleton']/table/tbody/tr/td[4]";
+        public string CalendarWednesday = "//div[@class='calendars']//div[@id='tabs-2']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[@class='fc-content-skeleton']/table/tbody/tr/td[5]";
+        public string CalendarThursday = "//div[@class='calendars']//div[@id='tabs-2']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[@class='fc-content-skeleton']/table/tbody/tr/td[6]";
+        public string CalendarFriday = "//div[@class='calendars']//div[@id='tabs-2']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[@class='fc-content-skeleton']/table/tbody/tr/td[7]";
+        public string CalendarSaturday = "//div[@class='calendars']//div[@id='tabs-2']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[@class='fc-content-skeleton']/table/tbody/tr/td[8]";
     }
 }

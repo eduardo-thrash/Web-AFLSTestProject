@@ -8,18 +8,28 @@ Scenario: 1 Creación exitosa de Calendarios
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
 	And Selecciono la opción Calendarios
-	When Creación exitosa de Calendarios
-	Then Finaliza exitosa la prueba
+	And Doy click en Nuevo calendario
+	And Diligencio nombre de calendario
+	And Diligencio descripción de calendario
+	And Selecciono el Tab de Horas laborales de calendario
+	And Selecciono disponibilidad de siete días en calendario
+	And Selecciono el Tab de Días no laborales
+	And Selecciono día no laboral
+	And Doy click en Guardar calendario
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	Then Se registra el calendario en la tabla AFLS_CALENDAR
+	And Cierro Sesión en la aplicación
 
-Scenario: 2 Busqueda de calendario existente
+Scenario: 2 Búsqueda de calendario existente
 	Given Tengo un usuario con rol administrador
 	And El calendario existe
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
 	And Selecciono la opción Calendarios
-	When Busqueda de calendario existente
-	Then Finaliza exitosa la prueba
+	And Busco y selecciono el calendario
+	Then Se muestra la tarjeta del calendario y el detalle del mismo
+	And Cierro Sesión en la aplicación
 
 Scenario: 3 modificación parcial de calendario
 	Given Tengo un usuario con rol administrador
@@ -28,8 +38,12 @@ Scenario: 3 modificación parcial de calendario
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
 	And Selecciono la opción Calendarios
-	When modificación parcial de calendario
-	Then Finaliza exitosa la prueba
+	And Busco y selecciono el calendario
+	And Edito nombre de calendario
+	And Doy click en Guardar calendario
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el calendario modificado en la tabla AFLS_CALENDAR
+	And Cierro Sesión en la aplicación
 
 Scenario: 4 Borrar calendario existente
 	Given Tengo un usuario con rol administrador
@@ -38,5 +52,10 @@ Scenario: 4 Borrar calendario existente
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
 	And Selecciono la opción Calendarios
-	When Borrar calendario existente
-	Then Finaliza exitosa la prueba
+	And Busco y selecciono el calendario
+	And Doy click en eliminar calendario
+	And Selecciono Aceptar en mensaje de confirmación
+	Then Se muestra mensaje indicando que se borro el registro exitosamente
+	And No se registra el calendario en la tabla AFLS_CALENDAR
+	And Al buscar el calendario en la aplicación, no se lista en la búsqueda
+	And Cierro Sesión en la aplicación

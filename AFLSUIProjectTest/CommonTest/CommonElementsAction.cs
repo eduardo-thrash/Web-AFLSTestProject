@@ -1000,7 +1000,7 @@ namespace CommonTest.CommonTest
         {
             for (second = 0; ; second++)
             {
-                if (second >= 10) break;
+                if (second >= 5) break;
                 try
                 {
                     if (ElementType == null)
