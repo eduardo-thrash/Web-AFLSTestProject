@@ -1,6 +1,7 @@
 ﻿Feature: Meassures
 
 
+@regression
 Scenario: 1 Creación exitosa de Medidas
 	Given Tengo un usuario con rol administrador
 	And La medida no existe
@@ -17,6 +18,7 @@ Scenario: 1 Creación exitosa de Medidas
 	And Se registra medida en la tabla AFLS_STOCK_MEASURES
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 2 Búsqueda exitosa de Medida existente
 	Given Tengo un usuario con rol administrador
 	And La medida existe
@@ -29,6 +31,7 @@ Scenario: 2 Búsqueda exitosa de Medida existente
 	Then Se muestra la tarjeta de la medida y el detalle del mismo
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 3 Modificación exitosa de Medidas
 	Given Tengo un usuario con rol administrador
 	And La medida existe
@@ -44,6 +47,7 @@ Scenario: 3 Modificación exitosa de Medidas
 	And Se registra el nombre de medida modificado en la tabla AFLS_STOCK_MEASURES
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 4 Borrado exitoso de Medida existente
 	Given Tengo un usuario con rol administrador
 	And La medida existe

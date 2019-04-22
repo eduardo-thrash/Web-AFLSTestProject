@@ -1,6 +1,6 @@
 ﻿Feature: Relations
 
-
+@regression
 Scenario: 1 Creación exitosa de relación
 	Given Tengo un usuario con rol administrador
 	And La relación no existe
@@ -18,6 +18,7 @@ Scenario: 1 Creación exitosa de relación
 	And Se registra la relación en la tabla AFLS_RELATIONSHIP de tipo vinculo
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 1 Creación fallida de relación con nombre repetido de tipo vinculo
 	Given Tengo un usuario con rol administrador
 	And La relación existe
@@ -34,6 +35,7 @@ Scenario: 1 Creación fallida de relación con nombre repetido de tipo vinculo
 	Then Se muestra mensaje indicando que el elemento ya existe
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 1 Cancelación exitosa de creación de relación
 	Given Tengo un usuario con rol administrador
 	And La relación no existe
@@ -51,6 +53,7 @@ Scenario: 1 Cancelación exitosa de creación de relación
 	Then No se registra la relación en la tabla AFLS_RELATIONSHIP de tipo vinculo
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 2 Consulta exitosa de relación por nombre
 	Given Tengo un usuario con rol administrador
 	And La relación existe
@@ -61,6 +64,7 @@ Scenario: 2 Consulta exitosa de relación por nombre
 	And Busco y selecciono la relación
 	Then Se muestra la tarjeta de la relación y el detalle del mismo
 
+@regression
 Scenario: 3 Modificación exitosa de relaciones editado nombre
 	Given Tengo un usuario con rol administrador
 	And La relación existe
@@ -77,6 +81,7 @@ Scenario: 3 Modificación exitosa de relaciones editado nombre
 	And Al buscar la relación con nuevo nombre se muestra exitosamente
 	And Se modifica la información de la relación en la tabla AFLS_RELATIONSHIP
 
+@regression
 Scenario: 3 Modificación fallida de relaciones dejando nombre o conectores vacíos
 	Given Tengo un usuario con rol administrador
 	And La relación existe
@@ -93,6 +98,7 @@ Scenario: 3 Modificación fallida de relaciones dejando nombre o conectores vac�
 	And Al buscar la relación con anterior nombre se muestra exitosamente
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 3 Inactivación exitosa de relaciones
     Given Tengo un usuario con rol administrador
 	And La relación existe activa
@@ -108,6 +114,7 @@ Scenario: 3 Inactivación exitosa de relaciones
 	And Cierro Sesión en la aplicación
 
 
+@regression
 Scenario: 4 Eliminación exitosa de relaciones
 	Given Tengo un usuario con rol administrador
 	And La relación existe

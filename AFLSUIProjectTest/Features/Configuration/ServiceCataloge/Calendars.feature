@@ -1,6 +1,6 @@
 ﻿Feature: Calendars
 	
-
+@regression
 Scenario: 1 Creación exitosa de Calendarios
 	Given Tengo un usuario con rol administrador
 	And El calendario no existe
@@ -20,6 +20,7 @@ Scenario: 1 Creación exitosa de Calendarios
 	Then Se registra el calendario en la tabla AFLS_CALENDAR
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 2 Búsqueda de calendario existente
 	Given Tengo un usuario con rol administrador
 	And El calendario existe
@@ -31,6 +32,7 @@ Scenario: 2 Búsqueda de calendario existente
 	Then Se muestra la tarjeta del calendario y el detalle del mismo
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 3 modificación parcial de calendario
 	Given Tengo un usuario con rol administrador
 	And El calendario existe
@@ -45,6 +47,7 @@ Scenario: 3 modificación parcial de calendario
 	And Se registra el calendario modificado en la tabla AFLS_CALENDAR
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 4 Borrar calendario existente
 	Given Tengo un usuario con rol administrador
 	And El calendario existe
