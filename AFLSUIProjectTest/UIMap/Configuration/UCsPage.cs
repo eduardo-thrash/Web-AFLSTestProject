@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AFLSUIProjectTest.UIMap.Configuration
+﻿namespace AFLSUIProjectTest.UIMap.Configuration
 {
     public class ElementsUC
     {
         //Elements SubMenu y option
         public string UCModule = "UC";
+
         public string UCButtonNew = "body > div.frameworks > div > div.base.container-module.bottom.row > div > div.content.col.module > div.uc #content > div.center.header.row > div > div.btnSearch #commonNewItem";
         public string UCSubmit = "div.uc > #rightsidebar > div.content > div.row.bottom.comments > div.buttons.row > #btnSave";
 
@@ -27,6 +22,7 @@ namespace AFLSUIProjectTest.UIMap.Configuration
 
         //Tab UC Details
         public string UCTabDetail = "//div[@class='uc']/div[2]/div/div/div/ul/li/a[@href='#tabs-1']"; //XPath
+
         public string TextTabUCDetail = "UC detail";
 
         public string UCName = ".container-app .container-module .admin .content.col.module .uc .details .tabContent.UCGeneral input[name='Name']";
@@ -69,17 +65,21 @@ namespace AFLSUIProjectTest.UIMap.Configuration
         public string UCChronometerAutocomplete = "//div[@class='uc']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/div[@class='row top']/div/div[@class='value']/input[@id='chronometerAutocomplete']";
         public string TextChronometerAutocomplete = "UC chronometer";
 
-        public string UCChronometerHours = "//div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div/div[2]/div/form/div[4]/input";
+        public string UCChronometerHours = "//div[@class='uc']//div[@id='tabs-2']//input[@name='Hours']";
         public string TextChronometerHours = "UC chronometer Hours";
 
-        public string UCChronometerMinutes = "//div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div/div[2]/div/form/div[3]/input";
+        public string UCChronometerMinutes = "//div[@class='uc']//div[@id='tabs-2']//input[@name='Minutes']";
         public string TextChronometerMinutes = "UC chronometer Minutes";
 
-        public string UCChronometerCompilance = "//div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div/div[2]/div/form/div[2]/input";
+        public string UCChronometerCompilance = "//div[@class='uc']//div[@id='tabs-2']//input[@name='Compilance']";
         public string TextChronometerCompilance = "UC chronometer Compilance";
 
         /*Tab Archivos adjuntos*/
         public string UCTabAttachedFiles = "//div[@class='uc']/div[2]/div/div/div/ul/li/a[@href='#tabs-3']";
         public string TextTabAttachedFiles = "Attached Files";
+
+        public string UCStartCalendarControl = "/html/body/div[12]/div[1]/div[2]/table/tbody/tr/td";
+        public string UCFinishCalendarControl = "/html/body/div[13]/div[1]/div[2]/table/tbody/tr/td";
+        public string UCReviewCalendarControl = "/html/body/div[14]/div[1]/div[2]/table/tbody/tr/td";
     }
 }

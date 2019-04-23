@@ -57,5 +57,7 @@
         public string CalendarThursday = "//div[@class='calendars']//div[@id='tabs-2']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[@class='fc-content-skeleton']/table/tbody/tr/td[6]";
         public string CalendarFriday = "//div[@class='calendars']//div[@id='tabs-2']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[@class='fc-content-skeleton']/table/tbody/tr/td[7]";
         public string CalendarSaturday = "//div[@class='calendars']//div[@id='tabs-2']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[@class='fc-content-skeleton']/table/tbody/tr/td[8]";
+
+        public string CalendarControl = "/html/body/div[15]/div[1]/div[2]/table/tbody/tr/td[not(contains(@class,'disabled'))]";
     }
 }

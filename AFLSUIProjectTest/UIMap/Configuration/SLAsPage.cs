@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AFLSUIProjectTest.UIMap.Configuration
+﻿namespace AFLSUIProjectTest.UIMap.Configuration
 {
     public class SLAsPage
     {
@@ -27,6 +21,7 @@ namespace AFLSUIProjectTest.UIMap.Configuration
 
         //Tab SLA details
         public string TabSLADetail = "body > div.frameworks > div > div.base.container-module.bottom.row > div > div.content.col.module > div #rightsidebar > div > div.row.top > div > ul > li.ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active #ui-id-1";
+
         public string TextTabSLADetail = "SLA detail";
 
         public string SLAName = ".container-app .container-module .admin .content.col.module .sla .details .tabContent.SLAGeneral input[name='Name']";
@@ -83,5 +78,11 @@ namespace AFLSUIProjectTest.UIMap.Configuration
         public string TextTabAttachedFiles = "Attached Files";
 
         public string SLASubmit = "div.sla > #rightsidebar > div.content > div.row.bottom.comments > div.buttons.row > #btnSave";
+
+        public string SLAStartCalendarControl = "/html/body/div[15]/div[1]/div[2]/table/tbody/tr/td";
+
+        public string SLAFinishCalendarControl = "/html/body/div[16]/div[1]/div[2]/table/tbody/tr/td";
+
+        public string SLAReviewCalendarControl = "/html/body/div[17]/div[1]/div[2]/table/tbody/tr/td";
     }
 }

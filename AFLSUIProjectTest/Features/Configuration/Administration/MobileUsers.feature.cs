@@ -372,7 +372,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 124
  testRunner.And("Doy click en eliminar usuario móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 125
- testRunner.And("Selecciono Aceptar en mensaje de confirmación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono Aceptar en mensaje de confirmación de borrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 126
  testRunner.Then("Se muestra mensaje indicando que se borro el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 127

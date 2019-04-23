@@ -11,7 +11,7 @@ Scenario:1 Creación completa de Cronómetros
 	And Selecciono la opción Cronómetros
 	And Doy click en Nuevo cronometro
 	And Diligencio nombre de cronometro
-	And Diligencio descripción de cronometro
+	And Diligencio descripción de OLA de cronometro
 	And Doy click en Guardar cronometro
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el cronometro en la tabla AFW_ITEM_TIMES
@@ -54,7 +54,7 @@ Scenario: 4 Borrar cronómetro existente
 	And Selecciono la opción Cronómetros
 	And Busco y selecciono el cronómetro
 	And Doy click en eliminar cronómetro
-	And Selecciono Aceptar en mensaje de confirmación
+	And Selecciono Aceptar en mensaje de confirmación de borrado
 	Then Se muestra mensaje indicando que se borro el registro exitosamente
 	And Se marca como eliminada la información del cronómetro en la tabla AFW_ITEM_TIMES
 	And Al buscar el cronómetro en la aplicación, no se lista en la búsqueda

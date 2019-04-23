@@ -185,7 +185,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         [Then(@"Al buscar el calendario en la aplicación, no se lista en la búsqueda")]
         public void ThenAlBuscarElCalendarioEnLaAplicacionNoSeListaEnLaBusqueda()
         {
-            CommonElementsAction.SendKeys_InputText("CssSelector", CalendarsPage.CalendarFieldSearch, CalendarName);
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", CalendarsPage.CalendarFieldSearch, CalendarName);
             CommonElementsAction.Click("CssSelector", CalendarsPage.CalendarButtonSearch);
             CommonElementsAction.WaitElementNoFound(CalendarsPage.CalendarView);
         }

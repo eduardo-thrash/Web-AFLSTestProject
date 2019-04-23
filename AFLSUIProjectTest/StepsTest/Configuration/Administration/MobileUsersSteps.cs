@@ -385,7 +385,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"Selecciono Aceptar en mensaje de confirmación")]
+        [When(@"Selecciono Aceptar en mensaje de confirmación de borrado")]
         public void WhenSeleccionoAceptarEnMensajeDeConfirmacion()
         {
             CommonElementsAction.Click("CssSelector", MessagesElements.SubmitButton);
@@ -420,7 +420,10 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [Then(@"Al buscar el usuario móvil en la aplicación, no se lista en la búsqueda")]
         public void ThenAlBuscarElUsuarioMovilEnLaAplicacionNoSeListaEnLaBusqueda()
         {
-            ScenarioContext.Current.Pending();
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", MobileUsersPage.MobileUserFieldSearch, CommonQuery.DBSelectAValue("SELECT user_nick_name FROM  AFW_USERS WHERE user_id = '" + UserId + "';", 1));
+            CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserButtonSearch);
+            Thread.Sleep(1000);
+            CommonElementsAction.Click("XPath", MobileUsersPage.MobileUserView);
         }
     }
 }

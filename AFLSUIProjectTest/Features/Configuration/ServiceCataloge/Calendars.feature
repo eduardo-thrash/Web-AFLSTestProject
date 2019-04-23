@@ -10,7 +10,7 @@ Scenario: 1 Creación exitosa de Calendarios
 	And Selecciono la opción Calendarios
 	And Doy click en Nuevo calendario
 	And Diligencio nombre de calendario
-	And Diligencio descripción de calendario
+	And Diligencio descripción de OLA de calendario
 	And Selecciono el Tab de Horas laborales de calendario
 	And Selecciono disponibilidad de siete días en calendario
 	And Selecciono el Tab de Días no laborales
@@ -57,7 +57,7 @@ Scenario: 4 Borrar calendario existente
 	And Selecciono la opción Calendarios
 	And Busco y selecciono el calendario
 	And Doy click en eliminar calendario
-	And Selecciono Aceptar en mensaje de confirmación
+	And Selecciono Aceptar en mensaje de confirmación de borrado
 	Then Se muestra mensaje indicando que se borro el registro exitosamente
 	And No se registra el calendario en la tabla AFLS_CALENDAR
 	And Al buscar el calendario en la aplicación, no se lista en la búsqueda

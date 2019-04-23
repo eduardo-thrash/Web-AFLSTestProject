@@ -96,7 +96,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 13
  testRunner.And("Selecciono Modelo de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
- testRunner.And("Diligencio descripción del servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Diligencio descripción de OLA del servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
  testRunner.And("Diligencio Asunto del servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16

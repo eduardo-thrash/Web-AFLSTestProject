@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AFLSUIProjectTest.UIMap.Configuration
+﻿namespace AFLSUIProjectTest.UIMap.Configuration
 {
     public class ElementsOLA
     {
         //Elements SubMenu y option
         public string OLAModule = "UC";
+
         public string OLAButtonNew = "body > div.frameworks > div > div.base.container-module.bottom.row > div > div.content.col.module > div.ola #content > div.center.header.row > div > div.btnSearch #commonNewItem"; //CssSelector
         public string OLASubmit = "div.ola > #rightsidebar > div.content > div.row.bottom.comments > div.buttons.row > #btnSave"; //CssSelector
 
@@ -27,6 +22,7 @@ namespace AFLSUIProjectTest.UIMap.Configuration
 
         //Tab UC Details
         public string OLATabDetail = "//div[@class='ola']/div[2]/div/div/div/ul/li/a[@href='#tabs-1']"; //XPath
+
         public string TextOLATabDetail = "OLA detail";
 
         public string OLAName = ".container-app .container-module .admin .content.col.module .ola .details .tabContent.OLAGeneral input[name='Name']"; //CssSelector
@@ -57,7 +53,7 @@ namespace AFLSUIProjectTest.UIMap.Configuration
         public string TextOLALimitDaysReviewAlarm = "Limit Days Review Alarm";
 
         public string OLACost = ".container-app .container-module .admin .content.col.module .ola .details .tabContent.OLAGeneral input[name='Cost']"; //CssSelector
-        public string TextOLACost = "Cost"; 
+        public string TextOLACost = "Cost";
 
         public string OLAPenality = ".container-app .container-module .admin .content.col.module .ola .details .tabContent.OLAGeneral input[name='Penality']"; //CssSelector
         public string TextOLAPenality = "Penality";
@@ -70,17 +66,21 @@ namespace AFLSUIProjectTest.UIMap.Configuration
 
         public string TextChronometerAutocomplete = "OLA chronometer";
 
-        public string OLAChronometerHours = "//div[@class='ola']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div[@class='innerTab row']/div[2]/div[@id='mCSB_6']/div[@id='mCSB_6_container']/div[2]/div/div/div[2]/div/form/div[4]/input[@name='Hours']";
+        public string OLAChronometerHours = "//div[@class='ola']//div[@id='tabs-2']//input[@name='Hours']";
         public string TextChronometerHours = "OLA chronometer Hours";
 
-        public string OLAChronometerMinutes = "(//input[@name='Minutes'])";
+        public string OLAChronometerMinutes = "//div[@class='ola']//div[@id='tabs-2']//input[@name='Minutes']";
         public string TextChronometerMinutes = "OLA chronometer Minutes";
 
-        public string OLAChronometerCompilance = "(//input[@name='Compilance'])";
+        public string OLAChronometerCompilance = "//div[@class='ola']//div[@id='tabs-2']//input[@name='Compilance']";
         public string TextChronometerCompilance = "OLA chronometer Compilance";
 
         /*Tab Archivos adjuntos*/
         public string OLATabAttachedFiles = "//div[@class='ola']/div[2]/div/div/div/ul/li/a[@href='#tabs-3']";
         public string TextOLATabAttachedFiles = "Attached Files";
+
+        public string OLAStartCalendarControl = "/html/body/div[21]/div[1]/div[2]/table/tbody/tr/td";
+        public string OLAFinishCalendarControl = "/html/body/div[22]/div[1]/div[2]/table/tbody/tr/td";
+        public string OLAReviewCalendarControl = "/html/body/div[23]/div[1]/div[2]/table/tbody/tr/td";
     }
 }

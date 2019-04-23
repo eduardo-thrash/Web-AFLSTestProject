@@ -96,7 +96,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 13
  testRunner.And("Diligencio nombre de cronometro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
- testRunner.And("Diligencio descripción de cronometro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Diligencio descripción de OLA de cronometro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
  testRunner.And("Doy click en Guardar cronometro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
@@ -206,7 +206,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 56
  testRunner.And("Doy click en eliminar cronómetro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 57
- testRunner.And("Selecciono Aceptar en mensaje de confirmación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono Aceptar en mensaje de confirmación de borrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 58
  testRunner.Then("Se muestra mensaje indicando que se borro el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 59

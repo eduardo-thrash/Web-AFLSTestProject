@@ -1,13 +1,9 @@
-﻿
+﻿using AFLSUIProjectTest.CommonAFLS;
 using AFLSUIProjectTest.UIMap.Configuration;
 using AFLSUIProjectTest.UIMap.Messages;
 using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -16,251 +12,200 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
     [Binding]
     public sealed class SLAsSteps
     {
- 
         private SLAsPage SLAsPage = new SLAsPage();
 
         private object ElementsMessages;
         private PageMessages PageMessages = new PageMessages();
-        
+        private string DefaultANSName = "UI ANS ";
+        private string ANSName = null;
+        private string EditANSName = "UI edit ANS ";
+        private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
 
-        [When(@"Creación exitosa de ANS")]
-        public void WhenCreacionExitosaDeANS()
+        [Given(@"El ANS no existe")]
+        public void GivenElANSNoExiste()
         {
-            //Login.
-            
-            //End Login.
+            ANSName = DefaultANSName + Functions.RandomText();
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_SLA WHERE agreement_type = 1 AND name = '" + ANSName + "';", 0);
+        }
 
-            //Navigate ItemMenu, SubMenu and selected option.
-            
-            //End Navigate ItemMenu, SubMenu and selected option.
+        [When(@"Doy click en Nuevo ANS")]
+        public void WhenDoyClickEnNuevoANS()
+        {
+            CommonElementsAction.Click("CssSelector", SLAsPage.SLAButtonNew);
+        }
 
-            //Navigate Module Content
-            CommonElementsAction.Click("CssSelector",SLAsPage.SLAButtonNew);
-            //End Navigate Module Content
-
-            ////Navigate Module Details
-
-            //Navigate from Principal tab.
-            Console.WriteLine("Navigate from Principal tab." + "\n");
+        [When(@"Diligencio nombre de ANS")]
+        public void WhenDiligencioNombreDeANS()
+        {
             Thread.Sleep(3000);
 
-            CommonElementsAction.Click("CssSelector",SLAsPage.TabSLADetail);
+            CommonElementsAction.Click("CssSelector", SLAsPage.TabSLADetail);
 
-            CommonElementsAction.SendKeys_InputText("CssSelector",SLAsPage.SLAName,"ANS UI Gold");
+            CommonElementsAction.SendKeys_InputText("CssSelector", SLAsPage.SLAName, ANSName);
+        }
 
-            CommonElementsAction.SendKeys_InputText("CssSelector",SLAsPage.SLADescription,"Description ipsum dolor sit amet. consectetur adipiscing elit. Duis lobortis turpis ut sagittis consectetur. Nunc et dolor vitae libero rutrum eleifend.");
+        [When(@"Diligencio descripción de ANS")]
+        public void WhenDiligencioDescripcionDeANS()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", SLAsPage.SLADescription, "Description ipsum dolor sit amet. consectetur adipiscing elit. Duis lobortis turpis ut sagittis consectetur. Nunc et dolor vitae libero rutrum eleifend.");
+        }
 
-            CommonElementsAction.SendKeys_InputText("XPath",SLAsPage.SLAStartDate,"1/01/2018");
+        [When(@"Selecciono fecha de inicio de ANS")]
+        public void WhenSeleccionoFechaDeInicioDeANS()
+        {
+            CommonElementsAction.Click("Id", SLAsPage.SLAStartDate);
+            Functions.CalendarDaySelection(false);
+        }
 
-            CommonElementsAction.SendKeys_InputText("XPath",SLAsPage.SLAFinishDate,"30/12/2019");
+        [When(@"Selecciono fecha de finalización de ANS")]
+        public void WhenSeleccionoFechaDeFinalizacionDeANS()
+        {
+            CommonElementsAction.Click("Id", SLAsPage.SLAFinishDate);
+            Functions.CalendarDaySelection();
             Thread.Sleep(3000);
+        }
 
-            CommonElementsAction.Click("CssSelector",SLAsPage.CheckEndDate);
+        [When(@"Doy click en switch de finalización de alarma de ANS")]
+        public void WhenDoyClickEnSwitchDeFinalizacionDeAlarmaDeANS()
+        {
+            CommonElementsAction.Click("CssSelector", SLAsPage.CheckEndDate);
+        }
 
-            CommonElementsAction.SendKeys_InputText("CssSelector",SLAsPage.LimitDaysFinishAlarm,"2");
+        [When(@"Diligencio días de alarma de finalización de ANS")]
+        public void WhenDiligencioDiasDeAlarmaDeFinalizacionDeANS()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", SLAsPage.LimitDaysFinishAlarm, "2");
+        }
 
-            CommonElementsAction.SendKeys_InputText("XPath",SLAsPage.SLADateReview,"01/12/2019");
+        [When(@"Selecciono fecha de revisión de ANS")]
+        public void WhenSeleccionoFechaDeRevisionDeANS()
+        {
+            CommonElementsAction.Click("Id", SLAsPage.SLADateReview);
+            Functions.CalendarDaySelection();
             Thread.Sleep(3000);
+        }
 
-            CommonElementsAction.Click("CssSelector",SLAsPage.CheckReviewDate);
+        [When(@"Doy click en switch de revisión de alarma de ANS")]
+        public void WhenDoyClickEnSwitchDeRevisionDeAlarmaDeANS()
+        {
+            CommonElementsAction.Click("CssSelector", SLAsPage.CheckReviewDate);
+        }
 
-            CommonElementsAction.SendKeys_InputText("CssSelector",SLAsPage.LimitDaysReviewAlarm,"2");
+        [When(@"Diligencio días de alarma de revisión de ANS")]
+        public void WhenDiligencioDiasDeAlarmaDeRevisionDeANS()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", SLAsPage.LimitDaysReviewAlarm, "2");
+        }
 
-            CommonElementsAction.ClearAndSendKeys_InputText("XPath",SLAsPage.Cost,"20000000");
+        [When(@"Diligencio costo relacionado al ANS")]
+        public void WhenDiligencioCostoRelacionadoAlANS()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("Name", SLAsPage.Cost, "20000000");
+        }
 
-            CommonElementsAction.ClearAndSendKeys_InputText("XPath",SLAsPage.Penality,"500000000");
+        [When(@"Diligencio costo por incumplimiento del ANS")]
+        public void WhenDiligencioCostoPorIncumplimientoDelANS()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("Name", SLAsPage.Penality, "500000000");
+        }
 
-            Console.WriteLine("\n" + "End Navigate from Principal tab.");
-            //End Navigate from Principal tab.
+        [When(@"Selecciono el Tab de Acuerdos de tiempos de ANS")]
+        public void WhenSeleccionoElTabDeAcuerdosDeTiemposDeANS()
+        {
+            CommonElementsAction.Click("CssSelector", SLAsPage.TabTimeAgreements);
+        }
 
-            //Navigate from Secundary tab.
-            Console.WriteLine("Navigate from Secundary tab." + "\n");
-            Thread.Sleep(3000);
-
-            CommonElementsAction.Click("CssSelector",SLAsPage.TabTimeAgreements);
-
-            CommonElementsAction.Select_ComboboxAutocomplete("CssSelector",SLAsPage.ChronometerAutocomplete,"Tiempo de Atención","a");
+        [When(@"Diligencio y selecciono el cronometro para ANS")]
+        public void WhenDiligencioYSeleccionoElCronometroParaANS()
+        {
+            CommonElementsAction.Select_ComboboxAutocomplete("CssSelector", SLAsPage.ChronometerAutocomplete, "Tiempo de Aten", "a");
             Thread.Sleep(2000);
-
-            CommonElementsAction.SendKeys_InputText("XPath",SLAsPage.ChronometerHours,"24");
-
-            CommonElementsAction.SendKeys_InputText("XPath",SLAsPage.ChronometerMinutes,"0");
-
-            CommonElementsAction.SendKeys_InputText("XPath",SLAsPage.ChronometerCompilance,"90");
-
-            Console.WriteLine("\n" + "Navigate from Secundary tab.");
-            //Navigate from Secundary tab.
-
-            //Save
-            Thread.Sleep(3000);
-            CommonElementsAction.Click("CssSelector",SLAsPage.SLASubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
         }
 
-        [When(@"Busqueda exitosa de un ANS existente")]
-        public void WhenBusquedaExitosaDeUnANSExistente()
+        [When(@"Diligencio horas minutos y porcentaje de cumplimiento de cronometro asociado a ANS")]
+        public void WhenDiligencioHorasMinutosYPorcentajeDeCumplimientoDeCronometroAsociadoAANS()
         {
-            //Login.
-            
-            //End Login.
+            CommonElementsAction.SendKeys_InputText("Name", SLAsPage.ChronometerHours, "24");
 
-            //Navigate SubMenu and selected option.
-            
-            //End Navigate SubMenu and selected option.
+            CommonElementsAction.SendKeys_InputText("Name", SLAsPage.ChronometerMinutes, "0");
 
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",SLAsPage.SLAFieldSearch,"ANS Emergencia WT");
-            CommonElementsAction.Click("CssSelector",SLAsPage.SLAButtonSearch);
-            //End Navigate Module List Content
-
-            //Object search to read
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("XPath",SLAsPage.SLAView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Validate response of search.
-            Thread.Sleep(3000);
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(SLAsPage.SLAName)).GetAttribute("value");
-            Assert.AreEqual("ANS Emergencia WT",Value);
-            //End Validate response of search.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.SendKeys_InputText("Name", SLAsPage.ChronometerCompilance, "90");
         }
 
-        [When(@"Modificación exitosa de un ANS")]
-        public void WhenModificacionExitosaDeUnANS()
+        [When(@"Selecciono el Tab de Adjuntos de ANS")]
+        public void WhenSeleccionoElTabDeAdjuntosDeANS()
         {
-            //Login.
-            
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-           
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",SLAsPage.SLAFieldSearch,"ANS Premium WT");
-            CommonElementsAction.Click("CssSelector",SLAsPage.SLAButtonSearch);
-            //End Navigate Module List Content
-
-            //Object search to read
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("XPath",SLAsPage.SLAView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Validate response of search.
-            Thread.Sleep(3000);
-            //End Validate response of search.
-
-            //Navigate from Principal tab.
-            Console.WriteLine("Navigate from Principal tab." + "\n");
-            Thread.Sleep(3000);
-
-            CommonElementsAction.Click("CssSelector",SLAsPage.TabSLADetail);
-
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector",SLAsPage.SLAName,"ANS Premium Update WT");
-
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector",SLAsPage.SLADescription,"Description update");
-
-            Console.WriteLine("\n" + "End Navigate from Principal tab.");
-            //End Navigate from Principal tab.
-
-            //Save
-            CommonElementsAction.Click("CssSelector",SLAsPage.SLASubmit);
-            //End Save
-
-            //Navigate Module List Content
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector",SLAsPage.SLAFieldSearch,"ANS Premium Update WT");
-            CommonElementsAction.Click("CssSelector",SLAsPage.SLAButtonSearch);
-            //End Navigate Module List Content
-
-            //Object search to read
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("XPath",SLAsPage.SLAView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Validate response of search.
-            Thread.Sleep(3000);
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(SLAsPage.SLAName)).GetAttribute("value");
-            Assert.AreEqual("ANS Premium Update WT",Value);
-            //End Validate response of search.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("CssSelector", SLAsPage.TabAttachedFiles);
         }
 
-        [When(@"Borrado exitoso de ANS existente")]
-        public void WhenBorradoExitosoDeANSExistente()
+        [When(@"Doy click en Guardar ANS")]
+        public void WhenDoyClickEnGuardarANS()
         {
-            
-            //End Login.
+            CommonElementsAction.Click("CssSelector", SLAsPage.SLASubmit);
+        }
 
-            //Navigate SubMenu and selected option.
-            
-            //End Navigate SubMenu and selected option.
+        [Then(@"Se registra el ANS en la tabla AFLS_SLA")]
+        public void ThenSeRegistraElANSEnLaTablaAFLS_SLA()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_SLA WHERE agreement_type = 1 AND name = '" + ANSName + "';", 1);
+        }
 
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",SLAsPage.SLAFieldSearch,"ANS Prioridad WT");
-            CommonElementsAction.Click("CssSelector",SLAsPage.SLAButtonSearch);
-            //End Navigate Module List Content
+        [Given(@"El ANS existe")]
+        public void GivenElANSExiste()
+        {
+            ANSName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 1 AND sla_id > 3 AND is_deleted = 1 ORDER BY NEWID();", 1);
+        }
 
-            //Object search to read
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
+        [When(@"Busco y selecciono el ANS")]
+        public void WhenBuscoYSeleccionoElANS()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", SLAsPage.SLAFieldSearch, ANSName);
+            CommonElementsAction.Click("CssSelector", SLAsPage.SLAButtonSearch);
 
-            CommonElementsAction.Click("XPath",SLAsPage.SLAView);
+            CommonElementsAction.Click("XPath", SLAsPage.SLAView);
+        }
 
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Validate response of search.
+        [Then(@"Se muestra la tarjeta del ANS y el detalle del mismo")]
+        public void ThenSeMuestraLaTarjetaDelANSYElDetalleDelMismo()
+        {
             Thread.Sleep(3000);
             string Value = CommonHooks.driver.FindElement(By.CssSelector(SLAsPage.SLAName)).GetAttribute("value");
-            Assert.AreEqual("ANS Prioridad WT",Value);
-            //End Validate response of search.
+            Assert.AreEqual(ANSName, Value);
+        }
 
-            //Delete element of List
-            Thread.Sleep(3000);
+        [When(@"Edito nombre de ANS")]
+        public void WhenEditoNombreDeANS()
+        {
+            EditANSName = EditANSName + Functions.RandomText(3);
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", SLAsPage.SLAName, EditANSName);
+        }
 
-            CommonElementsAction.Click("XPath",SLAsPage.SLAIconRemoved);
+        [Then(@"Se registra el ANS modificado en la tabla AFLS_SLA")]
+        public void ThenSeRegistraElANSModificadoEnLaTablaAFLS_SLA()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_SLA WHERE agreement_type = 1 AND name = '" + EditANSName + "';", 1);
+        }
+
+        [When(@"Doy click en eliminar ANS")]
+        public void WhenDoyClickEnEliminarANS()
+        {
+            CommonElementsAction.Click("XPath", SLAsPage.SLAIconRemoved);
             Thread.Sleep(2000);
-            
-            //End Delete element of List
-
-            //Validate response of search.
-            
-            //End Validate response of search.
-
-            //LogOut.
-            
-            //End LogOut.
         }
 
-   
+        [Then(@"Se marca como eliminada la información del ANS en la tabla AFLS_SLA")]
+        public void ThenSeMarcaComoEliminadaLaInformacionDelANSEnLaTablaAFLS_SLA()
+        {
+            CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 3 AND name = '" + ANSName + "' AND is_deleted = 1;", 1);
+        }
+
+        [Then(@"Al buscar el ANS en la aplicación, no se lista en la búsqueda")]
+        public void ThenAlBuscarElANSEnLaAplicacionNoSeListaEnLaBusqueda()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", SLAsPage.SLAFieldSearch, ANSName);
+            CommonElementsAction.Click("CssSelector", SLAsPage.SLAButtonSearch);
+
+            CommonElementsAction.WaitElementNoFound("XPath", SLAsPage.SLAView);
+        }
     }
 }

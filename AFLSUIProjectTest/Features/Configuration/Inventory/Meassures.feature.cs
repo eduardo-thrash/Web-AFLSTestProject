@@ -98,7 +98,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 14
  testRunner.And("Diligencio nombre de medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
- testRunner.And("Diligencio descripción de medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Diligencio descripción de OLA de medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
  testRunner.And("Doy click en Guardar medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
@@ -214,7 +214,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 60
  testRunner.And("Doy click en eliminar medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 61
- testRunner.And("Selecciono Aceptar en mensaje de confirmación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono Aceptar en mensaje de confirmación de borrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 62
  testRunner.Then("Se muestra mensaje indicando que se borro el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 63

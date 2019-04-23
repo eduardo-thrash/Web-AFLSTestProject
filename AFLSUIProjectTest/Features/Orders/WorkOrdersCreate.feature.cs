@@ -108,7 +108,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 19
  testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
- testRunner.And("Diligencio Descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Diligencio descripción de OLA de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
  testRunner.And("Doy click en Tab Dirección de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22

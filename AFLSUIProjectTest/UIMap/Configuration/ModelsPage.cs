@@ -24,7 +24,7 @@
         public string ModelDescription = ".container-app .container-module .admin .content.col.module .models .details .tabContent.modelsGeneral textarea[name='Description']";
         public string TextModelDescription = "Description";
 
-        public string ModelSurvey = "#Survey > div.dd-select > a.dd-selected";
+        public string ModelSurvey = "//div[@id='Survey']/div/a[@class='dd-selected']";
         public string TextModelSurvey = "Survey selector";
     }
 }

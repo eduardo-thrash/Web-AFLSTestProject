@@ -11,7 +11,7 @@ Scenario: Creación exitosa de Servicio completo
 	And Doy Click en nuevo Servicio
 	And Diligencio nuevo servicio
 	And Selecciono Modelo de servicio
-	And Diligencio descripción del servicio
+	And Diligencio descripción de OLA del servicio
 	And Diligencio Asunto del servicio
 	And Selecciono Calendario del servicio
 	And Selecciono ANS del servicio

@@ -1,277 +1,272 @@
-﻿
+﻿using AFLSUIProjectTest.CommonAFLS;
 using AFLSUIProjectTest.UIMap.Configuration;
+using AFLSUIProjectTest.UIMap.Messages;
+using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading;
 using TechTalk.SpecFlow;
-using CommonTest.CommonTest;
-using AFLSUIProjectTest.UIMap.Messages;
 
 namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
 {
     [Binding]
     public class OLAsSteps
     {
-        
-        
-        private ElementsOLA ElementsOLA = new ElementsOLA();
         //private OLAsObjectData OLAsObjectData = new OLAsObjectData();
         private object ElementsMessages;
+
         private PageMessages PageMessages = new PageMessages();
-        
+        private ElementsOLA OLAsPage = new ElementsOLA();
+        private static string DefaultOlaName = "IU OLA ";
+        private static string OlaName;
+        private static string EditOlaName = "Edit UI OLA ";
+        private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
 
-        [When(@"Creación exitosa de OLA")]
-        public void WhenCreacionExitosaDeOLA()
+        [Given(@"El OLA no existe")]
+        public void GivenElOLANoExiste()
         {
-            //Login.
-            
-            //End Login.
-
-            //Navigate ItemMenu, SubMenu and selected option.
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ServiceCatalogueMenu,SectionAdminLeftColumn.OLAOption,"");
-            //End Navigate ItemMenu, SubMenu and selected option.
-
-            //Navigate Module Content
-            CommonElementsAction.Click("CssSelector",ElementsOLA.OLAButtonNew);
-            //End Navigate Module Content
-
-            ////Navigate Module Details
-
-            //Navigate from Principal tab.
-            Console.WriteLine("Navigate from Principal tab." + "\n");
-            Thread.Sleep(3000);
-
-            CommonElementsAction.Click("XPath",ElementsOLA.OLATabDetail);
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLAName,"OLA UI Gold");
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLADescription,"Description ipsum dolor sit amet. consectetur adipiscing elit. Duis lobortis turpis ut sagittis consectetur. Nunc et dolor vitae libero rutrum eleifend.");
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLAStartDate,"1/01/2018");
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLAFinishDate,"31/12/2019");
-            Thread.Sleep(3000);
-
-            CommonElementsAction.Click("CssSelector",ElementsOLA.OLACheckEndDate);
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLALimitDaysFinishAlarm,"3");
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLADateReview,"1/12/2019");
-            Thread.Sleep(3000);
-
-            CommonElementsAction.Click("CssSelector",ElementsOLA.OLACheckReviewDate);
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLALimitDaysReviewAlarm,"3");
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLACost,"20000000");
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLAPenality,"400000000");
-
-            Console.WriteLine("\n" + "End Navigate from Principal tab.");
-            //End Navigate from Principal tab.
-
-            //Navigate from Secundary tab.
-            Console.WriteLine("Navigate from Secundary tab." + "\n");
-            Thread.Sleep(3000);
-
-            CommonElementsAction.Click("XPath",ElementsOLA.OLATabTimeAgreements);
-
-            //CommonTest.CommonElementsAction.Select_ComboboxAutocomplete("XPath",ElementsOLA.OLAChronometerAutocomplete,"Tiempo de Atención","a");
-            //Thread.Sleep(2000);
-
-            //CommonElementsAction.SendKeys_InputText("XPath",ElementsOLA.OLAChronometerHours,"48");
-
-            //CommonElementsAction.SendKeys_InputText("XPath",ElementsOLA.OLAChronometerMinutes,"0");
-
-            //CommonElementsAction.SendKeys_InputText("XPath",ElementsOLA.OLAChronometerCompilance,"90");
-
-            Console.WriteLine("\n" + "Navigate from Secundary tab.");
-            //Navigate from Secundary tab.
-
-            //Save
-            Thread.Sleep(3000);
-            CommonElementsAction.Click("CssSelector",ElementsOLA.OLASubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            OlaName = DefaultOlaName + Functions.RandomText(5);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFLS_SLA WHERE agreement_type = 3 AND name = '" + OlaName + "';", 0);
         }
 
-        [When(@"Busqueda exitosa de OLA existente")]
-        public void WhenBusquedaExitosaDeOLAExistente()
+        [When(@"Diligencio nombre de OLA")]
+        public void WhenDiligencioNombreDeOLA()
         {
-            //Login.
-            
-            //End Login.
+            CommonElementsAction.Click("XPath", OLAsPage.OLATabDetail);
 
-            //Navigate SubMenu and selected option.
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ServiceCatalogueMenu,SectionAdminLeftColumn.OLAOption,"");
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLAFieldSearch,"OLA Premium WT");
-            CommonElementsAction.Click("CssSelector",ElementsOLA.OLAButtonSearch);
-            //End Navigate Module List Content
-
-            //Object search to read
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("XPath",ElementsOLA.OLAView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Validate response of search.
-            Thread.Sleep(3000);
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(ElementsOLA.OLAName)).GetAttribute("value");
-            Assert.AreEqual("OLA Premium WT",Value);
-            //End Validate response of search.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLAName, OlaName);
         }
 
-        [When(@"Modificación exitosa de OLA")]
-        public void WhenModificacionExitosaDeOLA()
+        [When(@"Diligencio descripción")]
+        public void WhenDiligencioDescripcion()
         {
-            //Login.
-            
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ServiceCatalogueMenu,SectionAdminLeftColumn.OLAOption,"");
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLAFieldSearch,"OLA Normal WT");
-            CommonElementsAction.Click("CssSelector",ElementsOLA.OLAButtonSearch);
-            //End Navigate Module List Content
-
-            //Object search to read
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("XPath",ElementsOLA.OLAView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Validate response of search.
-            Thread.Sleep(3000);
-            //End Validate response of search.
-
-            //Navigate from Principal tab.
-            Console.WriteLine("Navigate from Principal tab." + "\n");
-            Thread.Sleep(3000);
-
-            CommonElementsAction.Click("XPath",ElementsOLA.OLATabDetail);
-
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector",ElementsOLA.OLAName,"OLA Update Plata UI");
-
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector",ElementsOLA.OLADescription,"Update Description ipsum dolor sit amet consectetur adipiscing elit.");
-
-            Console.WriteLine("\n" + "End Navigate from Principal tab.");
-            //End Navigate from Principal tab.
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsOLA.OLASubmit);
-            //End Save
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //Navigate Module List Content
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector",ElementsOLA.OLAFieldSearch,"OLA Update Plata UI");
-            CommonElementsAction.Click("CssSelector",ElementsOLA.OLAButtonSearch);
-            //End Navigate Module List Content
-
-            //Object search to read
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("XPath",ElementsOLA.OLAView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Validate response of search.
-            Thread.Sleep(3000);
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(ElementsOLA.OLAName)).GetAttribute("value");
-            Assert.AreEqual("OLA Update Plata UI",Value);
-            //End Validate response of search.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLADescription, "Description ipsum dolor sit amet. consectetur adipiscing elit. Duis lobortis turpis ut sagittis consectetur. Nunc et dolor vitae libero rutrum eleifend.");
         }
 
-        [When(@"Borrado exitoso de OLA existente")]
-        public void WhenBorradoExitosoDeOLAExistente()
+        [When(@"Selecciono fecha de inicio")]
+        public void WhenSeleccionoFechaDeInicio()
         {
-            
-            //End Login.
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLAStartDate);
+            Functions.CalendarDaySelection(false);
+        }
 
-            //Navigate SubMenu and selected option.
-            
-            //End Navigate SubMenu and selected option.
+        [When(@"Selecciono fecha de finalización")]
+        public void WhenSeleccionoFechaDeFinalizacion()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLAFinishDate);
+            Functions.CalendarDaySelection();
+        }
 
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsOLA.OLAFieldSearch,"OLA Emergencia WT");
-            CommonElementsAction.Click("CssSelector",ElementsOLA.OLAButtonSearch);
-            //End Navigate Module List Content
+        [When(@"Doy click en switch de finalización de alarma")]
+        public void WhenDoyClickEnSwitchDeFinalizacionDeAlarma()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLACheckEndDate);
+        }
 
-            //Object search to read
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
+        [When(@"Diligencio días de alarma de finalización")]
+        public void WhenDiligencioDiasDeAlarmaDeFinalizacion()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLALimitDaysFinishAlarm, "3");
+        }
 
-            CommonElementsAction.Click("XPath",ElementsOLA.OLAView);
+        [When(@"Selecciono fecha de revisión")]
+        public void WhenSeleccionoFechaDeRevision()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLADateReview);
+            Functions.CalendarDaySelection();
+        }
 
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
+        [When(@"Doy click en switch de revisión de alarma")]
+        public void WhenDoyClickEnSwitchDeRevisionDeAlarma()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLACheckReviewDate);
+        }
 
-            //Validate response of search.
-            Thread.Sleep(3000);
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(ElementsOLA.OLAName)).GetAttribute("value");
-            Assert.AreEqual("OLA Emergencia WT",Value);
-            //End Validate response of search.
+        [When(@"Diligencio días de alarma de revisión")]
+        public void WhenDiligencioDiasDeAlarmaDeRevision()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLALimitDaysReviewAlarm, "3");
+        }
 
-            //Delete element of List
-            Thread.Sleep(3000);
+        [When(@"Diligencio costo relacionado al OLA")]
+        public void WhenDiligencioCostoRelacionadoAlOLA()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLACost, "20000000");
+        }
 
-            CommonElementsAction.Click("XPath",ElementsOLA.OLAIconRemoved);
+        [When(@"Diligencio descripción de OLA")]
+        public void WhenDiligencioDescripcionDeOLA()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLADescription, "Description ipsum dolor sit amet. consectetur adipiscing elit. Duis lobortis turpis ut sagittis consectetur. Nunc et dolor vitae libero rutrum eleifend.");
+        }
+
+        [When(@"Selecciono fecha de inicio de OLA")]
+        public void WhenSeleccionoFechaDeInicioDeOLA()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLAStartDate);
+            Functions.CalendarDaySelection(false);
+        }
+
+        [When(@"Selecciono fecha de finalización de OLA")]
+        public void WhenSeleccionoFechaDeFinalizacionDeOLA()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLAFinishDate);
+            Functions.CalendarDaySelection();
+        }
+
+        [When(@"Doy click en switch de finalización de alarma de OLA")]
+        public void WhenDoyClickEnSwitchDeFinalizacionDeAlarmaDeOLA()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLACheckEndDate);
+        }
+
+        [When(@"Diligencio días de alarma de finalización de OLA")]
+        public void WhenDiligencioDiasDeAlarmaDeFinalizacionDeOLA()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLALimitDaysFinishAlarm, "3");
+        }
+
+        [When(@"Selecciono fecha de revisión de OLA")]
+        public void WhenSeleccionoFechaDeRevisionDeOLA()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLADateReview);
+            Functions.CalendarDaySelection();
+        }
+
+        [When(@"Doy click en switch de revisión de alarma de OLA")]
+        public void WhenDoyClickEnSwitchDeRevisionDeAlarmaDeOLA()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLACheckReviewDate);
+        }
+
+        [When(@"Diligencio días de alarma de revisión de OLA")]
+        public void WhenDiligencioDiasDeAlarmaDeRevisionDeOLA()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLALimitDaysReviewAlarm, "3");
+        }
+
+        [When(@"Diligencio horas minutos y porcentaje de cumplimiento de cronometro asociado a OLA")]
+        public void WhenDiligencioHorasMinutosYPorcentajeDeCumplimientoDeCronometroAsociadoAOLA()
+        {
             Thread.Sleep(2000);
-            
-            //End Delete element of List
 
-            //Validate response of search.
-            
-            //End Validate response of search.
+            CommonElementsAction.SendKeys_InputText("XPath", OLAsPage.OLAChronometerHours, "48");
 
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.SendKeys_InputText("XPath", OLAsPage.OLAChronometerMinutes, "0");
+
+            CommonElementsAction.SendKeys_InputText("XPath", OLAsPage.OLAChronometerCompilance, "90");
         }
 
-        #region Data csv
+        [When(@"Diligencio costo por incumplimiento del OLA")]
+        public void WhenDiligencioCostoPorIncumplimientoDelOLA()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLAPenality, "400000000");
+        }
 
-       
+        [When(@"Selecciono el Tab de Acuerdos de tiempos de OLA")]
+        public void WhenSeleccionoElTabDeAcuerdosDeTiemposDeOLA()
+        {
+            CommonElementsAction.Click("XPath", OLAsPage.OLATabTimeAgreements);
+        }
 
-        
+        [When(@"Diligencio y selecciono el cronometro para OLA")]
+        public void WhenDiligencioYSeleccionoElCronometroParaOLA()
+        {
+            CommonElementsAction.Select_ComboboxAutocomplete("XPath", OLAsPage.OLAChronometerAutocomplete, "Tiempo de Atención", "a");
+        }
 
-        #endregion Data csv
+        [When(@"Diligencio horas minutos y porcentaje de cumplimiento")]
+        public void WhenDiligencioHorasMinutosYPorcentajeDeCumplimiento()
+        {
+            Thread.Sleep(2000);
+
+            CommonElementsAction.SendKeys_InputText("XPath", OLAsPage.OLAChronometerHours, "48");
+
+            CommonElementsAction.SendKeys_InputText("XPath", OLAsPage.OLAChronometerMinutes, "0");
+
+            CommonElementsAction.SendKeys_InputText("XPath", OLAsPage.OLAChronometerCompilance, "90");
+        }
+
+        [When(@"Selecciono el Tab de Adjuntos de OLA")]
+        public void WhenSeleccionoElTabDeAdjuntosDeOLA()
+        {
+            CommonElementsAction.Click("XPath", OLAsPage.OLATabAttachedFiles);
+        }
+
+        [When(@"Doy click en Guardar OLA")]
+        public void WhenDoyClickEnGuardarOLA()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLASubmit);
+        }
+
+        [Then(@"Se registra el OLA en la tabla AFLS_SLA")]
+        public void ThenSeRegistraElOLAEnLaTablaAFLS_SLA()
+        {
+            CommonQuery.DBSelectAValue("SELECT name FROM AFLS_SLA WHERE agreement_type = 3 AND name = '" + OlaName + "';", 1);
+        }
+
+        [Given(@"El OLA existe")]
+        public void GivenElOLAExiste()
+        {
+            OlaName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 3 AND sla_id > 3 AND is_deleted = 1 ORDER BY NEWID();", 1);
+        }
+
+        [When(@"Busco y selecciono el OLA")]
+        public void WhenBuscoYSeleccionoElOLA()
+        {
+            Thread.Sleep(2000);
+            CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLAFieldSearch, OlaName);
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLAButtonSearch);
+            CommonElementsAction.Click("XPath", OLAsPage.OLAView);
+        }
+
+        [Then(@"Se muestra la tarjeta del OLA y el detalle del mismo")]
+        public void ThenSeMuestraLaTarjetaDelOLAYElDetalleDelMismo()
+        {
+            Thread.Sleep(3000);
+            string Value = CommonHooks.driver.FindElement(By.CssSelector(OLAsPage.OLAName)).GetAttribute("value");
+            Assert.AreEqual(OlaName, Value);
+        }
+
+        [When(@"Doy click en Nuevo OLA")]
+        public void WhenDoyClickEnNuevoOLA()
+        {
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLAButtonNew);
+        }
+
+        [When(@"Edito nombre de OLA")]
+        public void WhenEditoNombreDeOLA()
+        {
+            EditOlaName = EditOlaName + Functions.RandomText(3);
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", OLAsPage.OLAName, EditOlaName);
+        }
+
+        [Then(@"Se registra el OLA modificado en la tabla AFLS_SLA")]
+        public void ThenSeRegistraElOLAModificadoEnLaTablaAFLS_SLA()
+        {
+            CommonQuery.DBSelectAValue("SELECT name FROM AFLS_SLA WHERE agreement_type = 3 AND name = '" + EditOlaName + "';", 1);
+        }
+
+        [When(@"Doy click en eliminar OLA")]
+        public void WhenDoyClickEnEliminarOLA()
+        {
+            CommonElementsAction.Click("XPath", OLAsPage.OLAIconRemoved);
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"Se marca como eliminada la información del OLA en la tabla AFLS_SLA")]
+        public void ThenSeMarcaComoEliminadaLaInformacionDelOLAEnLaTablaAFLS_SLA()
+        {
+            CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 3 AND name = '" + OlaName + "' AND is_deleted = 1;", 1);
+        }
+
+        [Then(@"Al buscar el OLA en la aplicación, no se lista en la búsqueda")]
+        public void ThenAlBuscarElOLAEnLaAplicacionNoSeListaEnLaBusqueda()
+        {
+            Thread.Sleep(1000);
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", OLAsPage.OLAFieldSearch, OlaName);
+            CommonElementsAction.Click("CssSelector", OLAsPage.OLAButtonSearch);
+            CommonElementsAction.WaitElementNoFound(OLAsPage.OLAView);
+        }
     }
 }

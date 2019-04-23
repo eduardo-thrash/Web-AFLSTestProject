@@ -17,7 +17,7 @@ Scenario: Creación Básica de orden de trabajo
 	And Selecciono Tipo de Orden Prioritaria de orden
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
-	And Diligencio Descripción de orden
+	And Diligencio descripción de OLA de orden
 	And Doy click en Tab Dirección de orden
 	And Doy click en Tab Asignación de orden
 	And Selecciono tab Asignación Automática

@@ -122,7 +122,7 @@ Scenario: Borrado exitoso de usuario móvil existente.
 	And Selecciono la opción Usuarios Móviles
 	And Busco y selecciono el usuario móvil
 	And Doy click en eliminar usuario móvil
-	And Selecciono Aceptar en mensaje de confirmación
+	And Selecciono Aceptar en mensaje de confirmación de borrado
 	Then Se muestra mensaje indicando que se borro el registro exitosamente
 	And Se borra usuario de la tabla AFW_USERS
 	And Se borra usuario móvil de la tabla AFLS_USERS_SPECIALISTS

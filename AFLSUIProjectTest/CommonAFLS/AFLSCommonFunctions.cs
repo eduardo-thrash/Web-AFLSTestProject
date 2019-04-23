@@ -1,7 +1,6 @@
 ﻿using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -121,34 +120,80 @@ namespace AFLSUIProjectTest.CommonAFLS
             }
         }
 
-        public string RandomText(int longitud = 0)
+        public string RandomText(int longitud = 7)
         {
-            if (longitud > 0)
-            {
-                longitud = 7;
-            }
             Guid miGuid = Guid.NewGuid();
             string token = miGuid.ToString().Replace("-", string.Empty).Substring(0, longitud);
             return token;
         }
 
-        public void CalendarDaySelection()
+        public void CalendarDaySelection(bool disable = true)
         {
             string Error = null;
             Thread.Sleep(1000);
+            bool CalendarFind = false;
+
+            IList<IWebElement> CalendarControlList = CommonHooks.driver.FindElements(By.XPath("/html/body/div[@class='xdsoft_datetimepicker xdsoft_ xdsoft_noselect ']"));
+            int index = 0;
+            int cycle = 1;
+            foreach (IWebElement ControlCalendar in CalendarControlList)
+            {
+                try
+                {
+                    string ElementOk = ControlCalendar.Text;
+                    Assert.AreNotEqual(ElementOk, "");
+                    CalendarFind = true;
+                    index = cycle;
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Error = e.Message;
+                }
+                cycle++;
+            }
+
+            try
+            {
+                Assert.IsTrue(CalendarFind);
+            }
+            catch
+            {
+                Assert.Fail(Error);
+            }
             for (int second = 0; ; second++)
             {
                 try
                 {
                     if (second >= 10) Assert.Fail(Error);
 
-                    IList<IWebElement> DaysList = CommonHooks.driver.FindElements(By.XPath("/html/body/div[15]/div[1]/div[2]/table/tbody/tr/td[not(contains(@class,'disabled'))]"));
+                    IWebElement Day = CommonHooks.driver.FindElement(By.XPath("(/html/body/div[@class='xdsoft_datetimepicker xdsoft_ xdsoft_noselect '])[" + index + "]/div[1]/div[2]/table/tbody/tr/td"));
+                    Thread.Sleep(1);
+                    Thread.Sleep(1);
+                    Thread.Sleep(1);
+                    Thread.Sleep(1);
+                    Thread.Sleep(1);
+
+                    IList<IWebElement> DaysList = CommonHooks.driver.FindElements(By.XPath("(/html/body/div[@class='xdsoft_datetimepicker xdsoft_ xdsoft_noselect '])[" + index + "]/div[1]/div[2]/table/tbody/tr/td"));
+
                     int EndIndex = DaysList.Count - 1;
-                    Assert.IsTrue(DaysList[EndIndex].Enabled);
-                    Assert.IsTrue(DaysList[EndIndex].Displayed);
-                    Assert.AreNotEqual(DaysList[EndIndex], 0);
-                    Thread.Sleep(500);
-                    DaysList[EndIndex].Click();
+                    if (disable)
+                    {
+                        Assert.IsTrue(DaysList[EndIndex].Enabled);
+                        Assert.IsTrue(DaysList[EndIndex].Displayed);
+                        Assert.AreNotEqual(DaysList[EndIndex], 0);
+                        Thread.Sleep(500);
+                        DaysList[EndIndex].Click();
+                    }
+                    else
+                    {
+                        Assert.IsTrue(DaysList[0].Enabled);
+                        Assert.IsTrue(DaysList[0].Displayed);
+                        Assert.AreNotEqual(DaysList[0], 0);
+                        Thread.Sleep(500);
+                        DaysList[0].Click();
+                    }
+
                     break;
                 }
                 catch (Exception e)

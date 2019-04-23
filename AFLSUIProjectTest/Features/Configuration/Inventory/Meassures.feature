@@ -12,7 +12,7 @@ Scenario: 1 Creación exitosa de Medidas
 	And Selecciono la opción Medidas
 	And Doy click en Nueva medida
 	And Diligencio nombre de medida
-	And Diligencio descripción de medida
+	And Diligencio descripción de OLA de medida
 	And Doy click en Guardar medida
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra medida en la tabla AFLS_STOCK_MEASURES
@@ -58,7 +58,7 @@ Scenario: 4 Borrado exitoso de Medida existente
 	And Selecciono la opción Medidas
 	And Busco y selecciono la medida
 	And Doy click en eliminar medida
-	And Selecciono Aceptar en mensaje de confirmación
+	And Selecciono Aceptar en mensaje de confirmación de borrado
 	Then Se muestra mensaje indicando que se borro el registro exitosamente
 	And No se registra la medida en la tabla AFLS_STOCK_MEASURES
 	And Al buscar la medida en la aplicación, no se lista en la búsqueda

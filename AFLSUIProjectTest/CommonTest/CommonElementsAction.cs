@@ -415,7 +415,7 @@ namespace CommonTest.CommonTest
                     Thread.Sleep(2000);
                     break;
                 }
-                catch (Exception)
+                catch (Exception Ex)
                 {
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -835,7 +835,7 @@ namespace CommonTest.CommonTest
 
         #region Select option of dropdown list
 
-        public static void ClickAndSelect_Random_DropDownList(string ElementType, string Select, string Option)
+        public static void ClickAndSelect_Random_DropDownList(string ElementType, string Select, string Option, bool TakeIndexOne = true)
         {
             IWebElement SelectElement = CommonHooks.driver.FindElement(By.XPath(Select));
             SelectElement.Click();
@@ -843,10 +843,21 @@ namespace CommonTest.CommonTest
 
             IList<IWebElement> AllOptions = CommonHooks.driver.FindElements(By.XPath(Option));
             int NumOptions = AllOptions.Count;
+            int RandomNum;
+            int start;
 
-            Random rnd = new Random();
-            int RandomNum = rnd.Next(1, NumOptions);
-            int start = 1;
+            if (TakeIndexOne)
+            {
+                Random rnd = new Random();
+                RandomNum = rnd.Next(1, NumOptions);
+                start = 1;
+            }
+            else
+            {
+                Random rnd = new Random();
+                RandomNum = rnd.Next(2, NumOptions);
+                start = 1;
+            }
 
             foreach (IWebElement Elements in AllOptions)
             {

@@ -378,7 +378,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 126
  testRunner.And("Doy click en eliminar relación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 127
- testRunner.And("Selecciono Aceptar en mensaje de confirmación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono Aceptar en mensaje de confirmación de borrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 128
  testRunner.When("Eliminación exitosa de relaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 129

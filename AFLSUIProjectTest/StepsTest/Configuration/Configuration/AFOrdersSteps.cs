@@ -39,7 +39,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
 
            // CommonElementsAction.ClickAndSelect_DropDownIndex("XPath",AFOrdersPage.ETypeOption,1,"Option");
 
-            // And diligencio descripción del campo adicional
+            // And Diligencio descripción de OLA del campo adicional
             CommonElementsAction.SendKeys_InputText("XPath",AFOrdersPage.EHelpText,"Texto de ayuda de automatización");
 
             // And pulso Aceptar en campo adicional de orden

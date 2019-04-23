@@ -96,7 +96,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 12
  testRunner.And("Diligencio nombre de calendario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
- testRunner.And("Diligencio descripción de calendario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Diligencio descripción de OLA de calendario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
  testRunner.And("Selecciono el Tab de Horas laborales de calendario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
@@ -214,7 +214,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 59
  testRunner.And("Doy click en eliminar calendario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 60
- testRunner.And("Selecciono Aceptar en mensaje de confirmación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono Aceptar en mensaje de confirmación de borrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 61
  testRunner.Then("Se muestra mensaje indicando que se borro el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 62
