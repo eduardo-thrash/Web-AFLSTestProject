@@ -125,7 +125,6 @@ Scenario: 4 Eliminación exitosa de relaciones
 	And Busco y selecciono la relación
 	And Doy click en eliminar relación
 	And Selecciono Aceptar en mensaje de confirmación de borrado
-	When Eliminación exitosa de relaciones
 	Then Se muestra mensaje indicando que se borro el registro exitosamente
 	And Se borra la relación de la tabla AFLS_RELATIONSHIP
 	And Al buscar la relación en la aplicación, no se lista en la búsqueda

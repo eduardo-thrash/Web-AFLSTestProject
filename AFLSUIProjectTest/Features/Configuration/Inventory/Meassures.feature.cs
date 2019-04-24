@@ -98,7 +98,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 14
  testRunner.And("Diligencio nombre de medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
- testRunner.And("Diligencio descripción de OLA de medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Diligencio descripción de medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
  testRunner.And("Doy click en Guardar medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17

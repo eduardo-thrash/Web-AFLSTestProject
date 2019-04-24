@@ -96,7 +96,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 13
  testRunner.And("Diligencio nombre de cronometro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
- testRunner.And("Diligencio descripción de OLA de cronometro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Diligencio descripción de cronometro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
  testRunner.And("Doy click en Guardar cronometro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16

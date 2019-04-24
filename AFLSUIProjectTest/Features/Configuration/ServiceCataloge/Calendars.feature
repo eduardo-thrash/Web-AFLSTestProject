@@ -10,7 +10,7 @@ Scenario: 1 Creación exitosa de Calendarios
 	And Selecciono la opción Calendarios
 	And Doy click en Nuevo calendario
 	And Diligencio nombre de calendario
-	And Diligencio descripción de OLA de calendario
+	And Diligencio descripción de calendario
 	And Selecciono el Tab de Horas laborales de calendario
 	And Selecciono disponibilidad de siete días en calendario
 	And Selecciono el Tab de Días no laborales

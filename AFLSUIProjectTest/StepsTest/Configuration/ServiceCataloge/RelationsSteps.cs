@@ -72,7 +72,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         [Then(@"Se borra la relación de la tabla AFLS_RELATIONSHIP")]
         public void ThenSeBorraLaRelacionDeLaTablaAFLS_RELATIONSHIP()
         {
-            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_RELATIONSHIP WHERE ar_name = '" + RelationName + ";", 0);
+            CommonQuery.DBSelectAValue("SELECT ar_name FROM AFLS_RELATIONSHIP WHERE ar_name = '" + RelationName + "';", 0);
         }
 
         [When(@"Diligencio nombre de relación")]
@@ -189,10 +189,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         {
             CommonElementsAction.SendKeys_InputText("CssSelector", RelationsPage.RelationFieldSearch, RelationName);
             CommonElementsAction.Click("CssSelector", RelationsPage.RelationButtonSearch);
-            IWebElement ElementWait = CommonHooks.driver.FindElement(By.XPath(RelationsPage.RelationView));
-            Assert.IsFalse(ElementWait.Enabled);
-            Assert.IsFalse(ElementWait.Displayed);
-            Assert.AreEqual(ElementWait.Size, 0);
+            CommonElementsAction.WaitElementNoFound(RelationsPage.RelationView);
         }
 
         [When(@"Edito campo origen de relación")]

@@ -169,7 +169,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         [Given(@"El UC existe")]
         public void GivenElUCExiste()
         {
-            UCName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 2 AND sla_id > 3 AND is_deleted = 1 ORDER BY NEWID();", 1);
+            UCName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 2 AND sla_id > 3 AND is_deleted = 0 ORDER BY NEWID();", 1);
         }
 
         [When(@"Busco y selecciono el UC")]
@@ -177,7 +177,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         {
             CommonElementsAction.SendKeys_InputText("CssSelector", ElementsUC.UCFieldSearch, UCName);
             CommonElementsAction.Click("CssSelector", ElementsUC.UCButtonSearch);
-
+            Thread.Sleep(3000);
             CommonElementsAction.Click("XPath", ElementsUC.UCView);
         }
 
@@ -219,7 +219,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", ElementsUC.UCFieldSearch, UCName);
             CommonElementsAction.Click("CssSelector", ElementsUC.UCButtonSearch);
 
-            CommonElementsAction.WaitElementNoFound("XPath", ElementsUC.UCView);
+            CommonElementsAction.WaitElementNoFound(ElementsUC.UCView);
         }
     }
 }

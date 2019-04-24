@@ -153,7 +153,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         [Given(@"El ANS existe")]
         public void GivenElANSExiste()
         {
-            ANSName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 1 AND sla_id > 3 AND is_deleted = 1 ORDER BY NEWID();", 1);
+            ANSName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 1 AND sla_id > 3 AND is_deleted = 0 ORDER BY NEWID();", 1);
         }
 
         [When(@"Busco y selecciono el ANS")]
@@ -196,7 +196,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         [Then(@"Se marca como eliminada la información del ANS en la tabla AFLS_SLA")]
         public void ThenSeMarcaComoEliminadaLaInformacionDelANSEnLaTablaAFLS_SLA()
         {
-            CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 3 AND name = '" + ANSName + "' AND is_deleted = 1;", 1);
+            CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 1 AND name = '" + ANSName + "' AND is_deleted = 1;", 1);
         }
 
         [Then(@"Al buscar el ANS en la aplicación, no se lista en la búsqueda")]
@@ -205,7 +205,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", SLAsPage.SLAFieldSearch, ANSName);
             CommonElementsAction.Click("CssSelector", SLAsPage.SLAButtonSearch);
 
-            CommonElementsAction.WaitElementNoFound("XPath", SLAsPage.SLAView);
+            CommonElementsAction.WaitElementNoFound(SLAsPage.SLAView);
         }
     }
 }

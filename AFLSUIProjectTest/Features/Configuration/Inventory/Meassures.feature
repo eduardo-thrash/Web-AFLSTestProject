@@ -12,7 +12,7 @@ Scenario: 1 Creación exitosa de Medidas
 	And Selecciono la opción Medidas
 	And Doy click en Nueva medida
 	And Diligencio nombre de medida
-	And Diligencio descripción de OLA de medida
+	And Diligencio descripción de medida
 	And Doy click en Guardar medida
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra medida en la tabla AFLS_STOCK_MEASURES

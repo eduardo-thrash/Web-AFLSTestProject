@@ -20,17 +20,19 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         private MobileUsersPage MobileUsersPage = new MobileUsersPage();
         private ResponseValidation ResponseValidation = new ResponseValidation();
         private MessagesElements MessagesElements = new MessagesElements();
+        private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
 
-        private string user_nickname = "ui.eduardo.mobile";
-        private string user_name = "Ui Eduardo Montenegro Mobile";
+        private string Default_user_nickname = "ui.mobile.";
+        private string user_nickname;
+        private string user_name = "UI Eduardo Mobile";
         private int UserId;
         private string user_mail;
         private int GroupId;
 
         [Given(@"No existe el usuario móvil")]
         public void GivenNoExisteElUsuarioMovil()
-
         {
+            user_nickname = Default_user_nickname + Functions.RandomText(3);
             CommonQuery.DBSelectAValue("SELECT * FROM  AFW_USERS WHERE user_nick_name = '" + user_nickname + "';", 0);
         }
 
@@ -143,32 +145,32 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         public void WhenSeleccionoDisponibilidadDeSieteDiasAUsuarioMovil()
         {
             Actions Sunday = new Actions(CommonHooks.driver);
-            Sunday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//*[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[2]")), 0, 500).Build().Perform();
-            Thread.Sleep(500);
+            Sunday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[2]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
 
             Actions Monday = new Actions(CommonHooks.driver);
-            Monday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//*[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[3]")), 0, 500).Build().Perform();
-            Thread.Sleep(500);
+            Monday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[3]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
 
             Actions Tuesday = new Actions(CommonHooks.driver);
-            Tuesday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//*[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[4]")), 0, 500).Build().Perform();
-            Thread.Sleep(500);
+            Tuesday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[4]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
 
             Actions Wednesday = new Actions(CommonHooks.driver);
-            Wednesday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//*[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[5]")), 0, 500).Build().Perform();
-            Thread.Sleep(500);
+            Wednesday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[5]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
 
             Actions Thursday = new Actions(CommonHooks.driver);
-            Thursday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//*[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[6]")), 0, 500).Build().Perform();
-            Thread.Sleep(500);
+            Thursday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[6]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
 
             Actions Friday = new Actions(CommonHooks.driver);
-            Friday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//*[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[7]")), 0, 500).Build().Perform();
-            Thread.Sleep(500);
+            Friday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[7]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
 
             Actions Saturday = new Actions(CommonHooks.driver);
-            Saturday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//*[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[8]")), 0, 100).Build().Perform();
-            Thread.Sleep(500);
+            Saturday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[8]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
         }
 
         [When(@"Selecciono el Tab de habilidades de usuario móvil")]

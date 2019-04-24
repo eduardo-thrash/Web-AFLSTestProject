@@ -208,7 +208,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         [Given(@"El OLA existe")]
         public void GivenElOLAExiste()
         {
-            OlaName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 3 AND sla_id > 3 AND is_deleted = 1 ORDER BY NEWID();", 1);
+            OlaName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 3 AND sla_id > 3 AND is_deleted = 0 ORDER BY NEWID();", 1);
         }
 
         [When(@"Busco y selecciono el OLA")]
@@ -217,6 +217,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             Thread.Sleep(2000);
             CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLAFieldSearch, OlaName);
             CommonElementsAction.Click("CssSelector", OLAsPage.OLAButtonSearch);
+            Thread.Sleep(2000);
             CommonElementsAction.Click("XPath", OLAsPage.OLAView);
         }
 

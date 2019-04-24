@@ -96,7 +96,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 12
  testRunner.And("Diligencio nombre de calendario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
- testRunner.And("Diligencio descripción de OLA de calendario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Diligencio descripción de calendario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
  testRunner.And("Selecciono el Tab de Horas laborales de calendario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15

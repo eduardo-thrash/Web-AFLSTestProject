@@ -11,7 +11,7 @@ Scenario:1 Creación completa de Cronómetros
 	And Selecciono la opción Cronómetros
 	And Doy click en Nuevo cronometro
 	And Diligencio nombre de cronometro
-	And Diligencio descripción de OLA de cronometro
+	And Diligencio descripción de cronometro
 	And Doy click en Guardar cronometro
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el cronometro en la tabla AFW_ITEM_TIMES
