@@ -14,6 +14,8 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         private ConfigurationMenuPage ConfigurationMenuPage = new ConfigurationMenuPage();
         private Logout Logout = new Logout();
         private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
+        private AFCompaniesPage AFCompaniesPage = new AFCompaniesPage();
+        private ConfigurationMenuPage Menu = new ConfigurationMenuPage();
 
         [Given(@"Tengo un usuario con rol administrador")]
         public void GivenTengoUnUsuarioConRolAdministrador()
@@ -324,7 +326,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Accedo al menú Configuración")]
         public void WhenAccedoAlMenuConfiguracion()
         {
-            CommonElementsAction.Click("XPath", ConfigurationMenuPage.ConfigurationMenu);
+            CommonElementsAction.Click("CssSelector", ConfigurationMenuPage.ConfigurationMenu);
         }
 
         [When(@"Selecciono la opción Información basica")]
@@ -342,7 +344,8 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Selecciono la opción Campos adicionales compañías")]
         public void WhenSeleccionoLaOpcionCamposAdicionalesCompanias()
         {
-            CommonElementsAction.Click("XPath", ConfigurationMenuPage.AFCompaniesOption);
+            CommonElementsAction.Click("XPath", AFCompaniesPage.AFCompaniesModulePath);
+            CommonElementsAction.Click("XPath", Menu.AFCompaniesOption);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal Campos adicionales compañías")]

@@ -70,10 +70,10 @@ namespace AFLSUIProjectTest.Features.Configuration.Configuration
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Creación exitosa de campo adicional de servicio de tipo simple")]
-        public virtual void CreacionExitosaDeCampoAdicionalDeServicioDeTipoSimple()
+        [NUnit.Framework.DescriptionAttribute("1 Creación exitosa de campos adicionales de servicios de tipo simple")]
+        public virtual void _1CreacionExitosaDeCamposAdicionalesDeServiciosDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de campo adicional de servicio de tipo simple", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de campos adicionales de servicios de tipo simple", null, ((string[])(null)));
 #line 4
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -90,7 +90,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("Selecciono la opción Campos adicionales de servicios", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Campos adicionales servicios", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
  testRunner.And("Doy click en Nuevo campo adicional de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
@@ -100,7 +100,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 15
  testRunner.And("Diligencio texto de ayuda de campo adicional de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
- testRunner.And("Doy click en opciones avanzadas de campo adicional de oren", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Doy click en opciones avanzadas de campo adicional de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
  testRunner.And("Diligencio nombre de campo adicional de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
@@ -108,26 +108,27 @@ this.ScenarioInitialize(scenarioInfo);
 #line 19
  testRunner.And("Doy click en Guardar campo adicional de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
- testRunner.When("Crear campo adicional de servicio de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("Se muestra un mensaje indicando que se creo que campo adicional de servicio corre" +
+                    "ctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 21
- testRunner.Then("Se muestra un mensaje indicando que se creo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 22
  testRunner.And("Se registra campo adicional de servicio de tipo simple en tabla AFW_ADDiTIONAL_FI" +
                     "ELDS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Modificación exitosa de campo adicional de servicio de tipo simple")]
-        public virtual void ModificacionExitosaDeCampoAdicionalDeServicioDeTipoSimple()
+        [NUnit.Framework.DescriptionAttribute("2 Modificación exitosa de campos adicionales de servicios de tipo simple")]
+        public virtual void _2ModificacionExitosaDeCamposAdicionalesDeServiciosDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modificación exitosa de campo adicional de servicio de tipo simple", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Modificación exitosa de campos adicionales de servicios de tipo simple", null, ((string[])(null)));
 #line 25
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 26
-testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 27
  testRunner.And("Existe el campo adicional de servicio de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
@@ -139,31 +140,31 @@ testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((T
 #line 31
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 32
- testRunner.And("Selecciono la opción Campos adicionales de servicios", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Campos adicionales servicios", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 33
  testRunner.And("Doy click en editar el campo adicional de servicio de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
- testRunner.And("Modifico etiqueta de campo adicional de servicio de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Edito nombre de etiqueta de campo adicional de servicio de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
- testRunner.And("Doy click en opciones avanzadas de campo adicional de oren", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Doy click en Aceptar campo adicional de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
- testRunner.And("Modifico nombre de campo adicional de servicio de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 37
  testRunner.And("Doy click en Guardar campo adicional de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
+ testRunner.Then("Se muestra un mensaje indicando que se guardo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 38
- testRunner.Then("Se muestra un mensaje indicando que se creo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("Se registra el campo adicional de servicio modificado en la tabla AFW_ADDiTIONAL_" +
+                    "FIELDS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 39
- testRunner.And("Se modifican datos de campo adicional de servicio de tipo simple en tabla AFW_ADD" +
-                    "iTIONAL_FIELDS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Eliminación exitosa de campo adicional de servicio de tipo simple")]
-        public virtual void EliminacionExitosaDeCampoAdicionalDeServicioDeTipoSimple()
+        [NUnit.Framework.DescriptionAttribute("3 Eliminación exitosa de campos adicionales servicios de tipo simple")]
+        public virtual void _3EliminacionExitosaDeCamposAdicionalesServiciosDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Eliminación exitosa de campo adicional de servicio de tipo simple", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Eliminación exitosa de campos adicionales servicios de tipo simple", null, ((string[])(null)));
 #line 41
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -180,16 +181,20 @@ this.ScenarioInitialize(scenarioInfo);
 #line 47
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
- testRunner.And("Selecciono la opción Campos adicionales de servicios", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Campos adicionales servicios", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
  testRunner.And("Doy click en eliminar el campo adicional de servicio de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
- testRunner.And("Doy click en Aceptar de mensaje de confirmación de campo adicional de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Doy click en Si de mensaje de confirmación de borrado de campo adicional", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
- testRunner.Then("Se muestra un mensaje indicando que se creo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("Doy click en Guardar campo adicional de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
- testRunner.And("Se elimina el registro de campo adicional de servicio de tipo simple en tabla AFW" +
-                    "_ADDiTIONAL_FIELDS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("Se muestra un mensaje indicando que se guardo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 53
+ testRunner.And("Se borra el registro de el campo adicional de servicio en la tabla AFW_ADDiTIONAL" +
+                    "_FIELDS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

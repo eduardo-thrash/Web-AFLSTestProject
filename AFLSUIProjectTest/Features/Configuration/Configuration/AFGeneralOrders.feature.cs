@@ -70,10 +70,10 @@ namespace AFLSUIProjectTest.Features.Configuration.Configuration
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Creación exitosa de campo adicional de orden de tipo simple")]
-        public virtual void CreacionExitosaDeCampoAdicionalDeOrdenDeTipoSimple()
+        [NUnit.Framework.DescriptionAttribute("1 Creación exitosa de campo adicional de orden de tipo simple")]
+        public virtual void _1CreacionExitosaDeCampoAdicionalDeOrdenDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de campo adicional de orden de tipo simple", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de campo adicional de orden de tipo simple", null, ((string[])(null)));
 #line 5
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -108,26 +108,27 @@ this.ScenarioInitialize(scenarioInfo);
 #line 20
  testRunner.And("Doy click en Guardar campo adicional de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
- testRunner.When("Crear campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("Se muestra un mensaje indicando que se creo que campo adicional de orden correcta" +
+                    "mente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 22
- testRunner.Then("Se muestra un mensaje indicando que se creo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 23
  testRunner.And("Se registra campo adicional de orden de tipo simple en tabla AFW_ADDiTIONAL_FIELD" +
                     "S", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Modificación exitosa de campo adicional de orden de tipo simple")]
-        public virtual void ModificacionExitosaDeCampoAdicionalDeOrdenDeTipoSimple()
+        [NUnit.Framework.DescriptionAttribute("2 Modificación exitosa de campos adicionales de ordenes de tipo simple")]
+        public virtual void _2ModificacionExitosaDeCamposAdicionalesDeOrdenesDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modificación exitosa de campo adicional de orden de tipo simple", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Modificación exitosa de campos adicionales de ordenes de tipo simple", null, ((string[])(null)));
 #line 26
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 27
-testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 28
  testRunner.And("Existe el campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
@@ -143,27 +144,27 @@ testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((T
 #line 34
  testRunner.And("Doy click en editar el campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
- testRunner.And("Modifico etiqueta de campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Edito nombre de etiqueta de campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
- testRunner.And("Doy click en opciones avanzadas de campo adicional de oren", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Doy click en Aceptar campo adicional de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 37
- testRunner.And("Modifico nombre de campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 38
  testRunner.And("Doy click en Guardar campo adicional de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 38
+ testRunner.Then("Se muestra un mensaje indicando que se guardo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 39
- testRunner.Then("Se muestra un mensaje indicando que se creo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("Se registra el campo adicional de orden modificado en la tabla AFW_ADDiTIONAL_FIE" +
+                    "LDS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
- testRunner.And("Se modifican datos de campo adicional de orden de tipo simple en tabla AFW_ADDiTI" +
-                    "ONAL_FIELDS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Eliminación exitosa de campo adicional de orden de tipo simple")]
-        public virtual void EliminacionExitosaDeCampoAdicionalDeOrdenDeTipoSimple()
+        [NUnit.Framework.DescriptionAttribute("3 Eliminación exitosa de campos adicionales ordenes de tipo simple")]
+        public virtual void _3EliminacionExitosaDeCamposAdicionalesOrdenesDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Eliminación exitosa de campo adicional de orden de tipo simple", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Eliminación exitosa de campos adicionales ordenes de tipo simple", null, ((string[])(null)));
 #line 42
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -184,12 +185,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 50
  testRunner.And("Doy click en eliminar el campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
- testRunner.And("Doy click en Aceptar de mensaje de confirmación de campo adicional de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Doy click en Si de mensaje de confirmación de borrado de campo adicional", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
- testRunner.Then("Se muestra un mensaje indicando que se creo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("Doy click en Guardar campo adicional de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 53
- testRunner.And("Se elimina el registro de campo adicional de orden de tipo simple en tabla AFW_AD" +
-                    "DiTIONAL_FIELDS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("Se muestra un mensaje indicando que se guardo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 54
+ testRunner.And("Se borra el registro de el campo adicional de orden en la tabla AFW_ADDiTIONAL_FI" +
+                    "ELDS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

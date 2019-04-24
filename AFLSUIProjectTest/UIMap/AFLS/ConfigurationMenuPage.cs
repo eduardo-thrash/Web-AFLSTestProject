@@ -45,6 +45,7 @@
         public string AFClientsOption = "//a[contains(@href, '#admin/additionalfields/clients')]";
         public string AFCompaniesOption = "//a[contains(@href, '#admin/additionalfields/companies')]";
         public string AFServicesOption = "//a[contains(@href, '#admin/additionalfields/services')]";
+        public string AFOrdersOption = "//a[contains(@href, '#admin/additionalfields/workorders')]";
 
         public string NonWorkingDaysOption = "//a[contains(@href, '#admin/nonWorking')]";
         public string QuickAnswersOption = "//a[contains(@href, '#admin/quickAnswers')]";

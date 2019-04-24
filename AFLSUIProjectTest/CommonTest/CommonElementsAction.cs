@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -1112,6 +1113,13 @@ namespace CommonTest.CommonTest
                     Thread.Sleep(1000);
                 }
             }
+        }
+
+        public static void Select_OptionbyText(string DropDownList, string OptionDropDown)
+        {
+            new SelectElement(CommonHooks.driver.FindElement(By.XPath(DropDownList))).SelectByText(OptionDropDown);
+
+            Thread.Sleep(1000);
         }
     }
 }
