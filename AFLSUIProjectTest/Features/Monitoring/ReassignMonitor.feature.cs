@@ -87,7 +87,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("Selecciono la opción de item de Monitoreo  y reasignación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción de ítem de Monitoreo  y reasignación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
  testRunner.Then("Se carga la pantalla principal de monitoreo  y reasignación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

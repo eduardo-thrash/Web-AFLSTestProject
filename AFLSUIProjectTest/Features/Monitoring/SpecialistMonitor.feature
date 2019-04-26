@@ -4,8 +4,12 @@
 	I want to be told the sum of two numbers
 
 #@mytag
-#Scenario: Add two numbers
-#	Given I have entered 50 into the calculator
-#	And I have entered 70 into the calculator
-#	When I press add
-#	Then the result should be 120 on the screen
+Scenario: Acceso exitoso a pantalla de monitoreo de especialistas
+	Given Tengo un usuario con rol monitor
+	And Tengo proveedores asociados al proveedor
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol monitor
+	And Selecciono la opción de ítem MOnitoreo de especialistas
+	Then Se carga la pantalla principal de monitoreo de especialistas
+	And No se cargan errores en el modulo
+	And Cierro Sesión en la aplicación

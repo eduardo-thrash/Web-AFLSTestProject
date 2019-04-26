@@ -7,5 +7,7 @@ Scenario: Carga exitosa de pantalla de Monitoreo de planeación
 	And Existen especialistas con ordenes del día en curso
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol monitor
-	And Selecciono la opción de item de Monitoreo de planeación
+	And Selecciono la opción de ítem de Monitoreo de planeación
 	Then Se carga la pantalla principal de monitoreo de planeación
+	And No se cargan errores en el modulo
+	And Cierro Sesión en la aplicación

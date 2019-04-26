@@ -1,7 +1,5 @@
 ﻿Feature: ClientsMonitor
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+
 
 @mytag
 Scenario: Carga exitosa de pantalla de Monitoreo de clientes
@@ -10,5 +8,7 @@ Scenario: Carga exitosa de pantalla de Monitoreo de clientes
 	And Existen clientes con ordenes del día en curso
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol monitor
-	And Selecciono la opción de item de Monitoreo de clientes
+	And Selecciono la opción de ítem de Monitoreo de clientes
 	Then Se carga la pantalla principal de monitoreo de clientes
+	And No se cargan errores en el modulo
+	And Cierro Sesión en la aplicación
