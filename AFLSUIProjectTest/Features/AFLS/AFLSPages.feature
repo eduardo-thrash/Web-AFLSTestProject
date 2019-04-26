@@ -1,5 +1,6 @@
 ﻿Feature: AFLSPages
 
+@MissingKey
 @regression
 Scenario: Revisión Exitosa de Keys en pantallas de Catalogo de servicios
 	Given Tengo un usuario con rol administrador
@@ -22,8 +23,10 @@ Scenario: Revisión Exitosa de Keys en pantallas de Catalogo de servicios
 	And Valido que no existan MissingKey en pantalla principal Servicios
 	And selecciono la opción Relaciones						   
 	And Valido que no existan MissingKey en pantalla principal Relaciones
-	Then Cierro Sesión en la aplicación
+	Then Valido si hay Missing Key localizados
+	And Cierro Sesión en la aplicación
 
+@MissingKey
 @regression @bug108266
 Scenario: Revisión Exitosa de Keys en pantallas de Administración
 	Given Tengo un usuario con rol administrador
@@ -53,8 +56,10 @@ Scenario: Revisión Exitosa de Keys en pantallas de Administración
 	And Valido que no existan MissingKey en pantalla principal  Grupos Web
 	And selecciono la opción Zonas
 	And Valido que no existan MissingKey en pantalla principal  Zonas
-	Then Cierro Sesión en la aplicación
+	Then Valido si hay Missing Key localizados
+	And Cierro Sesión en la aplicación
 
+@MissingKey
 @regression
 Scenario: Revisión Exitosa de Keys en pantallas de Inventario
 	Given Tengo un usuario con rol administrador
@@ -68,9 +73,11 @@ Scenario: Revisión Exitosa de Keys en pantallas de Inventario
 	And Valido que no existan MissingKey en pantalla principal  Productos
 	And Selecciono la opción Ubicaciones
 	And Valido que no existan MissingKey en pantalla principal  Ubicaciones
-	Then Cierro Sesión en la aplicación
+	Then Valido si hay Missing Key localizados
+	And Cierro Sesión en la aplicación
 
 @regression
+@MissingKey
 Scenario: Revisión Exitosa de Keys en pantallas de Integración
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -83,8 +90,10 @@ Scenario: Revisión Exitosa de Keys en pantallas de Integración
 	And Valido que no existan MissingKey en pantalla principal ASDK
 	And Selecciono la opción Otras aplicaciones
 	And Valido que no existan MissingKey en pantalla principal Otras aplicaciones
-	Then Cierro Sesión en la aplicación
+	Then Valido si hay Missing Key localizados
+	And Cierro Sesión en la aplicación
 
+@MissingKey
 @regression
 Scenario: Revisión Exitosa de Keys en pantallas de Configuración
 	Given Tengo un usuario con rol administrador
@@ -124,4 +133,5 @@ Scenario: Revisión Exitosa de Keys en pantallas de Configuración
 	And Valido que no existan MissingKey en pantalla principal Canal AssistMe
 	And Selecciono la opción Gestión de alertas
 	And Valido que no existan MissingKey en pantalla principal Gestión de alertas
-	Then Cierro Sesión en la aplicación
+	Then Valido si hay Missing Key localizados
+	And Cierro Sesión en la aplicación

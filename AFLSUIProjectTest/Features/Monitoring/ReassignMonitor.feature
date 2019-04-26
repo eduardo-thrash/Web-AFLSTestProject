@@ -8,5 +8,5 @@ Scenario: Carga exitosa de pantalla de Monitoreo y reasignación
 	And El usuario monitor y administrador tiene proveedores asociados
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol monitor
-	And Selecciono la opción de item de Monitoreo  y reasignación
+	And Selecciono la opción de ítem de Monitoreo  y reasignación
 	Then Se carga la pantalla principal de monitoreo  y reasignación
