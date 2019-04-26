@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 
-namespace ProjectTestEasyManagment
+namespace CommonTest.CommonTest
 {
     [TestClass]
     public class SystemTask

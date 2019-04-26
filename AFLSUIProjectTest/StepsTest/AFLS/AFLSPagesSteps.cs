@@ -2,6 +2,8 @@
 using AFLSUIProjectTest.UIMap;
 using AFLSUIProjectTest.UIMap.Configuration;
 using CommonTest.CommonTest;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
 namespace AFLSUIProjectTest.StepsTest.AFLS
@@ -16,6 +18,8 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
         private AFCompaniesPage AFCompaniesPage = new AFCompaniesPage();
         private ConfigurationMenuPage Menu = new ConfigurationMenuPage();
+
+        string ErrorResult = null;
 
         [Given(@"Tengo un usuario con rol administrador")]
         public void GivenTengoUnUsuarioConRolAdministrador()
@@ -32,7 +36,17 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal ANS's")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalANSS()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | "; 
+            }
+            
         }
 
         [When(@"Selecciono la opción OLA's")]
@@ -44,7 +58,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal OLA's")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalOLAS()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción UC's")]
@@ -56,7 +79,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal UC's")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalUCS()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Calendarios")]
@@ -68,7 +100,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Calendarios")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalCalendarios()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Cronómetros")]
@@ -80,7 +121,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Cronómetros")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalCronómetros()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Modelos")]
@@ -92,7 +142,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Modelos")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalModelos()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"selecciono la opción Servicios")]
@@ -104,7 +163,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Servicios")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalServicios()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"selecciono la opción Relaciones")]
@@ -116,7 +184,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Relaciones")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalRelaciones()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Comapñias")]
@@ -128,7 +205,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Comapñias")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalComapnias()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Clientes")]
@@ -140,7 +226,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Clientes")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalClientes()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Transportes")]
@@ -152,7 +247,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Transportes")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalTransportes()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Cargos")]
@@ -164,7 +268,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Cargos")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalCargos()
         {
-            ScenarioContext.Current.Pending();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Proveedores")]
@@ -176,7 +289,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Proveedores")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalProveedores()
         {
-            ScenarioContext.Current.Pending();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Habilidades")]
@@ -188,7 +310,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Habilidades")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalHabilidades()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"selecciono la opción Usuarios Web")]
@@ -200,7 +331,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Usuarios Web")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalUsuariosWeb()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"selecciono la opción Grupos Webs")]
@@ -212,7 +352,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Grupos Web")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalGruposWeb()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"selecciono la opción Usuarios Movil")]
@@ -236,7 +385,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Zonas")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalZonas()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Accedo al menú Inventario")]
@@ -254,7 +412,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Medidas")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalMedidas()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Productos")]
@@ -266,7 +433,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Productos")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalProductos()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Ubicaciones")]
@@ -278,7 +454,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal  Ubicaciones")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalUbicaciones()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Accedo al menú Integración")]
@@ -296,7 +481,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal LDAP")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalLDAP()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción ASDK")]
@@ -308,7 +502,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal ASDK")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalASDK()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Otras aplicaciones")]
@@ -320,7 +523,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Otras aplicaciones")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalOtrasAplicaciones()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Accedo al menú Configuración")]
@@ -338,7 +550,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Información basica")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalInformacionBasica()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Campos adicionales compañías")]
@@ -351,13 +572,31 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Campos adicionales compañías")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalCamposAdicionalesCompanias()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal Campos adicionales clientes")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalCamposAdicionalesClientes()
         {
-            ScenarioContext.Current.Pending();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal Campos adicionales servicios")]
@@ -369,7 +608,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Campos adicionales ordenes")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalCamposAdicionalesOrdenes()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Días no laborales")]
@@ -381,7 +629,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Dias no laborales")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalDiasNoLaborales()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Servidor de correo")]
@@ -393,7 +650,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Servidor de correo")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalServidorDeCorreo()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Encuestas general")]
@@ -405,7 +671,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Encuentas general")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalEncuentasGeneral()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Plantillas de Encuentas")]
@@ -417,7 +692,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Plantillas de Encuentas")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalPlantillasDeEncuentas()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Respuestas rápidas")]
@@ -429,7 +713,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Respuestas rápidas")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalRespuestasrápidas()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Plantillas de correo")]
@@ -441,7 +734,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Plantillas de correo")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalPlantillasDeCorreo()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Reglas de asignación")]
@@ -453,7 +755,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Reglas de asignación")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalReglasDeAsignacion()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Precisión de ubicación")]
@@ -465,7 +776,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Precisión de ubicación")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalPrecisionDeUbicacion()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Licenciamiento")]
@@ -477,7 +797,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Licenciamiento")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalLicenciamiento()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Canal AssistMe")]
@@ -489,7 +818,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Canal AssistMe")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalCanalAssistMe()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [When(@"Selecciono la opción Gestión de alertas")]
@@ -501,7 +839,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Valido que no existan MissingKey en pantalla principal Gestión de alertas")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalGestionDeAlertas()
         {
-            Functions.MissingKeyFind();
+            try
+            {
+
+                Functions.MissingKeyFind();
+            }
+            catch
+            {
+                string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
+                ErrorResult = ErrorResult + MissingText + " | ";
+            }
         }
 
         [Then(@"Cierro Sesión en la aplicación")]
@@ -509,5 +856,20 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             Logout.AdministratorLogOff();
         }
+
+        [Then(@"Valido si hay Missing Key localizados")]
+        public void ThenValidoSiHayMissingKeyLocalizados()
+        {
+            try
+            {
+                Assert.AreEqual(ErrorResult, null);
+            }
+            catch
+            {
+                Assert.Fail(ErrorResult);
+            }
+            
+        }
+
     }
 }
