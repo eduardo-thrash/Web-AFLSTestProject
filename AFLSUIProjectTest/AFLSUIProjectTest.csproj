@@ -501,6 +501,7 @@
     <Compile Include="UIMap\Configuration\ZonesPage.cs" />
     <Compile Include="UIMap\Messages\PageMessages.cs" />
     <Compile Include="UIMap\AFLS\PrincipalMenuPage.cs" />
+    <Compile Include="UIMap\Orders\WorkordersPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
