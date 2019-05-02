@@ -522,7 +522,7 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception Ex)
                 {
-                    if (ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CSS, XPath, Id, Name, ClassName)");
                     }
@@ -617,7 +617,7 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception Ex)
                 {
-                    if (ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
                         Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CSS, XPath, Id, Name, ClassName)");
                     }
@@ -840,18 +840,16 @@ namespace CommonTest.CommonTest
         {
             IWebElement SelectElement = CommonHooks.driver.FindElement(By.XPath(Select));
             SelectElement.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             IList<IWebElement> AllOptions = CommonHooks.driver.FindElements(By.XPath(Option));
             int NumOptions = AllOptions.Count;
             int RandomNum;
-            int start;
+            int start = 0;
 
             if (TakeIndexOne)
             {
-                Random rnd = new Random();
-                RandomNum = rnd.Next(1, NumOptions);
-                start = 1;
+                RandomNum = 1;
             }
             else
             {

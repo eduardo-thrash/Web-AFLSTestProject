@@ -34,7 +34,7 @@ Scenario: Revisión Exitosa de Keys en pantallas de Administración
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
 	And Accedo al menú Administración
-	And Selecciono la opción Comapñias
+	And Selecciono la opción Compañías
 	And Valido que no existan MissingKey en pantalla principal  Comapñias
 	And Selecciono la opción Clientes
 	And Valido que no existan MissingKey en pantalla principal  Clientes

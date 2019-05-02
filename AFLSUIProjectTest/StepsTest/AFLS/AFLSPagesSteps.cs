@@ -196,7 +196,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             }
         }
 
-        [When(@"Selecciono la opción Comapñias")]
+        [When(@"Selecciono la opción Compañias")]
         public void WhenSeleccionoLaOpcionComapnias()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.CompanyOption);

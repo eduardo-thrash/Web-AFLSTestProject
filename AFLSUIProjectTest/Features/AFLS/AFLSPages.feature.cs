@@ -148,7 +148,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 33
  testRunner.And("Accedo al menú Administración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
- testRunner.And("Selecciono la opción Comapñias", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Compañias", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
  testRunner.And("Valido que no existan MissingKey en pantalla principal  Comapñias", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
