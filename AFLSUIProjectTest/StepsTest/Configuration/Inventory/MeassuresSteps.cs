@@ -64,12 +64,6 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
             MeassureName = CommonQuery.DBSelectAValue("SELECT TOP 1 mea_name FROM AFLS_STOCK_MEASURES ORDER BY NEWID();", 1);
         }
 
-        [Then(@"Finaliza exitosa la prueba")]
-        public void ThenFinalizaExitosaLaPrueba()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
         [When(@"Búsqueda exitosa de Medida existente")]
         public void WhenBusquedaExitosaDeMedidaExistente()
         {
