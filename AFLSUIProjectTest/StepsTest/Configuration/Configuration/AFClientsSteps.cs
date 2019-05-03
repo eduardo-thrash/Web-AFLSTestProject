@@ -40,8 +40,15 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [When(@"Selecciono la opción Campos adicionales clientes")]
         public void WhenSeleccionoLaOpcionCamposAdicionalesClientes()
         {
-            CommonElementsAction.Click("XPath", AFClientsPage.AFClientsModulePath);
-            CommonElementsAction.Click("XPath", Menu.AFClientsOption);
+            try
+            {
+                CommonElementsAction.Click("XPath", Menu.AFClientsOption);
+            }
+            catch
+            {
+                CommonElementsAction.Click("XPath", AFClientsPage.AFClientsModulePath);
+                CommonElementsAction.Click("XPath", Menu.AFClientsOption);
+            }
         }
 
         [Given(@"Existe el campo adicional de cliente de tipo simple")]

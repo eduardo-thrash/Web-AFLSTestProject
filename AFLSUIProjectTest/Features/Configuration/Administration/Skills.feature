@@ -64,6 +64,7 @@ Scenario: 2 Consulta exitosa de habilidad por nombre
 	Then Se muestra la tarjeta de la habilidad y el detalle del mismo
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 3 Modificación exitosa de habilidades
 	Given Tengo un usuario con rol administrador
 	And Existe la habilidad
@@ -79,6 +80,7 @@ Scenario: 3 Modificación exitosa de habilidades
 	And Se registra la habilidad modificada en la tabla AFLS_SKILLS
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 3 Modificación fallida de habilidades dejando nombre o descripción vacíos
 	Given Tengo un usuario con rol administrador
 	And Existe la habilidad
@@ -95,6 +97,7 @@ Scenario: 3 Modificación fallida de habilidades dejando nombre o descripción v
 	And Se registra la habilidad sin modificar en la tabla AFLS_SKILLS
 	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: 3 Inactivación exitosa de habilidades
 	Given Tengo un usuario con rol administrador
 	And Existe la habilidad activa
@@ -110,7 +113,7 @@ Scenario: 3 Inactivación exitosa de habilidades
 	And Se registra la habilidad modificada a inactiva en la tabla AFLS_SKILLS
 	And Al buscar la habilidad se lista como inactiva
 
-
+@regression
 Scenario: 4 Eliminación exitosa de habilidades
 	Given Tengo un usuario con rol administrador
 	And Existe la habilidad

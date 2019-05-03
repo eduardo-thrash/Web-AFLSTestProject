@@ -188,7 +188,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [When(@"Diligencio y selecciono el grupo móvil para usuario móvil")]
         public void WhenDiligencioYSeleccionoElGrupoMovilParaUsuarioMovil()
         {
-            CommonElementsAction.Select_ComboboxAutocomplete("XPath", MobileUsersPage.MobileUserMobileGroups, CommonQuery.DBSelectAValue("SELECT grou_name FROM AFW_GROUPS WHERE grou_id = " + GroupId + ";", 1), "a");
+            CommonElementsAction.Select_ComboboxAutocomplete("XPath", MobileUsersPage.MobileUserMobileGroups, CommonQuery.DBSelectAValue("SELECT grou_name FROM AFW_GROUPS WHERE grou_is_active = 1 AND grou_id = " + GroupId + ";", 1), "a");
         }
 
         [When(@"Diligencio y selecciono una habilidad para usuario móvil")]
@@ -298,10 +298,8 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
             }
             catch
             {
-                CommonQuery.DBSelectAValue("SELECT * FROM AFW_MAIL_HISTORY WHERE mahi_receiver = '"+ user_mail + "';", 1);
-                
+                CommonQuery.DBSelectAValue("SELECT * FROM AFW_MAIL_HISTORY WHERE mahi_receiver = '" + user_mail + "';", 1);
             }
-            
         }
 
         [When(@"Busco y selecciono el usuario móvil")]

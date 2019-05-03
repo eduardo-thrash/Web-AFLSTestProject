@@ -35,7 +35,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         private int UserId;
         private int Service;
         private int ServId;
-        private string Defaul_user_name = "Ui Client";
+        private string Defaul_user_name = "UI Client";
         private int AdditionalFieldFound = 0;
         private string ClientCompany;
 
@@ -63,7 +63,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         {
             try
             {
-                ClientCompany = CommonQuery.DBSelectAValue("SELECT TOP 1 comp_name FROM AFLS_COMPANIES ORDER BY NEWID();", 1);
+                ClientCompany = CommonQuery.DBSelectAValue("SELECT TOP 1 comp_name FROM AFLS_COMPANIES WHERE comp_active = 1 ORDER BY NEWID();", 1);
             }
             catch
             {
@@ -168,7 +168,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         [When(@"Diligencio y selecciono una compañía para cliente")]
         public void WhenDiligencioYSeleccionoUnaCompaniaParaCliente()
         {
-            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", ClientsPage.ClientComapny, "//li/a[@class='ui-corner-all']");
+            CommonElementsAction.Select_ComboboxAutocomplete("XPath", ClientsPage.ClientComapny, CommonQuery.DBSelectAValue("SELECT TOP 1 comp_name FROM AFLS_COMPANIES WHERE comp_active = 1 ORDER BY NEWID();", 1), "a");
         }
 
         [When(@"Diligencio y selecciono una compañía para modificación de cliente")]

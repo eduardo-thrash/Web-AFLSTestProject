@@ -85,8 +85,15 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [When(@"Selecciono la opción Campos adicionales servicios")]
         public void WhenSeleccionoLaOpcionCamposAdicionalesServicios()
         {
-            CommonElementsAction.Click("XPath", AFServicesPage.AFServicesModulePath);
-            CommonElementsAction.Click("XPath", Menu.AFServicesOption);
+            try
+            {
+                CommonElementsAction.Click("XPath", Menu.AFServicesOption);
+            }
+            catch
+            {
+                CommonElementsAction.Click("XPath", AFServicesPage.AFServicesModulePath);
+                CommonElementsAction.Click("XPath", Menu.AFServicesOption);
+            }
         }
 
         [When(@"Doy click en Nuevo campo adicional de servicio")]

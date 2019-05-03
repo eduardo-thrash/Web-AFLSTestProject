@@ -18,8 +18,9 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
         private AFCompaniesPage AFCompaniesPage = new AFCompaniesPage();
         private ConfigurationMenuPage Menu = new ConfigurationMenuPage();
+        private MobileUsersPage MobileUsersPage = new MobileUsersPage();
 
-        string ErrorResult = null;
+        private string ErrorResult = null;
 
         [Given(@"Tengo un usuario con rol administrador")]
         public void GivenTengoUnUsuarioConRolAdministrador()
@@ -38,15 +39,13 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
             {
                 string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
-                ErrorResult = ErrorResult + MissingText + " | "; 
+                ErrorResult = ErrorResult + MissingText + " | ";
             }
-            
         }
 
         [When(@"Selecciono la opción OLA's")]
@@ -60,7 +59,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -81,7 +79,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -102,7 +99,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -123,7 +119,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -144,7 +139,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -165,7 +159,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -186,7 +179,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -207,7 +199,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -228,7 +219,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -249,7 +239,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -270,7 +259,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -291,7 +279,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -312,7 +299,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -333,7 +319,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -354,7 +339,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -367,6 +351,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"selecciono la opción Usuarios Movil")]
         public void WhenSeleccionoLaOpcionUsuariosMovil()
         {
+            CommonElementsAction.Click("XPath", MobileUsersPage.MobileUsersModulePath);
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.MobileUserOption);
         }
 
@@ -387,7 +372,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -414,7 +398,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -435,7 +418,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -456,7 +438,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -483,7 +464,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -504,7 +484,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -525,7 +504,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -541,18 +519,17 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             CommonElementsAction.Click("CssSelector", ConfigurationMenuPage.ConfigurationMenu);
         }
 
-        [When(@"Selecciono la opción Información basica")]
+        [When(@"Selecciono la opción Información básica")]
         public void WhenSeleccionoLaOpcionInformacionBasica()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.EstablishmentOption);
         }
 
-        [When(@"Valido que no existan MissingKey en pantalla principal Información basica")]
+        [When(@"Valido que no existan MissingKey en pantalla principal Información básica")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalInformacionBasica()
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -565,8 +542,15 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Selecciono la opción Campos adicionales compañías")]
         public void WhenSeleccionoLaOpcionCamposAdicionalesCompanias()
         {
-            CommonElementsAction.Click("XPath", AFCompaniesPage.AFCompaniesModulePath);
-            CommonElementsAction.Click("XPath", Menu.AFCompaniesOption);
+            try
+            {
+                CommonElementsAction.Click("XPath", Menu.AFCompaniesOption);
+            }
+            catch
+            {
+                CommonElementsAction.Click("XPath", AFCompaniesPage.AFCompaniesModulePath);
+                CommonElementsAction.Click("XPath", Menu.AFCompaniesOption);
+            }
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal Campos adicionales compañías")]
@@ -574,7 +558,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -589,7 +572,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -610,7 +592,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -626,12 +607,11 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.NonWorkingDaysOption);
         }
 
-        [When(@"Valido que no existan MissingKey en pantalla principal Dias no laborales")]
+        [When(@"Valido que no existan MissingKey en pantalla principal Días no laborales")]
         public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalDiasNoLaborales()
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -652,7 +632,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -663,17 +642,24 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         }
 
         [When(@"Selecciono la opción Encuestas general")]
-        public void WhenSeleccionoLaOpcionEncuentasGeneral()
-        {
-            CommonElementsAction.Click("XPath", ConfigurationMenuPage.SurveyGeneralConfigurationOption);
-        }
-
-        [When(@"Valido que no existan MissingKey en pantalla principal Encuentas general")]
-        public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalEncuentasGeneral()
+        public void WhenSeleccionoLaOpcionEncuestasGeneral()
         {
             try
             {
+                CommonElementsAction.Click("XPath", ConfigurationMenuPage.SurveyGeneralConfigurationOption);
+            }
+            catch
+            {
+                CommonElementsAction.Click("XPath", "//div[contains(@class, 'icon iconsAd surveysconfig')]");
+                CommonElementsAction.Click("XPath", ConfigurationMenuPage.SurveyGeneralConfigurationOption);
+            }
+        }
 
+        [When(@"Valido que no existan MissingKey en pantalla principal Encuestas general")]
+        public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalEncuestasGeneral()
+        {
+            try
+            {
                 Functions.MissingKeyFind();
             }
             catch
@@ -683,18 +669,25 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             }
         }
 
-        [When(@"Selecciono la opción Plantillas de Encuentas")]
-        public void WhenSeleccionoLaOpcionPlantillasDeEncuentas()
-        {
-            CommonElementsAction.Click("XPath", ConfigurationMenuPage.SurveyTemplateOption);
-        }
-
-        [When(@"Valido que no existan MissingKey en pantalla principal Plantillas de Encuentas")]
-        public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalPlantillasDeEncuentas()
+        [When(@"Selecciono la opción Plantillas de Encuestas")]
+        public void WhenSeleccionoLaOpcionPlantillasDeEncuestas()
         {
             try
             {
+                CommonElementsAction.Click("XPath", ConfigurationMenuPage.SurveyTemplateOption);
+            }
+            catch
+            {
+                CommonElementsAction.Click("XPath", "//div[contains(@class, 'icon iconsAd surveysconfig')]");
+                CommonElementsAction.Click("XPath", ConfigurationMenuPage.SurveyTemplateOption);
+            }
+        }
 
+        [When(@"Valido que no existan MissingKey en pantalla principal Plantillas de Encuestas")]
+        public void WhenValidoQueNoExistanMissingKeyEnPantallaPrincipalPlantillasDeEncuestas()
+        {
+            try
+            {
                 Functions.MissingKeyFind();
             }
             catch
@@ -715,7 +708,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -736,7 +728,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -757,7 +748,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -778,7 +768,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -799,7 +788,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -820,7 +808,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -841,7 +828,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             try
             {
-
                 Functions.MissingKeyFind();
             }
             catch
@@ -868,8 +854,6 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             {
                 Assert.Fail(ErrorResult);
             }
-            
         }
-
     }
 }
