@@ -29,12 +29,25 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         private string EditServiceName;
         private int AdditionalFieldFound = 0;
         private int ServId;
+        private int ServiceTypeOld;
+        private int ServiceAssigmnetTypeOld;
+        private int ServiceTypeNew;
+        private int ServiceAssigmnetTypeNew;
 
         [Given(@"No existe el servicio")]
         public void GivenNoExisteElServicio()
         {
             ServiceName = DefaultServiceName + Functions.RandomText();
             CommonQuery.DBSelectAValue("SELECT serv_name FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "';", 0);
+        }
+
+        [Given(@"Existe el servicio")]
+        public void GivenExisteElServicio()
+        {
+            ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES ORDER BY NEWID();", 1);
+            ServId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_id FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "';", 1));
+            ServiceTypeOld = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_type FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "';", 1));
+            ServiceAssigmnetTypeOld = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_provider_assignment_type FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "';", 1));
         }
 
         [When(@"Doy Click en nuevo Servicio")]
@@ -304,6 +317,18 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         public void ThenSeRegistraElServicioEnLaTablaAFLS_SERVICESDeTipoDesplazamiento()
         {
             ServId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_id FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "' AND serv_type = 1;", 1));
+        }
+
+        [Then(@"Se registra el servicio en la tabla AFLS_SERVICES de asignación directa")]
+        public void ThenSeRegistraElServicioEnLaTablaAFLS_SERVICESDeAsignacionDirecta()
+        {
+            ServId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_id FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "' AND serv_provider_assignment_type = 1;", 1));
+        }
+
+        [Then(@"Se registra el servicio en la tabla AFLS_SERVICES de distribución publica")]
+        public void ThenSeRegistraElServicioEnLaTablaAFLS_SERVICESDeDistribucionPublica()
+        {
+            ServId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_id FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "' AND serv_provider_assignment_type = 2;", 1));
         }
 
         [Then(@"Se registra el producto de tipo cantidad asociado al servicio en la tabla AFLS_STOCK_SERVICE_PRODUCTS")]
@@ -623,166 +648,99 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             //End LogOut.
         }
 
-        [When(@"Busqueda exitosa de servicios por nombre")]
-        public void WhenBusquedaExitosaDeServiciosPorNombre()
+        [When(@"Busco y selecciono el servicio")]
+        public void WhenBuscoYSeleccionoElServicio()
         {
-            //Login.
-
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector", ServicesPage.ServiceFieldSearch, "Servicio Distribución publica");
+            CommonElementsAction.SendKeys_InputText("CssSelector", ServicesPage.ServiceFieldSearch, ServiceName);
             CommonElementsAction.Click("CssSelector", ServicesPage.ServiceButtonSearch);
-
-            //End Navigate Module List Content
-
             Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
 
-            CommonElementsAction.Click("CssSelector", ServicesPage.ServiceView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Validate response of search.
-            Thread.Sleep(3000);
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(ServicesPage.ServiceName)).GetAttribute("value");
-            Assert.AreEqual("Servicio Distribución public", Value);
-
-            //LogOut.
-
-            //End LogOut.
+            CommonElementsAction.Click("XPath", ServicesPage.ServiceView);
         }
 
-        [When(@"Modificación exitosa de servicios cambiando tipo de servicio y tipo de distribución")]
-        public void WhenModificacionExitosaDeServiciosCambiandoTipoDeServicioYTipoDeDistribucion()
+        [Then(@"Se muestra la tarjeta del servicio y el detalle del mismo")]
+        public void ThenSeMuestraLaTarjetaDelServicioYElDetalleDelMismo()
         {
-            //Login.
-
-            //End Login.
-
-            //Navigate SubMenu and selected option.
-
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector", ServicesPage.ServiceFieldSearch, "Servicio Distribución publica");
-            CommonElementsAction.Click("CssSelector", ServicesPage.ServiceButtonSearch);
-
-            //End Navigate Module List Content
-
             Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
+            string Value = CommonHooks.driver.FindElement(By.CssSelector(ServicesPage.ServiceName)).GetAttribute("value");
+            Assert.AreEqual(ServiceName, Value);
+        }
 
-            CommonElementsAction.Click("CssSelector", ServicesPage.ServiceView);
+        [When(@"Edito nombre de servicio")]
+        public void WhenEditoNombreDeServicio()
+        {
+            EditServiceName = EditServiceName + Functions.RandomText(4);
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", ServicesPage.ServiceName, EditServiceName);
+        }
 
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", ServicesPage.ServiceName, "Edit service Update");
-
+        [When(@"Edito tipo de servicio")]
+        public void WhenEditoTipoDeServicio()
+        {
             ///     And modifico el tipo de servicio
             string GetServiceType = CommonHooks.driver.FindElement(By.CssSelector(ServicesPage.ServiceType)).Text;
 
             if (GetServiceType.Contains("Est"))
             {
-                CommonElementsAction.Click("CssSelector", ServicesPage.ServiceType);
-                CommonElementsAction.ClickAndSelect_DropDownList("XPath", ServicesPage.ListType, "Despl", "label");
+                //CommonElementsAction.Click("CssSelector", ServicesPage.ServiceType);
+                CommonElementsAction.ClickAndSelect_DropDownList("CssSelector", ServicesPage.ServiceType, "Despl", "label");
             }
             if (GetServiceType.Contains("Despl"))
             {
-                CommonElementsAction.Click("CssSelector", ServicesPage.ServiceType);
-                CommonElementsAction.ClickAndSelect_DropDownList("XPath", ServicesPage.ListType, "Est", "label");
+                //CommonElementsAction.Click("CssSelector", ServicesPage.ServiceType);
+                CommonElementsAction.ClickAndSelect_DropDownList("CssSelector", ServicesPage.ServiceType, "Est", "label");
             }
+        }
 
+        [When(@"Edito tipo de asignación de servicio")]
+        public void WhenEditoTipoDeAsignacionDeServicio()
+        {
             ///     And modifico el tipo de asignación
             string GetAssigmentType = CommonHooks.driver.FindElement(By.CssSelector(ServicesPage.ServiceAssigmentType)).Text;
 
             if (GetAssigmentType.Contains("Asign"))
             {
-                CommonElementsAction.Click("CssSelector", ServicesPage.ServiceAssigmentType);
-                CommonElementsAction.ClickAndSelect_DropDownList("CssSelector", ServicesPage.ServiceType, "Distr", "label");
+                //CommonElementsAction.Click("CssSelector", ServicesPage.ServiceAssigmentType);
+                CommonElementsAction.ClickAndSelect_DropDownList("CssSelector", ServicesPage.ServiceAssigmentType, "Distr", "label");
             }
             if (GetAssigmentType.Contains("Dist"))
             {
-                CommonElementsAction.Click("CssSelector", ServicesPage.ServiceAssigmentType);
+                //CommonElementsAction.Click("CssSelector", ServicesPage.ServiceAssigmentType);
                 CommonElementsAction.ClickAndSelect_DropDownList("CssSelector", ServicesPage.ServiceAssigmentType, "Asign", "label");
             }
-
-            //Save
-            CommonElementsAction.Click("CssSelector", ServicesPage.ServiceSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-
-            //End Validate response.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector", ServicesPage.ServiceFieldSearch, "Edit service Update");
-            CommonElementsAction.Click("CssSelector", ServicesPage.ServiceButtonSearch);
-
-            //End Navigate Module List Content
-
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("CssSelector", ServicesPage.ServiceView);
-
-            Console.WriteLine("\n" + "End Navigation and element search.");
-            //End Object search to read
-
-            //Validate response of search.
-            Thread.Sleep(3000);
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(ServicesPage.ServiceName)).GetAttribute("value");
-            Assert.AreEqual("Edit service Update", Value);
-
-            //LogOut.
-
-            //End LogOut.
         }
 
-        [When(@"Borrado exitoso de servicios")]
-        public void WhenBorradoExitosoDeServicios()
+        [Then(@"Se registra el servicio modificado en nombre, tipo de servicio y tipo de asignación de servicio en la tabla AFLS_SERVICES")]
+        public void ThenSeRegistraElServicioModificadoEnNombreTipoDeServicioYTipoDeAsignacionDeServicioEnLaTablaAFLS_SERVICES()
         {
-            //Login.
+            ServiceTypeNew = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_type FROM AFLS_SERVICES WHERE serv_name = '" + EditServiceName + "';", 1));
+            ServiceAssigmnetTypeNew = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_provider_assignment_type FROM AFLS_SERVICES WHERE serv_name = '" + EditServiceName + "';", 1));
 
-            //End Login.
+            Assert.AreNotEqual(ServiceTypeOld, ServiceTypeNew);
+            Assert.AreNotEqual(ServiceAssigmnetTypeOld, ServiceAssigmnetTypeNew);
+        }
 
-            //Navigate SubMenu and selected option.
-
-            //End Navigate SubMenu and selected option.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector", ServicesPage.ServiceFieldSearch, "Edit service Update");
-            CommonElementsAction.Click("CssSelector", ServicesPage.ServiceButtonSearch);
-
-            //End Navigate Module List Content
-
-            Thread.Sleep(3000);
-            Console.WriteLine("Navigation and element search" + "\n");
-
-            CommonElementsAction.Click("CssSelector", ServicesPage.ServiceView);
-
-            //Delete element of List
+        [When(@"Doy click en eliminar Servicio")]
+        public void WhenDoyClickEnEliminarServicio()
+        {
             CommonElementsAction.Click("XPath", ServicesPage.ServiceIconRemoved);
 
             Thread.Sleep(2000);
+        }
 
-            //End Delete element of List
+        [Then(@"Se borra el registro del servicio en la tabla AFLS_SERVICES")]
+        public void ThenSeBorraElRegistroDelServicioEnLaTablaAFLS_SERVICES()
+        {
+            CommonQuery.DBSelectAValue("SELECT serv_name FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "';", 0);
+        }
 
-            //Validate response.
+        [Then(@"Al buscar el servicio en la aplicación no se lista")]
+        public void ThenAlBuscarElServicioEnLaAplicacionNoSeLista()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", ServicesPage.ServiceFieldSearch, ServiceName);
+            CommonElementsAction.Click("CssSelector", ServicesPage.ServiceButtonSearch);
+            Thread.Sleep(3000);
 
-            //End Validate response.
-
-            //LogOut.
-
-            //End LogOut.
+            CommonElementsAction.WaitElementNoFound("CssSelector", ServicesPage.ServiceView);
         }
     }
 }
