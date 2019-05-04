@@ -84,4 +84,4 @@ Scenario: Borrado exitoso de Ubicación existente
 	And Doy click en eliminar ubicación
 	And Selecciono Aceptar en mensaje de confirmación de borrado
 	Then Se muestra mensaje indicando que se borro el registro exitosamente
-	And Se borra el registro de la ubicación en la tabla AFLS_STOCK_PRODUCTS
+	And Se borra el registro de la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO

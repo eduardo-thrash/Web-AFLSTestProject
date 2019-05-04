@@ -1,7 +1,7 @@
 ﻿Feature: OLAs
 
 @regression
-Scenario: Creación exitosa de OLA
+Scenario: 1 Creación exitosa de OLA
 	Given Tengo un usuario con rol administrador
 	And El OLA no existe
 	When Accedo a la aplicación
@@ -30,7 +30,7 @@ Scenario: Creación exitosa de OLA
 	And Cierro Sesión en la aplicación
 
 @regression
-Scenario: Búsqueda exitosa de OLA existente
+Scenario: 2 Búsqueda exitosa de OLA existente
 	Given Tengo un usuario con rol administrador
 	And El OLA existe
 	When Accedo a la aplicación
@@ -42,7 +42,7 @@ Scenario: Búsqueda exitosa de OLA existente
 	And Cierro Sesión en la aplicación
 
 @regression
-Scenario: Modificación exitosa de OLA
+Scenario: 3 Modificación exitosa de OLA
 	Given Tengo un usuario con rol administrador
 	And El OLA existe
 	When Accedo a la aplicación
@@ -57,7 +57,7 @@ Scenario: Modificación exitosa de OLA
 	And Cierro Sesión en la aplicación
 
 @regression
-Scenario: Borrado exitoso de OLA existente
+Scenario: 4 Borrado exitoso de OLA existente
 	Given Tengo un usuario con rol administrador
 	And El OLA existe
 	When Accedo a la aplicación

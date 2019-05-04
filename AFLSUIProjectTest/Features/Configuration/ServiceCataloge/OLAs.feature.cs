@@ -70,11 +70,11 @@ namespace AFLSUIProjectTest.Features.Configuration.ServiceCataloge
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Creación exitosa de OLA")]
+        [NUnit.Framework.DescriptionAttribute("1 Creación exitosa de OLA")]
         [NUnit.Framework.CategoryAttribute("regression")]
-        public virtual void CreacionExitosaDeOLA()
+        public virtual void _1CreacionExitosaDeOLA()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de OLA", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de OLA", null, new string[] {
                         "regression"});
 #line 4
 this.ScenarioInitialize(scenarioInfo);
@@ -137,11 +137,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Búsqueda exitosa de OLA existente")]
+        [NUnit.Framework.DescriptionAttribute("2 Búsqueda exitosa de OLA existente")]
         [NUnit.Framework.CategoryAttribute("regression")]
-        public virtual void BusquedaExitosaDeOLAExistente()
+        public virtual void _2BusquedaExitosaDeOLAExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Búsqueda exitosa de OLA existente", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Búsqueda exitosa de OLA existente", null, new string[] {
                         "regression"});
 #line 33
 this.ScenarioInitialize(scenarioInfo);
@@ -169,11 +169,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Modificación exitosa de OLA")]
+        [NUnit.Framework.DescriptionAttribute("3 Modificación exitosa de OLA")]
         [NUnit.Framework.CategoryAttribute("regression")]
-        public virtual void ModificacionExitosaDeOLA()
+        public virtual void _3ModificacionExitosaDeOLA()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modificación exitosa de OLA", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Modificación exitosa de OLA", null, new string[] {
                         "regression"});
 #line 45
 this.ScenarioInitialize(scenarioInfo);
@@ -207,11 +207,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Borrado exitoso de OLA existente")]
+        [NUnit.Framework.DescriptionAttribute("4 Borrado exitoso de OLA existente")]
         [NUnit.Framework.CategoryAttribute("regression")]
-        public virtual void BorradoExitosoDeOLAExistente()
+        public virtual void _4BorradoExitosoDeOLAExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Borrado exitoso de OLA existente", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4 Borrado exitoso de OLA existente", null, new string[] {
                         "regression"});
 #line 60
 this.ScenarioInitialize(scenarioInfo);

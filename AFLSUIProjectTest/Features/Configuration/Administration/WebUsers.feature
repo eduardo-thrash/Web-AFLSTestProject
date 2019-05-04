@@ -3,20 +3,65 @@
 
 Scenario: Creación exitosa de usuario web
 	Given Tengo un usuario con rol administrador
-	When Creación exitosa de usuario web
-	Then Finaliza exitosa la prueba
+    And No existe el usuario web
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And selecciono la opción Usuarios Web
+	And Diligencio nombre de usuario web
+	And Diligencio usuario de usuario web
+	And Diligencio correo electrónico de usuario web
+	And Diligencio teléfono de usuario web
+	And Diligencio contraseña de usuario web
+	And Selecciono rol administrador de grupo web
+	And Selecciono rol monitor de grupo web
+	And Selecciono rol despachador de grupo web
+	And Selecciono rol gestor de inventario de grupo web
+	And Selecciono el Tab Grupos Web de usuarios web
+	And Diligencio y selecciono el grupo para el usuario web
+	And Selecciono el Tab Información de usuario
+	And Doy click en Guardar usuario web
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el usuario en la tabla AFW_USERS
+	And Se registra el usuario web en la tabla AFLS_USERS_WEB
+	And Se registra el grupo web asociado al usuario web en la tabla AFW_GROUP_USER
 
-Scenario: Busqueda exitosa de usuario web existente
+Scenario: Búsqueda exitosa de usuario web existente
 	Given Tengo un usuario con rol administrador
-	When Busqueda exitosa de usuario web existente
-	Then Finaliza exitosa la prueba
+    And No existe el usuario web
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And selecciono la opción Usuarios Web
+	And Busco y selecciono el usuario web
+	Then Se muestra la tarjeta del usuario web y el detalle del mismo
 
 Scenario: Modificación exitosa de usuario web
 	Given Tengo un usuario con rol administrador
-	When Modificación exitosa de usuario web
-	Then Finaliza exitosa la prueba
+    And No existe el usuario web
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And selecciono la opción Usuarios Web
+	And Busco y selecciono el usuario web
+	And Edito nombre de usuario web
+	And Doy click en Guardar usuario web
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el usuario en la tabla AFW_USERS
 
 Scenario: Borrado exitoso de usuario web existente
 	Given Tengo un usuario con rol administrador
-	When Borrado exitoso de usuario web existente
-	Then Finaliza exitosa la prueba
+    And No existe el usuario web
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And selecciono la opción Usuarios Web
+	And Busco y selecciono el usuario web
+	And Doy click en eliminar usuario web
+	And Selecciono Aceptar en mensaje de confirmación de borrado
+	Then Se muestra mensaje indicando que se borro el registro exitosamente
+	And No se registra el usuario en la tabla AFW_USERS

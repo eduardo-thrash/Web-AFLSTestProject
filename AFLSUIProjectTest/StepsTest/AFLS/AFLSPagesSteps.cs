@@ -328,8 +328,8 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             }
         }
 
-        [When(@"selecciono la opción Grupos Webs")]
-        public void WhenSeleccionoLaOpcionGruposWebs()
+        [When(@"selecciono la opción Grupos Web")]
+        public void WhenSeleccionoLaOpcionGruposWeb()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.WebGroupOption);
         }

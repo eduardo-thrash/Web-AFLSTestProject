@@ -1,6 +1,5 @@
 ﻿Feature: AFLSPages
 
-@MissingKey
 Scenario: Revisión Exitosa de Keys en pantallas de Catalogo de servicios
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -25,7 +24,6 @@ Scenario: Revisión Exitosa de Keys en pantallas de Catalogo de servicios
 	Then Valido si hay Missing Key localizados
 	And Cierro Sesión en la aplicación
 
-@MissingKey
 Scenario: Revisión Exitosa de Keys en pantallas de Administración
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -46,7 +44,7 @@ Scenario: Revisión Exitosa de Keys en pantallas de Administración
 	And Valido que no existan MissingKey en pantalla principal  Habilidades
 	And selecciono la opción Usuarios Web
 	And Valido que no existan MissingKey en pantalla principal  Usuarios Web
-	And selecciono la opción Grupos Webs
+	And selecciono la opción Grupos Web
 	And Valido que no existan MissingKey en pantalla principal  Grupos Web
 	And selecciono la opción Usuarios Móvil
 	And Valido que no existan MissingKey en pantalla principal  Usuarios Web
@@ -57,7 +55,6 @@ Scenario: Revisión Exitosa de Keys en pantallas de Administración
 	Then Valido si hay Missing Key localizados
 	And Cierro Sesión en la aplicación
 
-@MissingKey
 Scenario: Revisión Exitosa de Keys en pantallas de Inventario
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -73,7 +70,6 @@ Scenario: Revisión Exitosa de Keys en pantallas de Inventario
 	Then Valido si hay Missing Key localizados
 	And Cierro Sesión en la aplicación
 
-@MissingKey
 Scenario: Revisión Exitosa de Keys en pantallas de Integración
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -89,7 +85,6 @@ Scenario: Revisión Exitosa de Keys en pantallas de Integración
 	Then Valido si hay Missing Key localizados
 	And Cierro Sesión en la aplicación
 
-@MissingKey
 Scenario: Revisión Exitosa de Keys en pantallas de Configuración
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
