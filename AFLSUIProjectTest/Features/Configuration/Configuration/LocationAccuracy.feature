@@ -10,8 +10,9 @@
 	And Accedo al menú Configuración
 	And Selecciono la opción Precisión de ubicación
 	And Configuración exitosa de precisión de ubicación alta
-	
-	Then Finaliza exitosa la prueba
+	And Selecciono la opción de precisión alta
+	And Doy click en Guardar configuración de precisión
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 
  Scenario: Configuración exitosa de precisión de ubicación media
 	Given Tengo un usuario con rol administrador
@@ -20,8 +21,9 @@
 	And Accedo a ítem Configuración
 	And Accedo al menú Configuración
 	And Selecciono la opción Precisión de ubicación
-	When Configuración exitosa de precisión de ubicación media
-	Then Finaliza exitosa la prueba
+	And Selecciono la opción de precisión media
+	And Doy click en Guardar configuración de precisión
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 
  Scenario: Configuración exitosa de precisión de ubicación baja
 	Given Tengo un usuario con rol administrador
@@ -30,8 +32,9 @@
 	And Accedo a ítem Configuración
 	And Accedo al menú Configuración
 	And Selecciono la opción Precisión de ubicación
-	When Configuración exitosa de precisión de ubicación baja
-	Then Finaliza exitosa la prueba
+	And Selecciono la opción de precisión baja
+	And Doy click en Guardar configuración de precisión
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 
 
 

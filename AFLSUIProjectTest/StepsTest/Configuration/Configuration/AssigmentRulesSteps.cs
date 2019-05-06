@@ -11,12 +11,12 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         private readonly AssignmentRulesPage AssignmentRulesPage = new AssignmentRulesPage();
         private readonly PageMessages PageMessages = new PageMessages();
 
-        [When(@"pulso el tab ""(.*)""")]
-        public void WhenPulsoElTab(string p0)
+        [When(@"pulso el tab Variables del negocio")]
+        public void WhenPulsoElTabVariablesDelNegocio()
         {
-            ///     When pulso el tab "Variables del negocio"
-            CommonElementsAction.Click("XPath", AssignmentRulesPage.TabAssigmentRulesBussinessRules);
+            ScenarioContext.Current.Pending();
         }
+
 
         [When(@"aumento estrellas \((.*)\) a la variable Costo")]
         public void WhenAumentoEstrellasALaVariableCosto(int p0)

@@ -7,7 +7,7 @@ Scenario: Configuración exitosa de reglas de asignación
 	And Accedo a ítem Configuración
 	And Accedo al menú Configuración
 	And Selecciono la opción Reglas de asignación
-	And pulso el tab "Variables del negocio"
+	And pulso el tab Variables del negocio
     And aumento estrellas (1) a la variable Costo
     And aumento estrellas (1) a la variable Distancia
     And aumento estrellas (1) a la variable Habilidades

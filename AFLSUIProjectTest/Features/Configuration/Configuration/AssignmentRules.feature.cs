@@ -88,7 +88,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
  testRunner.And("Selecciono la opción Reglas de asignación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.And("pulso el tab \"Variables del negocio\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("pulso el tab Variables del negocio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
     testRunner.And("aumento estrellas (1) a la variable Costo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12

@@ -10,8 +10,7 @@ Scenario: Adición exitosa de día no laboral
 	And Accedo a ítem Configuración
 	And Accedo al menú Configuración
 	And Selecciono la opción Días no laborales
-	When Adición exitosa de día no laboral
-	Then Finaliza exitosa la prueba
-
-
-
+	And Selecciono día no laboral en control de fecha
+	And Doy click en Agregar día no laboral
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se agrega vista con día no laboral añadido
