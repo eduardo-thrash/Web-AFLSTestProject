@@ -351,7 +351,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         {
             CommonElementsAction.Click("CssSelector", MobileUsersPage.TabMobileUserSkills);
             CommonElementsAction.WaitElement("//div[@class='users']//div[@id='tabs-5']//div[@class='itemView']//div[@class='block Name value label']");
-            CommonElementsAction.WaitElement("//div[@class='users']//div[@id='tabs-5']//div[@class='itemView']//span[@class='inherited-icon']");
+            //CommonElementsAction.WaitElement("//div[@class='users']//div[@id='tabs-5']//div[@class='itemView']//span[@class='inherited-icon']");
         }
 
         [Then(@"Se muestra el grupo móvil asociado en el tab Habilidades del usuario móvil")]

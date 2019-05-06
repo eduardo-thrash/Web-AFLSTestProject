@@ -430,7 +430,7 @@ namespace CommonTest.CommonTest
             int NumRandom = 0;
             IWebElement SelectElement = CommonHooks.driver.FindElement(By.XPath(Select));
             SelectElement.SendKeys(" ");
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
 
             IList<IWebElement> AllOptions = CommonHooks.driver.FindElements(By.XPath(Option));
             int NumOptions = AllOptions.Count;
