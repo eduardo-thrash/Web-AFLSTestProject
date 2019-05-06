@@ -1,82 +1,296 @@
 ﻿Feature: Providers
 
 
-Scenario: Creacion exitosa completa de proveedores asociando servicio, zona y monitor
+Scenario: Creación exitosa completa de proveedores asociando servicio, zona y monitor
 	Given Tengo un usuario con rol administrador
-	When Creacion exitosa completa de proveedores asociando servicio, zona y monitor
-	Then Finaliza exitosa la prueba
+	And El proveedor no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Doy click en Nuevo proveedor
+	And Selecciono el Tab de Proveedores
+	And Diligencio nombre de proveedor
+	And Diligencio descripción de proveedor
+	And Selecciono tipo de proveedor interno
+	And Selecciono tipo de proveedor externo
+	And Selecciono asignación manualmente
+	And Selecciono asignación al mejor especialista
+	And Selecciono importancia Alta
+	And Selecciono importancia Media
+	And Selecciono importancia Baja
+	And Doy click en switch de estado de proveedor
+	And Selecciono el Tab de Servicios de proveedores
+	And Diligencio y selecciono un servicio para el proveedor
+	And Selecciono el Tab de Zonas de Proveedores
+	And Diligencio y selecciono una zona para el proveedor
+	And Selecciono el Tab de Especialistas de Proveedores
+	And Selecciono el Tab de Monitores de Proveedores
+	And Diligencio y selecciono un monitor para el proveedor
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS
+	And Se registra el servicio relacionado a proveedor en la tabla AFLS_PROVIDER_SERVICES
+	And Se registra la zona relacionada a proveedor en la tabla AFLS_PROVIDER_ZONE
+	And Se registra el proveedor relacionado al usuario móvil en la tabla AFLS_USERS_SPECIALISTS
+	And Se registra el monitor relacionado a proveedor en la tabla AFLS_PROVIDER_MONITORS
 
-Scenario: Creacion exitosa basica de proveedores
+Scenario: Creación exitosa de proveedor de prioridad media
 	Given Tengo un usuario con rol administrador
-	When Creacion exitosa basica de proveedores
-	Then Finaliza exitosa la prueba
+	And El proveedor no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Doy click en Nuevo proveedor
+	And Selecciono el Tab de Proveedores
+	And Diligencio nombre de proveedor
+	And Diligencio descripción de proveedor
+	And Selecciono tipo de proveedor interno
+	And Selecciono tipo de proveedor externo
+	And Selecciono asignación manualmente
+	And Selecciono asignación al mejor especialista
+	And Selecciono importancia Media
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad media
 
-Scenario: Creacion exitosa de proveedor de prioridad media
-	Given Tengo un usuario con rol administrador
-	When Creacion exitosa de proveedor de prioridad media
-	Then Finaliza exitosa la prueba
 
-Scenario: Creacion exitosa de proveedor de prioridad alta
-	Given Tengo un usuario con rol administrador
-	When Creacion exitosa de proveedor de prioridad alta
-	Then Finaliza exitosa la prueba
 
-Scenario: Creacion exitosa de proveedor de prioridad baja
-	Given Tengo un usuario con rol administrador
-	When Creacion exitosa de proveedor de prioridad baja
-	Then Finaliza exitosa la prueba
 
-Scenario: Creacion exitosa de proveedor externo
+Scenario: Creación exitosa de proveedor de prioridad alta
 	Given Tengo un usuario con rol administrador
-	When Creacion exitosa de proveedor externo
-	Then Finaliza exitosa la prueba
+	And El proveedor no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Doy click en Nuevo proveedor
+	And Selecciono el Tab de Proveedores
+	And Diligencio nombre de proveedor
+	And Diligencio descripción de proveedor
+	And Selecciono tipo de proveedor interno
+	And Selecciono tipo de proveedor externo
+	And Selecciono asignación manualmente
+	And Selecciono asignación al mejor especialista
+	And Selecciono importancia Alta
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad alta
 
-Scenario: Creacion exitosa de proveedor interno
+Scenario: Creación exitosa de proveedor de prioridad baja
 	Given Tengo un usuario con rol administrador
-	When Creacion exitosa de proveedor interno
-	Then Finaliza exitosa la prueba
+	And El proveedor no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Doy click en Nuevo proveedor
+	And Selecciono el Tab de Proveedores
+	And Diligencio nombre de proveedor
+	And Diligencio descripción de proveedor
+	And Selecciono tipo de proveedor interno
+	And Selecciono tipo de proveedor externo
+	And Selecciono asignación manualmente
+	And Selecciono asignación al mejor especialista
+	And Selecciono importancia Baja
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad baja
+	
 
-Scenario: Creacion exitosa de proveedor con asignación manual
+Scenario: Creación exitosa de proveedor externo
 	Given Tengo un usuario con rol administrador
-	When Creacion exitosa de proveedor con asignación manual
-	Then Finaliza exitosa la prueba
+	And El proveedor no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Doy click en Nuevo proveedor
+	And Selecciono el Tab de Proveedores
+	And Diligencio nombre de proveedor
+	And Diligencio descripción de proveedor
+	And Selecciono tipo de proveedor externo
+	And Selecciono asignación manualmente
+	And Selecciono asignación al mejor especialista
+	And Selecciono importancia Alta
+	And Selecciono importancia Media
+	And Selecciono importancia Baja	
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS de tipo externo
 
-Scenario: Creacion exitosa de proveedor con asignación automatica
+Scenario: Creación exitosa de proveedor interno
 	Given Tengo un usuario con rol administrador
-	When Creacion exitosa de proveedor con asignación automatica
-	Then Finaliza exitosa la prueba
+	And El proveedor no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Doy click en Nuevo proveedor
+	And Selecciono el Tab de Proveedores
+	And Diligencio nombre de proveedor
+	And Diligencio descripción de proveedor
+	And Selecciono tipo de proveedor interno
+	And Selecciono asignación manualmente
+	And Selecciono asignación al mejor especialista
+	And Selecciono importancia Alta
+	And Selecciono importancia Media
+	And Selecciono importancia Baja	
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS de tipo interno
 
-Scenario: Creacion fallida de proveedor sin nombre
+Scenario: Creación exitosa de proveedor con asignación manual
 	Given Tengo un usuario con rol administrador
-	When Creacion fallida de proveedor sin nombre
-	Then Finaliza exitosa la prueba
+	And El proveedor no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Doy click en Nuevo proveedor
+	And Selecciono el Tab de Proveedores
+	And Diligencio nombre de proveedor
+	And Diligencio descripción de proveedor
+	And Selecciono tipo de proveedor interno
+	And Selecciono tipo de proveedor externo
+	And Selecciono asignación manualmente
+	And Selecciono importancia Alta
+	And Selecciono importancia Media
+	And Selecciono importancia Baja
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS con asignación manual
 
-Scenario: Creacion fallida de proveedor sin descripción
+Scenario: Creación exitosa de proveedor con asignación automática
 	Given Tengo un usuario con rol administrador
-	When Creacion fallida de proveedor sin descripción
-	Then Finaliza exitosa la prueba
+	And El proveedor no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Doy click en Nuevo proveedor
+	And Selecciono el Tab de Proveedores
+	And Diligencio nombre de proveedor
+	And Diligencio descripción de proveedor
+	And Selecciono tipo de proveedor interno
+	And Selecciono tipo de proveedor externo
+	And Selecciono asignación al mejor especialista
+	And Selecciono importancia Alta
+	And Selecciono importancia Media
+	And Selecciono importancia Baja
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS con asignación automática
 
-Scenario: Modificacion exitosa de proveedor cambiando nombre
+Scenario: Creación fallida de proveedor sin nombre
 	Given Tengo un usuario con rol administrador
-	When Modificacion exitosa de proveedor cambiando nombre
-	Then Finaliza exitosa la prueba
+	And El proveedor no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Doy click en Nuevo proveedor
+	And Selecciono el Tab de Proveedores
+	And Diligencio descripción de proveedor
+	And Selecciono tipo de proveedor externo
+	And Selecciono asignación al mejor especialista
+	And Selecciono importancia Alta
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que existen campos inválidos
+	And No Se registra el proveedor en la tabla AFLS_PROVIDERS
 
-Scenario: Modificacion exitosa de proveedor cambiando prioridad
+Scenario: Creación fallida de proveedor sin descripción
 	Given Tengo un usuario con rol administrador
-	When Modificacion exitosa de proveedor cambiando prioridad
-	Then Finaliza exitosa la prueba
+	And El proveedor no existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Doy click en Nuevo proveedor
+	And Selecciono el Tab de Proveedores
+	And Diligencio nombre de proveedor
+	And Selecciono tipo de proveedor externo
+	And Selecciono asignación al mejor especialista
+	And Selecciono importancia Baja
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que existen campos inválidos
+	And No Se registra el proveedor en la tabla AFLS_PROVIDERS
 
-Scenario: Modificacion exitosa de proveedor cambiando asignación
+Scenario: Modificación exitosa de proveedor cambiando nombre
 	Given Tengo un usuario con rol administrador
-	When Modificacion exitosa de proveedor cambiando asignación
-	Then Finaliza exitosa la prueba
+	And El proveedor existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Busco y selecciono el proveedor
+	And Edito nombre de proveedor
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS con nombre editado
+
+Scenario: Modificación exitosa de proveedor cambiando prioridad
+	Given Tengo un usuario con rol administrador
+	And El proveedor existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Busco y selecciono el proveedor
+	And Edito prioridad de proveedor
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad editado
+
+Scenario: Modificación exitosa de proveedor cambiando asignación
+	Given Tengo un usuario con rol administrador
+	And El proveedor existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Busco y selecciono el proveedor
+	And Edito asignación de proveedor
+	And Doy click en Guardar proveedor
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el proveedor en la tabla AFLS_PROVIDERS con asignación editada
 
 Scenario: Consulta exitosa de proveedor por nombre
 	Given Tengo un usuario con rol administrador
-	When Consulta exitosa de proveedor por nombre
-	Then Finaliza exitosa la prueba
+	And El proveedor existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Busco y selecciono el proveedor
+	Then Se muestra la tarjeta del proveedor y el detalle del mismo
 
 Scenario: Borrado exitoso de proveedor
 	Given Tengo un usuario con rol administrador
-	When Borrado exitoso de proveedor
-	Then Finaliza exitosa la prueba
+	And El proveedor existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And Selecciono la opción de Proveedores
+	And Busco y selecciono el proveedor
+	And Doy click en eliminar proveedor
+	And Selecciono Aceptar en mensaje de confirmación de borrado
+	Then Se muestra mensaje indicando que se borro el registro exitosamente
+	And No Se registra el proveedor en la tabla AFLS_PROVIDERS
+	And Al buscar el proveedor en la aplicación, no se lista en la búsqueda

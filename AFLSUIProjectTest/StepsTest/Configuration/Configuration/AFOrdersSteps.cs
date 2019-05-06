@@ -64,8 +64,15 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [When(@"Selecciono la opción Campos adicionales de ordenes")]
         public void WhenSeleccionoLaOpcionCamposAdicionalesDeOrdenes()
         {
-            CommonElementsAction.Click("XPath", AFOrdersPage.AFOrdersModulePath);
-            CommonElementsAction.Click("XPath", Menu.AFOrdersOption);
+            try
+            {
+                CommonElementsAction.Click("XPath", Menu.AFOrdersOption);
+            }
+            catch
+            {
+                CommonElementsAction.Click("XPath", AFOrdersPage.AFOrdersModulePath);
+                CommonElementsAction.Click("XPath", Menu.AFOrdersOption);
+            }
         }
 
         [When(@"Doy click en Nuevo campo adicional de orden")]

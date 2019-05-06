@@ -188,7 +188,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [When(@"Diligencio y selecciono el grupo móvil para usuario móvil")]
         public void WhenDiligencioYSeleccionoElGrupoMovilParaUsuarioMovil()
         {
-            CommonElementsAction.Select_ComboboxAutocomplete("XPath", MobileUsersPage.MobileUserMobileGroups, CommonQuery.DBSelectAValue("SELECT grou_name FROM AFW_GROUPS WHERE grou_id = " + GroupId + ";", 1), "a");
+            CommonElementsAction.Select_ComboboxAutocomplete("XPath", MobileUsersPage.MobileUserMobileGroups, CommonQuery.DBSelectAValue("SELECT grou_name FROM AFW_GROUPS WHERE grou_is_active = 1 AND grou_id = " + GroupId + ";", 1), "a");
         }
 
         [When(@"Diligencio y selecciono una habilidad para usuario móvil")]
@@ -291,8 +291,15 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [Then(@"Se registra el mensaje de correo en la tabla AFW_MAIL sin enviar a destinatario aún")]
         public void ThenSeRegistraElMensajeDeCorreoEnLaTablaAFW_MAILSinEnviarADestinatarioAun()
         {
-            user_mail = CommonQuery.DBSelectAValue("SELECT user_email FROM  AFW_USERS WHERE user_id = '" + UserId + "';", 1);
-            CommonQuery.DBSelectAValue("SELECT mail_receiver FROM AFW_MAIL WHERE mail_receiver = '" + user_mail + "';", 1);
+            user_mail = CommonQuery.DBSelectAValue("SELECT user_email FROM  AFW_USERS WHERE user_id = " + UserId + ";", 1);
+            try
+            {
+                CommonQuery.DBSelectAValue("SELECT TOP 1 mail_receiver FROM AFW_MAIL WHERE mail_receiver = '" + user_mail + "' ORDER BY 1 DESC;", 1);
+            }
+            catch
+            {
+                CommonQuery.DBSelectAValue("SELECT * FROM AFW_MAIL_HISTORY WHERE mahi_receiver = '" + user_mail + "';", 1);
+            }
         }
 
         [When(@"Busco y selecciono el usuario móvil")]

@@ -1,7 +1,5 @@
 ﻿Feature: ClientsMonitor
 
-
-@mytag
 Scenario: Carga exitosa de pantalla de Monitoreo de clientes
 	Given Tengo un usuario con rol monitor
 	And El usuario monitor tiene proveedores asociados

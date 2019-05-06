@@ -29,5 +29,7 @@
         public string FailedElementConfigurationCreateOrUpdateRepeat = "Ya existe un elemento con la información";
 
         public string SuccessResponseAF = "Los campos adicionales han sido guardados correctamente";
+
+        public string SuccessResponseClientEmailSend = "Se ha enviado un correo de invitación a:";
     }
 }

@@ -80,6 +80,8 @@
         public string TextCompanyAddress = "Address'";
         public string TextCompanyEmail = "ContactEmail";
 
+        public string CompanyState = "//div[@class='companies']//div[@id='tabs-1']//label[@class='onoffswitch-label']";
+
         /*Tab Services*/
         public string CompanyTabServices = "a[href = '#tabs-2'] > span.ui-icon.icon-services.icons_Cm";
         public string CompanyServices = "input.partSearch.ui-autocomplete-input";

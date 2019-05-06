@@ -4,10 +4,10 @@
     {
         public string ClientModule = "Clients";
 
-        public string ClientFieldSearch = "body > div.frameworks > div > div.base.container-module.bottom.row > div > div.content.col.module > div.clients #content > div.center.header.row > div > div.searchBox #inputSearch";
+        public string ClientFieldSearch = "//div[@class='clients']//div[@class='searchBox ']//input[@id='inputSearch']";
         public string TextCalendarFieldSearch = "Field Search";
 
-        public string ClientButtonSearch = "body > div.frameworks > div > div.base.container-module.bottom.row > div > div.content.col.module > div.clients #content > div.center.header.row > div > div.searchBox #commonSearchItem";
+        public string ClientButtonSearch = "//div[@class='clients']//div[@class='searchBox ']//button[@id='commonSearchItem']";
         public string TextClientButtonSearch = "Button Search";
 
         public string ClientButtonNew = "body > div.frameworks > div > div.base.container-module.bottom.row > div > div.content.col.module > div.clients #content > div.center.header.row > div > div.btnSearch #commonNewItem";
@@ -24,12 +24,14 @@
         public string ClientName = "//div[@class='clients']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div/div[@class='name itemRow itemField']/div[2]/input[@name='Name']";
         public string ClientName3 = "#tabs-1 > div > form > div.row.top > div.name.itemRow.itemField > div.value.valid > input[name='Name']";
         public string ClientName4 = "//*[@id='tabs-1']/div/form/div[1]/div[1]/div[2]/input";
-        public string ClientUniqueReference = "input[name= 'UniqueReference']";
-        public string ClientPhone = "input[name= 'Phone']";
-        public string ClientEmail = "input[name= 'Email']";
-        public string ClientComapny = "input[name= 'CompanyName']";
+        public string ClientUniqueReference = "//div[@class='clients']//input[@name='UniqueReference']";
+        public string ClientPhone = "//div[@class='clients']//input[@name='Phone']";
+        public string ClientEmail = "//div[@class='clients']//input[@name='Email']";
+        public string ClientComapny = "//div[@class='clients']//input[@name='CompanyName']";
         public string ClientAddress = "#clientAddress";
         public string ClientAddressDetail = "input[name = 'AddlAddressInfo']";
+
+        public string ClientState = "//div[@class='clients']//div[@id='tabs-1']//label[@class='onoffswitch-label']";
 
         public string TextClientTabClient = "Client tab";
         public string TextClientName = "Name";
@@ -42,7 +44,8 @@
 
         /*Tab Services*/
         public string ClientTabServices = "a[href = '#tabs-3'] > span.ui-icon.icon-time.icons_Cln";
-        public string ClientServices = "input.partSearch.ui-autocomplete-input";
+        public string ClientServices = "//div[@class='clients']//div[@id='tabs-3']//input[@class='partSearch ui-autocomplete-input']";
+        public string AutocompleteClientServices = "//ul/li/a[@class='ui-corner-all']";
 
         public string TextClientTabServices = "Client services tab";
         public string TextClientServices = "client services";

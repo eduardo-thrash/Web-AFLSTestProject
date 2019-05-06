@@ -3,21 +3,62 @@
 
 Scenario: Creación exitosa de grupo web
 	Given Tengo un usuario con rol administrador
-	When Creación exitosa de grupo web
-	Then Finaliza exitosa la prueba
+    And No existe el grupo web
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And selecciono la opción Grupos Web
+	And Diligencio nombre de grupo web
+	And Diligencio descripción de grupo web
+	And Selecciono rol administrador de grupo web
+	And Selecciono rol monitor de grupo web
+	And Selecciono rol despachador de grupo web
+	And Selecciono rol gestor de inventario de grupo web
+	And Selecciono el Tab Usuarios de grupos web
+	And Diligencio y selecciono el usuario para el grupo web
+	And Selecciono el Tab Grupos web
+	And Doy click en Guardar grupo web
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el grupo en la tabla AFW_GROUPS
+	And Se registra el grupo web en la tabla AFLS_GROUPS_WEB
+	And Se registra el usuario asociado al grupo web en la tabla AFW_GROUP_USER
 
-Scenario: Busqueda exitosa de Grupos web existente
+Scenario: Búsqueda exitosa de Grupos web existente
 	Given Tengo un usuario con rol administrador
-	When Busqueda exitosa de Grupos web existente
-	Then Finaliza exitosa la prueba
+	And El grupo web existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And selecciono la opción Grupos Web
+	And Busco y selecciono el grupo web
+	Then Se muestra la tarjeta del grupo web y el detalle del mismo
 
 Scenario: Modificación exitosa de grupos web
 	Given Tengo un usuario con rol administrador
-	When Modificación exitosa de grupos web
-	Then Finaliza exitosa la prueba
+	And El grupo web existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And selecciono la opción Grupos Web
+	And Busco y selecciono el grupo web
+	And Edito nombre de grupo web
+	And Doy click en Guardar grupo web
+	Then Se muestra mensaje indicando que se guardo el registro exitosamente
+	And Se registra el grupo editado en la tabla AFW_GROUPS
 
 Scenario: Borrado exitoso de grupo web existente
 	Given Tengo un usuario con rol administrador
-	When Borrado exitoso de grupo web existente
-	Then Finaliza exitosa la prueba
-
+	And El grupo web existe
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Administración
+	And selecciono la opción Grupos Web
+	And Busco y selecciono el grupo web
+	And Doy click en eliminar grupo web
+	And Selecciono Aceptar en mensaje de confirmación de borrado
+	Then Se muestra mensaje indicando que se borro el registro exitosamente
+	And No se registra el grupo en la tabla AFW_GROUPS

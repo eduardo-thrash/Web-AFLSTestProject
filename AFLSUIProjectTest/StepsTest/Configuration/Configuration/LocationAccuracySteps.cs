@@ -10,7 +10,8 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
     public class LocationAccuracySteps
     {
         
-        
+
+
         private readonly ElementsAccuracy ElementsAccuracy = new ElementsAccuracy();
         private readonly PageMessages PageMessages = new PageMessages();
         
