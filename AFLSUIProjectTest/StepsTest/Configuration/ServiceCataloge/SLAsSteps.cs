@@ -156,6 +156,12 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             ANSName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 1 AND sla_id > 3 AND is_deleted = 0 ORDER BY NEWID();", 1);
         }
 
+        [Given(@"El ANS existe sin relaciones")]
+        public void GivenElANSExisteSinRelaciones()
+        {
+            ANSName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE sla_id NOT IN (SELECT TOP 1 sla_id FROM AFLS_SERVICES ORDER BY NEWID()) AND agreement_type = 1 ORDER BY NEWID();", 1);
+        }
+
         [When(@"Busco y selecciono el ANS")]
         public void WhenBuscoYSeleccionoElANS()
         {

@@ -63,7 +63,8 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         {
             CommonElementsAction.Click("CssSelector", ElementsUC.UCStartDate);
             Functions.CalendarDaySelection(false);
-            CommonElementsAction.Click("CssSelector", ElementsUC.UCStartDate);
+            Thread.Sleep(500);
+            //CommonElementsAction.Click("CssSelector", ElementsUC.UCStartDate);
         }
 
         [When(@"Selecciono fecha de finalización de UC")]
@@ -72,7 +73,8 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             CommonElementsAction.Click("CssSelector", ElementsUC.UCFinishDate);
             Thread.Sleep(1000);
             Functions.CalendarDaySelection();
-            CommonElementsAction.Click("CssSelector", ElementsUC.UCFinishDate);
+            Thread.Sleep(500);
+            //CommonElementsAction.Click("CssSelector", ElementsUC.UCFinishDate);
         }
 
         [When(@"Doy click en switch de finalización de alarma de UC")]
@@ -94,7 +96,8 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             Thread.Sleep(1000);
             CommonElementsAction.Click("CssSelector", ElementsUC.UCDateReview);
             Functions.CalendarDaySelection();
-            CommonElementsAction.Click("CssSelector", ElementsUC.UCDateReview);
+            Thread.Sleep(500);
+            //CommonElementsAction.Click("CssSelector", ElementsUC.UCDateReview);
             Thread.Sleep(1000);
         }
 
@@ -170,6 +173,12 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         public void GivenElUCExiste()
         {
             UCName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE agreement_type = 2 AND sla_id > 3 AND is_deleted = 0 ORDER BY NEWID();", 1);
+        }
+
+        [Given(@"El UC existe sin relaciones")]
+        public void GivenElUCExisteSinRelaciones()
+        {
+            UCName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFLS_SLA WHERE sla_id NOT IN (SELECT TOP 1 sla_id FROM AFLS_SERVICES ORDER BY NEWID()) AND agreement_type = 2 ORDER BY NEWID();", 1);
         }
 
         [When(@"Busco y selecciono el UC")]

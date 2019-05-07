@@ -393,7 +393,7 @@ namespace CommonTest.CommonTest
                     Assert.AreNotEqual(ElementWait.Size, 0);
                     ElementWait.Click();
                     ElementWait.SendKeys(Option);
-                    Thread.Sleep(2000);
+
                     break;
                 }
                 catch (Exception Ex)
@@ -402,7 +402,7 @@ namespace CommonTest.CommonTest
                     Thread.Sleep(1000);
                 }
             }
-
+            Thread.Sleep(2000);
             for (second = 0; ; second++)
             {
                 if (second >= 10) Assert.Fail(Error);

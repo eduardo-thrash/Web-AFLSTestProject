@@ -352,7 +352,14 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         [Then(@"Se registra el proveedor asociado al servicio en la tabla AFLS_PROVIDER_SERVICES")]
         public void ThenSeRegistraElProveedorAsociadoAlServicioEnLaTablaAFLS_PROVIDER_SERVICES()
         {
-            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_PROVIDER_SERVICES WHERE ServiceId = " + ServId + ";", 1);
+            try
+            {
+                CommonQuery.DBSelectAValue("SELECT * FROM AFLS_PROVIDER_SERVICES WHERE ServiceId = " + ServId + ";", 1);
+            }
+            catch
+            {
+                Assert.Fail("Sin resultados en SELECT * FROM AFLS_PROVIDER_SERVICES WHERE ServiceId = " + ServId + ".");
+            }
         }
 
         [Then(@"se registran campos adicionales de servicio diligenciados en la tabla AFW_ADDITIONAL_FIELD_VALUE")]
@@ -740,7 +747,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             CommonElementsAction.Click("CssSelector", ServicesPage.ServiceButtonSearch);
             Thread.Sleep(3000);
 
-            CommonElementsAction.WaitElementNoFound("CssSelector", ServicesPage.ServiceView);
+            CommonElementsAction.WaitElementNoFound(ServicesPage.ServiceView, "CssSelector");
         }
     }
 }
