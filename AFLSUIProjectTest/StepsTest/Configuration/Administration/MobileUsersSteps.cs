@@ -188,7 +188,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [When(@"Diligencio y selecciono el grupo móvil para usuario móvil")]
         public void WhenDiligencioYSeleccionoElGrupoMovilParaUsuarioMovil()
         {
-            CommonElementsAction.Select_ComboboxAutocomplete("XPath", MobileUsersPage.MobileUserMobileGroups, CommonQuery.DBSelectAValue("SELECT grou_name FROM AFW_GROUPS WHERE grou_is_active = 1 AND grou_id = " + GroupId + ";", 1), "a");
+            CommonElementsAction.Select_ComboboxAutocomplete("XPath", MobileUsersPage.MobileUserMobileGroups, CommonQuery.DBSelectAValue("SELECT TOP 1 grou_name FROM AFW_GROUPS WHERE grou_id = " + GroupId + ";", 1), "a");
         }
 
         [When(@"Diligencio y selecciono una habilidad para usuario móvil")]
@@ -305,24 +305,22 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [When(@"Busco y selecciono el usuario móvil")]
         public void WhenBuscoYSeleccionoElUsuarioMovil()
         {
-            CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserFieldSearch, CommonQuery.DBSelectAValue("SELECT user_nick_name FROM  AFW_USERS WHERE user_id = '" + UserId + "';", 1));
+            CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserFieldSearch, user_name);
             CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserButtonSearch);
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
             CommonElementsAction.Click("XPath", MobileUsersPage.MobileUserView);
-            Thread.Sleep(1000);
-            Assert.AreEqual(CommonQuery.DBSelectAValue("SELECT user_name FROM  AFW_USERS WHERE user_id = '" + UserId + "';", 1), CommonElementsAction.TextExtract("XPath", MobileUsersPage.MobileUserView));
         }
 
         [Given(@"El usuario móvil existe sin disponibilidad y habilidades")]
         public void GivenElUsuarioMovilExisteSinDisponibilidadYHabilidades()
         {
-            UserId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 usr.user_id FROM AFLS_USERS_SPECIALISTS usr left join AFLS_USER_SKILLS usk on usr.user_id = usk.aus_user_id left join AFLS_USER_AVAILABILITIES uav on usr.user_id = uav.user_id where usk.aus_user_id is null and uav.user_id is null order by NEWID();", 1));
+            UserId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 usr.user_id FROM AFLS_USERS_SPECIALISTS usr left join AFLS_USER_SKILLS usk on usr.user_id = usk.aus_user_id left join AFLS_USER_AVAILABILITIES uav on usr.user_id = uav.user_id where usk.aus_user_id is null and uav.user_id is null  order by NEWID();", 1));
         }
 
         [Given(@"Existe un grupo móvil con habilidades y disponibilidad")]
         public void GivenExisteUnGrupoMovilConHabilidadesYDisponibilidad()
         {
-            GroupId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 GRP.grou_id FROM AFW_GROUPS GRP INNER JOIN AFLS_GROUP_AVAILABILITIES GAV ON GRP.grou_id = GAV.grou_id INNER JOIN AFLS_GROUP_SKILLS GSK ON GRP.grou_id = GSK.grou_id WHERE GAV.grou_id IS NOT NULL AND GSK.grou_id IS NOT NULL ORDER BY NEWID();", 1));
+            GroupId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 GRP.grou_id FROM AFW_GROUPS GRP INNER JOIN AFLS_GROUP_AVAILABILITIES GAV ON GRP.grou_id = GAV.grou_id INNER JOIN AFLS_GROUP_SKILLS GSK ON GRP.grou_id = GSK.grou_id WHERE GAV.grou_id IS NOT NULL AND GSK.grou_id IS NOT NULL AND grou_is_active = 1 ORDER BY NEWID();", 1));
         }
 
         [Then(@"Se registra disponibilidad en la tabla AFLS_USER_AVAILABILITIES")]
@@ -373,19 +371,40 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [Then(@"Se muestra la tarjeta de usuario móvil y se carga formulario de información básica")]
         public void ThenSeMuestraLaTarjetaDeUsuarioMovilYSeCargaFormularioDeInformacionBasica()
         {
-            ScenarioContext.Current.Pending();
+            string Value = CommonHooks.driver.FindElement(By.CssSelector(MobileUsersPage.MobileUserName)).GetAttribute("value");
+            Assert.AreEqual(user_name, Value);
         }
 
         [When(@"Selecciono disponibilidad de (.*) días a usuario móvil")]
         public void WhenSeleccionoDisponibilidadDeDiasAUsuarioMovil(int p0)
         {
-            ScenarioContext.Current.Pending();
+            Actions Sunday = new Actions(CommonHooks.driver);
+            Sunday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[2]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
+
+            Actions Monday = new Actions(CommonHooks.driver);
+            Monday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[3]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
+
+            Actions Tuesday = new Actions(CommonHooks.driver);
+            Tuesday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[4]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
+
+            Actions Wednesday = new Actions(CommonHooks.driver);
+            Wednesday.DragAndDropToOffset(CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-4']//div[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td[5]")), 0, 200).Build().Perform();
+            Thread.Sleep(1000);
         }
 
         [Then(@"Se registra disponibilidad de (.*) días en la tabla AFLS_USER_AVAILABILITIES")]
         public void ThenSeRegistraDisponibilidadDeDiasEnLaTablaAFLS_USER_AVAILABILITIES(int p0)
         {
             ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"El usuario móvil existe sin disponibilidad, grupos móviles, habilidades y ordenes asociadas\.")]
+        public void GivenElUsuarioMovilExisteSinDisponibilidadGruposMovilesHabilidadesYOrdenesAsociadas_()
+        {
+            user_nickname = CommonQuery.DBSelectAValue("SELECT TOP 1 A.USER_ID , A.USER_NAME , B.work_id FROM AFW_USERS A LEFT JOIN AFLS_WORKORDERS B ON A.user_id = B.work_attendant WHERE B.work_id IS NULL ORDER BY NEWID();", 1);
         }
 
         [When(@"Doy click en eliminar usuario móvil")]

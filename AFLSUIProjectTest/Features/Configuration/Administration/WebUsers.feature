@@ -1,6 +1,6 @@
 ﻿Feature: Web Users
 
-
+@migrationAFLS
 Scenario: Creación exitosa de usuario web
 	Given Tengo un usuario con rol administrador
     And No existe el usuario web
@@ -27,6 +27,7 @@ Scenario: Creación exitosa de usuario web
 	And Se registra el usuario web en la tabla AFLS_USERS_WEB
 	And Se registra el grupo web asociado al usuario web en la tabla AFW_GROUP_USER
 
+@migrationAFLS
 Scenario: Búsqueda exitosa de usuario web existente
 	Given Tengo un usuario con rol administrador
     And No existe el usuario web
@@ -38,6 +39,7 @@ Scenario: Búsqueda exitosa de usuario web existente
 	And Busco y selecciono el usuario web
 	Then Se muestra la tarjeta del usuario web y el detalle del mismo
 
+@migrationAFLS
 Scenario: Modificación exitosa de usuario web
 	Given Tengo un usuario con rol administrador
     And No existe el usuario web
@@ -52,6 +54,7 @@ Scenario: Modificación exitosa de usuario web
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el usuario en la tabla AFW_USERS
 
+@migrationAFLS
 Scenario: Borrado exitoso de usuario web existente
 	Given Tengo un usuario con rol administrador
     And No existe el usuario web

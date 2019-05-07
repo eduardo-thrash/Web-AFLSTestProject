@@ -32,7 +32,7 @@ Scenario: Creación exitosa de ubicación tipo transporte
 	And Accedo a ítem Configuración
 	And Accedo al menú Inventario
 	And Selecciono la opción Ubicaciones
-	And Doy click en Nuevo transporte
+	And Doy click en Nueva sede de transporte
 	And Selecciono tipo de ubicación de transporte
 	And Diligencio nombre de ubicación transporte
 	And Diligencio descripción de ubicación transporte

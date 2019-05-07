@@ -1,6 +1,6 @@
 ﻿Feature: Web Groups
 
-
+@migrationAFLS
 Scenario: Creación exitosa de grupo web
 	Given Tengo un usuario con rol administrador
     And No existe el grupo web
@@ -9,6 +9,7 @@ Scenario: Creación exitosa de grupo web
 	And Accedo a ítem Configuración
 	And Accedo al menú Administración
 	And selecciono la opción Grupos Web
+	And Doy click en Nuevo grupo web
 	And Diligencio nombre de grupo web
 	And Diligencio descripción de grupo web
 	And Selecciono rol administrador de grupo web
@@ -24,6 +25,7 @@ Scenario: Creación exitosa de grupo web
 	And Se registra el grupo web en la tabla AFLS_GROUPS_WEB
 	And Se registra el usuario asociado al grupo web en la tabla AFW_GROUP_USER
 
+@migrationAFLS
 Scenario: Búsqueda exitosa de Grupos web existente
 	Given Tengo un usuario con rol administrador
 	And El grupo web existe
@@ -35,6 +37,7 @@ Scenario: Búsqueda exitosa de Grupos web existente
 	And Busco y selecciono el grupo web
 	Then Se muestra la tarjeta del grupo web y el detalle del mismo
 
+@migrationAFLS
 Scenario: Modificación exitosa de grupos web
 	Given Tengo un usuario con rol administrador
 	And El grupo web existe
@@ -49,6 +52,7 @@ Scenario: Modificación exitosa de grupos web
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el grupo editado en la tabla AFW_GROUPS
 
+@migrationAFLS
 Scenario: Borrado exitoso de grupo web existente
 	Given Tengo un usuario con rol administrador
 	And El grupo web existe

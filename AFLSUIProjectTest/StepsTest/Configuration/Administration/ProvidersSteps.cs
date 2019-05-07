@@ -1,630 +1,329 @@
-﻿
+﻿using AFLSUIProjectTest.StepsTest.AFLS;
 using AFLSUIProjectTest.UIMap.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using TechTalk.SpecFlow;
 using AFLSUIProjectTest.UIMap.Messages;
 using CommonTest.CommonTest;
-using AFLSUIProjectTest.StepsTest.AFLS;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
+using System.Threading;
+using TechTalk.SpecFlow;
 
 namespace AFLSUITestProject.TestSuite.Configuration.Administration
 {
     [Binding]
     public class ProvidersSteps
     {
-        
-        
         private readonly ElementsProvider ElementsProvider = new ElementsProvider();
         private readonly PageMessages PageMessages = new PageMessages();
-        LoginLogoutSteps LoginLogoutSteps = new LoginLogoutSteps();
+        private LoginLogoutSteps LoginLogoutSteps = new LoginLogoutSteps();
 
-
-        [When(@"Creacion exitosa completa de proveedores asociando servicio, zona y monitor")]
-        public void WhenCreacionExitosaCompletaDeProveedoresAsociandoServicioZonaYMonitor()
+        [Given(@"El proveedor no existe")]
+        public void GivenElProveedorNoExiste()
         {
-            LoginLogoutSteps.WhenRealizoLoginConUsuarioRolAdministrador();
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderName,"UI-Prov Medellin Urbano Create");
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderDescription,"Descripcion");
-
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderCheckExtern);
-
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderCheckAssignManual);
-
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderRadioMediumPriority);
-
-            ///     And accedo al tab Servicios y asocio un servicio
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabServices);
-
-            CommonElementsAction.Select_ComboboxAutocomplete("CssSelector",ElementsProvider.ProviderServices,"Servicio Auditoria WT","a");
-            ;
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",ElementsProvider.ProviderServiceAgreement,"ANS General","label");
-
-            ///     And accedo al tab Zonas y asocio una Zona
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabZones);
-
-            CommonElementsAction.Select_ComboboxAutocomplete("CssSelector",ElementsProvider.ProviderZoneList,"Bogot","a");
-
-            ///     And accedo al tab Especialistas
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabSpecialist);
-
-            ///     And accedo al tab Monitores y asocio un monitor
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabMonitors);
-
-            CommonElementsAction.Select_ComboboxAutocomplete("CssSelector",ElementsProvider.ProviderMonitors,"Monit","a");
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            ScenarioContext.Current.Pending();
         }
 
-        [When(@"Creacion exitosa basica de proveedores")]
-        public void WhenCreacionExitosaBasicaDeProveedores()
+        [When(@"Selecciono la opción de Proveedores")]
+        public void WhenSeleccionoLaOpcionDeProveedores()
         {
-            
-
-            
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderName,"UI-Prov Bucaramanga Urbano Create");
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderDescription,"Descripcion");
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            ScenarioContext.Current.Pending();
         }
 
-        [When(@"Creacion exitosa de proveedor de prioridad media")]
-        public void WhenCreacionExitosaDeProveedorDePrioridadMedia()
+        [When(@"Doy click en Nuevo proveedor")]
+        public void WhenDoyClickEnNuevoProveedor()
         {
-            
-
-            
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderName,"UI-Prov Popayan General medium Create");
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderDescription,"Descripcion provider");
-
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderRadioMediumPriority);
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("CssSelector", ElementsProvider.ProviderButtonNew);
         }
 
-        [When(@"Creacion exitosa de proveedor de prioridad alta")]
-        public void WhenCreacionExitosaDeProveedorDePrioridadAlta()
+        [When(@"Selecciono el Tab de Proveedores")]
+        public void WhenSeleccionoElTabDeProveedores()
         {
-            
-
-            
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderName,"UI-Prov Santa Marta General High Create");
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderDescription,"Descripcion provider");
-
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderRadioHighPriority);
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("CssSelector", ElementsProvider.ProviderTabProviders);
         }
 
-        [When(@"Creacion exitosa de proveedor de prioridad baja")]
-        public void WhenCreacionExitosaDeProveedorDePrioridadBaja()
+        [When(@"Diligencio nombre de proveedor")]
+        public void WhenDiligencioNombreDeProveedor()
         {
-            
-
-            
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderName,"UI-Prov Neiva General Low Createe");
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderDescription,"Descripcion provider");
-
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderRadioLowPriority);
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.SendKeys_InputText("XPath", ElementsProvider.ProviderName, "UI-Prov Popayan General medium Create");
         }
 
-        [When(@"Creacion exitosa de proveedor externo")]
-        public void WhenCreacionExitosaDeProveedorExterno()
+        [When(@"Diligencio descripción de proveedor")]
+        public void WhenDiligencioDescripcionDeProveedor()
         {
-            
-
-            
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderName,"UI-Prov Neiva General Extern Createe");
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderDescription,"Descripcion provider");
-
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderCheckExtern);
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.SendKeys_InputText("XPath", ElementsProvider.ProviderDescription, "Descripcion provider");
         }
 
-        [When(@"Creacion exitosa de proveedor interno")]
-        public void WhenCreacionExitosaDeProveedorInterno()
+        [When(@"Selecciono tipo de proveedor interno")]
+        public void WhenSeleccionoTipoDeProveedorInterno()
         {
-            
-
-            
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderName,"UI-Prov Neiva General Intern Createe");
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderDescription,"Descripcion provider");
-
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderCheckIntern);
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", ElementsProvider.ProviderCheckIntern);
         }
 
-        [When(@"Creacion exitosa de proveedor con asignación manual")]
-        public void WhenCreacionExitosaDeProveedorConAsignacionManual()
+        [When(@"Selecciono tipo de proveedor externo")]
+        public void WhenSeleccionoTipoDeProveedorExterno()
         {
-            
-
-            
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderName,"UI-Prov Neiva General Manual Createe");
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderDescription,"Descripcion provider");
-
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderCheckAssignManual);
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.;
+            CommonElementsAction.Click("XPath", ElementsProvider.ProviderCheckExtern);
         }
 
-        [When(@"Creacion exitosa de proveedor con asignación automatica")]
-        public void WhenCreacionExitosaDeProveedorConAsignacionAutomatica()
+        [When(@"Selecciono asignación manualmente")]
+        public void WhenSeleccionoAsignacionManualmente()
         {
-            
-
-            
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderName,"UI-Prov Neiva General Best Createe");
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderDescription,"Descripcion provider");
-
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderCheckAssignBest);
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.;
+            CommonElementsAction.Click("XPath", ElementsProvider.ProviderCheckAssignManual);
         }
 
-        [When(@"Creacion fallida de proveedor sin nombre")]
-        public void WhenCreacionFallidaDeProveedorSinNombre()
+        [When(@"Selecciono asignación al mejor especialista")]
+        public void WhenSeleccionoAsignacionAlMejorEspecialista()
         {
-            
-
-            
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderDescription,"Descripcion provider");
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut;
+            CommonElementsAction.Click("XPath", ElementsProvider.ProviderCheckAssignBest);
         }
 
-        [When(@"Creacion fallida de proveedor sin descripción")]
-        public void WhenCreacionFallidaDeProveedorSinDescripcion()
+        [When(@"Selecciono importancia Alta")]
+        public void WhenSeleccionoImportanciaAlta()
         {
-            
-
-            
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonNew);
-
-            ///     And diligencio los datos del tab Proveedores
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.SendKeys_InputText("XPath",ElementsProvider.ProviderName,"UI-Prov Yopal General Create");
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.;
+            CommonElementsAction.Click("XPath", ElementsProvider.ProviderRadioHighPriority);
         }
 
-        [When(@"Modificacion exitosa de proveedor cambiando nombre")]
-        public void WhenModificacionExitosaDeProveedorCambiandoNombre()
+        [When(@"Selecciono importancia Media")]
+        public void WhenSeleccionoImportanciaMedia()
         {
-            
-
-            
-
-            // Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsProvider.ProviderFieldSearch,"Especialistas Bogota Sur General WT");
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonSearch);
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderView);
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            CommonElementsAction.ClearAndSendKeys_InputText("XPath",ElementsProvider.ProviderName,"Especialistas Bogota Sur Updaate");
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsProvider.ProviderFieldSearch,"Especialistas Bogota Sur Updaate");
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonSearch);
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderView);
-
-            Thread.Sleep(3000);
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(ElementsProvider.ProviderName)).GetAttribute("value");
-            Assert.AreEqual("Especialistas Bogota Sur Updaate",Value);
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", ElementsProvider.ProviderRadioMediumPriority);
         }
 
-        [When(@"Modificacion exitosa de proveedor cambiando prioridad")]
-        public void WhenModificacionExitosaDeProveedorCambiandoPrioridad()
+        [When(@"Selecciono importancia Baja")]
+        public void WhenSeleccionoImportanciaBaja()
         {
-            
+            CommonElementsAction.Click("XPath", ElementsProvider.ProviderRadioLowPriority);
+        }
 
-            
+        [When(@"Doy click en switch de estado de proveedor")]
+        public void WhenDoyClickEnSwitchDeEstadoDeProveedor()
+        {
+            ScenarioContext.Current.Pending();
+        }
 
-            // Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsProvider.ProviderFieldSearch,"Proveedor interno M alto");
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonSearch);
+        [When(@"Selecciono el Tab de Servicios de proveedores")]
+        public void WhenSeleccionoElTabDeServiciosDeProveedores()
+        {
+            CommonElementsAction.Click("CssSelector", ElementsProvider.ProviderTabServices);
+        }
 
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderView);
+        [When(@"Diligencio y selecciono un servicio para el proveedor")]
+        public void WhenDiligencioYSeleccionoUnServicioParaElProveedor()
+        {
+            CommonElementsAction.Select_ComboboxAutocomplete("CssSelector", ElementsProvider.ProviderServices, "Servicio Auditoria WT", "a");
+            CommonElementsAction.ClickAndSelect_DropDownList("XPath", ElementsProvider.ProviderServiceAgreement, "ANS General", "label");
+        }
 
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
+        [When(@"Selecciono el Tab de Zonas de Proveedores")]
+        public void WhenSeleccionoElTabDeZonasDeProveedores()
+        {
+            CommonElementsAction.Click("CssSelector", ElementsProvider.ProviderTabZones);
+        }
 
-            ///     And modifico la prioridad
-            Thread.Sleep(3000);
-            int LastPriority = 0;
-            int NewPriority = 0;
+        [When(@"Diligencio y selecciono una zona para el proveedor")]
+        public void WhenDiligencioYSeleccionoUnaZonaParaElProveedor()
+        {
+            CommonElementsAction.Select_ComboboxAutocomplete("CssSelector", ElementsProvider.ProviderZoneList, "Bogot", "a");
+        }
 
-            if(CommonHooks.driver.FindElement(By.XPath("//*[@id='highImportance']")).Selected)
+        [When(@"Selecciono el Tab de Especialistas de Proveedores")]
+        public void WhenSeleccionoElTabDeEspecialistasDeProveedores()
+        {
+            CommonElementsAction.Click("CssSelector", ElementsProvider.ProviderTabSpecialist);
+        }
+
+        [When(@"Selecciono el Tab de Monitores de Proveedores")]
+        public void WhenSeleccionoElTabDeMonitoresDeProveedores()
+        {
+            CommonElementsAction.Click("CssSelector", ElementsProvider.ProviderTabMonitors);
+        }
+
+        [When(@"Diligencio y selecciono un monitor para el proveedor")]
+        public void WhenDiligencioYSeleccionoUnMonitorParaElProveedor()
+        {
+            CommonElementsAction.Select_ComboboxAutocomplete("CssSelector", ElementsProvider.ProviderMonitors, "Monit", "a");
+        }
+
+        [When(@"Doy click en Guardar proveedor")]
+        public void WhenDoyClickEnGuardarProveedor()
+        {
+            CommonElementsAction.Click("CssSelector", ElementsProvider.ProviderSubmit);
+        }
+
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERS()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra el servicio relacionado a proveedor en la tabla AFLS_PROVIDER_SERVICES")]
+        public void ThenSeRegistraElServicioRelacionadoAProveedorEnLaTablaAFLS_PROVIDER_SERVICES()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra la zona relacionada a proveedor en la tabla AFLS_PROVIDER_ZONE")]
+        public void ThenSeRegistraLaZonaRelacionadaAProveedorEnLaTablaAFLS_PROVIDER_ZONE()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra el proveedor relacionado al usuario móvil en la tabla AFLS_USERS_SPECIALISTS")]
+        public void ThenSeRegistraElProveedorRelacionadoAlUsuarioMovilEnLaTablaAFLS_USERS_SPECIALISTS()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra el monitor relacionado a proveedor en la tabla AFLS_PROVIDER_MONITORS")]
+        public void ThenSeRegistraElMonitorRelacionadoAProveedorEnLaTablaAFLS_PROVIDER_MONITORS()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad media")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERSConPrioridadMedia()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad alta")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERSConPrioridadAlta()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad baja")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERSConPrioridadBaja()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS de tipo externo")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERSDeTipoExterno()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS de tipo interno")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERSDeTipoInterno()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS con asignación manual")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERSConAsignacionManual()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS con asignación automática")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERSConAsignacionAutomatica()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"No Se registra el proveedor en la tabla AFLS_PROVIDERS")]
+        public void ThenNoSeRegistraElProveedorEnLaTablaAFLS_PROVIDERS()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"El proveedor existe")]
+        public void GivenElProveedorExiste()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Busco y selecciono el proveedor")]
+        public void WhenBuscoYSeleccionoElProveedor()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", ElementsProvider.ProviderFieldSearch, "Especialistas Bogota Sur General WT");
+            CommonElementsAction.Click("CssSelector", ElementsProvider.ProviderButtonSearch);
+
+            CommonElementsAction.Click("CssSelector", ElementsProvider.ProviderView);
+        }
+
+        [When(@"Edito nombre de proveedor")]
+        public void WhenEditoNombreDeProveedor()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Especialistas Bogota Sur Updaate");
+        }
+
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS con nombre editado")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERSConNombreEditado()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Edito prioridad de proveedor")]
+        public void WhenEditoPrioridadDeProveedor()
+        {
+            if (CommonHooks.driver.FindElement(By.XPath("//*[@id='highImportance']")).Selected)
             {
                 LastPriority = 3;
-                CommonElementsAction.Click("XPath",ElementsProvider.ProviderRadioMediumPriority);
-                CommonElementsAction.ClearAndSendKeys_InputText("XPath",ElementsProvider.ProviderName,"Especialistas Bogota Medium Sur Updaate");
+                CommonElementsAction.Click("XPath", ElementsProvider.ProviderRadioMediumPriority);
+                CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Especialistas Bogota Medium Sur Updaate");
             }
-            else if(CommonHooks.driver.FindElement(By.XPath("//*[@id='mediumImportance']")).Selected)
+            else if (CommonHooks.driver.FindElement(By.XPath("//*[@id='mediumImportance']")).Selected)
             {
                 LastPriority = 2;
-                CommonElementsAction.Click("XPath",ElementsProvider.ProviderRadioLowPriority);
-                CommonElementsAction.ClearAndSendKeys_InputText("XPath",ElementsProvider.ProviderName,"Especialistas Bogota Sur Low Updaate");
+                CommonElementsAction.Click("XPath", ElementsProvider.ProviderRadioLowPriority);
+                CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Especialistas Bogota Sur Low Updaate");
             }
-            else if(CommonHooks.driver.FindElement(By.XPath("//*[@id='lowImportance']")).Selected)
+            else if (CommonHooks.driver.FindElement(By.XPath("//*[@id='lowImportance']")).Selected)
             {
                 LastPriority = 1;
-                CommonElementsAction.Click("XPath",ElementsProvider.ProviderRadioHighPriority);
-                CommonElementsAction.ClearAndSendKeys_InputText("XPath",ElementsProvider.ProviderName,"Especialistas Bogota Sur High Updaate");
+                CommonElementsAction.Click("XPath", ElementsProvider.ProviderRadioHighPriority);
+                CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Especialistas Bogota Sur High Updaate");
             }
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            Thread.Sleep(3000);
-
-            if(CommonHooks.driver.FindElement(By.XPath("//*[@id='highImportance']")).Selected)
-            {
-                NewPriority = 3;
-                Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreNotEqual(LastPriority,NewPriority);
-            }
-            else if(CommonHooks.driver.FindElement(By.XPath("//*[@id='mediumImportance']")).Selected)
-            {
-                NewPriority = 2;
-                Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreNotEqual(LastPriority,NewPriority);
-            }
-            else if(CommonHooks.driver.FindElement(By.XPath("//*[@id='lowImportance']")).Selected)
-            {
-                NewPriority = 1;
-                Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreNotEqual(LastPriority,NewPriority);
-            }
-
-            //LogOut.
-            
-            //End LogOut.
         }
 
-        [When(@"Modificacion exitosa de proveedor cambiando asignación")]
-        public void WhenModificacionExitosaDeProveedorCambiandoAsignacion()
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad editado")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERSConPrioridadEditado()
         {
-            
+            ScenarioContext.Current.Pending();
+        }
 
-            
-
-            // Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsProvider.ProviderFieldSearch,"Proveedor interno B Medio");
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonSearch);
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderView);
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderTabProviders);
-
-            ///     And modifico el tipo de asignaciòn
-            string LastAssigment = "";
-            string NewAssigment = "";
-
-            if(CommonHooks.driver.FindElement(By.XPath("//*[@id='AssignBest']")).Selected)
+        [When(@"Edito asignación de proveedor")]
+        public void WhenEditoAsignacionDeProveedor()
+        {
+            if (CommonHooks.driver.FindElement(By.XPath("//*[@id='AssignBest']")).Selected)
             {
                 LastAssigment = "Automatic";
-                CommonElementsAction.Click("XPath",ElementsProvider.ProviderCheckAssignManual);
-                CommonElementsAction.ClearAndSendKeys_InputText("XPath",ElementsProvider.ProviderName,"Proveedor interno Manual Medio Update");
+                CommonElementsAction.Click("XPath", ElementsProvider.ProviderCheckAssignManual);
+                CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Proveedor interno Manual Medio Update");
             }
-            else if(CommonHooks.driver.FindElement(By.XPath("//*[@id='AssignManual']")).Selected)
+            else if (CommonHooks.driver.FindElement(By.XPath("//*[@id='AssignManual']")).Selected)
             {
                 LastAssigment = "Manual";
-                CommonElementsAction.Click("XPath",ElementsProvider.ProviderCheckAssignBest);
-                CommonElementsAction.ClearAndSendKeys_InputText("XPath",ElementsProvider.ProviderName,"Proveedor interno Best Medio Update");
+                CommonElementsAction.Click("XPath", ElementsProvider.ProviderCheckAssignBest);
+                CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Proveedor interno Best Medio Update");
             }
-
-            //Save
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            Thread.Sleep(3000);
-
-            if(CommonHooks.driver.FindElement(By.XPath("//*[@id='AssignBest']")).Selected)
-            {
-                NewAssigment = "Automatic";
-                Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreNotEqual(LastAssigment,NewAssigment);
-            }
-
-            if(CommonHooks.driver.FindElement(By.XPath("//*[@id='AssignManual']")).Selected)
-            {
-                NewAssigment = "Manual";
-                Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreNotEqual(LastAssigment,NewAssigment);
-            }
-
-            //LogOut.
-            
-            //End LogOut.
         }
 
-        [When(@"Consulta exitosa de proveedor por nombre")]
-        public void WhenConsultaExitosaDeProveedorPorNombre()
+        [Then(@"Se registra el proveedor en la tabla AFLS_PROVIDERS con asignación editada")]
+        public void ThenSeRegistraElProveedorEnLaTablaAFLS_PROVIDERSConAsignacionEditada()
         {
-            
+            ScenarioContext.Current.Pending();
+        }
 
-            
-
-            // Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsProvider.ProviderFieldSearch,"Especialistas Bogota Sur General WT");
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonSearch);
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderView);
-
+        [Then(@"Se muestra la tarjeta del proveedor y el detalle del mismo")]
+        public void ThenSeMuestraLaTarjetaDelProveedorYElDetalleDelMismo()
+        {
             Thread.Sleep(3000);
             string Value = CommonHooks.driver.FindElement(By.CssSelector(ElementsProvider.ProviderName)).GetAttribute("value");
-            Assert.AreEqual("Especialistas Bogota Sur General WT",Value);
-
-            //LogOut.
-            
-            //End LogOut.
+            Assert.AreEqual("Especialistas Bogota Sur Updaate", Value);
         }
 
-        [When(@"Borrado exitoso de proveedor")]
-        public void WhenBorradoExitosoDeProveedor()
+        [When(@"Doy click en eliminar proveedor")]
+        public void WhenDoyClickEnEliminarProveedor()
         {
-            
-
-            
-
-            // Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",ElementsProvider.ProviderFieldSearch,"Especialistas Bogota Oriente General WT");
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderButtonSearch);
-
-            CommonElementsAction.Click("CssSelector",ElementsProvider.ProviderView);
-
-            //Delete element of List
-            Thread.Sleep(3000);
-            CommonElementsAction.Click("XPath",ElementsProvider.ProviderIconRemoved);
-
-            
-            //End Delete element of List
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", ElementsProvider.ProviderIconRemoved);
         }
 
-        
+        [Then(@"Al buscar el proveedor en la aplicación, no se lista en la búsqueda")]
+        public void ThenAlBuscarElProveedorEnLaAplicacionNoSeListaEnLaBusqueda()
+        {
+            ScenarioContext.Current.Pending();
+        }
     }
 }

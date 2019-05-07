@@ -3,6 +3,7 @@
 	#And validación de ellos al asignar ordenes de trabajo
 
 @regression
+@migrationAFLS
 Scenario: 1 Creación exitosa de habilidad
 	Given Tengo un usuario con rol administrador
 	And No existe la habilidad
@@ -19,7 +20,7 @@ Scenario: 1 Creación exitosa de habilidad
 	And Se registra la habilidad en la tabla AFLS_SKILLS
 	And Cierro Sesión en la aplicación
 
-@regression
+@regression @migrationAFLS
 Scenario: 1 Creación fallida de habilidad con nombre repetido
 	Given Tengo un usuario con rol administrador
 	And Existe la habilidad
@@ -33,7 +34,7 @@ Scenario: 1 Creación fallida de habilidad con nombre repetido
 	Then Se muestra una ventana emergente indicando que la habilidad ya existe
 	And Cierro Sesión en la aplicación
 
-@regression
+@regression @migrationAFLS
 Scenario: 1 Cancelación exitosa de creación de habilidad
 	Given Tengo un usuario con rol administrador
 	And No existe la habilidad
@@ -51,7 +52,7 @@ Scenario: 1 Cancelación exitosa de creación de habilidad
 	And No Se registra la habilidad en la tabla AFLS_SKILLS
 	And Cierro Sesión en la aplicación
 
-@regression
+@regression @migrationAFLS
 Scenario: 2 Consulta exitosa de habilidad por nombre
 	Given Tengo un usuario con rol administrador
 	And Existe la habilidad
@@ -64,7 +65,7 @@ Scenario: 2 Consulta exitosa de habilidad por nombre
 	Then Se muestra la tarjeta de la habilidad y el detalle del mismo
 	And Cierro Sesión en la aplicación
 
-@regression
+@regression @migrationAFLS
 Scenario: 3 Modificación exitosa de habilidades
 	Given Tengo un usuario con rol administrador
 	And Existe la habilidad
@@ -80,7 +81,7 @@ Scenario: 3 Modificación exitosa de habilidades
 	And Se registra la habilidad modificada en la tabla AFLS_SKILLS
 	And Cierro Sesión en la aplicación
 
-@regression
+@regression @migrationAFLS
 Scenario: 3 Modificación fallida de habilidades dejando nombre o descripción vacíos
 	Given Tengo un usuario con rol administrador
 	And Existe la habilidad
@@ -97,7 +98,7 @@ Scenario: 3 Modificación fallida de habilidades dejando nombre o descripción v
 	And Se registra la habilidad sin modificar en la tabla AFLS_SKILLS
 	And Cierro Sesión en la aplicación
 
-@regression
+@regression @migrationAFLS
 Scenario: 3 Inactivación exitosa de habilidades
 	Given Tengo un usuario con rol administrador
 	And Existe la habilidad activa
@@ -113,7 +114,7 @@ Scenario: 3 Inactivación exitosa de habilidades
 	And Se registra la habilidad modificada a inactiva en la tabla AFLS_SKILLS
 	And Al buscar la habilidad se lista como inactiva
 
-@regression
+@regression @migrationAFLS
 Scenario: 4 Eliminación exitosa de habilidades
 	Given Tengo un usuario con rol administrador
 	And Existe la habilidad

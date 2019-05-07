@@ -1,6 +1,6 @@
 ﻿Feature: Additional Field Companies
 
-
+@migrationAFLS
 Scenario: 1 Creación exitosa de campos adicionales compañías de tipo simple
 	Given Tengo un usuario con rol administrador
 	And No existe el campo adicional de compañía de tipo simple
@@ -21,6 +21,7 @@ Scenario: 1 Creación exitosa de campos adicionales compañías de tipo simple
 	And Se registra campo adicional de compañía de tipo simple en tabla AFW_ADDiTIONAL_FIELDS
 	And Cierro Sesión en la aplicación
 
+@migrationAFLS
 Scenario: 2 Modificación exitosa de campos adicionales de compañías de tipo simple
 	Given Tengo un usuario con rol administrador
 	And Existe el campo adicional de compañía de tipo simple
@@ -37,6 +38,7 @@ Scenario: 2 Modificación exitosa de campos adicionales de compañías de tipo s
 	And Se registra el campo adicional de compañía modificado en la tabla AFW_ADDiTIONAL_FIELDS
 	And Cierro Sesión en la aplicación
 
+@migrationAFLS
 Scenario: 3 Eliminación exitosa de campos adicionales compañías de tipo simple
 	Given Tengo un usuario con rol administrador
 	And Existe el campo adicional de compañía de tipo simple

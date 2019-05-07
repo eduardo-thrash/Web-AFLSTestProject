@@ -71,9 +71,11 @@ namespace AFLSUIProjectTest.Features.Configuration.Configuration
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Creación exitosa de plantilla de encuesta")]
+        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
         public virtual void CreacionExitosaDePlantillaDeEncuesta()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de plantilla de encuesta", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de plantilla de encuesta", null, new string[] {
+                        "migrationAFLS"});
 #line 4
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

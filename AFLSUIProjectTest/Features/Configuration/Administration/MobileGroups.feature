@@ -1,6 +1,7 @@
 ﻿Feature: Mobile Groups
 
 @regression
+@migrationAFLS
 Scenario: 1 Creación exitosa de grupo móvil
 	Given Tengo un usuario con rol administrador
 	And No existe el grupo móvil
@@ -14,7 +15,7 @@ Scenario: 1 Creación exitosa de grupo móvil
 	And Diligencio nombre de grupo móvil
 	And Diligencio descripción de grupo móvil
 	And Selecciono un proveedor para grupo móvil
-	And Doy click en switch de estado de grupo móvil
+	#And Doy click en switch de estado de grupo móvil
 	And Selecciono el Tab de Usuarios en grupos móviles
 	And Diligencio y selecciono un usuario para el grupo móvil
 	And Selecciono el Tab de Habilidades en grupos móviles
@@ -30,6 +31,7 @@ Scenario: 1 Creación exitosa de grupo móvil
 	And Cierro Sesión en la aplicación
 
 @regression
+@migrationAFLS
 Scenario: 2 Búsqueda exitosa de grupo móvil existente
 	Given Tengo un usuario con rol administrador
 	And Existe el grupo móvil
@@ -43,6 +45,7 @@ Scenario: 2 Búsqueda exitosa de grupo móvil existente
 	And Cierro Sesión en la aplicación
 
 @regression
+@migrationAFLS
 Scenario: 3 Modificación exitosa de grupo móvil editando nombre
 	Given Tengo un usuario con rol administrador
 	And Existe el grupo móvil
@@ -59,6 +62,7 @@ Scenario: 3 Modificación exitosa de grupo móvil editando nombre
 	And Cierro Sesión en la aplicación
 
 @regression
+@migrationAFLS
 Scenario: 3 Modificación exitosa de grupo móvil agregando usuarios móviles
 	Given Tengo un usuario con rol administrador
 	And Existe el usuario móvil sin asociar a grupos móviles
@@ -76,7 +80,7 @@ Scenario: 3 Modificación exitosa de grupo móvil agregando usuarios móviles
 	And Se registra el grupo móvil con usuario móvil asociado en la tabla AFW_GROUP_USER
 	And Cierro Sesión en la aplicación
 
-@regression
+@regression @migrationAFLS
 Scenario: 4 Borrado exitoso de grupo móvil existente
 	Given Tengo un usuario con rol administrador
 	And Existe el grupo móvil

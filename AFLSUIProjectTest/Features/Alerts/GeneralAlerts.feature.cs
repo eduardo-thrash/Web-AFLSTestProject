@@ -71,23 +71,25 @@ namespace AFLSUIProjectTest.Features.Alerts
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Carga exitosa de modulo Alertas generales")]
+        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
         public virtual void CargaExitosaDeModuloAlertasGenerales()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Carga exitosa de modulo Alertas generales", null, ((string[])(null)));
-#line 3
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Carga exitosa de modulo Alertas generales", null, new string[] {
+                        "migrationAFLS"});
+#line 4
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 4
- testRunner.Given("Tengo un usuario con rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 5
- testRunner.And("El usuario monitor y administrador tiene proveedores asociados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("Tengo un usuario con rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
- testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("El usuario monitor y administrador tiene proveedores asociados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 7
- testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 8
- testRunner.And("Selecciono la opción de item de Alertas General", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
+ testRunner.And("Selecciono la opción de item de Alertas General", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
  testRunner.Then("Se carga la pantalla principal de alertas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

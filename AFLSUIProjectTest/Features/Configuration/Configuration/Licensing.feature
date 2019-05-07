@@ -1,5 +1,6 @@
 ﻿Feature: Licensing
 
+@migrationAFLS
 Scenario: Licenciamiento exitoso de especialistas móviles
 	Given Tengo un usuario con rol administrador
 	And El usuario móvil existe
@@ -14,6 +15,7 @@ Scenario: Licenciamiento exitoso de especialistas móviles
 	Then Se muestra vista con nombre de especialista comprobando su licenciamiento
 	And se registra el especialista en la tabla AFW_LICENSES_NAMED
 
+@migrationAFLS
 Scenario: Eliminación exitosa de usuarios móviles
 	Given Tengo un usuario con rol administrador
 	And El usuario móvil existe
@@ -28,6 +30,7 @@ Scenario: Eliminación exitosa de usuarios móviles
 	Then se quita la vista del especialista de la pantalla
 	And No se registra el especialista en la tabla AFW_LICENSES_NAMED
 
+@migrationAFLS
 Scenario: Eliminación fallida de usuarios móviles por trabajo en campo en curso
 	Given Tengo un usuario con rol administrador
 	And El usuario móvil existe

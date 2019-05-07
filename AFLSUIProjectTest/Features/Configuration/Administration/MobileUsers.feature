@@ -1,6 +1,7 @@
 ﻿Feature: MobileUsers
 
-@regression
+@regression 
+@migrationAFLS
 Scenario: 1 Creación exitosa completa de usuario móvil con grupos móvil, disponibilidad y habilidades
 	Given No existe el usuario móvil
 	And Tengo un usuario con rol administrador
@@ -20,7 +21,7 @@ Scenario: 1 Creación exitosa completa de usuario móvil con grupos móvil, disp
 	And selecciono sede de inventario
 	And selecciono tipo de transporte de usuario móvil
 	And selecciono proveedor de usuario móvil
-	And Doy click en switch de estado de usuario móvil
+	#And Doy click en switch de estado de usuario móvil
 	And Selecciono el Tab de grupos móvil de usuario móvil
 	And Diligencio y selecciono un grupo móvil para usuario móvil
 	And Selecciono el Tab de disponibilidad de usuario móvil
@@ -41,6 +42,7 @@ Scenario: 1 Creación exitosa completa de usuario móvil con grupos móvil, disp
 	And Realizo cierre de sesión de la aplicación con usuario administrador
 
 @regression
+@migrationAFLS
 Scenario: 3 Generación exitosa de correo de vinculación a usuario móvil
 	Given El usuario móvil existe
 	And El servidor de correo esta configurado como activo
@@ -57,6 +59,7 @@ Scenario: 3 Generación exitosa de correo de vinculación a usuario móvil
 	And Realizo cierre de sesión de la aplicación con usuario administrador
 
 @regression
+@migrationAFLS
 Scenario: 3 Asociación exitosa de disponibilidad y habilidades a especialista básico por asociación de grupo móvil
 	Given El usuario móvil existe sin disponibilidad y habilidades
 	And Existe un grupo móvil con habilidades y disponibilidad
@@ -78,6 +81,7 @@ Scenario: 3 Asociación exitosa de disponibilidad y habilidades a especialista b
 	And Realizo cierre de sesión de la aplicación con usuario administrador
 
 @regression
+@migrationAFLS
 Scenario: 2 Búsqueda exitosa de usuarios móvil
 	Given Tengo un usuario con rol administrador
 	And El usuario móvil existe
@@ -90,7 +94,7 @@ Scenario: 2 Búsqueda exitosa de usuarios móvil
 	Then Se muestra la tarjeta de usuario móvil y se carga formulario de información básica
 	And Realizo cierre de sesión de la aplicación con usuario administrador
 
-@regression
+@regression @migrationAFLS
 Scenario: 3 Modificación exitosa de usuario móvil básico agregando disponibilidad y habilidades
 	Given Tengo un usuario con rol administrador
 	And El usuario móvil existe sin disponibilidad y habilidades
@@ -111,6 +115,7 @@ Scenario: 3 Modificación exitosa de usuario móvil básico agregando disponibil
 	And Se muestra la disponibilidad asociada en el tab disponibilidad del usuario móvil
 	And Se muestra la habilidad asociada en el tab Habilidades del usuario móvil
 
+@regression @migrationAFLS
 Scenario: 4 Borrado exitoso de usuario móvil existente.
 	Given Tengo un usuario con rol administrador
 	And El usuario móvil existe sin disponibilidad, grupos móviles, habilidades y ordenes asociadas.

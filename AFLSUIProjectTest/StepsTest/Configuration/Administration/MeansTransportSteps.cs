@@ -1,153 +1,140 @@
-﻿using AFLSUIProjectTest.UIMap.Messages;
-
-using CommonTest.CommonTest;
+﻿using AFLSUIProjectTest.StepsTest.AFLS;
 using AFLSUIProjectTest.UIMap.Configuration;
+using AFLSUIProjectTest.UIMap.Messages;
+using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using System;
 using System.Threading;
 using TechTalk.SpecFlow;
-using AFLSUIProjectTest.UIMap.Configuration;
-using AFLSUIProjectTest.StepsTest.AFLS;
 
 namespace AFLSUITestProject.TestSuite.Configuration.Administration
 {
     [Binding]
     public class MeansTransportSteps
     {
-
-        LoginLogoutSteps LoginLogoutSteps = new LoginLogoutSteps();
+        private LoginLogoutSteps LoginLogoutSteps = new LoginLogoutSteps();
         private readonly MeansTransportPage MeansTransportPage = new MeansTransportPage();
         private readonly PageMessages PageMessages = new PageMessages();
-        
 
-        [When(@"Creación exitosa de Transportes")]
-        public void WhenCreacionExitosaDeTransportes()
+        [Given(@"El transporte no existe")]
+        public void GivenElTransporteNoExiste()
         {
-            LoginLogoutSteps.WhenRealizoLoginConUsuarioRolAdministrador();
-                
-
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.MeansTransportButtonNew);
-
-            //Navigate from Principal tab.
-            Console.WriteLine("Navigate from Principal tab." + "\n");
-            Thread.Sleep(3000);
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.MeansTransportTabInfo);
-
-            CommonElementsAction.SendKeys_InputText("CssSelector",MeansTransportPage.MeansTransportName,"Automóvil UI");
-            CommonElementsAction.SendKeys_InputText("CssSelector",MeansTransportPage.MeansTransportDescription,"Description ipsum dolor sit amet. consectetur adipiscing elit. Duis lobortis turpis ut sagittis consectetur. Nunc et dolor vitae libero rutrum eleifend.");
-
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector",MeansTransportPage.MeansTransportInitialcost,"0");
-
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector",MeansTransportPage.MeansTransportCostByKilometer,"890");
-            CommonElementsAction.ClickAndSelect_DropDownList("CssSelector",MeansTransportPage.MeansTransportsInfoTransport,"Automóvil","label");
-
-            Console.WriteLine("\n" + "End Navigate from Principal tab.");
-            //End Navigate from Principal tab.
-
-            //Save
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.MeansTransportSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+            ScenarioContext.Current.Pending();
         }
 
-        [When(@"Busqueda exitosa de un transporte existente")]
-        public void WhenBusquedaExitosaDeUnTransporteExistente()
+        [When(@"Diligencio nombre de transporte")]
+        public void WhenDiligencioNombreDeTransporte()
         {
-            LoginLogoutSteps.WhenRealizoLoginConUsuarioRolAdministrador();
+            ScenarioContext.Current.Pending();
+        }
 
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",MeansTransportPage.TransportFieldSearch,"Automovil WT");
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.TransportButtonSearch);
+        [When(@"Doy click en Nuevo transporte")]
+        public void WhenDoyClickEnNuevoTransporte()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", MeansTransportPage.MeansTransportName, "Automóvil UI");
+            ;
+        }
 
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.TransportView);
+        [When(@"Diligencio descripción de transporte")]
+        public void WhenDiligencioDescripcionDeTransporte()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", MeansTransportPage.MeansTransportDescription, "Description ipsum dolor sit amet. consectetur adipiscing elit. Duis lobortis turpis ut sagittis consectetur. Nunc et dolor vitae libero rutrum eleifend.");
+        }
 
-            Thread.Sleep(3000);
+        [When(@"Diligencio costo inicial de transporte")]
+        public void WhenDiligencioCostoInicialDeTransporte()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", MeansTransportPage.MeansTransportInitialcost, "0");
+        }
+
+        [When(@"Diligencio costo por kilómetro de transporte")]
+        public void WhenDiligencioCostoPorKilometroDeTransporte()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", MeansTransportPage.MeansTransportCostByKilometer, "890");
+        }
+
+        [When(@"Selecciono medio de transporte")]
+        public void WhenSeleccionoMedioDeTransporte()
+        {
+            CommonElementsAction.ClickAndSelect_DropDownList("CssSelector", MeansTransportPage.MeansTransportsInfoTransport, "Automóvil", "label");
+        }
+
+        [When(@"Selecciono tipo de transporte publico si se habilita")]
+        public void WhenSeleccionoTipoDeTransportePublicoSiSeHabilita()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Doy click en switch de estado de transporte")]
+        public void WhenDoyClickEnSwitchDeEstadoDeTransporte()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Doy click en Guardar transporte")]
+        public void WhenDoyClickEnGuardarTransporte()
+        {
+            CommonElementsAction.Click("CssSelector", MeansTransportPage.MeansTransportSubmit);
+        }
+
+        [Then(@"Se registra el transporte en la tabla AFLS_VEHICLE_TYPE")]
+        public void ThenSeRegistraElTransporteEnLaTablaAFLS_VEHICLE_TYPE()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"El transporte existe")]
+        public void GivenElTransporteExiste()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Busco y selecciono el transporte")]
+        public void WhenBuscoYSeleccionoElTransporte()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", MeansTransportPage.TransportFieldSearch, "Moto WT");
+            CommonElementsAction.Click("CssSelector", MeansTransportPage.TransportButtonSearch);
+
+            CommonElementsAction.Click("CssSelector", MeansTransportPage.TransportView);
+        }
+
+        [Then(@"Se muestra la tarjeta del transporte y el detalle del mismo")]
+        public void ThenSeMuestraLaTarjetaDelTransporteYElDetalleDelMismo()
+        {
             string Value = CommonHooks.driver.FindElement(By.CssSelector(MeansTransportPage.MeansTransportName)).GetAttribute("value");
-            Assert.AreEqual("Automovil WT",Value);
-
-            //LogOut.
-            
-            //End LogOut.
+            Assert.AreEqual("Automovil WT", Value);
         }
 
-        [When(@"odificación exitosa de un transporte")]
-        public void WhenOdificacionExitosaDeUnTransporte()
+        [When(@"Edito nombre de transporte")]
+        public void WhenEditoNombreDeTransporte()
         {
-            LoginLogoutSteps.WhenRealizoLoginConUsuarioRolAdministrador();
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",MeansTransportPage.TransportFieldSearch,"Moto WT");
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.TransportButtonSearch);
-
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.TransportView);
-
-            Console.WriteLine("Navigate from Principal tab." + "\n");
-            Thread.Sleep(3000);
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.MeansTransportTabInfo);
-
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector",MeansTransportPage.MeansTransportName,"Moto WT Update");
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector",MeansTransportPage.MeansTransportDescription,"Lorem update ipsum dolor sit amet consectetur adipiscing elit.");
-
-            //Save
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.MeansTransportSubmit);
-            //End Save
-
-            ////End Navigate Module Details
-
-            //Validate response.
-            
-            //End Validate response.
-
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",MeansTransportPage.TransportFieldSearch,"Moto WT Update");
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.TransportButtonSearch);
-
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.TransportView);
-
-            Thread.Sleep(3000);
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(MeansTransportPage.MeansTransportName)).GetAttribute("value");
-            Assert.AreEqual("Moto WT Update",Value);
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", MeansTransportPage.MeansTransportName, "Moto WT Update");
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", MeansTransportPage.MeansTransportDescription, "Lorem update ipsum dolor sit amet consectetur adipiscing elit.");
         }
 
-        [When(@"Borrado exitoso de transporte existente")]
-        public void WhenBorradoExitosoDeTransporteExistente()
+        [Then(@"Se registra modificado el transporte en la tabla AFLS_VEHICLE_TYPE")]
+        public void ThenSeRegistraModificadoElTransporteEnLaTablaAFLS_VEHICLE_TYPE()
         {
-            LoginLogoutSteps.WhenRealizoLoginConUsuarioRolAdministrador();
+            ScenarioContext.Current.Pending();
+        }
 
-            //Navigate Module List Content
-            CommonElementsAction.SendKeys_InputText("CssSelector",MeansTransportPage.TransportFieldSearch,"Bus WT");
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.TransportButtonSearch);
-
-            CommonElementsAction.Click("CssSelector",MeansTransportPage.TransportView);
-
-            //Delete element of List
+        [When(@"Doy click en eliminar transporte")]
+        public void WhenDoyClickEnEliminarTransporte()
+        {
             Thread.Sleep(3000);
-            CommonElementsAction.Click("XPath",MeansTransportPage.TransportIconRemoved);
+            CommonElementsAction.Click("XPath", MeansTransportPage.TransportIconRemoved);
+        }
 
-            
-            //End Delete element of List
+        [Then(@"No se registra el transporte en la tabla AFLS_VEHICLE_TYPE")]
+        public void ThenNoSeRegistraElTransporteEnLaTablaAFLS_VEHICLE_TYPE()
+        {
+            ScenarioContext.Current.Pending();
+        }
 
-            //Validate response.
-            
-            //End Validate response.
-
-            //LogOut.
-            
-            //End LogOut.
+        [Then(@"Al buscar el transporte en la aplicación, no se lista en la búsqueda")]
+        public void ThenAlBuscarElTransporteEnLaAplicacionNoSeListaEnLaBusqueda()
+        {
+            ScenarioContext.Current.Pending();
         }
     }
 }

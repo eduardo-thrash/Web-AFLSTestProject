@@ -71,9 +71,11 @@ namespace AFLSUIProjectTest.Features.Configuration.Configuration
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("1 Creación exitosa de campo adicional de orden de tipo simple")]
+        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
         public virtual void _1CreacionExitosaDeCampoAdicionalDeOrdenDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de campo adicional de orden de tipo simple", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de campo adicional de orden de tipo simple", null, new string[] {
+                        "migrationAFLS"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -121,9 +123,11 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("2 Modificación exitosa de campos adicionales de ordenes de tipo simple")]
+        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
         public virtual void _2ModificacionExitosaDeCamposAdicionalesDeOrdenesDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Modificación exitosa de campos adicionales de ordenes de tipo simple", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Modificación exitosa de campos adicionales de ordenes de tipo simple", null, new string[] {
+                        "migrationAFLS"});
 #line 26
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -162,38 +166,40 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("3 Eliminación exitosa de campos adicionales ordenes de tipo simple")]
+        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
         public virtual void _3EliminacionExitosaDeCamposAdicionalesOrdenesDeTipoSimple()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Eliminación exitosa de campos adicionales ordenes de tipo simple", null, ((string[])(null)));
-#line 42
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Eliminación exitosa de campos adicionales ordenes de tipo simple", null, new string[] {
+                        "migrationAFLS"});
+#line 43
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 43
- testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 44
- testRunner.And("Existe el campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 45
- testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Existe el campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 46
- testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 47
- testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
- testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
- testRunner.And("Selecciono la opción Campos adicionales de ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
- testRunner.And("Doy click en eliminar el campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción Campos adicionales de ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
- testRunner.And("Doy click en Si de mensaje de confirmación de borrado de campo adicional", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Doy click en eliminar el campo adicional de orden de tipo simple", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
- testRunner.And("Doy click en Guardar campo adicional de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Doy click en Si de mensaje de confirmación de borrado de campo adicional", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 53
- testRunner.Then("Se muestra un mensaje indicando que se guardo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("Doy click en Guardar campo adicional de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 54
+ testRunner.Then("Se muestra un mensaje indicando que se guardo que campo adicional correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 55
  testRunner.And("Se borra el registro de el campo adicional de orden en la tabla AFW_ADDiTIONAL_FI" +
                     "ELDS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 55
+#line 56
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

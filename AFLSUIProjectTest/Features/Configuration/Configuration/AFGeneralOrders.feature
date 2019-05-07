@@ -1,7 +1,7 @@
 ﻿Feature: AF Orders
 
 
-
+@migrationAFLS
 Scenario: 1 Creación exitosa de campo adicional de orden de tipo simple
 	Given Tengo un usuario con rol administrador
 	And No existe el campo adicional de orden de tipo simple
@@ -22,7 +22,7 @@ Scenario: 1 Creación exitosa de campo adicional de orden de tipo simple
 	And Se registra campo adicional de orden de tipo simple en tabla AFW_ADDiTIONAL_FIELDS
 	And Cierro Sesión en la aplicación
 
-
+@migrationAFLS
 Scenario: 2 Modificación exitosa de campos adicionales de ordenes de tipo simple
 	Given Tengo un usuario con rol administrador
 	And Existe el campo adicional de orden de tipo simple
@@ -39,6 +39,7 @@ Scenario: 2 Modificación exitosa de campos adicionales de ordenes de tipo simpl
 	And Se registra el campo adicional de orden modificado en la tabla AFW_ADDiTIONAL_FIELDS
 	And Cierro Sesión en la aplicación
 
+@migrationAFLS
 Scenario: 3 Eliminación exitosa de campos adicionales ordenes de tipo simple
 	Given Tengo un usuario con rol administrador
 	And Existe el campo adicional de orden de tipo simple

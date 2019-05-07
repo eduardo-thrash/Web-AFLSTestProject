@@ -1,16 +1,9 @@
-﻿using System;
-using TechTalk.SpecFlow;
-using AFLSUIProjectTest.UIMap.Configuration;
-using AFLSUIProjectTest.UIMap.Messages;
-using AFLSUIProjectTest.CommonAFLS;
-
-using AFLSUIProjectTest.CommonAFLS;
+﻿using AFLSUIProjectTest.CommonAFLS;
 using AFLSUIProjectTest.UIMap.Configuration;
 using AFLSUIProjectTest.UIMap.Messages;
 using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace AFLSUITestProject.TestSuite.Configuration.Inventory
@@ -27,7 +20,6 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         private static string DefaultHeadquaterName = "UI Sede ";
         private static string EditHeadquaterName;
         private static string HeadquaterName = "UI Sede Edit ";
-
 
         [Given(@"No existe la ubicación de tipo sede")]
         public void GivenNoExisteLaUbicacionDeTipoSede()
@@ -86,7 +78,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         [When(@"Diligencio nombre de contacto de sede")]
         public void WhenDiligencioNombreDeContactoDeSede()
         {
-            CommonElementsAction.SendKeys_InputText("", LocationsPage.InfoContactName,"");
+            CommonElementsAction.SendKeys_InputText("", LocationsPage.InfoContactName, "");
         }
 
         [When(@"Diligencio teléfono de contacto de sede")]
@@ -119,8 +111,8 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
             CommonQuery.DBSelectAValue("", 0); ScenarioContext.Current.Pending();
         }
 
-        [When(@"Doy click en Nuevo transporte")]
-        public void WhenDoyClickEnNuevoTransporte()
+        [When(@"Doy click en Nueva sede de transporte")]
+        public void WhenDoyClickEnNuevaSedeDeTransporte()
         {
             ScenarioContext.Current.Pending();
         }
@@ -194,9 +186,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         [When(@"Ubico y selecciono la ubicación deseada")]
         public void WhenUbicoYSeleccionoLaUbicacionDeseada()
         {
-            
             CommonElementsAction.ClickOn_Random_List("CssSelector", "");
-            
         }
 
         [Then(@"Se muestra el detalle de la ubicación")]
@@ -217,7 +207,6 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         public void WhenDoyClickEnEliminarUbicacion()
         {
             CommonElementsAction.Click("", "");
-            
         }
 
         [Then(@"Se borra el registro de la ubicación en la tabla AFLS_STOCK_PRODUCTS")]

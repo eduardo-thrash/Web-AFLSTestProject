@@ -1,6 +1,6 @@
 ﻿Feature: SurveyTemplates
 	
-
+@migrationAFLS
 Scenario: Creación exitosa de plantilla de encuesta
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación

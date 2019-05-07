@@ -146,7 +146,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 34
  testRunner.And("Selecciono la opción Ubicaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
- testRunner.And("Doy click en Nuevo transporte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Doy click en Nueva sede de transporte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
  testRunner.And("Selecciono tipo de ubicación de transporte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 37
