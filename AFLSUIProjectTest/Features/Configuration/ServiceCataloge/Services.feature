@@ -20,7 +20,7 @@ Scenario: 1 Creación exitosa de Servicio completo
 	And Diligencio Costo base del servicio
 	And Selecciono Tipo de servicio Estándar
 	And Selecciono Tipo de servicio Desplazamiento	
-	And Doy click en switch de estado de servicio
+	#And Doy click en switch de estado de servicio
 	And Selecciono check de brindar el servicio a todos los clientes
 	And Selecciono check de Habilitar ordenes de emergencia para este servicio
 	And Selecciono Tipo de asignación servicio de distribución publica

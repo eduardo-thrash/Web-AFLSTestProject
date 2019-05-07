@@ -219,7 +219,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 61
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 62
- testRunner.And("El OLA existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("El OLA existe sin relaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 63
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 64

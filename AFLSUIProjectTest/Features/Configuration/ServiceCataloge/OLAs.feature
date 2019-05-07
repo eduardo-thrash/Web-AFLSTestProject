@@ -59,7 +59,7 @@ Scenario: 3 Modificación exitosa de OLA
 @regression
 Scenario: 4 Borrado exitoso de OLA existente
 	Given Tengo un usuario con rol administrador
-	And El OLA existe
+	And El OLA existe sin relaciones
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración

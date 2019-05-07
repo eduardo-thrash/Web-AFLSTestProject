@@ -59,7 +59,7 @@ Scenario: 3 Modificación exitosa de ANS
 @regression
 Scenario: 4 Borrado exitoso de ANS existente
 	Given Tengo un usuario con rol administrador
-	And El ANS existe
+	And El ANS existe sin relaciones
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración

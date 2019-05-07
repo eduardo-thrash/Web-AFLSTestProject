@@ -115,8 +115,6 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("Selecciono Tipo de servicio Estándar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
  testRunner.And("Selecciono Tipo de servicio Desplazamiento", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 23
- testRunner.And("Doy click en switch de estado de servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 24
  testRunner.And("Selecciono check de brindar el servicio a todos los clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 25

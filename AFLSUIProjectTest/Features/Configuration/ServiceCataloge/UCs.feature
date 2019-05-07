@@ -59,7 +59,7 @@ Scenario: 3 Modificación exitosa de UC
 @regression
 Scenario: 4 Borrado exitoso de UC existente
 	Given Tengo un usuario con rol administrador
-	And El UC existe
+	And El UC existe sin relaciones
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
