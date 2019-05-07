@@ -259,19 +259,19 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         {
             if (CommonHooks.driver.FindElement(By.XPath("//*[@id='highImportance']")).Selected)
             {
-                LastPriority = 3;
+                int LastPriority = 3;
                 CommonElementsAction.Click("XPath", ElementsProvider.ProviderRadioMediumPriority);
                 CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Especialistas Bogota Medium Sur Updaate");
             }
             else if (CommonHooks.driver.FindElement(By.XPath("//*[@id='mediumImportance']")).Selected)
             {
-                LastPriority = 2;
+                int LastPriority = 2;
                 CommonElementsAction.Click("XPath", ElementsProvider.ProviderRadioLowPriority);
                 CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Especialistas Bogota Sur Low Updaate");
             }
             else if (CommonHooks.driver.FindElement(By.XPath("//*[@id='lowImportance']")).Selected)
             {
-                LastPriority = 1;
+                int LastPriority = 1;
                 CommonElementsAction.Click("XPath", ElementsProvider.ProviderRadioHighPriority);
                 CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Especialistas Bogota Sur High Updaate");
             }
@@ -288,13 +288,13 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         {
             if (CommonHooks.driver.FindElement(By.XPath("//*[@id='AssignBest']")).Selected)
             {
-                LastAssigment = "Automatic";
+                string LastAssigment = "Automatic";
                 CommonElementsAction.Click("XPath", ElementsProvider.ProviderCheckAssignManual);
                 CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Proveedor interno Manual Medio Update");
             }
             else if (CommonHooks.driver.FindElement(By.XPath("//*[@id='AssignManual']")).Selected)
             {
-                LastAssigment = "Manual";
+                string LastAssigment = "Manual";
                 CommonElementsAction.Click("XPath", ElementsProvider.ProviderCheckAssignBest);
                 CommonElementsAction.ClearAndSendKeys_InputText("XPath", ElementsProvider.ProviderName, "Proveedor interno Best Medio Update");
             }

@@ -114,6 +114,7 @@ Scenario: 3 Modificación exitosa de usuario móvil básico agregando disponibil
 	And Se registra disponibilidad de 4 días en la tabla AFLS_USER_AVAILABILITIES
 	And Se muestra la disponibilidad asociada en el tab disponibilidad del usuario móvil
 	And Se muestra la habilidad asociada en el tab Habilidades del usuario móvil
+	And Cierro Sesión en la aplicación
 
 @regression @migrationAFLS
 Scenario: 4 Borrado exitoso de usuario móvil existente.
@@ -131,3 +132,4 @@ Scenario: 4 Borrado exitoso de usuario móvil existente.
 	And Se borra usuario de la tabla AFW_USERS
 	And Se borra usuario móvil de la tabla AFLS_USERS_SPECIALISTS
 	And Al buscar el usuario móvil en la aplicación, no se lista en la búsqueda
+	And Cierro Sesión en la aplicación
