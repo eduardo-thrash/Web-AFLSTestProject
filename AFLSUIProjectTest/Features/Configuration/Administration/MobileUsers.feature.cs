@@ -252,7 +252,8 @@ this.ScenarioInitialize(scenarioInfo);
 #line 79
  testRunner.And("Se muestra el grupo móvil asociado en el tab Habilidades del usuario móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 80
- testRunner.And("Se muestra la disponibilidad asociada en el tab disponibilidad del usuario móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Se muestra la disponibilidad heredada asociada en el tab disponibilidad del usuar" +
+                    "io móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 81
  testRunner.And("Realizo cierre de sesión de la aplicación con usuario administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

@@ -24,6 +24,7 @@ Scenario: Creación exitosa de grupo web
 	And Se registra el grupo en la tabla AFW_GROUPS
 	And Se registra el grupo web en la tabla AFLS_GROUPS_WEB
 	And Se registra el usuario asociado al grupo web en la tabla AFW_GROUP_USER
+	And Cierro Sesión en la aplicación
 
 @migrationAFLS
 Scenario: Búsqueda exitosa de Grupos web existente
@@ -36,6 +37,7 @@ Scenario: Búsqueda exitosa de Grupos web existente
 	And selecciono la opción Grupos Web
 	And Busco y selecciono el grupo web
 	Then Se muestra la tarjeta del grupo web y el detalle del mismo
+	And Cierro Sesión en la aplicación
 
 @migrationAFLS
 Scenario: Modificación exitosa de grupos web
@@ -51,6 +53,7 @@ Scenario: Modificación exitosa de grupos web
 	And Doy click en Guardar grupo web
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el grupo editado en la tabla AFW_GROUPS
+	And Cierro Sesión en la aplicación
 
 @migrationAFLS
 Scenario: Borrado exitoso de grupo web existente
@@ -66,3 +69,4 @@ Scenario: Borrado exitoso de grupo web existente
 	And Selecciono Aceptar en mensaje de confirmación de borrado
 	Then Se muestra mensaje indicando que se borro el registro exitosamente
 	And No se registra el grupo en la tabla AFW_GROUPS
+	And Cierro Sesión en la aplicación

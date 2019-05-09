@@ -1,4 +1,4 @@
-﻿Feature: Additional Field Companies
+﻿Feature: AF Companies
 
 @migrationAFLS
 Scenario: 1 Creación exitosa de campos adicionales compañías de tipo simple

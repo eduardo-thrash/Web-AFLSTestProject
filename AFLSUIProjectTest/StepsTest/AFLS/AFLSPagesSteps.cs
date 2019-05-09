@@ -19,6 +19,8 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         private AFCompaniesPage AFCompaniesPage = new AFCompaniesPage();
         private ConfigurationMenuPage Menu = new ConfigurationMenuPage();
         private MobileUsersPage MobileUsersPage = new MobileUsersPage();
+        private WebGroupsPage WebGroupsPage = new WebGroupsPage();
+        private readonly WebUsersPage WebUsersPage = new WebUsersPage();
 
         private string ErrorResult = null;
 
@@ -311,6 +313,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"selecciono la opción Usuarios Web")]
         public void WhenSeleccionoLaOpcionUsuariosWeb()
         {
+            CommonElementsAction.Click("XPath", WebUsersPage.WebUsersModulePath);
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.WebUserOption);
         }
 
@@ -331,6 +334,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"selecciono la opción Grupos Web")]
         public void WhenSeleccionoLaOpcionGruposWeb()
         {
+            CommonElementsAction.Click("XPath", WebGroupsPage.WebGroupsModulePath);
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.WebGroupOption);
         }
 
@@ -542,15 +546,8 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Selecciono la opción Campos adicionales compañías")]
         public void WhenSeleccionoLaOpcionCamposAdicionalesCompanias()
         {
-            try
-            {
-                CommonElementsAction.Click("XPath", Menu.AFCompaniesOption);
-            }
-            catch
-            {
-                CommonElementsAction.Click("XPath", AFCompaniesPage.AFCompaniesModulePath);
-                CommonElementsAction.Click("XPath", Menu.AFCompaniesOption);
-            }
+            CommonElementsAction.Click("XPath", AFCompaniesPage.AFCompaniesModulePath);
+            CommonElementsAction.Click("XPath", Menu.AFCompaniesOption);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal Campos adicionales compañías")]

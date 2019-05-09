@@ -30,7 +30,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Given(@"Existe el campo adicional de compañía de tipo simple")]
         public string GivenExisteElCampoAdicionalDeCompaniaDeTipoSimple()
         {
-            AFCompanyName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND type_id = 1 ORDER BY NEWID();", 1);
+            AFCompanyName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 4 AND type_id = 1 ORDER BY NEWID();", 1);
             return AFCompanyName;
         }
 
@@ -38,7 +38,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         public void WhenDoyClickEnEditarElCampoAdicionalDeCompaniaDeTipoSimple()
         {
             Thread.Sleep(3000);
-            EditLabelAFCompanyName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND name = '" + AFCompanyName + "';", 1);
+            EditLabelAFCompanyName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 4 AND name = '" + AFCompanyName + "';", 1);
 
             IList<IWebElement> all = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-company']/div/div[2]/ul/li/div/div[2]/div/label"));
             Thread.Sleep(3000);
@@ -77,14 +77,14 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Then(@"Se registra el campo adicional de compañía modificado en la tabla AFW_ADDiTIONAL_FIELDS")]
         public void ThenSeRegistraElCampoAdicionalDeCompaniaModificadoEnLaTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND type_id = 1 AND name = '" + AFCompanyName + "' AND label = '" + EditLabelAFCompanyName + "';", 1);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 4 AND type_id = 1 AND name = '" + AFCompanyName + "' AND label = '" + EditLabelAFCompanyName + "';", 1);
         }
 
         [When(@"Doy click en eliminar el campo adicional de compañía de tipo simple")]
         public void WhenDoyClickEnEliminarElCampoAdicionalDeCompaniaDeTipoSimple()
         {
             Thread.Sleep(3000);
-            LabelAFCompanyName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND name = '" + AFCompanyName + "';", 1);
+            LabelAFCompanyName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 4 AND name = '" + AFCompanyName + "';", 1);
 
             IList<IWebElement> all = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-company']/div/div[2]/ul/li/div/div[2]/div/label"));
             Thread.Sleep(3000);
@@ -116,7 +116,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Then(@"Se borra el registro de el campo adicional de compañía en la tabla AFW_ADDiTIONAL_FIELDS")]
         public void ThenSeBorraElRegistroDeElCampoAdicionalDeCompaniaEnLaTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND type_id = 1 AND name = '" + AFCompanyName + "';", 0);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 4 AND type_id = 1 AND name = '" + AFCompanyName + "';", 0);
         }
 
         [Given(@"No existe el campo adicional de compañía de tipo simple")]
@@ -124,7 +124,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         {
             AFCompanyName = DefaultAFCompanyName + Functions.RandomText(4);
             LabelAFCompanyName = AFCompanyName;
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND name = '" + AFCompanyName + "';", 0);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 4 AND name = '" + AFCompanyName + "';", 0);
             return AFCompanyName;
         }
 
@@ -188,7 +188,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Then(@"Se registra campo adicional de compañía de tipo simple en tabla AFW_ADDiTIONAL_FIELDS")]
         public void ThenSeRegistraCampoAdicionalDeCompaniaDeTipoSimpleEnTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND type_id = 1 AND name = '" + AFCompanyName + "';", 1);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 4 AND type_id = 1 AND name = '" + AFCompanyName + "';", 1);
         }
 
         [Given(@"No existe el campo adicional de compañía")]

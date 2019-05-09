@@ -77,7 +77,7 @@ Scenario: 3 Asociación exitosa de disponibilidad y habilidades a especialista b
 	And Se registra disponibilidad heredada en la tabla AFLS_SPECIALIST_AVAILABILITY_CONSOLIDATED
 	And Se muestra la habilidad asociada en el tab Habilidades del usuario móvil
 	And Se muestra el grupo móvil asociado en el tab Habilidades del usuario móvil
-	And Se muestra la disponibilidad asociada en el tab disponibilidad del usuario móvil
+	And Se muestra la disponibilidad heredada asociada en el tab disponibilidad del usuario móvil
 	And Realizo cierre de sesión de la aplicación con usuario administrador
 
 @regression

@@ -402,7 +402,7 @@ namespace CommonTest.CommonTest
                     Thread.Sleep(1000);
                 }
             }
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             for (second = 0; ; second++)
             {
                 if (second >= 10) Assert.Fail(Error);

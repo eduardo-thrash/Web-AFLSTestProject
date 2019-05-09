@@ -384,6 +384,15 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
             CommonElementsAction.WaitElement(MobileUsersPage.AvailabilttyBlockInherited);
         }
 
+        [Then(@"Se muestra la disponibilidad heredada asociada en el tab disponibilidad del usuario móvil")]
+        public void ThenSeMuestraLaDisponibilidadHeredadaAsociadaEnElTabDisponibilidadDelUsuarioMovil()
+        {
+            CommonElementsAction.Click("CssSelector", MobileUsersPage.TabMobileUserAvilibily);
+            Thread.Sleep(2000);
+
+            CommonElementsAction.WaitElement("//*[@id='calendar']/div/div/table/tbody/tr/td/div/div/div[3]/table/tbody/tr/td/div/a/div[@class='fc-bg']");
+        }
+
         [Then(@"Se muestra la tarjeta de usuario móvil y se carga formulario de información básica")]
         public void ThenSeMuestraLaTarjetaDeUsuarioMovilYSeCargaFormularioDeInformacionBasica()
         {

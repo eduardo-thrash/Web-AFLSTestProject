@@ -6,7 +6,7 @@
         public string WebUsersModulePath = "//div[contains(@class, 'icon iconsAd usersWeb')]";
 
         public string WebUserModule = "Web Users";
-        public string WebUserButtonNew = "body > div.frameworks > div > div.base.container-module.bottom.row > div > div.content.col.module > div.usersWeb #content > div.center.header.row > div > div.btnSearch #commonNewItem";
+        public string WebUserButtonNew = "//div[@class='usersWeb']//input[@id='commonNewItem']";
         public string WebUserSubmit = "div.usersWeb > #rightsidebar > div.content > div.row.bottom.comments > div.buttons.row > #btnSave";
 
         public string WebUserFieldSearch = "body > div.frameworks > div > div.base.container-module.bottom.row > div > div.content.col.module > div.usersWeb #content > div.center.header.row > div > div.searchBox #inputSearch";

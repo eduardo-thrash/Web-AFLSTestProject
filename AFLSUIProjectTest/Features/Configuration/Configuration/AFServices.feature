@@ -1,4 +1,4 @@
-﻿Feature: Additional Field Services
+﻿Feature: AF Services
 
 @migrationAFLS
 Scenario: 1 Creación exitosa de campos adicionales de servicios de tipo simple

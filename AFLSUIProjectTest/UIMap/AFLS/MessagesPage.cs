@@ -30,6 +30,8 @@
 
         public string SuccessResponseAF = "Los campos adicionales han sido guardados correctamente";
 
+        public string SuccessSurveyConfig = "Se ha actualizado correctamente";
+
         public string SuccessResponseClientEmailSend = "Se ha enviado un correo de invitación a:";
     }
 }
