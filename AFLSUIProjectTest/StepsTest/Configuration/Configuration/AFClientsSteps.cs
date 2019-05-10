@@ -33,7 +33,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         {
             AFClientName = DefaultAFClientName + Functions.RandomText(4);
             LabelAFClientName = AFClientName;
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 3 AND name = '" + AFClientName + "';", 0);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 AND name = '" + AFClientName + "';", 0);
             return AFClientName;
         }
 
@@ -47,7 +47,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Given(@"Existe el campo adicional de cliente de tipo simple")]
         public string GivenExisteElCampoAdicionalDeClienteDeTipoSimple()
         {
-            AFClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 3 AND type_id = 1 ORDER BY NEWID();", 1);
+            AFClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 ORDER BY NEWID();", 1);
             return AFClientName;
         }
 
@@ -119,14 +119,14 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Then(@"Se registra campo adicional de cliente de tipo simple en tabla AFW_ADDiTIONAL_FIELDS")]
         public void ThenSeRegistraCampoAdicionalDeClienteDeTipoSimpleEnTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 3 AND type_id = 1 AND name = '" + AFClientName + "';", 1);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 AND name = '" + AFClientName + "';", 1);
         }
 
         [When(@"Doy click en editar el campo adicional de cliente de tipo simple")]
         public void WhenDoyClickEnEditarElCampoAdicionalDeClienteDeTipoSimple()
         {
             Thread.Sleep(3000);
-            EditLabelAFClientName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 3 AND name = '" + AFClientName + "';", 1);
+            EditLabelAFClientName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND name = '" + AFClientName + "';", 1);
 
             IList<IWebElement> all = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-client']/div/div[2]/ul/li/div/div[2]/div/label"));
             Thread.Sleep(3000);
@@ -165,14 +165,14 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Then(@"Se registra el campo adicional de cliente modificado en la tabla AFW_ADDiTIONAL_FIELDS")]
         public void ThenSeRegistraElCampoAdicionalDeClienteModificadoEnLaTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 3 AND type_id = 1 AND name = '" + AFClientName + "' AND label = '" + EditLabelAFClientName + "';", 1);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 AND name = '" + AFClientName + "' AND label = '" + EditLabelAFClientName + "';", 1);
         }
 
         [When(@"Doy click en eliminar el campo adicional de cliente de tipo simple")]
         public void WhenDoyClickEnEliminarElCampoAdicionalDeClienteDeTipoSimple()
         {
             Thread.Sleep(3000);
-            LabelAFClientName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 3 AND name = '" + AFClientName + "';", 1);
+            LabelAFClientName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND name = '" + AFClientName + "';", 1);
 
             IList<IWebElement> all = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-client']/div/div[2]/ul/li/div/div[2]/div/label"));
             Thread.Sleep(3000);
@@ -204,7 +204,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Then(@"Se borra el registro de el campo adicional de cliente en la tabla AFW_ADDiTIONAL_FIELDS")]
         public void ThenSeBorraElRegistroDeElCampoAdicionalDeClienteEnLaTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 3 AND type_id = 1 AND name = '" + AFClientName + "';", 0);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 AND name = '" + AFClientName + "';", 0);
         }
 
         [When(@"Eliminación exitosa de campos adicionales clientes")]

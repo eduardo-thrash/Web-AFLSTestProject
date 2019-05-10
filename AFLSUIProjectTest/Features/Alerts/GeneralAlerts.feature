@@ -6,5 +6,7 @@ Scenario: Carga exitosa de modulo Alertas generales
 	And El usuario monitor y administrador tiene proveedores asociados
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol monitor
-	And Selecciono la opción de item de Alertas General
+	And Selecciono la opción de ítem de Alertas General
 	Then Se carga la pantalla principal de alertas generales
+
+

@@ -419,6 +419,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepsTest\AFLS\AFLSPagesSteps.cs" />
     <Compile Include="StepsTest\AFLS\CommonSteps.cs" />
+    <Compile Include="StepsTest\Alerts\GeneralAlertsSteps.cs" />
     <Compile Include="StepsTest\Configuration\Administration\ClientsSteps.cs" />
     <Compile Include="StepsTest\Configuration\Administration\CompaniesSteps.cs" />
     <Compile Include="StepsTest\Configuration\Administration\MeansTransportSteps.cs" />

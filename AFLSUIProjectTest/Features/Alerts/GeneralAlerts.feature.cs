@@ -88,7 +88,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.And("Selecciono la opción de item de Alertas General", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono la opción de ítem de Alertas General", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
  testRunner.Then("Se carga la pantalla principal de alertas generales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

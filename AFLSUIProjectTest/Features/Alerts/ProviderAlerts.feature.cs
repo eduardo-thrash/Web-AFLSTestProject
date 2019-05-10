@@ -68,6 +68,32 @@ namespace AFLSUIProjectTest.Features.Alerts
         {
             testRunner.CollectScenarioErrors();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Carga exitosa de modulo Alertas de proveedores con selector de todos los proveedo" +
+            "res")]
+        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
+        public virtual void CargaExitosaDeModuloAlertasDeProveedoresConSelectorDeTodosLosProveedores()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Carga exitosa de modulo Alertas de proveedores con selector de todos los proveedo" +
+                    "res", null, new string[] {
+                        "migrationAFLS"});
+#line 5
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 6
+ testRunner.Given("Tengo un usuario con rol monitor y despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 7
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 8
+ testRunner.And("Realizo Login con usuario rol monitor y despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.And("Selecciono la opción de ítem de Alertas Proveedores", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.Then("Se carga la pantalla principal de alertas de proveedores", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

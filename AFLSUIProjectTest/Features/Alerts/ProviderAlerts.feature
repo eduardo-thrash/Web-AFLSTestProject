@@ -1,9 +1,10 @@
 ﻿Feature: ProviderAlerts
 
 
-#@mytag
-#Scenario: Add two numbers
-#	Given I have entered 50 into the calculator
-#	And I have entered 70 into the calculator
-#	When I press add
-#	Then the result should be 120 on the screen
+@migrationAFLS
+Scenario: Carga exitosa de modulo Alertas de proveedores con selector de todos los proveedores
+	Given Tengo un usuario con rol monitor y despachador
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol monitor y despachador
+	And Selecciono la opción de ítem de Alertas Proveedores
+	Then Se carga la pantalla principal de alertas de proveedores

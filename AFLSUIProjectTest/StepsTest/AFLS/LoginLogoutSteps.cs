@@ -32,9 +32,9 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         }
 
         [When(@"Ingreso contraseña de usuario administrador valido")]
-        public void WhenIngresoContrasenaDeUsuarioAdministradorValido()
+        public void WhenIngresoContrasenaDeUsuarioAdministradorValido(string password)
         {
-            CommonElementsAction.SendKeys_InputText("XPath", "//form[@class='login-form']//input[@id='Password']", "ABC123");
+            CommonElementsAction.SendKeys_InputText("XPath", "//form[@class='login-form']//input[@id='Password']", password);
         }
 
         [When(@"Doy click en Login")]
@@ -47,10 +47,20 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenRealizoLoginConUsuarioRolAdministrador()
         {
             WhenIngresoNombreDeUsuarioAdministradorValido("administrator");
-            WhenIngresoContrasenaDeUsuarioAdministradorValido();
+            WhenIngresoContrasenaDeUsuarioAdministradorValido("ABC123");
             WhenDoyClickEnLogin();
             ThenAccedoALaPantallaPrincipalDeConfiguracion();
             ThenSeRegistraEnBaseDeDatosElUsuarioConSesionActivaEnLaTablaAFW_USER_SESSION_TOKEN();
+        }
+
+        [When(@"Realizo Login con usuario rol monitor y despachador")]
+        public void WhenRealizoLoginConUsuarioRolMonitorYDespachador()
+        {
+            WhenIngresoNombreDeUsuarioAdministradorValido("thrash");
+            WhenIngresoContrasenaDeUsuarioAdministradorValido("123456");
+            WhenDoyClickEnLogin();
+            ThenAccedoALaPantallaPrincipalDeConfiguracion();
+            //ThenSeRegistraEnBaseDeDatosElUsuarioConSesionActivaEnLaTablaAFW_USER_SESSION_TOKEN();
         }
 
         [When(@"Pulso link de cierre de sesión")]

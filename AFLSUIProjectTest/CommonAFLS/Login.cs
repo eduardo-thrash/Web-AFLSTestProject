@@ -1,5 +1,4 @@
-﻿using AFLSUIProjectTest.StepsTest;
-using AFLSUIProjectTest.StepsTest.AFLS;
+﻿using AFLSUIProjectTest.StepsTest.AFLS;
 
 namespace AFLSUIProjectTest.CommonAFLS
 {
@@ -7,10 +6,16 @@ namespace AFLSUIProjectTest.CommonAFLS
     {
         public LoginLogoutSteps AFLSLogin = new LoginLogoutSteps();
 
+        public string UserAdministrator = "administrator";
+        public string PassAdministrator = "ABC123";
+        public string UserMonitor;
+        public string UserInventory;
+        public string UserDispatcher;
+
         public void AdministratorLogin()
         {
-            AFLSLogin.WhenIngresoNombreDeUsuarioAdministradorValido("administrator");
-            AFLSLogin.WhenIngresoContrasenaDeUsuarioAdministradorValido();
+            AFLSLogin.WhenIngresoNombreDeUsuarioAdministradorValido(UserAdministrator);
+            AFLSLogin.WhenIngresoContrasenaDeUsuarioAdministradorValido(PassAdministrator);
             AFLSLogin.WhenDoyClickEnLogin();
             AFLSLogin.ThenAccedoALaPantallaPrincipalDeConfiguracion();
         }
