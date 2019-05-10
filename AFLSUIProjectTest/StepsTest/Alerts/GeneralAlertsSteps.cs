@@ -4,7 +4,6 @@ using AFLSUIProjectTest.UIMap.AFLS;
 using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using System;
 using TechTalk.SpecFlow;
 
@@ -71,9 +70,7 @@ namespace AFLSUIProjectTest.StepsTest.Alerts
                 if (secondFindText >= 10) Assert.Fail("Error en carga de modulo");
                 try
                 {
-                    WebDriverWait wait = new WebDriverWait(CommonHooks.driver, time).Until(d => ((IJavaScriptExecutor)d).ExecuteScript("return document.readyState").Equals("complete"));
-
-                    //Assert.IsTrue(((IJavaScriptExecutor)CommonHooks.driver).ExecuteScript("return document.readyState").Equals("complete"));
+                    Assert.IsTrue(((IJavaScriptExecutor)CommonHooks.driver).ExecuteScript("return document.readyState").Equals("complete"));
 
                     break;
                 }
