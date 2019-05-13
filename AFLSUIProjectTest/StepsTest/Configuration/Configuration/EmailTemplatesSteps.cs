@@ -1,7 +1,10 @@
-﻿using AFLSTestProjectUI.AFLSUIProjectTest.UIMap.Configuration;
-using AFLSTestProjectUI.AFLSUIProjectTest.UIMap.Configuration.ElementsConfiguration;
+﻿using AFLSTestProjectUI.AFLSUIProjectTest.UIMap.Configuration.ElementsConfiguration;
+using AFLSUIProjectTest.UIMap;
 using AFLSUIProjectTest.UIMap.Messages;
 using CommonTest.CommonTest;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace AFLSUITestProject.TestSuite.Configuration.Configuration
@@ -9,650 +12,402 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
     [Binding]
     public class EmailTemplatesSteps
     {
-        
-        
+        private readonly ConfigurationMenuPage ConfigurationMenuPage = new ConfigurationMenuPage();
         private readonly EmailTemplatesPage EmailTemplatesPage = new EmailTemplatesPage();
         private readonly PageMessages PageMessages = new PageMessages();
-        
 
-        [When(@"Configuración exitosa de plantilla de correo Registro")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoRegistro()
+        [When(@"Doy click en el Tab Alerta de Nivel de Satisfacción al Cliente")]
+        public void WhenDoyClickEnElTabAlertaDeNivelDeSatisfaccionAlCliente()
         {
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Registro"
-
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabGeneralRecord);
-
-            ///     And Selecciono la etiqueta Cliente
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionGeneralRecord,"Cliente","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddGeneralRecord);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateGeneral);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabSurveySatisAlert);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Asignación")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoAsignacion()
+        [When(@"Doy click en el Tab Asignación")]
+        public void WhenDoyClickEnElTabAsignacion()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Asignación"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabGeneralAssigment);
-
-            ///     And Selecciono la etiqueta Cliente
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionGeneralAssigment,"Cliente","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddGeneralAssigment);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateGeneral);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabGeneralAssigment);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Retraso")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoRetraso()
+        [When(@"Doy click en el Tab Cambio de especialista")]
+        public void WhenDoyClickEnElTabCambioDeEspecialista()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Asignación"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabGeneralDelay);
-
-            ///     And Selecciono la etiqueta Cliente
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionGeneralDelay,"Cliente","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddGeneralDelay);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateGeneral);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabGeneralChangeOfSpecialist);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Cambio de especialista")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoCambioDeEspecialista()
+        [When(@"Doy click en el Tab Cancelación")]
+        public void WhenDoyClickEnElTabCancelacion()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Cambio de especialista"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabGeneralChangeOfSpecialist);
-
-            ///     And Selecciono la etiqueta Cliente CommonElementsAction.Click("XPath",EmailTemplatesPage.ListGeneralChangeOfSpecialist,"List Specialist change");
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionGeneralChangeOfSpecialist,"Cliente","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddGeneralChangeOfSpecialist);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateGeneral);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabGeneralCancellation);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Cancelación")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoCancelacion()
+        [When(@"Doy click en el Tab Ejecutada")]
+        public void WhenDoyClickEnElTabEjecutada()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Cancelación"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabGeneralCancellation);
-
-            ///     And Selecciono la etiqueta Cliente
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionGeneralCancellation,"Cliente","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddGeneralCancellation);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateGeneral);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabGeneralExecuted);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Ejecutada")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoEjecutada()
+        [When(@"Doy click en el Tab Encuesta de satisfacción al cliente")]
+        public void WhenDoyClickEnElTabEncuestaDeSatisfaccionAlCliente()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-            ///     And pulso el tab "Ejecutada"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabGeneralExecuted);
-
-            ///     And Selecciono la etiqueta Cliente
-            ;
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionGeneralExecuted,"Cliente","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddGeneralExecuted);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateGeneral);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabSurveySatisSurvey);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Vinculación")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoVinculacion()
+        [When(@"Doy click en el Tab Finalización de ANS")]
+        public void WhenDoyClickEnElTabFinalizacionDeANS()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-            ///     And pulso el tab "Vinculación"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabGeneralEnrollment);
-
-            ///     And Selecciono la etiqueta Cliente
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionGeneralEnrollment,"Dominio","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddGeneralEnrollment);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateGeneral);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabSLAEnding);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Proveedores")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoProveedores()
+        [When(@"Doy click en el Tab Finalización de OLA")]
+        public void WhenDoyClickEnElTabFinalizacionDeOLA()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-            ///     And pulso el tab "Proveedores"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabGeneralProviders);
-
-            ///     And Selecciono la etiqueta Cliente
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionGeneralProviders,"Cliente","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddGeneralProviders);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateGeneral);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabOLAEnding);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Encuesta de satisfacción al Cliente")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoEncuestaDeSatisfaccionAlCliente()
+        [When(@"Doy click en el Tab Finalización de UC")]
+        public void WhenDoyClickEnElTabFinalizacionDeUC()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Encuesta de satisfacción al Cliente"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabSurveySatisSurvey);
-
-            ///     And Selecciono la etiqueta "Enlace de la encuesta"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionSurveySatisSurvey,"cliente","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddSurveySatisSurvey);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateSurvey);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabUCEnding);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Alerta de Nivel de satisfacción")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoAlertaDeNivelDeSatisfaccion()
+        [When(@"Doy click en el Tab Notificación de cuenta de usuarios Assistme")]
+        public void WhenDoyClickEnElTabNotificacionDeCuentaDeUsuariosAssistme()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Configuración exitosa de plantilla de correo Alerta de Nivel de satisfacción"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabSurveySatisAlert);
-
-            ///     And Selecciono la etiqueta "Enlace de la encuesta"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionSurveySatisAlert,"Enlace de la encuesta","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddSurveySatisAlert);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateSurvey);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabAssistMeNotifyUserAssistMe);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Notificación de medición de encuesta")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoNotificacionDeMedicionDeEncuesta()
+        [When(@"Doy click en el Tab Notificación de medición de encuesta")]
+        public void WhenDoyClickEnElTabNotificacionDeMedicionDeEncuesta()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-            ///     And pulso el tab "Notificación de medición de encuesta"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabSurveyNotifySurvey);
-
-            ///     And Selecciono la etiqueta "Resultado de la encuesta"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionSurveyNotifySurvey,"Resultado de la encuesta","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddSurveyNotifySurvey);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateSurvey);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabSurveyNotifySurvey);
         }
 
-        [When(@"Configuración exitosa de plantilla de correo Notificación de resumen de encuesta")]
-        public void WhenConfiguracionExitosaDePlantillaDeCorreoNotificacionDeResumenDeEncuesta()
+        [When(@"Doy click en el Tab Notificación de resumen de encuesta")]
+        public void WhenDoyClickEnElTabNotificacionDeResumenDeEncuesta()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-            ///     And pulso el tab "Notificación de resumen de encuesta"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabSurveySummarySurvey);
-
-            ///     And Selecciono la etiqueta "Asunto de la orden de trabajo"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionSurveySummarySurvey,"Asunto de la orden de trabajo","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddSurveySummarySurvey);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateSurvey);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabSurveySummarySurvey);
         }
 
-        [When(@"Configuración exitosa de plantilla de ANS de correo Revisión")]
-        public void WhenConfiguracionExitosaDePlantillaDeANSDeCorreoRevision()
+        [When(@"Doy click en el Tab Notificación orden registrada desde Assistme")]
+        public void WhenDoyClickEnElTabNotificacionOrdenRegistradaDesdeAssistme()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Revisión"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabSLAReview);
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionSLAReview,"Nombre del administrador","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddSLAReview);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateSLA);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabAssistMeNotifyOrderAssistMe);
         }
 
-        [When(@"Configuración exitosa de plantilla de ANS de correo Finalización")]
-        public void WhenConfiguracionExitosaDePlantillaDeANSDeCorreoFinalizacion()
+        [When(@"Doy click en el Tab Proveedores")]
+        public void WhenDoyClickEnElTabProveedores()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Finalización"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabSLAEnding);
-
-            ///     And Selecciono la etiqueta "Nombre del administrador"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionSLAEnding,"Nombre del administrador","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddSLAEnding);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateSLA);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabGeneralProviders);
         }
 
-        [When(@"Configuración exitosa de plantilla de UC de correo Revisión")]
-        public void WhenConfiguracionExitosaDePlantillaDeUCDeCorreoRevision()
+        [When(@"Doy click en el Tab Registro")]
+        public void WhenDoyClickEnElTabRegistro()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Revisión"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabUCReview);
-
-            ///     And Selecciono la etiqueta "Fecha de revisión del UC"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionUCReview,"Fecha de revisión del UC","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddUCReview);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateUC);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabGeneralRecord);
         }
 
-        [When(@"Configuración exitosa de plantilla de UC de correo Finalización")]
-        public void WhenConfiguracionExitosaDePlantillaDeUCDeCorreoFinalizacion()
+        [When(@"Doy click en el Tab Retraso")]
+        public void WhenDoyClickEnElTabRetraso()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            
-
-            ///     And pulso el tab "Finalización"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabUCEnding);
-
-            ///     And Selecciono la etiqueta "Fecha de finalización del UC"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionUCEnding,"Fecha de finalización del UC","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddUCEnding);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateUC);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabGeneralDelay);
         }
 
-        [When(@"Configuración exitosa de plantilla de OLA de correo Revisión")]
-        public void WhenConfiguracionExitosaDePlantillaDeOLADeCorreoRevision()
+        [When(@"Doy click en el Tab Revisión de ANS")]
+        public void WhenDoyClickEnElTabRevisionDeANS()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ConfigurationMenu,SectionAdminLeftColumn.OLAEmailTemplateOption,EmailTemplatesPage.EmailTemplateModulePath);
-
-            ///     And pulso el tab "Revisión"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabOLAReview);
-
-            ///     And Selecciono la etiqueta "Nombre del OLA"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionOLAReview,"Nombre del OLA","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddOLAReview);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateOLA);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabSLAReview);
         }
 
-        [When(@"Configuración exitosa de plantilla de OLA de correo Finalización")]
-        public void WhenConfiguracionExitosaDePlantillaDeOLADeCorreoFinalizacion()
+        [When(@"Doy click en el Tab Revisión de OLA")]
+        public void WhenDoyClickEnElTabRevisionDeOLA()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ConfigurationMenu,SectionAdminLeftColumn.OLAEmailTemplateOption,EmailTemplatesPage.EmailTemplateModulePath);
-            ///     And pulso el tab "Finalización"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabOLAEnding);
-
-            ///     And Selecciono la etiqueta "Nombre del OLA"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionOLAEnding,"Nombre del OLA","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddOLAEnding);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateOLA);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabOLAReview);
         }
 
-        [When(@"Configuración exitosa de plantilla AssistMe de correo Notificación de cuenta de usuarios Assistme")]
-        public void WhenConfiguracionExitosaDePlantillaAssistMeDeCorreoNotificacionDeCuentaDeUsuariosAssistme()
+        [When(@"Doy click en el Tab Revisión de UC")]
+        public void WhenDoyClickEnElTabRevisionDeUC()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ConfigurationMenu,SectionAdminLeftColumn.AssistMeEmailTemplateOption,EmailTemplatesPage.EmailTemplateModulePath);
-
-            ///     And selecciono el tab "Notificación orden registrada desde Assistme"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabAssistMeNotifyUserAssistMe);
-
-            ///     And Selecciono la etiqueta "Descripción"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionAssistMeNotifyUserAssistMe,"Usuario","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddAssistMeNotifyUserAssistMe);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateAssistMe);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabUCReview);
         }
 
-        [When(@"Configuración exitosa de plantilla AssistMe de correo Notificación orden registrada desde Assistme")]
-        public void WhenConfiguracionExitosaDePlantillaAssistMeDeCorreoNotificacionOrdenRegistradaDesdeAssistme()
+        [When(@"Doy click en el Tab Verificación datos de usuario")]
+        public void WhenDoyClickEnElTabVerificacionDatosDeUsuario()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
-
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ConfigurationMenu,SectionAdminLeftColumn.AssistMeEmailTemplateOption,EmailTemplatesPage.EmailTemplateModulePath);
-            ///     And selecciono el tab "Notificación orden registrada desde Assistme"
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.TabAssistMeNotifyOrderAssistMe);
-
-            ///     And Selecciono la etiqueta "Descripción"
-
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath",EmailTemplatesPage.OptionAssistMeNotifyOrderAssistMe,"Descripción","label");
-
-            ///     And pulso el botón Agregar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.ButtonAddAssistMeNotifyOrderAssistMe);
-
-            ///     And pulso el botón Guardar
-            CommonElementsAction.Click("XPath",EmailTemplatesPage.SaveTemplateAssistMe);
-
-            ///     Then se muestra un mensaje indicando que se guardo la configuración exitosamente.
-            //LogOut.
-
-            //LogOut.
-            
-            //End LogOut.
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabAssistMeVerifyUserAssistMe);
         }
 
-        [When(@"Configuración exitosa de plantilla AssistMe de correo Verificación datos de usuario")]
-        public void WhenConfiguracionExitosaDePlantillaAssistMeDeCorreoVerificacionDatosDeUsuario()
+        [When(@"Doy click en el Tab Vinculación")]
+        public void WhenDoyClickEnElTabVinculacion()
         {
-            ///     Given tengo un usuario con rol administrador
-            ///     And Quiero configurar plantillas de correo
-            ///     When realizo login en la aplicación
-            
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabGeneralEnrollment);
+        }
 
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-            //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ConfigurationMenu,SectionAdminLeftColumn.AssistMeEmailTemplateOption,EmailTemplatesPage.EmailTemplateModulePath);
+        [When(@"Pulso Guardar plantilla de ANS's")]
+        public void WhenPulsoGuardarPlantillaDeANSS()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.SaveTemplateSLA);
+        }
+
+        [When(@"Pulso Guardar plantilla de AssistMe")]
+        public void WhenPulsoGuardarPlantillaDeAssistMe()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.SaveTemplateAssistMe);
+        }
+
+        [When(@"Pulso Guardar plantilla de encuestas")]
+        public void WhenPulsoGuardarPlantillaDeEncuestas()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.SaveTemplateSurvey);
+        }
+
+        [When(@"Pulso Guardar plantilla de OLA's")]
+        public void WhenPulsoGuardarPlantillaDeOLAS()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.SaveTemplateOLA);
+        }
+
+        [When(@"Pulso Guardar plantilla de UC's")]
+        public void WhenPulsoGuardarPlantillaDeUCS()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.SaveTemplateUC);
+        }
+
+        [When(@"Pulso Guardar plantilla general")]
+        public void WhenPulsoGuardarPlantillaGeneral()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.SaveTemplateGeneral);
+        }
+
+        [When(@"Selecciono la opción plantillas de ANS's")]
+        public void WhenSeleccionoLaOpcionPlantillasDeANSS()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.EmailTemplateModulePath);
+            CommonElementsAction.Click("XPath", ConfigurationMenuPage.SLAEmailTemplateOption);
+        }
+
+        [When(@"Selecciono la opción plantillas de AssistMe")]
+        public void WhenSeleccionoLaOpcionPlantillasDeAssistMe()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.EmailTemplateModulePath);
+
+            Thread.Sleep(1000);
+
+            IWebElement ScrollConfiguracionMenu = CommonHooks.driver.FindElement(By.XPath("//div[@id='mCSB_1_dragger_vertical']/div"));
+
+            Actions ScrollDown = new Actions(CommonHooks.driver);
+            ScrollDown.MoveToElement(ScrollConfiguracionMenu);
+            ScrollDown.DragAndDropToOffset(ScrollConfiguracionMenu, 0, 200);
+            ScrollDown.Build().Perform();
+
+            Thread.Sleep(1000);
+
+            CommonElementsAction.Click("XPath", ConfigurationMenuPage.AssistMeEmailTemplateOption);
+        }
+
+        [When(@"Selecciono la opción plantillas de encuestas")]
+        public void WhenSeleccionoLaOpcionPlantillasDeEncuestas()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.EmailTemplateModulePath);
+            CommonElementsAction.Click("XPath", ConfigurationMenuPage.SurveysEmailTemplateOption);
+        }
+
+        [When(@"Selecciono la opción plantillas de OLA's")]
+        public void WhenSeleccionoLaOpcionPlantillasDeOLAS()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.EmailTemplateModulePath);
+
+            Thread.Sleep(1000);
+
+            IWebElement ScrollConfiguracionMenu = CommonHooks.driver.FindElement(By.XPath("//div[@id='mCSB_1_dragger_vertical']/div"));
+
+            Actions ScrollDown = new Actions(CommonHooks.driver);
+            ScrollDown.MoveToElement(ScrollConfiguracionMenu);
+            ScrollDown.DragAndDropToOffset(ScrollConfiguracionMenu, 0, 200);
+            ScrollDown.Build().Perform();
+
+            Thread.Sleep(1000);
+
+            CommonElementsAction.Click("XPath", ConfigurationMenuPage.OLAEmailTemplateOption);
+        }
+
+        [When(@"Selecciono la opción plantillas de UC's")]
+        public void WhenSeleccionoLaOpcionPlantillasDeUCS()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.EmailTemplateModulePath);
+
+            Thread.Sleep(1000);
+
+            IWebElement ScrollConfiguracionMenu = CommonHooks.driver.FindElement(By.XPath("//div[@id='mCSB_1_dragger_vertical']/div"));
+
+            Actions ScrollDown = new Actions(CommonHooks.driver);
+            ScrollDown.MoveToElement(ScrollConfiguracionMenu);
+            ScrollDown.DragAndDropToOffset(ScrollConfiguracionMenu, 0, 200);
+            ScrollDown.Build().Perform();
+
+            Thread.Sleep(1000);
+
+            CommonElementsAction.Click("XPath", ConfigurationMenuPage.UCEmailTemplateOption);
+        }
+
+        [When(@"Selecciono la opción plantillas generales")]
+        public void WhenSeleccionoLaOpcionPlantillasGenerales()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.EmailTemplateModulePath);
+            CommonElementsAction.Click("XPath", ConfigurationMenuPage.GeneralEmailTemplateOption);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Alerta de Nivel de satisfacción")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeAlertaDeNivelDeSatisfaccion()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionSurveySatisAlert, EmailTemplatesPage.ListSurveySatisAlert);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddSurveySatisAlert);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de asignación")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeAsignacion()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionGeneralAssigment, EmailTemplatesPage.ListGeneralAssigment);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddGeneralAssigment);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de cambio de especialista")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeCambioDeEspecialista()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionGeneralChangeOfSpecialist, EmailTemplatesPage.ListGeneralChangeOfSpecialist);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddGeneralChangeOfSpecialist);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de cancelación")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeCancelacion()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionGeneralCancellation, EmailTemplatesPage.ListGeneralCancellation);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddGeneralCancellation);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de ejecutada")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeEjecutada()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionGeneralExecuted, EmailTemplatesPage.ListGeneralExecuted);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddGeneralExecuted);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Finalización de ANS")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeFinalizacionDeANS()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionSLAEnding, EmailTemplatesPage.ListSLAEnding);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddSLAEnding);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Finalización de OLA")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeFinalizacionDeOLA()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionOLAEnding, EmailTemplatesPage.ListOLAEnding);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddOLAEnding);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Finalización de UC")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeFinalizacionDeUC()
+        {
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.TabUCEnding);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.SaveTemplateUC);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Notificación de cuenta de usuarios Assistme")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeNotificacionDeCuentaDeUsuariosAssistme()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionAssistMeNotifyUserAssistMe, EmailTemplatesPage.ListAssistMeNotifyUserAssistMe);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddAssistMeNotifyUserAssistMe);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Notificación de medición de encuesta")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeNotificacionDeMedicionDeEncuesta()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionSurveyNotifySurvey, EmailTemplatesPage.ListSurveyNotifySurvey);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddSurveyNotifySurvey);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Notificación de resumen de encuesta")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeNotificacionDeResumenDeEncuesta()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionSurveySummarySurvey, EmailTemplatesPage.ListSurveySummarySurvey);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddSurveySummarySurvey);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Notificación orden registrada desde Assistme")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeNotificacionOrdenRegistradaDesdeAssistme()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionAssistMeNotifyOrderAssistMe, EmailTemplatesPage.ListAssistMeNotifyOrderAssistMe);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddAssistMeNotifyOrderAssistMe);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de plantillas de UC")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDePlantillasDeUC()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionUCEnding, EmailTemplatesPage.ListUCEnding);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddUCEnding);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de proveedores")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeProveedores()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionGeneralProviders, EmailTemplatesPage.ListGeneralProviders);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddGeneralProviders);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de registro")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeRegistro()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionGeneralRecord, EmailTemplatesPage.ListGeneralRecord);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddGeneralRecord);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de retraso")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeRetraso()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionGeneralDelay, EmailTemplatesPage.ListGeneralDelay);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddGeneralDelay);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Revisión de ANS")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeRevisionDeANS()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionSLAReview, EmailTemplatesPage.ListSLAReview);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddSLAReview);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Revisión de OLA")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeRevisionDeOLA()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionOLAReview, EmailTemplatesPage.ListOLAReview);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddOLAReview);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Revisión de UC")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeRevisionDeUC()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionUCReview, EmailTemplatesPage.ListUCReview);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddUCReview);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de satisfacción al cliente")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeSatisfaccionAlCliente()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionSurveySatisSurvey, EmailTemplatesPage.ListSurveySatisSurvey);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddSurveySatisSurvey);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de Verificación datos de usuario")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeVerificacionDatosDeUsuario()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionAssistMeVerifyUserAssistMe, EmailTemplatesPage.ListAssistMeVerifyUserAssistMe);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddAssistMeNVerifyUserAssistMe);
+        }
+
+        [When(@"Selecciono y agrego una etiqueta a la plantilla de vinculación")]
+        public void WhenSeleccionoYAgregoUnaEtiquetaALaPlantillaDeVinculacion()
+        {
+            CommonElementsAction.ClickAndSelect_Random_DropDownList("XPath", EmailTemplatesPage.OptionGeneralEnrollment, EmailTemplatesPage.ListGeneralEnrollment);
+            CommonElementsAction.Click("XPath", EmailTemplatesPage.ButtonAddGeneralEnrollment);
         }
     }
 }
