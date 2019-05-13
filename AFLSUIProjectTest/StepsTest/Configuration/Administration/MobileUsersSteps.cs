@@ -52,6 +52,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         public void WhenSeleccionoLaOpcionUsuariosMoviles()
         {
             CommonElementsAction.Click("XPath", MobileUsersPage.MobileUsersModulePath);
+            Thread.Sleep(1000);
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.MobileUserOption);
             ResponseValidation.ValidateErrorAplication();
         }

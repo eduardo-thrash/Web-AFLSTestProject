@@ -1,7 +1,7 @@
 ﻿Feature: Web Users
 
 @migrationAFLS
-Scenario: Creación exitosa de usuario web
+Scenario: 1 Creación exitosa de usuario web
 	Given Tengo un usuario con rol administrador
     And No existe el usuario web
 	When Accedo a la aplicación
@@ -30,7 +30,7 @@ Scenario: Creación exitosa de usuario web
 	And Cierro Sesión en la aplicación
 
 @migrationAFLS
-Scenario: Búsqueda exitosa de usuario web existente
+Scenario: 2 Búsqueda exitosa de usuario web existente
 	Given Tengo un usuario con rol administrador
     And Existe el usuario web
 	When Accedo a la aplicación
@@ -43,7 +43,7 @@ Scenario: Búsqueda exitosa de usuario web existente
 	And Cierro Sesión en la aplicación
 
 @migrationAFLS
-Scenario: Modificación exitosa de usuario web
+Scenario: 3 Modificación exitosa de usuario web
 	Given Tengo un usuario con rol administrador
     And Existe el usuario web
 	When Accedo a la aplicación
@@ -59,7 +59,7 @@ Scenario: Modificación exitosa de usuario web
 	And Cierro Sesión en la aplicación
 
 @migrationAFLS
-Scenario: Borrado exitoso de usuario web existente
+Scenario: 4 Borrado exitoso de usuario web existente
 	Given Tengo un usuario con rol administrador
     And Existe el usuario web
 	When Accedo a la aplicación

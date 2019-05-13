@@ -70,11 +70,11 @@ namespace AFLSUIProjectTest.Features.Configuration.Administration
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Creación exitosa de usuario web")]
+        [NUnit.Framework.DescriptionAttribute("1 Creación exitosa de usuario web")]
         [NUnit.Framework.CategoryAttribute("migrationAFLS")]
-        public virtual void CreacionExitosaDeUsuarioWeb()
+        public virtual void _1CreacionExitosaDeUsuarioWeb()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de usuario web", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de usuario web", null, new string[] {
                         "migrationAFLS"});
 #line 4
 this.ScenarioInitialize(scenarioInfo);
@@ -136,11 +136,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Búsqueda exitosa de usuario web existente")]
+        [NUnit.Framework.DescriptionAttribute("2 Búsqueda exitosa de usuario web existente")]
         [NUnit.Framework.CategoryAttribute("migrationAFLS")]
-        public virtual void BusquedaExitosaDeUsuarioWebExistente()
+        public virtual void _2BusquedaExitosaDeUsuarioWebExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Búsqueda exitosa de usuario web existente", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Búsqueda exitosa de usuario web existente", null, new string[] {
                         "migrationAFLS"});
 #line 33
 this.ScenarioInitialize(scenarioInfo);
@@ -170,11 +170,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Modificación exitosa de usuario web")]
+        [NUnit.Framework.DescriptionAttribute("3 Modificación exitosa de usuario web")]
         [NUnit.Framework.CategoryAttribute("migrationAFLS")]
-        public virtual void ModificacionExitosaDeUsuarioWeb()
+        public virtual void _3ModificacionExitosaDeUsuarioWeb()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modificación exitosa de usuario web", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Modificación exitosa de usuario web", null, new string[] {
                         "migrationAFLS"});
 #line 46
 this.ScenarioInitialize(scenarioInfo);
@@ -210,11 +210,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Borrado exitoso de usuario web existente")]
+        [NUnit.Framework.DescriptionAttribute("4 Borrado exitoso de usuario web existente")]
         [NUnit.Framework.CategoryAttribute("migrationAFLS")]
-        public virtual void BorradoExitosoDeUsuarioWebExistente()
+        public virtual void _4BorradoExitosoDeUsuarioWebExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Borrado exitoso de usuario web existente", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4 Borrado exitoso de usuario web existente", null, new string[] {
                         "migrationAFLS"});
 #line 62
 this.ScenarioInitialize(scenarioInfo);

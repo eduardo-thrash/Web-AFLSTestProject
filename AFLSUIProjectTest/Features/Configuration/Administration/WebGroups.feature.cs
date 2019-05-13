@@ -70,11 +70,11 @@ namespace AFLSUIProjectTest.Features.Configuration.Administration
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Creación exitosa de grupo web")]
+        [NUnit.Framework.DescriptionAttribute("1 Creación exitosa de grupo web")]
         [NUnit.Framework.CategoryAttribute("migrationAFLS")]
-        public virtual void CreacionExitosaDeGrupoWeb()
+        public virtual void _1CreacionExitosaDeGrupoWeb()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de grupo web", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de grupo web", null, new string[] {
                         "migrationAFLS"});
 #line 4
 this.ScenarioInitialize(scenarioInfo);
@@ -130,11 +130,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Búsqueda exitosa de Grupos web existente")]
+        [NUnit.Framework.DescriptionAttribute("2 Búsqueda exitosa de Grupos web existente")]
         [NUnit.Framework.CategoryAttribute("migrationAFLS")]
-        public virtual void BusquedaExitosaDeGruposWebExistente()
+        public virtual void _2BusquedaExitosaDeGruposWebExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Búsqueda exitosa de Grupos web existente", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Búsqueda exitosa de Grupos web existente", null, new string[] {
                         "migrationAFLS"});
 #line 30
 this.ScenarioInitialize(scenarioInfo);
@@ -164,11 +164,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Modificación exitosa de grupos web")]
+        [NUnit.Framework.DescriptionAttribute("3 Modificación exitosa de grupos web")]
         [NUnit.Framework.CategoryAttribute("migrationAFLS")]
-        public virtual void ModificacionExitosaDeGruposWeb()
+        public virtual void _3ModificacionExitosaDeGruposWeb()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modificación exitosa de grupos web", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Modificación exitosa de grupos web", null, new string[] {
                         "migrationAFLS"});
 #line 43
 this.ScenarioInitialize(scenarioInfo);
@@ -204,11 +204,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Borrado exitoso de grupo web existente")]
+        [NUnit.Framework.DescriptionAttribute("4 Borrado exitoso de grupo web existente")]
         [NUnit.Framework.CategoryAttribute("migrationAFLS")]
-        public virtual void BorradoExitosoDeGrupoWebExistente()
+        public virtual void _4BorradoExitosoDeGrupoWebExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Borrado exitoso de grupo web existente", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4 Borrado exitoso de grupo web existente", null, new string[] {
                         "migrationAFLS"});
 #line 59
 this.ScenarioInitialize(scenarioInfo);

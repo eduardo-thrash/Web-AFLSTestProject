@@ -1,7 +1,7 @@
 ﻿Feature: Web Groups
 
 @migrationAFLS
-Scenario: Creación exitosa de grupo web
+Scenario: 1 Creación exitosa de grupo web
 	Given Tengo un usuario con rol administrador
     And No existe el grupo web
 	When Accedo a la aplicación
@@ -27,7 +27,7 @@ Scenario: Creación exitosa de grupo web
 	And Cierro Sesión en la aplicación
 
 @migrationAFLS
-Scenario: Búsqueda exitosa de Grupos web existente
+Scenario: 2 Búsqueda exitosa de Grupos web existente
 	Given Tengo un usuario con rol administrador
 	And El grupo web existe
 	When Accedo a la aplicación
@@ -40,7 +40,7 @@ Scenario: Búsqueda exitosa de Grupos web existente
 	And Cierro Sesión en la aplicación
 
 @migrationAFLS
-Scenario: Modificación exitosa de grupos web
+Scenario: 3 Modificación exitosa de grupos web
 	Given Tengo un usuario con rol administrador
 	And El grupo web existe
 	When Accedo a la aplicación
@@ -56,7 +56,7 @@ Scenario: Modificación exitosa de grupos web
 	And Cierro Sesión en la aplicación
 
 @migrationAFLS
-Scenario: Borrado exitoso de grupo web existente
+Scenario: 4 Borrado exitoso de grupo web existente
 	Given Tengo un usuario con rol administrador
 	And El grupo web existe
 	When Accedo a la aplicación
