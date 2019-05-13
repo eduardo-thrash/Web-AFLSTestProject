@@ -533,7 +533,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Ex.ToString());
+                if (second >= 10) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -551,7 +551,7 @@ namespace CommonTest.CommonTest
                     Thread.Sleep(1000);
                 }
             }
-
+            Thread.Sleep(1000);
             for (int second = 0; ; second++)
             {
                 if (second >= 5) Assert.Fail(Error);

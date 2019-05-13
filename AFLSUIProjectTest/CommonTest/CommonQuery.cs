@@ -7,31 +7,31 @@ namespace CommonTest.CommonTest
 {
     public class CommonQuery
     {
-        public static string DBSelectAValue(string Query,int ResultQuery)
+        public static string DBSelectAValue(string Query, int ResultQuery)
         {
             string Value;
 
             object Result;
 
-            using(SqlConnection conn = new SqlConnection())
+            using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = ConfigurationManager.AppSettings["DatabaseConnection"];
 
                 conn.Open();
 
-                using(SqlCommand command = new SqlCommand(Query,conn))
+                using (SqlCommand command = new SqlCommand(Query, conn))
                 {
                     Result = command.ExecuteScalar();
 
-                    switch(ResultQuery)
+                    switch (ResultQuery)
                     {
                         case 1:
-                            Assert.AreNotEqual(null,Result);
+                            Assert.AreNotEqual(null, Result);
                             Console.WriteLine("Requisito de base de datos correcto");
                             break;
 
                         case 0:
-                            Assert.AreEqual(null,Result);
+                            Assert.AreEqual(null, Result);
                             Console.WriteLine("Requisito de base de datos correcto");
                             break;
                     }

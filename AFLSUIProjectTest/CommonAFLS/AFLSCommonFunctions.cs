@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Threading;
 
 namespace AFLSUIProjectTest.CommonAFLS
@@ -200,6 +202,32 @@ namespace AFLSUIProjectTest.CommonAFLS
                 {
                     Error = e.Message;
                 }
+            }
+        }
+
+        public static void DBEstablismentInsert(string Query)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = ConfigurationManager.AppSettings["DatabaseConnection"];
+
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand(Query, conn))
+                { }
+            }
+        }
+
+        public static void DBEstablismentUpdate(string Query)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = ConfigurationManager.AppSettings["DatabaseConnection"];
+
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand(Query, conn))
+                { }
             }
         }
     }

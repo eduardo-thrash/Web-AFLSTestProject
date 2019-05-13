@@ -6,8 +6,8 @@ namespace AFLSUIProjectTest.CommonAFLS
     {
         public LoginLogoutSteps AFLSLogin = new LoginLogoutSteps();
 
-        public string UserAdministrator = "administrator";
-        public string PassAdministrator = "ABC123";
+        public string UserAdministrator = "thrash";
+        public string PassAdministrator = "123456";
         public string UserMonitor;
         public string UserInventory;
         public string UserDispatcher;

@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace AFLSUIProjectTest.CommonAFLS
 {
@@ -14,12 +15,34 @@ namespace AFLSUIProjectTest.CommonAFLS
 
         public void ValidationSuccessCreate()
         {
-            IList<IWebElement> Messsages = CommonHooks.driver.FindElements(By.XPath(MessagesElements.ResponseElement));
-
-            foreach (IWebElement Elements in Messsages)
+            for (int i = 1; i <= 8; i++)
             {
-                string TextMessage = Elements.Text;
-                Assert.IsTrue(TextMessage.Contains(MessagesCopies.SuccessElementConfigurationCreateOrUpdate));
+                string TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
+                try
+                {
+                    Assert.IsTrue(TextMessage.Contains(MessagesCopies.SuccessElementConfigurationCreateOrUpdate));
+                    break;
+                }
+                catch
+                {
+                    Assert.Fail(TextMessage);
+                }
+                Thread.Sleep(1000);
+            }
+
+            for (int i = 1; i <= 8; i++)
+            {
+                string TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
+                try
+                {
+                    Assert.IsFalse(TextMessage.Contains(MessagesCopies.SuccessElementConfigurationCreateOrUpdate));
+                    Assert.Fail(TextMessage);
+                    break;
+                }
+                catch
+                {
+                    Thread.Sleep(1000);
+                }
             }
         }
 
