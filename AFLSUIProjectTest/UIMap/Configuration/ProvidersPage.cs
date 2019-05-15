@@ -1,6 +1,6 @@
 ﻿namespace AFLSUIProjectTest.UIMap.Configuration
 {
-    public class ElementsProvider
+    public class ProvidersPage
     {
         public string ProviderModule = "Providers";
 
@@ -39,13 +39,15 @@
         public string TextProviderCheckAssignManual = "Manual Assign";
         public string TextProviderCheckAssignBest = "Best specialist assign";
 
+        public string ProviderState = "//div[@class='providers']//div[@id='tabs-1']//label[@class='onoffswitch-label']";
+
         /*Tab Services*/
         public string ProviderTabServices = "a[href = '#tabs-2'] > span.ui-icon.icon-services.icons_Cln"; //CssSelector
         public string ProviderServices = "input.partSearch.ui-autocomplete-input";
         public string TextProviderTabServices = "Tab services";
         public string TextProviderServices = "services";
 
-        public string ProviderServiceSearch = "input.partSearch.ui-autocomplete-input";
+        public string ProviderServiceSearch = "//div[@class='providers']//div[@id='tabs-2']//input[@class='partSearch ui-autocomplete-input']";
         public string ProviderServiceList = "//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all']/li/a[@class='ui-corner-all']";
 
         public string ProviderServiceAgreement = "//div[@id='tabs-2']/div/div[@class='row bottom list']/div/div/div/div[@class='itemView']/div/div[@class='row ans']/div[@class='value']/div[@id='Sla']/div/a";
@@ -59,7 +61,7 @@
         public string TextProviderTabZones = "Tab zones";
         public string TextProviderZones = "Zones";
 
-        public string ProviderZoneSearch = "input.partSearch.ui-autocomplete-input";
+        public string ProviderZoneSearch = "//div[@class='providers']//div[@id='tabs-3']//input[@class='partSearch ui-autocomplete-input']";
         public string ProviderZoneList = "//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all']/li/a[@class='ui-corner-all']";
 
         /*Tab Specialist*/
