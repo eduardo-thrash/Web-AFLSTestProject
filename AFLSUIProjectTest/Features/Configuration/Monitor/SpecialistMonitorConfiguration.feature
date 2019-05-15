@@ -5,13 +5,11 @@
 #
 #@mytag
 Scenario: Creación completa exitosa de especialista de monitor
-	Given Tengo un usuario con rol monitor
-	And Tengo proveedores asociados al proveedor
+	Given Tengo un usuario con rol monitor y con proveedores asociados
 	And no existe el especialista
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol monitor
 	And Accedo al menú Configuración de monitor
-	And Selecciono un proveedor
 	And Doy click en Nuevo especialista de proveedor
 	And Diligencio nombre de especialista de proveedor
 	And Diligencio usuario de especialista de proveedor

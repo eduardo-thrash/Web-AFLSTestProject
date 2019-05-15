@@ -183,6 +183,26 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59 # 35a-68,Of 567");
         }
 
+        [When(@"Diligencio dirección de cliente dando click en cursor")]
+        public void WhenDiligencioDireccionDeClienteDandoClickEnCursor()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59 # 35a-68,Of 567");
+            CommonElementsAction.Click("CssSelector", ClientsPage.ClientAddress);
+        }
+
+        [When(@"Diligencio dirección de cliente dando enter")]
+        public void WhenDiligencioDireccionDeClienteDandoEnter()
+        {
+            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59 # 35a-68,Of 567");
+        }
+
+        [When(@"Diligencio dirección de cliente dando tab")]
+        public void WhenDiligencioDireccionDeClienteDandoTab()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59 # 35a-68,Of 567");
+            CommonHooks.driver.FindElement(By.CssSelector(ClientsPage.ClientAddress)).SendKeys(Keys.Tab);
+        }
+
         [When(@"Diligencio detalle de dirección de cliente")]
         public void WhenDiligencioDetalleDeDireccionDeCliente()
         {
@@ -352,6 +372,12 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         public void ThenSeRegistraElClienteEnLaTablaAFLS_USER_CLIENTS()
         {
             CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USERS_CLIENTS WHERE user_id = " + UserId + ";", 1);
+        }
+
+        [Then(@"Se registra el cliente en la tabla AFLS_USER_CLIENTS con longitud, latitud y dirección")]
+        public void ThenSeRegistraElClienteEnLaTablaAFLS_USER_CLIENTSConLongitudLatitudYDireccion()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USERS_CLIENTS WHERE user_id = " + UserId + " AND clie_longitude IS NOT NULL AND clie_latitude IS NOT NULL AND clie_address IS NOT NULL;", 1);
         }
 
         [Then(@"Se registra la compañía asociada a cliente en la tabla AFLS_USER_CLIENTS")]

@@ -52,7 +52,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         public void WhenSeleccionoLaOpcionUsuariosMoviles()
         {
             CommonElementsAction.Click("XPath", MobileUsersPage.MobileUsersModulePath);
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.MobileUserOption);
             ResponseValidation.ValidateErrorAplication();
         }
@@ -103,6 +103,26 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         public void WhenDiligencioDireccionValidaDeUsuarioMovil()
         {
             CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA");
+        }
+
+        [When(@"diligencio dirección valida de usuario móvil dando click en cursor")]
+        public void WhenDiligencioDireccionValidaDeUsuarioMovilDandoClickEnCursor()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA");
+            CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserAddressValidate);
+        }
+
+        [When(@"diligencio dirección valida de usuario móvil dando enter")]
+        public void WhenDiligencioDireccionValidaDeUsuarioMovilDandoEnter()
+        {
+            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA");
+        }
+
+        [When(@"diligencio dirección valida de usuario móvil dando tab")]
+        public void WhenDiligencioDireccionValidaDeUsuarioMovilDandoTab()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA");
+            CommonHooks.driver.FindElement(By.CssSelector(MobileUsersPage.MobileUserAddress)).SendKeys(Keys.Tab);
         }
 
         [When(@"selecciono sede de inventario")]
@@ -227,6 +247,13 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         {
             UserId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT user_id FROM AFW_USERS WHERE user_nick_name = '" + user_nickname + "';", 1));
             CommonQuery.DBSelectAValue("SELECT user_id FROM AFLS_USERS_SPECIALISTS WHERE user_id = " + UserId + ";", 1);
+        }
+
+        [Then(@"Se registra el usuario móvil con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección")]
+        public void ThenSeRegistraElUsuarioMovilConProveedorAsociadoEnLaTablaAFLS_USERS_SPECIALISTSConLongitudLatitudYDireccion()
+        {
+            UserId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT user_id FROM AFW_USERS WHERE user_nick_name = '" + user_nickname + "';", 1));
+            CommonQuery.DBSelectAValue("SELECT user_id FROM AFLS_USERS_SPECIALISTS WHERE user_id = " + UserId + " AND spc_initial_longitude IS NOT NULL AND spc_initial_latitude IS NOT NULL AND spc_initial_address IS NOT NULL;", 1);
         }
 
         [Then(@"Se registra disponibilidad de todos los días en la tabla AFLS_USER_AVAILABILITIES")]

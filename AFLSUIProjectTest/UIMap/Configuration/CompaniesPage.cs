@@ -10,42 +10,6 @@
 
     public class CompaniesPage
     {
-        //List<nativeOBject> listadoObjetos = new List<nativeOBject>();
-
-        //public ElementsCompanies() {
-        //    this.listadoObjetos.Where(w => w.textViewName == "abc").ToList();
-
-        //    this.listadoObjetos.Add(new nativeOBject()
-        //    {
-        //        viewName = "body > div.frameworks > div > div.base.container - module.bottom.row > div > div.content.col.module > div.companies #content > div.center.header.row > div > div.searchBox #inputSearch",
-        //        textViewName = "Field Search""
-        //    });
-
-        //    this.listadoObjetos.Add(new nativeOBject()
-        //    {
-        //        viewName = "body > div.frameworks > div > div.base.container - module.bottom.row > div > div.content.col.module > div.companies #content > div.center.header.row > div > div.searchBox #inputSearch",
-        //        textViewName = "Field Search""
-        //    });
-        //    this.listadoObjetos.Add(new nativeOBject()
-        //    {
-        //        viewName = "body > div.frameworks > div > div.base.container - module.bottom.row > div > div.content.col.module > div.companies #content > div.center.header.row > div > div.searchBox #inputSearch",
-        //        textViewName = "Field Search""
-
-        //    });
-
-        //    this.listadoObjetos.Add(new nativeOBject()
-        //    {
-        //        viewName = "body > div.frameworks > div > div.base.container - module.bottom.row > div > div.content.col.module > div.companies #content > div.center.header.row > div > div.searchBox #inputSearch",
-        //        textViewName = "Field Search""
-        //    });
-
-        //    this.listadoObjetos.Add(new nativeOBject()
-        //    {
-        //        viewName = "body > div.frameworks > div > div.base.container - module.bottom.row > div > div.content.col.module > div.companies #content > div.center.header.row > div > div.searchBox #inputSearch",
-        //        textViewName = "Field Search""
-        //    });
-        //}
-
         public string CompanyModule = "Companies";
 
         public string CompanyFieldSearch = "body > div.frameworks > div > div.base.container-module.bottom.row > div > div.content.col.module > div.companies #content > div.center.header.row > div > div.searchBox #inputSearch";
@@ -69,6 +33,7 @@
         public string CompanyContactName = ".container-app .container-module .admin .content.col.module .companies .details .tabContent.svGeneral input[name= 'ContactName']";
         public string CompanyPhone = ".container-app .container-module .admin .content.col.module .companies .details .tabContent.svGeneral input[name= 'ContactPhone']";
         public string CompanyAddress = ".container-app .container-module .admin .content.col.module .companies .details .tabContent.svGeneral input[name= 'Address']";
+        public string CompanyAddressValidate = "//div[@class='companies']//div[@id='tabs-1']//div[@id='clientAddresCheck']";
         public string CompanyEmail = ".container-app .container-module .admin .content.col.module .companies .details .tabContent.svGeneral input[name= 'ContactEmail']";
 
         public string TextCompanyTabCompany = "Company tab";

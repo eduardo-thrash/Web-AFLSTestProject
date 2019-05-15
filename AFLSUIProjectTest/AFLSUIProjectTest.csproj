@@ -106,6 +106,11 @@
     <Compile Include="CommonTest\CommonHooks.cs" />
     <Compile Include="CommonTest\CommonQuery.cs" />
     <Compile Include="CommonTest\SystemTask.cs" />
+    <Compile Include="Features\AFLS\AFLSMaps.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AFLSMaps.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\AFLS\AFLSPages.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -386,20 +391,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginLogout.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\Orders\AvailableOrders.feature.cs">
+    <Compile Include="Features\Orders\WorkOrdersBasic.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AvailableOrders.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Orders\WorkOrders.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WorkOrders.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Orders\WorkOrdersCreate.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WorkOrdersCreate.feature</DependentUpon>
+      <DependentUpon>WorkOrdersBasic.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\Reports\GeneralReports.feature.cs">
       <AutoGen>True</AutoGen>
@@ -450,6 +445,7 @@
     <Compile Include="StepsTest\Configuration\Inventory\LocationsSteps.cs" />
     <Compile Include="StepsTest\Configuration\Inventory\MeassuresSteps.cs" />
     <Compile Include="StepsTest\Configuration\Inventory\ProductsSteps.cs" />
+    <Compile Include="StepsTest\Configuration\Monitor\SpecialistMonitorConfigurationSteps.cs" />
     <Compile Include="StepsTest\Configuration\ServiceCataloge\CalendarsSteps.cs" />
     <Compile Include="StepsTest\Configuration\ServiceCataloge\ChronometersSteps.cs" />
     <Compile Include="StepsTest\Configuration\ServiceCataloge\ModelsSteps.cs" />
@@ -459,6 +455,7 @@
     <Compile Include="StepsTest\Configuration\ServiceCataloge\SLAsSteps.cs" />
     <Compile Include="StepsTest\Configuration\ServiceCataloge\UCsSteps.cs" />
     <Compile Include="StepsTest\AFLS\LoginLogoutSteps.cs" />
+    <Compile Include="StepsTest\Orders\WorkOrdersBasicSteps.cs" />
     <Compile Include="UIMap\AFLS\ConfigurationMenuPage.cs" />
     <Compile Include="UIMap\AFLS\MessagesPage.cs" />
     <Compile Include="UIMap\Configuration\AccuracyPage.cs" />
@@ -506,6 +503,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\AFLS\AFLSMaps.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AFLSMaps.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\AFLS\AFLSPages.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>AFLSPages.feature.cs</LastGenOutput>
@@ -730,17 +731,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoginLogout.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\Orders\AvailableOrders.feature">
+    <None Include="Features\Orders\WorkOrdersBasic.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>AvailableOrders.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Orders\WorkOrders.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>WorkOrders.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Orders\WorkOrdersCreate.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>WorkOrdersCreate.feature.cs</LastGenOutput>
+      <LastGenOutput>WorkOrdersBasic.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Reports\GeneralReports.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -757,10 +750,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="StepsTest\Configuration\Monitor\" />
     <Folder Include="StepsTest\Inventory\" />
     <Folder Include="StepsTest\Monitoring\" />
-    <Folder Include="StepsTest\Orders\" />
     <Folder Include="StepsTest\Reports\" />
   </ItemGroup>
   <ItemGroup>

@@ -110,6 +110,13 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             CommonElementsAction.SendKeys_InputText("CssSelector", CompaniesPage.CompanyUniqueReference, CompanyUniqueReference);
         }
 
+        [When(@"Diligencio dirección de compañía dando click en cursor")]
+        public void WhenDiligencioDireccionDeCompaniaDandoClickEnCursor()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", CompaniesPage.CompanyAddress, "calle 64 # 5 22");
+            CommonElementsAction.Click("XPath", CompaniesPage.CompanyAddressValidate);
+        }
+
         [When(@"Diligencio nombre de contacto de compañía")]
         public void WhenDiligencioNombreDeContactoDeCompania()
         {
@@ -132,6 +139,19 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         public void WhenDiligencioDireccionDeCompania()
         {
             CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", CompaniesPage.CompanyAddress, "calle 64 # 5 22");
+        }
+
+        [When(@"Diligencio dirección de compañía dando enter")]
+        public void WhenDiligencioDireccionDeCompaniaDandoEnter()
+        {
+            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", CompaniesPage.CompanyAddress, "calle 64 # 5 22");
+        }
+
+        [When(@"Diligencio dirección de compañía dando tab")]
+        public void WhenDiligencioDireccionDeCompaniaDandoTab()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", CompaniesPage.CompanyAddress, "calle 64 # 5 22");
+            CommonHooks.driver.FindElement(By.CssSelector(CompaniesPage.CompanyAddress)).SendKeys(Keys.Tab);
         }
 
         [When(@"Doy click en switch de estado de compañía")]
@@ -232,6 +252,19 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         public void ThenSeRegistraLaCompaniaEnLaTablaAFLS_COMPANIES()
         {
             CompId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT * FROM AFLS_COMPANIES WHERE comp_name = '" + CompanyName + "' AND comp_unique_reference = '" + CompanyUniqueReference + "';", 1));
+        }
+
+        [Then(@"Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección")]
+        public void ThenSeRegistraLaCompaniaEnLaTablaAFLS_COMPANIESConLongitudLatitudYDireccion()
+        {
+            try
+            {
+                CompId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT * FROM AFLS_COMPANIES WHERE comp_name = '" + CompanyName + "' AND comp_unique_reference = '" + CompanyUniqueReference + "' AND comp_contact_longitude IS NOT NULL AND comp_contact_latitude IS NOT NULL AND comp_contact_address IS NOT NULL;", 1));
+            }
+            catch
+            {
+                Assert.Fail("Fallo en consulta " + "SELECT * FROM AFLS_COMPANIES WHERE comp_name = '" + CompanyName + "' AND comp_unique_reference = '" + CompanyUniqueReference + "' AND comp_contact_longitude IS NOT NULL AND comp_contact_latitude IS NOT NULL AND comp_contact_address IS NOT NULL;");
+            }
         }
 
         [Then(@"Se registra la compañía modificada en la tabla AFLS_COMPANIES")]

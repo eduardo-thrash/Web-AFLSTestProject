@@ -17,9 +17,11 @@ namespace AFLSUIProjectTest.CommonAFLS
         {
             for (int i = 1; i <= 8; i++)
             {
-                string TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
+                string TextMessage = "";
+
                 try
                 {
+                    TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
                     Assert.IsTrue(TextMessage.Contains(MessagesCopies.SuccessElementConfigurationCreateOrUpdate));
                     break;
                 }

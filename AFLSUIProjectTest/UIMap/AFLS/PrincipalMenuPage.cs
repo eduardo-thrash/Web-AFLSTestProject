@@ -6,5 +6,6 @@
 
         public string ItemPrincipalAlerts = "//a[contains(@href,'#alerts/providers/')]";
         public string ItemProviderAlerts = "//a[contains(@href,'#alerts/providers/')]";
+        public string ItemNewOrder = "//div[@class='row option iconSG iconNewOrder']";
     }
 }

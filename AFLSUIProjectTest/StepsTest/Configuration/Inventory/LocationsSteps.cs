@@ -21,130 +21,156 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         private static string EditHeadquaterName;
         private static string HeadquaterName = "UI Sede Edit ";
 
+        private static string DefaultTransportName = "UI Sede ";
+        private static string EditTransportName;
+        private static string TransportName = "UI Sede Edit ";
+
         [Given(@"No existe la ubicación de tipo sede")]
         public void GivenNoExisteLaUbicacionDeTipoSede()
         {
-            CommonQuery.DBSelectAValue("", 0);
+            HeadquaterName = DefaultHeadquaterName + Functions.RandomText();
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + HeadquaterName + "';", 0);
         }
 
         [When(@"Doy click en Nueva ubicación sede")]
         public void WhenDoyClickEnNuevaUbicacionSede()
         {
-            CommonElementsAction.Click("", "");
+            CommonElementsAction.Click("CssSelector", LocationsHeadquaterPage.LocationHeadquarterNew);
         }
 
         [When(@"Selecciono tipo de ubicación de sede")]
         public void WhenSeleccionoTipoDeUbicacionDeSede()
         {
-            CommonElementsAction.ClickAndSelect_DropDownList("", LocationsHeadquaterPage.LocationHeadquarterNew, "", "");
+            CommonElementsAction.ClickAndSelect_DropDownList("CssSelector", LocationsHeadquaterPage.LocationHeadquaterTypeHead, "Almacen", "label");
         }
 
         [When(@"Diligencio nombre de ubicación")]
         public void WhenDiligencioNombreDeUbicacion()
         {
-            CommonElementsAction.SendKeys_InputText("", LocationsHeadquaterPage.LocationHeadquaterName, HeadquaterName);
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterName, HeadquaterName);
         }
 
         [When(@"Diligencio descripción de ubicación")]
         public void WhenDiligencioDescripcionDeUbicacion()
         {
-            CommonElementsAction.SendKeys_InputText("", LocationsHeadquaterPage.LocationHeadquaterDescription, "descripcion");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterDescription, "descripcion");
         }
 
         [When(@"Diligencio dirección de ubicación")]
         public void WhenDiligencioDireccionDeUbicacion()
         {
-            CommonElementsAction.SendKeys_InputText("", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
+        }
+
+        [When(@"Diligencio dirección de ubicación dando click en cursor")]
+        public void WhenDiligencioDireccionDeUbicacionDandoClickEnCursor()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
+            CommonElementsAction.Click("XPath", LocationsHeadquaterPage.LocationAddressValidate);
+        }
+
+        [When(@"Diligencio dirección de ubicación dando enter")]
+        public void WhenDiligencioDireccionDeUbicacionDandoEnter()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
+        }
+
+        [When(@"Diligencio dirección de ubicación dando tab")]
+        public void WhenDiligencioDireccionDeUbicacionDandoTab()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
+            CommonHooks.driver.FindElement(By.CssSelector(LocationsHeadquaterPage.LocationHeadquaterAddress)).SendKeys(Keys.Tab);
         }
 
         [When(@"Diligencio detalle de dirección de ubicación")]
         public void WhenDiligencioDetalleDeDireccionDeUbicacion()
         {
-            CommonElementsAction.SendKeys_InputText("", LocationsHeadquaterPage.LocationHeadquaterAddress, " detalle calle 4 bogota");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, " detalle calle 4 bogota");
         }
 
         [When(@"Doy click en switch de estado de ubicación")]
         public void WhenDoyClickEnSwitchDeEstadoDeUbicacion()
         {
-            CommonElementsAction.Click("", "");
+            CommonElementsAction.Click("XPath", LocationsHeadquaterPage.LocationHeadquaterState);
         }
 
         [When(@"Selecciono el Tab de información de contacto de sede")]
         public void WhenSeleccionoElTabDeInformacionDeContactoDeSede()
         {
-            CommonElementsAction.Click("", LocationsPage.LocationTabInfoContact);
+            CommonElementsAction.Click("CssSelector", LocationsPage.LocationTabInfoContact);
         }
 
         [When(@"Diligencio nombre de contacto de sede")]
         public void WhenDiligencioNombreDeContactoDeSede()
         {
-            CommonElementsAction.SendKeys_InputText("", LocationsPage.InfoContactName, "");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsPage.InfoContactName, Functions.RandomText(8));
         }
 
         [When(@"Diligencio teléfono de contacto de sede")]
         public void WhenDiligencioTelefonoDeContactoDeSede()
         {
-            CommonElementsAction.SendKeys_InputText("", LocationsPage.InfoContactPhone, "719245678");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsPage.InfoContactPhone, "719245678");
         }
 
         [When(@"Diligencio email de contacto de sede")]
         public void WhenDiligencioEmailDeContactoDeSede()
         {
-            CommonElementsAction.SendKeys_InputText("", LocationsPage.InfoContactEmail, "mail@mailer.com");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsPage.InfoContactEmail, "mail@mailer.com");
         }
 
         [When(@"Doy click en Guardar ubicación")]
         public void WhenDoyClickEnGuardarUbicacion()
         {
-            CommonElementsAction.Click("", LocationsPage.LocationSubmit);
+            CommonElementsAction.Click("CssSelector", LocationsPage.LocationSubmit);
         }
 
         [Then(@"Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO")]
         public void ThenSeRegistraLaUbicacionEnLaTablaAFLS_STOCK_LOCATIONS_INFO()
         {
-            CommonQuery.DBSelectAValue("", 0);
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + HeadquaterName + "';", 1);
+        }
+
+        [Then(@"Se registra la ubicación transporte en la tabla AFLS_STOCK_LOCATIONS_INFO")]
+        public void ThenSeRegistraLaUbicacionTransporteEnLaTablaAFLS_STOCK_LOCATIONS_INFO()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + TransportName + "';", 1);
+        }
+
+        [Then(@"Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, latitud y dirección")]
+        public void ThenSeRegistraLaUbicacionEnLaTablaAFLS_STOCK_LOCATIONS_INFOConLongitudLatitudYDireccion()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + HeadquaterName + "' AND asli_longitude IS NOT NULL AND asli_latitude IS NOT NULL AND asli_address IS NOT NULL;", 1);
         }
 
         [Given(@"No existe la ubicación de tipo transporte")]
         public void GivenNoExisteLaUbicacionDeTipoTransporte()
         {
-            CommonQuery.DBSelectAValue("", 0); ScenarioContext.Current.Pending();
+            TransportName = DefaultTransportName + Functions.RandomText();
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + TransportName + "';", 1);
         }
 
         [When(@"Doy click en Nueva sede de transporte")]
         public void WhenDoyClickEnNuevaSedeDeTransporte()
         {
-            ScenarioContext.Current.Pending();
+            CommonElementsAction.Click("CsSelector", LocationsTransportPage.LocationTransportNew);
         }
 
         [When(@"Selecciono tipo de ubicación de transporte")]
         public void WhenSeleccionoTipoDeUbicacionDeTransporte()
         {
-            ScenarioContext.Current.Pending();
+            CommonElementsAction.ClickAndSelect_DropDownList("CsSelector", LocationsTransportPage.LocationTypeTransport, "Vehiculo", "label");
         }
 
         [When(@"Diligencio nombre de ubicación transporte")]
         public void WhenDiligencioNombreDeUbicacionTransporte()
         {
-            CommonElementsAction.SendKeys_InputText("", LocationsTransportPage.LocationNameTransport, "mail@mailer.com");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsTransportPage.LocationNameTransport, "mail@mailer.com");
         }
 
         [When(@"Diligencio descripción de ubicación transporte")]
         public void WhenDiligencioDescripcionDeUbicacionTransporte()
         {
-            CommonElementsAction.SendKeys_InputText("", LocationsTransportPage.LocationDescriptionTransport, "mail@mailer.com");
-        }
-
-        [When(@"Diligencio dirección de ubicación transporte")]
-        public void WhenDiligencioDireccionDeUbicacionTransporte()
-        {
-            CommonElementsAction.SendKeys_InputText("", "", "mail@mailer.com");
-        }
-
-        [When(@"Diligencio detalle de dirección de ubicación transporte")]
-        public void WhenDiligencioDetalleDeDireccionDeUbicacionTransporte()
-        {
-            ScenarioContext.Current.Pending();
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsTransportPage.LocationDescriptionTransport, "mail@mailer.com");
         }
 
         [When(@"Doy click en switch de estado de ubicación transporte")]

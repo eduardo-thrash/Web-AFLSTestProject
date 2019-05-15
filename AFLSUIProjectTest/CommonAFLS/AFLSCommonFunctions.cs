@@ -205,7 +205,7 @@ namespace AFLSUIProjectTest.CommonAFLS
             }
         }
 
-        public static void DBEstablismentInsert(string Query)
+        public void DBEstablismentInsert(string Query)
         {
             using (SqlConnection conn = new SqlConnection())
             {
@@ -218,7 +218,7 @@ namespace AFLSUIProjectTest.CommonAFLS
             }
         }
 
-        public static void DBEstablismentUpdate(string Query)
+        public void DBEstablismentUpdate(string Query)
         {
             using (SqlConnection conn = new SqlConnection())
             {

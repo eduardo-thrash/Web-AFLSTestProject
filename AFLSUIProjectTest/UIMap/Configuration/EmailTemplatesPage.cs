@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AFLSTestProjectUI.AFLSUIProjectTest.UIMap.Configuration.ElementsConfiguration
+﻿namespace AFLSTestProjectUI.AFLSUIProjectTest.UIMap.Configuration.ElementsConfiguration
 {
     public class EmailTemplatesPage
     {
@@ -17,8 +11,10 @@ namespace AFLSTestProjectUI.AFLSUIProjectTest.UIMap.Configuration.ElementsConfig
         public string AssistMeEmailTemplateModule = "AssistMe Email Template";
 
         public string EmailTemplateModulePath = "//div[contains(@class, 'icon iconsAd emailTemplates')]";
- 
+
+        //Button Add
         public string ButtonAddGeneralRecord = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div/div/div[@id='tabs-1']/div/form/div/div[@class='row config']/div[@class='col tokens']/div/input[@id='btnAddToken']";
+
         public string ButtonAddGeneralAssigment = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div/div/div[@id='tabs-2']/div/form/div/div[@class='row config']/div[@class='col tokens']/div/input[@id='btnAddToken']";
         public string ButtonAddGeneralDelay = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div/div/div[@id='tabs-3']/div/form/div/div[@class='row config']/div[@class='col tokens']/div/input[@id='btnAddToken']";
         public string ButtonAddGeneralChangeOfSpecialist = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div/div/div[@id='tabs-4']/div/form/div/div[@class='row config']/div[@class='col tokens']/div/input[@id='btnAddToken']";
@@ -38,50 +34,69 @@ namespace AFLSTestProjectUI.AFLSUIProjectTest.UIMap.Configuration.ElementsConfig
         public string ButtonAddOLAEnding = "//div[@class='emailTemplatesOLA']/div[@id='rightsidebar']/div/div/div/div[@id='tabs-2']/div/form/div/div[@class='row config']/div[@class='col tokens']/div/input[@id='btnAddToken']";
         public string ButtonAddAssistMeNotifyUserAssistMe = "//div[@class='emailTemplatesClient']/div[@id='rightsidebar']/div/div/div/div[@id='tabs-1']/div/form/div/div[@class='row config']/div[@class='col tokens']/div/input[@id='btnAddToken']";
         public string ButtonAddAssistMeNotifyOrderAssistMe = "//div[@class='emailTemplatesClient']/div[@id='rightsidebar']/div/div/div/div[@id='tabs-2']/div/form/div/div[@class='row config']/div[@class='col tokens']/div/input[@id='btnAddToken']";
+        public string ButtonAddAssistMeNVerifyUserAssistMe = "//div[@class='emailTemplatesClient']/div[@id='rightsidebar']/div/div/div/div[@id='tabs-3']/div/form/div/div[@class='row config']/div[@class='col tokens']/div/input[@id='btnAddToken']";
 
-        public string ListGeneralRecord = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListGeneralAssigment = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListGeneralDelay = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-3']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListGeneralChangeOfSpecialist = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-4']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListGeneralCancellation = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-5']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListGeneralExecuted = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-6']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListGeneralEnrollment = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-7']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListGeneralProviders = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-8']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListSurveySatisSurvey = "//div[@class='emailTemplatesSurveys']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListSurveySatisAlert = "//div[@class='emailTemplatesSurveys']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListSurveyNotifySurvey = "//div[@class='emailTemplatesSurveys']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-3']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListSurveySummarySurvey = "//div[@class='emailTemplatesSurveys']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-4']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListSLAReview = "//div[@class='emailTemplatesSLA']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListSLAEnding = "//div[@class='emailTemplatesSLA']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListUCReview = "//div[@class='emailTemplatesUC']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListUCEnding = "//div[@class='emailTemplatesUC']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListOLAReview = "//div[@class='emailTemplatesOLA']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListOLAEnding = "//div[@class='emailTemplatesOLA']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListAssistMeNotifyUserAssistMe = "//div[@class='emailTemplatesClient']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
-        public string ListAssistMeNotifyOrderAssistMe = "//div[@class='emailTemplatesClient']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/div/a";
+        //List
+        public string ListGeneralRecord = "//div[@class='emailTemplates']//div[@id='tabs-1']//div[@id='tokenInput']/ul/li/a/label";
 
-        public string OptionGeneralRecord = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionGeneralAssigment = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionGeneralDelay = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-3']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionGeneralChangeOfSpecialist = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-4']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionGeneralCancellation = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-5']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionGeneralExecuted = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-6']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionGeneralEnrollment = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-7']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionGeneralProviders = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-8']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionSurveySatisSurvey = "//div[@class='emailTemplatesSurveys']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionSurveySatisAlert = "//div[@class='emailTemplatesSurveys']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionSurveyNotifySurvey = "//div[@class='emailTemplatesSurveys']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-3']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionSurveySummarySurvey = "//div[@class='emailTemplatesSurveys']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-4']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionSLAReview = "//div[@class='emailTemplatesSLA']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionSLAEnding = "//div[@class='emailTemplatesSLA']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionUCReview = "//div[@class='emailTemplatesUC']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionUCEnding = "//div[@class='emailTemplatesUC']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionOLAReview = "//div[@class='emailTemplatesOLA']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionOLAEnding = "//div[@class='emailTemplatesOLA']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionAssistMeNotifyUserAssistMe = "//div[@class='emailTemplatesClient']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-1']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
-        public string OptionAssistMeNotifyOrderAssistMe = "//div[@class='emailTemplatesClient']/div[@id='rightsidebar']/div/div[@class='row top']/div/div[@id='tabs-2']/div/form/div[@class='row  top']/div[@class='row config']/div[@class='col tokens']/div/div/div/ul/li/a/label";
+        public string ListGeneralAssigment = "//div[@class='emailTemplates']//div[@id='tabs-2']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListGeneralDelay = "//div[@class='emailTemplates']//div[@id='tabs-3']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListGeneralChangeOfSpecialist = "//div[@class='emailTemplates']//div[@id='tabs-4']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListGeneralCancellation = "//div[@class='emailTemplates']//div[@id='tabs-5']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListGeneralExecuted = "//div[@class='emailTemplates']//div[@id='tabs-6']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListGeneralEnrollment = "//div[@class='emailTemplates']//div[@id='tabs-7']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListGeneralProviders = "//div[@class='emailTemplates']//div[@id='tabs-8']//div[@id='tokenInput']/ul/li/a/label";
 
-        public string TabGeneralRecord = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/ul/li/a[@href='#tabs-1']";       
+        public string ListSurveySatisSurvey = "//div[@class='emailTemplatesSurveys']//div[@id='tabs-1']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListSurveySatisAlert = "//div[@class='emailTemplatesSurveys']//div[@id='tabs-2']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListSurveyNotifySurvey = "//div[@class='emailTemplatesSurveys']//div[@id='tabs-3']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListSurveySummarySurvey = "//div[@class='emailTemplatesSurveys']//div[@id='tabs-4']//div[@id='tokenInput']/ul/li/a/label";
+
+        public string ListSLAReview = "//div[@class='emailTemplatesSLA']//div[@id='tabs-1']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListSLAEnding = "//div[@class='emailTemplatesSLA']//div[@id='tabs-2']//div[@id='tokenInput']/ul/li/a/label";
+
+        public string ListUCReview = "//div[@class='emailTemplatesUC']//div[@id='tabs-1']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListUCEnding = "//div[@class='emailTemplatesUC']//div[@id='tabs-2']//div[@id='tokenInput']/ul/li/a/label";
+
+        public string ListOLAReview = "//div[@class='emailTemplatesOLA']//div[@id='tabs-1']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListOLAEnding = "//div[@class='emailTemplatesOLA']//div[@id='tabs-2']//div[@id='tokenInput']/ul/li/a/label";
+
+        public string ListAssistMeNotifyUserAssistMe = "//div[@class='emailTemplatesClient']//div[@id='tabs-1']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListAssistMeNotifyOrderAssistMe = "//div[@class='emailTemplatesClient']//div[@id='tabs-2']//div[@id='tokenInput']/ul/li/a/label";
+        public string ListAssistMeVerifyUserAssistMe = "//div[@class='emailTemplatesClient']//div[@id='tabs-3']//div[@id='tokenInput']/ul/li/a/label";
+
+        //Options
+        public string OptionGeneralRecord = "//div[@class='emailTemplates']//div[@id='tabs-1']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+
+        public string OptionGeneralAssigment = "//div[@class='emailTemplates']//div[@id='tabs-2']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionGeneralDelay = "//div[@class='emailTemplates']//div[@id='tabs-3']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionGeneralChangeOfSpecialist = "//div[@class='emailTemplates']//div[@id='tabs-4']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionGeneralCancellation = "//div[@class='emailTemplates']//div[@id='tabs-5']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionGeneralExecuted = "//div[@class='emailTemplates']//div[@id='tabs-6']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionGeneralEnrollment = "//div[@class='emailTemplates']//div[@id='tabs-7']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionGeneralProviders = "//div[@class='emailTemplates']//div[@id='tabs-8']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+
+        public string OptionSurveySatisSurvey = "//div[@class='emailTemplatesSurveys']//div[@id='tabs-1']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionSurveySatisAlert = "//div[@class='emailTemplatesSurveys']//div[@id='tabs-2']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionSurveyNotifySurvey = "//div[@class='emailTemplatesSurveys']//div[@id='tabs-3']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionSurveySummarySurvey = "//div[@class='emailTemplatesSurveys']//div[@id='tabs-4']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+
+        public string OptionSLAReview = "//div[@class='emailTemplatesSLA']//div[@id='tabs-1']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionSLAEnding = "//div[@class='emailTemplatesSLA']//div[@id='tabs-2']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+
+        public string OptionUCReview = "//div[@class='emailTemplatesUC']//div[@id='tabs-1']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionUCEnding = "//div[@class='emailTemplatesUC']//div[@id='tabs-2']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+
+        public string OptionOLAReview = "//div[@class='emailTemplatesOLA']//div[@id='tabs-1']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionOLAEnding = "//div[@class='emailTemplatesOLA']//div[@id='tabs-2']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+
+        public string OptionAssistMeNotifyUserAssistMe = "//div[@class='emailTemplatesClient']//div[@id='tabs-1']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionAssistMeNotifyOrderAssistMe = "//div[@class='emailTemplatesClient']//div[@id='tabs-2']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+        public string OptionAssistMeVerifyUserAssistMe = "//div[@class='emailTemplatesClient']//div[@id='tabs-3']//div[@id='tokenInput']/div/a[@class='dd-selected']";
+
+        //Tabs
+        public string TabGeneralRecord = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/ul/li/a[@href='#tabs-1']";
+
         public string TabGeneralAssigment = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/ul/li/a[@href='#tabs-2']";
         public string TabGeneralDelay = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/ul/li/a[@href='#tabs-3']";
         public string TabGeneralChangeOfSpecialist = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row top']/div/ul/li/a[@href='#tabs-4']";
@@ -101,7 +116,11 @@ namespace AFLSTestProjectUI.AFLSUIProjectTest.UIMap.Configuration.ElementsConfig
         public string TabOLAEnding = "//div[@class='emailTemplatesOLA']/div[@id='rightsidebar']/div/div[@class='row top']/div/ul/li/a[@href='#tabs-2']";
         public string TabAssistMeNotifyUserAssistMe = "//div[@class='emailTemplatesClient']/div[@id='rightsidebar']/div/div[@class='row top']/div/ul/li/a[@href='#tabs-1']";
         public string TabAssistMeNotifyOrderAssistMe = "//div[@class='emailTemplatesClient']/div[@id='rightsidebar']/div/div[@class='row top']/div/ul/li/a[@href='#tabs-2']";
+        public string TabAssistMeVerifyUserAssistMe = "//div[@class='emailTemplatesClient']/div[@id='rightsidebar']/div/div[@class='row top']/div/ul/li/a[@href='#tabs-3']";
+
+        //Save
         public string SaveTemplateGeneral = "//div[@class='emailTemplates']/div[@id='rightsidebar']/div/div[@class='row bottom comments']/div/input[@id='btnSave']";
+
         public string SaveTemplateSurvey = "//div[@class='emailTemplatesSurveys']/div[@id='rightsidebar']/div/div[@class='row bottom comments']/div/input[@id='btnSave']";
         public string SaveTemplateSLA = "//div[@class='emailTemplatesSLA']/div[@id='rightsidebar']/div/div[@class='row bottom comments']/div/input[@id='btnSave']";
         public string SaveTemplateUC = "//div[@class='emailTemplatesUC']/div[@id='rightsidebar']/div/div[@class='row bottom comments']/div/input[@id='btnSave']";

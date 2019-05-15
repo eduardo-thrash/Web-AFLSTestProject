@@ -20,20 +20,8 @@ namespace AFLSUIProjectTest.StepsTest.Alerts
         private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
         private MessagesCopies MessagesCopies = new MessagesCopies();
 
-        [Given(@"Tengo un usuario con rol monitor")]
-        public void GivenTengoUnUsuarioConRolMonitor()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
         [Given(@"El usuario monitor y administrador tiene proveedores asociados")]
         public void GivenElUsuarioMonitorYAdministradorTieneProveedoresAsociados()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [When(@"Realizo Login con usuario rol monitor")]
-        public void WhenRealizoLoginConUsuarioRolMonitor()
         {
             ScenarioContext.Current.Pending();
         }

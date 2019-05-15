@@ -118,7 +118,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 24
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 25
- testRunner.And("Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Se registra la ubicación transporte en la tabla AFLS_STOCK_LOCATIONS_INFO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

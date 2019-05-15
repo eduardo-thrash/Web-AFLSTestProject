@@ -1,9 +1,12 @@
 ﻿using AFLSUIProjectTest.CommonAFLS;
 using AFLSUIProjectTest.UIMap;
+using AFLSUIProjectTest.UIMap.AFLS;
 using AFLSUIProjectTest.UIMap.Configuration;
 using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace AFLSUIProjectTest.StepsTest.AFLS
@@ -21,6 +24,8 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         private MobileUsersPage MobileUsersPage = new MobileUsersPage();
         private WebGroupsPage WebGroupsPage = new WebGroupsPage();
         private readonly WebUsersPage WebUsersPage = new WebUsersPage();
+        private ElementsLocation LocationsPage = new ElementsLocation();
+        private PrincipalMenuPage PrincipalMenuPage = new PrincipalMenuPage();
 
         private string ErrorResult = null;
 
@@ -48,6 +53,16 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
                 string MissingText = CommonHooks.driver.FindElement(By.XPath("html")).Text;
                 ErrorResult = ErrorResult + MissingText + " | ";
             }
+        }
+
+        [When(@"Accedo a ítem Configuración de monitor")]
+        public void WhenAccedoAItemConfiguracionDeMonitor()
+        {
+            Thread.Sleep(3000);
+            Actions action = new Actions(CommonHooks.driver);
+            IWebElement ItemConfiguration = CommonHooks.driver.FindElement(By.XPath(PrincipalMenuPage.ItemConfiguration));
+            action.Release(ItemConfiguration).Build().Perform();
+            CommonElementsAction.Click("XPath", "//li/a[@href='#admin/users/mobile/monitoring']");
         }
 
         [When(@"Selecciono la opción OLA's")]
@@ -434,7 +449,8 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Selecciono la opción Ubicaciones")]
         public void WhenSeleccionoLaOpcionUbicaciones()
         {
-            ScenarioContext.Current.Pending();
+            Thread.Sleep(2000);
+            CommonElementsAction.Click("XPath", ConfigurationMenuPage.LocationOption);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal  Ubicaciones")]

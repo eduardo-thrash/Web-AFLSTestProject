@@ -31,6 +31,8 @@
         public string MobileUserPositionOption = "//div[@class='users']//div[@id='tabs-1']//div[@id='Position']//a[@class='dd-option']";
 
         public string MobileUserAddress = "#usersAddress";
+        public string MobileUserAddressValidate = "//div[@class='users']//div[@id='tabs-1']//div[@id='clientAddresCheck']";
+
         public string MobileUserLocation = "//div[@class='users']//div[@id='location']//a[@class='dd-selected']";
         public string MobileUserLocationOption = "//div[@class='users']//div[@id='location']//a[@class='dd-option']";
         public string MobileUserTransport = "//div[@class='users']//div[@id='Transport']//a[@class='dd-selected']";

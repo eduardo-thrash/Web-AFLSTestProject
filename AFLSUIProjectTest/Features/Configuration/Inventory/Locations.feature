@@ -22,7 +22,7 @@ Scenario: Creación exitosa de ubicación tipo sede
 	And Diligencio email de contacto de sede
 	And Doy click en Guardar ubicación
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
-	And Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO
+	And Se registra la ubicación transporte en la tabla AFLS_STOCK_LOCATIONS_INFO
 
 Scenario: Creación exitosa de ubicación tipo transporte
 	Given Tengo un usuario con rol administrador

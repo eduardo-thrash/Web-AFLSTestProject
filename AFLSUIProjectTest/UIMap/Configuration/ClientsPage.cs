@@ -29,6 +29,7 @@
         public string ClientEmail = "//div[@class='clients']//input[@name='Email']";
         public string ClientComapny = "//div[@class='clients']//input[@name='CompanyName']";
         public string ClientAddress = "#clientAddress";
+        public string ClientAddressValidate = "//div[@class='clients']//div[@id='tabs-1']//div[@id='clientAddresCheck']";
         public string ClientAddressDetail = "input[name = 'AddlAddressInfo']";
 
         public string ClientState = "//div[@class='clients']//div[@id='tabs-1']//label[@class='onoffswitch-label']";
@@ -40,6 +41,7 @@
         public string TextClientEmail = "Email";
         public string TextClientComapny = "CompanyName";
         public string TextClientAddress = "Address";
+
         public string TextClientAddressDetail = "AddlAddressInfo";
 
         /*Tab Services*/
