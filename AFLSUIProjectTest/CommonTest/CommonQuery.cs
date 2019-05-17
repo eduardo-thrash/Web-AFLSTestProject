@@ -26,13 +26,26 @@ namespace CommonTest.CommonTest
                     switch (ResultQuery)
                     {
                         case 1:
-                            Assert.AreNotEqual(null, Result);
-                            Console.WriteLine("Requisito de base de datos correcto");
+                            try
+                            {
+                                Assert.AreNotEqual(null, Result);
+                            }
+                            catch
+                            {
+                                Assert.Fail("Error en consulta: " + Query);
+                            }
                             break;
 
                         case 0:
-                            Assert.AreEqual(null, Result);
-                            Console.WriteLine("Requisito de base de datos correcto");
+                            try
+                            {
+                                Assert.AreEqual(null, Result);
+                            }
+                            catch
+                            {
+                                Assert.Fail("Error en consulta: " + Query);
+                            }
+
                             break;
                     }
                 }

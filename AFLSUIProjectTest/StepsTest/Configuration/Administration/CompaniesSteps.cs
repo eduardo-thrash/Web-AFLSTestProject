@@ -154,6 +154,16 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             CommonHooks.driver.FindElement(By.CssSelector(CompaniesPage.CompanyAddress)).SendKeys(Keys.Tab);
         }
 
+        [When(@"Diligencio dirección de compañía dando click en mapa")]
+        public void WhenDiligencioDireccionDeCompaniaDandoClickEnMapa()
+        {
+            CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='mapClientAddress']"));
+            Thread.Sleep(1);
+            Thread.Sleep(1);
+            Thread.Sleep(1);
+            CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='mapClientAddress']"));
+        }
+
         [When(@"Doy click en switch de estado de compañía")]
         public void WhenDoyClickEnSwitchDeEstadoDeCompania()
         {

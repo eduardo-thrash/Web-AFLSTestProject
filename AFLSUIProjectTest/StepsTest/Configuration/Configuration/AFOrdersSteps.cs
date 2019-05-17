@@ -37,7 +37,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Then(@"Se registra el campo adicional de orden modificado en la tabla AFW_ADDiTIONAL_FIELDS")]
         public void ThenSeRegistraElCampoAdicionalDeOrdenModificadoEnLaTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND type_id = 1 AND name = '" + AFOrderName + "' AND label = '" + EditLabelAFOrderName + "';", 1);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34005 AND type_id = 1 AND name = '" + AFOrderName + "' AND label = '" + EditLabelAFOrderName + "';", 1);
         }
 
         [When(@"Doy click en Si de mensaje de confirmación de borrado de campo adicional")]
@@ -49,7 +49,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Then(@"Se borra el registro de el campo adicional de orden en la tabla AFW_ADDiTIONAL_FIELDS")]
         public void ThenSeBorraElRegistroDeElCampoAdicionalDeOrdenEnLaTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND type_id = 1 AND name = '" + AFOrderName + "';", 0);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34005 AND type_id = 1 AND name = '" + AFOrderName + "';", 0);
         }
 
         [Given(@"No existe el campo adicional de orden de tipo simple")]
@@ -57,7 +57,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         {
             AFOrderName = DefaultAFOrderName + Functions.RandomText(4);
 
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND name = '" + AFOrderName + "';", 0);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34005 AND name = '" + AFOrderName + "';", 0);
             return AFOrderName;
         }
 
@@ -109,7 +109,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Then(@"Se registra campo adicional de orden de tipo simple en tabla AFW_ADDiTIONAL_FIELDS")]
         public void ThenSeRegistraCampoAdicionalDeOrdenDeTipoSimpleEnTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND type_id = 1 AND name = '" + AFOrderName + "';", 1);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34005 AND type_id = 1 AND name = '" + AFOrderName + "';", 1);
         }
 
         [Then(@"Se muestra un mensaje indicando que se creo que campo adicional de orden correctamente")]
@@ -134,7 +134,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [Given(@"Existe el campo adicional de orden de tipo simple")]
         public string GivenExisteElCampoAdicionalDeOrdenDeTipoSimple()
         {
-            AFOrderName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND type_id = 1 ORDER BY NEWID();", 1);
+            AFOrderName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34005 AND type_id = 1 ORDER BY NEWID();", 1);
             return AFOrderName;
         }
 
@@ -142,7 +142,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         public void WhenDoyClickEnEditarElCampoAdicionalDeOrdenDeTipoSimple()
         {
             Thread.Sleep(3000);
-            LabelAFOrderName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND name = '" + AFOrderName + "';", 1);
+            LabelAFOrderName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34005 AND name = '" + AFOrderName + "';", 1);
 
             IList<IWebElement> all = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-workorders-general']/div/div[2]/ul/li/div/div[2]/div/label"));
             Thread.Sleep(3000);
@@ -193,7 +193,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         public void WhenDoyClickEnEliminarElCampoAdicionalDeOrdenDeTipoSimple()
         {
             Thread.Sleep(3000);
-            LabelAFOrderName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD WHERE definition_id = 5 AND name = '" + AFOrderName + "';", 1);
+            LabelAFOrderName = CommonQuery.DBSelectAValue("SELECT label FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34005 AND name = '" + AFOrderName + "';", 1);
 
             IList<IWebElement> all = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-workorders-general']/div/div[2]/ul/li/div/div[2]/div/label"));
             Thread.Sleep(3000);
@@ -276,7 +276,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             CommonQuery.DBSelectAValue("SELECT USER_NICK_NAME FROM AFW_USERS WHERE user_nick_name = 'ADMINISTRATOR';", 1);
 
             // And existe un campo adicional de tipo simple
-            string NameEdit = CommonQuery.DBSelectAValue("SELECT Label  FROM AFW_ADDITIONAL_FIELD  where TypeId = 1 and ConceptId = 5", 1);
+            string NameEdit = CommonQuery.DBSelectAValue("SELECT Label FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34005 AND TypeId = 1;", 1);
 
             //CommonAFLS.CommonItemMenu.Configuration(SectionTopHeader.EItemConfiguration,SectionAdminLeftColumn.ConfigurationMenu,AFOrdersPage.EOption,AFOrdersPage.AFOrdersModulePath);
 
@@ -313,7 +313,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             //End Validate response.
 
             // And se refleja modificado el registro de campo adicionalsimple  de ordenes almacenado en base de datos
-            CommonQuery.DBSelectAValue("SELECT Label  FROM AFW_ADDITIONAL_FIELD  where TypeId = 1 and ConceptId = 5 and Label = 'Edita automation field'", 1);
+            CommonQuery.DBSelectAValue("SELECT Label FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34005 AND TypeId = 1 and Label = 'Edita automation field'", 1);
         }
     }
 }

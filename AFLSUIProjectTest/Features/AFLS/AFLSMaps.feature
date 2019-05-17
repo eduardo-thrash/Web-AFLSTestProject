@@ -161,10 +161,9 @@ Scenario: Validación exitosa de control de mapa en creación de usuarios móvil
 	And selecciono cargo de usuario móvil
 	And diligencio dirección valida de usuario móvil dando click en cursor
 	And selecciono tipo de transporte de usuario móvil
+	And selecciono proveedor de usuario móvil
 	And Doy click en Guardar usuario móvil
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
-	And Se registra el especialista de proveedor en la tabla AFW_USERS
-	And Se registra el especialista de proveedor  con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección
 	And Se registra el usuario en la tabla AFW_USERS
 	And Se registra el usuario móvil con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
@@ -531,7 +530,7 @@ Scenario: Visualización exitosa de control de mapa en monitoreo de planeación
 	And Se muestra correctamente el control de mapas
 	And Al seleccionar un especialista se muestra su información en el mapa correctamente
 	And Cierro Sesión en la aplicación
-@Maps @Orders
+@Maps @Orders @Automation
 Scenario: Validación exitosa de control de mapa en dirección de cita para creación de orden de trabajo al dar click en cursor de validación
 	Given Tengo un usuario con rol despachador
 	And Existe un cliente sin email, teléfono y compañía asociada
@@ -547,8 +546,8 @@ Scenario: Validación exitosa de control de mapa en dirección de cita para crea
 	And Diligencio descripción de orden
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
-	And Se registra la orden con ticket_id, longitud, latitud y dirección
-@Maps @Orders
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+@Maps @Orders @Automation
 Scenario: Validación exitosa de control de mapa en dirección de cita para creación de orden de trabajo al presionar Enter
 	Given Tengo un usuario con rol despachador
 	And Existe un cliente sin email, teléfono y compañía asociada
@@ -564,8 +563,8 @@ Scenario: Validación exitosa de control de mapa en dirección de cita para crea
 	And Diligencio descripción de orden
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
-	And Se registra la orden con ticket_id, longitud, latitud y dirección
-@Maps @Orders
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+@Maps @Orders @Automation
 Scenario: Validación exitosa de control de mapa en dirección de cita para creación de orden de trabajo al presionar Tab
 	Given Tengo un usuario con rol despachador
 	And Existe un cliente sin email, teléfono y compañía asociada
@@ -581,7 +580,7 @@ Scenario: Validación exitosa de control de mapa en dirección de cita para crea
 	And Diligencio descripción de orden
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
-	And Se registra la orden con ticket_id, longitud, latitud y dirección
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
 @Maps @Orders
 Scenario: Validación exitosa de control de mapa en dirección de cita para creación de orden de trabajo al dar click en mapa
 	Given Tengo un usuario con rol despachador
@@ -864,7 +863,7 @@ Scenario: Visualización exitosa de control de mapa al terminar importación de 
 	And Doy click en Importar clientes
 	Then Se importan correctamente los clientes y se muestran ubicaciones en el mapa
 	And se muestra control de mapa con información de clientes importadas y no importadas y puntos de ubicación de clientes
-	And se registran clientes importados en la tabla AFLS_USER_CLIENTS con longitud, latitud y dirección
+	And se registran clientes importados en la tabla AFLS_USER_CLIENTS con longitud, latitud y dirección0
 @Maps @Motor @Orders
 Scenario: Solución exitosa de motor de asignación con ordenes de trabajo en petición automática
 	Given Tengo ordenes de trabajo sin asignar especialista

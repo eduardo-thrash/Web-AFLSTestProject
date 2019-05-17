@@ -55,6 +55,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         [When(@"Doy click en Nuevo Cliente")]
         public void WhenDoyClickEnNuevoCliente()
         {
+            Thread.Sleep(10000);
             CommonElementsAction.Click("CssSelector", ClientsPage.ClientButtonNew);
         }
 

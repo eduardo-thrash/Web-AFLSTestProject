@@ -119,5 +119,47 @@ namespace AFLSUIProjectTest.CommonAFLS
                 }
             }
         }
+
+        public string ValidationOrderCreate()
+        {
+            string TicketNumber = "";
+            int count = 15;
+            for (int i = 1; i <= count; i++)
+            {
+                string TextMessage = "";
+
+                try
+                {
+                    TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
+                    Assert.IsTrue(TextMessage.Contains(MessagesCopies.SuccessfulOrderCreation));
+                    TicketNumber = CommonElementsAction.ExtractNumberOfText(TextMessage);
+                    break;
+                }
+                catch
+                {
+                    if (1 == 15)
+                    {
+                        Assert.Fail(TextMessage);
+                    }
+                }
+                Thread.Sleep(1000);
+            }
+
+            for (int i = 1; i <= 15; i++)
+            {
+                string TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
+                try
+                {
+                    Assert.IsFalse(TextMessage.Contains(MessagesCopies.SuccessElementConfigurationCreateOrUpdate));
+                    Assert.Fail(TextMessage);
+                    break;
+                }
+                catch
+                {
+                    Thread.Sleep(1000);
+                }
+            }
+            return TicketNumber;
+        }
     }
 }

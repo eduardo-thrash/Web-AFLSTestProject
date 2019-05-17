@@ -32,11 +32,11 @@ namespace AFLSUIProjectTest.UIMap.Orders
 
         public string OptionOrderPriority = WOContent + FormNew + "//div[@data-action='priority']";
 
-        public string Subject = WOContent + FormNew + "//div[@name='Subject']";
+        public string Subject = WOContent + FormNew + "//input[@name='Subject']";
 
         public string Description = WOContent + FormNew + "//div[@class='contentEditable']";
 
-        public string Save = WOContent + FormNew + "//div[@data-action='normal']";
+        public string Save = "//div[@class='workOrder contentWO']//button[@id='btnSave']";
 
         public string Exit = WOContent + FormNew + "//div[@data-action='normal']";
     }

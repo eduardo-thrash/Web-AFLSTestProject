@@ -5,6 +5,9 @@ using AFLSUIProjectTest.UIMap.AFLS;
 using AFLSUIProjectTest.UIMap.Messages;
 using AFLSUIProjectTest.UIMap.Orders;
 using CommonTest.CommonTest;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
+using System;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -27,6 +30,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         private string ClientName;
         private string UserDispatcher;
         private string ServiceName;
+        private int TicketId;
 
         [Given(@"Tengo un usuario con rol despachador")]
         public void GivenTengoUnUsuarioConRolDespachador()
@@ -49,7 +53,14 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         [Given(@"Existen servicios asociados al cliente")]
         public void GivenExistenServiciosAsociadosAlCliente()
         {
-            ServiceName = CommonQuery.DBSelectAValue("SELECT SER.serv_name FROM AFLS_CLIENT_SERVICES CLS JOIN AFLS_SERVICES SER ON SER.serv_id = CLS.serv_id WHERE CLS.clie_id = (SELECT user_id FROM AFW_USERS WHERE user_name = '" + ClientName + "');", 1);
+            try
+            {
+                ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();", 1);
+            }
+            catch
+            {
+                Assert.Fail("Error en consulta SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();");
+            }
         }
 
         [When(@"Accedo a ítem Nueva orden")]
@@ -99,14 +110,15 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         [When(@"Diligencio y selecciono servicio de orden")]
         public void WhenDiligencioYSeleccionoServicioDeOrden()
         {
-            ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 SER.serv_name FROM AFLS_SERVICES SER JOIN AFLS_CLIENT_SERVICES CLS ON SER.serv_id = CLS.serv_id WHERE SER.serv_active = 1 AND CLS.clie_id = (SELECT TOP 1 USER_ID FROM AFW_USERS WHERE user_name = '" + ClientName + "') ORDER BY NEWID();", 1);
             CommonElementsAction.Select_ComboboxAutocomplete("XPath", WorkordersPage.ServiceName, ServiceName, "a");
+            Thread.Sleep(2000);
         }
 
         [When(@"Selecciono Tipo de Orden Normal de orden")]
         public void WhenSeleccionoTipoDeOrdenNormalDeOrden()
         {
             CommonElementsAction.Click("XPath", WorkordersPage.OptionOrderNormal);
+            Thread.Sleep(2000);
         }
 
         [When(@"Diligencio Asunto de orden")]
@@ -119,6 +131,45 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         public void WhenDiligencioDescripcionDeOrden()
         {
             CommonElementsAction.ClearAndSendKeys_InputText("XPath", WorkordersPage.Description, "Descripción orden de trabajo UI Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vestibulum massa elit, rutrum quis lacinia nec, eleifend eget diam.Vestibulum ante arcu, consequat at lacus sed, sollicitudin vulputate elit.");
+        }
+
+        [When(@"Doy click en Crear orden")]
+        public void WhenDoyClickEnCrearOrden()
+        {
+            CommonElementsAction.Click("XPath", WorkordersPage.Save);
+            Thread.Sleep(5000);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConTicket_IdLongitudLatitudYDireccion()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_longitude IS NULL AND work_latitude IS NULL AND work_address IS NULL;", 1);
+        }
+
+        [Then(@"se muestra mensaje indicando que se creo la orden de trabajo correctamente")]
+        public void ThenSeMuestraMensajeIndicandoQueSeCreoLaOrdenDeTrabajoCorrectamente()
+        {
+            TicketId = Convert.ToInt32(ResponseValidation.ValidationOrderCreate());
+        }
+
+        [When(@"Diligencio Dirección de cita de orden dando click en cursor")]
+        public void WhenDiligencioDireccionDeCitaDeOrdenDandoClickEnCursor()
+        {
+            CommonElementsAction.SendKeys_InputText("XPath", WorkordersPage.Address, "calle 64 # 5-22 Bogota Colombia");
+            CommonElementsAction.Click("XPath", "//div[@class='workOrder contentWO']//input[@id='clientAddresCheck']");
+        }
+
+        [When(@"Diligencio Dirección de cita de orden dando enter")]
+        public void WhenDiligencioDireccionDeCitaDeOrdenDandoEnter()
+        {
+            CommonElementsAction.EnterAfterSendKeys_InputText("XPath", WorkordersPage.Address, "calle 64 # 5-22 Bogota Colombia");
+        }
+
+        [When(@"Diligencio Dirección de cita de orden dando tab")]
+        public void WhenDiligencioDireccionDeCitaDeOrdenDandoTab()
+        {
+            CommonElementsAction.SendKeys_InputText("XPath", WorkordersPage.Address, "calle 64 # 5-22 Bogota Colombia");
+            CommonHooks.driver.FindElement(By.XPath(WorkordersPage.Address)).SendKeys(Keys.Tab);
         }
     }
 }

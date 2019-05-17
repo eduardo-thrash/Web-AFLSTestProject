@@ -24,7 +24,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
 
         private string Default_user_nickname = "ui.mobile.";
         private string user_nickname;
-        private string user_name = "UI Eduardo Mobile";
+        private string user_name = "UI Eduardo Mobile ";
         private int UserId;
         private string user_mail;
         private int GroupId;
@@ -109,7 +109,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         public void WhenDiligencioDireccionValidaDeUsuarioMovilDandoClickEnCursor()
         {
             CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA");
-            CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserAddressValidate);
+            CommonElementsAction.Click("XPath", MobileUsersPage.MobileUserAddressValidate);
         }
 
         [When(@"diligencio dirección valida de usuario móvil dando enter")]

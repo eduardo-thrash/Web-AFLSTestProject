@@ -26,7 +26,7 @@
         public string PositionOption = "//a[contains(@href, '#admin/positions')]";
         public string ProviderOption = "//a[contains(@href, '#admin/providers')]";
         public string WebUserOption = "//a[contains(@href, '#admin/users/web')]";
-        public string MobileUserOption = "//a[contains(@href, '#admin/users/mobile')]";
+        public string MobileUserOption = "//div[@class='admin']//a[@href='#admin/users/mobile']";
         public string WebGroupOption = "//a[contains(@href, '#admin/groups/web')]";
         public string MobileGroupOption = "//a[contains(@href, '#admin/groups/mobile')]";
         public string ZoneOption = "//a[contains(@href, '#admin/coverageZones')]";

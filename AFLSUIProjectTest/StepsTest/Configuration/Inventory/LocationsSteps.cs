@@ -4,6 +4,7 @@ using AFLSUIProjectTest.UIMap.Messages;
 using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace AFLSUITestProject.TestSuite.Configuration.Inventory
@@ -72,7 +73,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         [When(@"Diligencio dirección de ubicación dando enter")]
         public void WhenDiligencioDireccionDeUbicacionDandoEnter()
         {
-            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
+            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
         }
 
         [When(@"Diligencio dirección de ubicación dando tab")]
@@ -121,7 +122,9 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         [When(@"Doy click en Guardar ubicación")]
         public void WhenDoyClickEnGuardarUbicacion()
         {
+            Thread.Sleep(2000);
             CommonElementsAction.Click("CssSelector", LocationsPage.LocationSubmit);
+            Thread.Sleep(1000);
         }
 
         [Then(@"Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO")]
