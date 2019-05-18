@@ -125,6 +125,12 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
             CommonHooks.driver.FindElement(By.CssSelector(MobileUsersPage.MobileUserAddress)).SendKeys(Keys.Tab);
         }
 
+        [When(@"diligencio dirección valida de usuario móvil dando click en mapa")]
+        public void WhenDiligencioDireccionValidaDeUsuarioMovilDandoClickEnMapa()
+        {
+            CommonElementsAction.Click("XPath", "//div[@class='companies']//div[@id='mapUsersAddress']");
+        }
+
         [When(@"selecciono sede de inventario")]
         public void WhenSeleccionoSedeDeInventario()
         {

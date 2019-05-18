@@ -18,6 +18,8 @@ Scenario: Validación exitosa de control de mapa en creación de compañía al d
 	And Diligencio nombre de compañía
 	And Diligencio código único de compañía
 	And Diligencio dirección de compañía dando click en cursor
+	And Selecciono el Tab Campos adicionales
+	And Diligencio campos adicionales de compañía
 	And Doy click en Guardar compañía
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección
@@ -35,6 +37,8 @@ Given Tengo un usuario con rol administrador
 	And Diligencio nombre de compañía
 	And Diligencio código único de compañía
 	And Diligencio dirección de compañía dando enter
+	And Selecciono el Tab Campos adicionales
+	And Diligencio campos adicionales de compañía
 	And Doy click en Guardar compañía
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección
@@ -52,11 +56,13 @@ Scenario: Validación exitosa de control de mapa en creación de compañía al p
 	And Diligencio nombre de compañía
 	And Diligencio código único de compañía
 	And Diligencio dirección de compañía dando tab
+	And Selecciono el Tab Campos adicionales
+	And Diligencio campos adicionales de compañía
 	And Doy click en Guardar compañía
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @Companies
+@Maps @Companies @Automation
 Scenario: Validación exitosa de control de mapa en creación de compañía al dar click en mapa
 	Given Tengo un usuario con rol administrador
 	And No existe la compañía
@@ -69,6 +75,8 @@ Scenario: Validación exitosa de control de mapa en creación de compañía al d
 	And Diligencio nombre de compañía
 	And Diligencio código único de compañía
 	And Diligencio dirección de compañía dando click en mapa
+	And Selecciono el Tab Campos adicionales
+	And Diligencio campos adicionales de compañía
 	And Doy click en Guardar compañía
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección
@@ -85,6 +93,8 @@ Scenario: Validación exitosa de control de mapa en creación de clientes al dar
 	And Diligencio nombre de cliente
 	And Diligencio código único de cliente
 	And Diligencio dirección de cliente dando click en cursor
+	And Selecciono el Tab de Campos adicionales
+	And Diligencio campos adicionales de cliente
 	And Doy click en Guardar cliente
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el usuario cliente en la tabla AFW_USERS
@@ -103,6 +113,8 @@ Scenario: Validación exitosa de control de mapa en creación de clientes al pre
 	And Diligencio nombre de cliente
 	And Diligencio código único de cliente
 	And Diligencio dirección de cliente dando enter
+	And Selecciono el Tab de Campos adicionales
+	And Diligencio campos adicionales de cliente
 	And Doy click en Guardar cliente
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el usuario cliente en la tabla AFW_USERS
@@ -121,12 +133,14 @@ Scenario: Validación exitosa de control de mapa en creación de clientes al pre
 	And Diligencio nombre de cliente
 	And Diligencio código único de cliente
 	And Diligencio dirección de cliente dando tab
+	And Selecciono el Tab de Campos adicionales
+	And Diligencio campos adicionales de cliente
 	And Doy click en Guardar cliente
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el usuario cliente en la tabla AFW_USERS
 	And Se registra el cliente en la tabla AFLS_USER_CLIENTS con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @Clients
+@Maps @Clients @Automation
 Scenario: Validación exitosa de control de mapa en creación de clientes al dar click en mapa
 	Given Tengo un usuario con rol administrador
 	And El cliente no existe
@@ -136,9 +150,11 @@ Scenario: Validación exitosa de control de mapa en creación de clientes al dar
 	And Accedo al menú Administración
 	And Selecciono la opción Clientes
 	And Doy click en Nuevo Cliente
-	And Diligencio nombre de compañía
+	And Diligencio nombre de cliente
 	And Diligencio código único de cliente
 	And Diligencio dirección de cliente dando click en mapa
+	And Selecciono el Tab de Campos adicionales
+	And Diligencio campos adicionales de cliente
 	And Doy click en Guardar cliente
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el usuario cliente en la tabla AFW_USERS
@@ -217,7 +233,7 @@ Scenario: Validación exitosa de control de mapa en creación de usuarios móvil
 	And Se registra el usuario en la tabla AFW_USERS
 	And Se registra el usuario móvil con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @MobileUsers
+@Maps @MobileUsers @Automation
 Scenario: Validación exitosa de control de mapa en creación de usuarios móviles al dar click en mapa
 	Given No existe el usuario móvil
 	And Tengo un usuario con rol administrador
@@ -413,7 +429,7 @@ Scenario: Validación exitosa de control de mapa en creación de ubicaciones al 
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @Locations
+@Maps @Locations @Automation
 Scenario: Validación exitosa de control de mapa en creación de ubicaciones al dar click en mapa
 	Given Tengo un usuario con rol administrador
 	And No existe la ubicación de tipo sede 
@@ -544,6 +560,8 @@ Scenario: Validación exitosa de control de mapa en dirección de cita para crea
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
@@ -561,6 +579,8 @@ Scenario: Validación exitosa de control de mapa en dirección de cita para crea
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
@@ -578,9 +598,12 @@ Scenario: Validación exitosa de control de mapa en dirección de cita para crea
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Cierro Sesión en la aplicación
 @Maps @Orders
 Scenario: Validación exitosa de control de mapa en dirección de cita para creación de orden de trabajo al dar click en mapa
 	Given Tengo un usuario con rol despachador
@@ -595,9 +618,12 @@ Scenario: Validación exitosa de control de mapa en dirección de cita para crea
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
-	And Se registra la orden con ticket_id, longitud, latitud y dirección
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Cierro Sesión en la aplicación
 @Maps @Orders
 Scenario: Validación exitosa de control de mapa en dirección de destino para creación de orden de trabajo al dar click en cursor de validación
 	Given Tengo un usuario con rol despachador
@@ -612,9 +638,12 @@ Scenario: Validación exitosa de control de mapa en dirección de destino para c
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
-	And Se registra la orden en la tabla AFLS_WORKORDERS con ticket_id, longitud, latitud y dirección
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud de destino, latitud de destino y dirección de destino
+	And Cierro Sesión en la aplicación
 @Maps @Orders
 Scenario: Validación exitosa de control de mapa en dirección de destino para creación de orden de trabajo al presionar Enter
 	Given Tengo un usuario con rol despachador
@@ -629,9 +658,12 @@ Scenario: Validación exitosa de control de mapa en dirección de destino para c
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
-	And Se registra la orden en la tabla AFLS_WORKORDERS con ticket_id, longitud, latitud y dirección
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Cierro Sesión en la aplicación
 @Maps @Orders
 Scenario: Validación exitosa de control de mapa en dirección de destino para creación de orden de trabajo al presionar Tab
 	Given Tengo un usuario con rol despachador
@@ -646,9 +678,12 @@ Scenario: Validación exitosa de control de mapa en dirección de destino para c
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
-	And Se registra la orden en la tabla AFLS_WORKORDERS con ticket_id, longitud, latitud y dirección
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud de destino, latitud de destino y dirección de destino
+	And Cierro Sesión en la aplicación
 @Maps @Orders
 Scenario: Validación exitosa de control de mapa en dirección de destino para creación de orden de trabajo al dar click en mapa
 	Given Tengo un usuario con rol despachador
@@ -663,6 +698,8 @@ Scenario: Validación exitosa de control de mapa en dirección de destino para c
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra la orden en la tabla AFLS_WORKORDERS con ticket_id, longitud, latitud y dirección
@@ -677,6 +714,8 @@ Scenario: Validación exitosa de control de mapa en dirección de cita para actu
 	And Doy click en Abrir orden de trabajo
 	And Edito dirección de cita de orden de trabajo dando click en cursor
 	But Si se muestra mensaje de reasignación doy click en Aceptar
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Guardar orden
 	Then se muestra mensaje indicando que se guardo orden de trabajo exitosamente
 	And se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS
@@ -691,6 +730,8 @@ Scenario: Validación exitosa de control de mapa en dirección de cita para actu
 	And Doy click en Abrir orden de trabajo
 	And Edito dirección de cita de orden de trabajo dando enter
 	But Si se muestra mensaje de reasignación doy click en Aceptar
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Guardar orden
 	Then se muestra mensaje indicando que se guardo orden de trabajo exitosamente
 	And se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS

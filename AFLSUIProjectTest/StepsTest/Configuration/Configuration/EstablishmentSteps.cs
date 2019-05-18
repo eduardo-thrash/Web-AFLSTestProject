@@ -51,6 +51,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         public void WhenDiligencioDireccionDeCompaniaEnInformacionBasicaDandoClickEnCursor()
         {
             CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputAddress, "calle 45 # 45-23 bogota");
+            Thread.Sleep(2000);
             CommonElementsAction.Click("XPath", EstablishmentPage.EstablishmentAddressValidate);
         }
 
@@ -58,6 +59,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         public void WhenDiligencioDireccionDeCompaniaEnInformacionBasicaDandoTab()
         {
             CommonElementsAction.SendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputAddress, "calle 45 # 45-23 bogota");
+            Thread.Sleep(2000);
             CommonHooks.driver.FindElement(By.CssSelector(EstablishmentPage.EstablishmentInputAddress)).SendKeys(Keys.Tab);
         }
 

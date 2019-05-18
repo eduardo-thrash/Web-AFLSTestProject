@@ -17,6 +17,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         private readonly ElementsLocation LocationsPage = new ElementsLocation();
         private readonly PageMessages PageMessages = new PageMessages();
         private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
+        private UtilAction UtilAction = new UtilAction();
 
         private static string DefaultHeadquaterName = "UI Sede ";
         private static string EditHeadquaterName;
@@ -81,6 +82,12 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         {
             CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
             CommonHooks.driver.FindElement(By.CssSelector(LocationsHeadquaterPage.LocationHeadquaterAddress)).SendKeys(Keys.Tab);
+        }
+
+        [When(@"Diligencio dirección de ubicación dando click en mapa")]
+        public void WhenDiligencioDireccionDeUbicacionDandoClickEnMapa()
+        {
+            UtilAction.Click("//div[@class='zones']//div[@id='mapHeadquarterAddress']");
         }
 
         [When(@"Diligencio detalle de dirección de ubicación")]

@@ -69,6 +69,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenSeleccionoLaOpcionOLAS()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.OLAOption);
+            Thread.Sleep(5000);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal OLA's")]
@@ -89,6 +90,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenSeleccionoLaOpcionUCS()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.UCOption);
+            Thread.Sleep(5000);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal UC's")]
@@ -109,6 +111,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenSeleccionoLaOpcionCalendarios()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.CalendarOption);
+            Thread.Sleep(5000);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal Calendarios")]
@@ -129,6 +132,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenSeleccionoLaOpcionCronómetros()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.ChronometerOption);
+            Thread.Sleep(5000);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal Cronómetros")]
@@ -149,6 +153,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenSeleccionoLaOpcionModelos()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.ModelOption);
+            Thread.Sleep(5000);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal Modelos")]
@@ -209,6 +214,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenSeleccionoLaOpcionComapnias()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.CompanyOption);
+            Thread.Sleep(10000);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal  Comapñias")]
@@ -229,6 +235,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenSeleccionoLaOpcionClientes()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.ClientOption);
+            Thread.Sleep(10000);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal  Clientes")]
@@ -269,6 +276,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenSeleccionoLaOpcionCargos()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.PositionOption);
+            Thread.Sleep(10000);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal  Cargos")]
@@ -289,6 +297,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenSeleccionoLaOpcionProveedores()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.ProviderOption);
+            Thread.Sleep(5000);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal  Proveedores")]

@@ -7,7 +7,9 @@ using AFLSUIProjectTest.UIMap.Orders;
 using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -31,6 +33,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         private string UserDispatcher;
         private string ServiceName;
         private int TicketId;
+        private int AdditionalFieldFound = 0;
 
         [Given(@"Tengo un usuario con rol despachador")]
         public void GivenTengoUnUsuarioConRolDespachador()
@@ -56,6 +59,8 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             try
             {
                 ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();", 1);
+                int RemoveCar = ServiceName.Length - 10;
+                ServiceName = ServiceName.Remove(10, RemoveCar);
             }
             catch
             {
@@ -133,17 +138,88 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             CommonElementsAction.ClearAndSendKeys_InputText("XPath", WorkordersPage.Description, "Descripción orden de trabajo UI Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vestibulum massa elit, rutrum quis lacinia nec, eleifend eget diam.Vestibulum ante arcu, consequat at lacus sed, sollicitudin vulputate elit.");
         }
 
+        [When(@"Selecciono el Tab de campos adicionales de orden de trabajo")]
+        public void WhenSeleccionoElTabDeCamposAdicionalesDeOrdenDeTrabajo()
+        {
+            try
+            {
+                UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='jcarousel']//a[@href='#tabs-9']");
+            }
+            catch
+            {
+                Thread.Sleep(2000);
+
+                UtilAction.Click("//div[@class='workOrder contentWO']//a[@class='jcarousel-control-next']");
+                UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='jcarousel']//a[@href='#tabs-9']");
+            }
+        }
+
+        [When(@"Diligencio campos adicionales de orden de trabajo")]
+        public int WhenDiligencioCamposAdicionalesDeOrdenDeTrabajo()
+        {
+            try
+            {
+                IList<IWebElement> AFClientsListInputText = CommonHooks.driver.FindElements(By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-9']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//input[@type='text']"));
+                foreach (IWebElement AFClient in AFClientsListInputText)
+                {
+                    AFClient.Clear();
+                    AFClient.SendKeys(Functions.RandomText(10));
+                    Thread.Sleep(1000);
+                    AdditionalFieldFound++;
+                }
+                IList<IWebElement> AFClientsListTextarea = CommonHooks.driver.FindElements(By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-9']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//textarea"));
+                foreach (IWebElement AFClient in AFClientsListTextarea)
+                {
+                    AFClient.Clear();
+                    AFClient.SendKeys("Texto parrafo");
+                    Thread.Sleep(1000);
+                    AdditionalFieldFound++;
+                }
+
+                IList<IWebElement> AFClientsListNumber = CommonHooks.driver.FindElements(By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-9']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//input[@type='number']"));
+                foreach (IWebElement AFClient in AFClientsListNumber)
+                {
+                    AFClient.Clear();
+                    AFClient.SendKeys("123456");
+                    Thread.Sleep(1000);
+                    AdditionalFieldFound++;
+                }
+
+                IList<IWebElement> AFClientsListDate = CommonHooks.driver.FindElements(By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-9']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//span[@class='k-icon k-i-calendar']"));
+                foreach (IWebElement AFClient in AFClientsListDate)
+                {
+                    AFClient.Click();
+                    CommonElementsAction.Click("XPath", "//div[@class='k-widget k-calendar']/table/tbody/tr/td/a");
+                    Thread.Sleep(1000);
+                    AdditionalFieldFound++;
+                }
+
+                IList<IWebElement> AFClientsListSelect = CommonHooks.driver.FindElements(By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-9']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//select"));
+                foreach (IWebElement AFClient in AFClientsListSelect)
+                {
+                    new SelectElement(AFClient).SelectByIndex(1);
+                    Thread.Sleep(1000);
+                    AdditionalFieldFound++;
+                }
+            }
+            catch (Exception e)
+            {
+                Assert.Fail(e.Message);
+            }
+
+            return AdditionalFieldFound;
+        }
+
         [When(@"Doy click en Crear orden")]
         public void WhenDoyClickEnCrearOrden()
         {
             CommonElementsAction.Click("XPath", WorkordersPage.Save);
-            Thread.Sleep(5000);
         }
 
         [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección")]
         public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConTicket_IdLongitudLatitudYDireccion()
         {
-            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_longitude IS NULL AND work_latitude IS NULL AND work_address IS NULL;", 1);
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_longitude IS NOT NULL AND work_latitude IS NOT NULL AND work_address IS NOT NULL;", 1);
         }
 
         [Then(@"se muestra mensaje indicando que se creo la orden de trabajo correctamente")]
@@ -156,6 +232,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         public void WhenDiligencioDireccionDeCitaDeOrdenDandoClickEnCursor()
         {
             CommonElementsAction.SendKeys_InputText("XPath", WorkordersPage.Address, "calle 64 # 5-22 Bogota Colombia");
+            Thread.Sleep(2000);
             CommonElementsAction.Click("XPath", "//div[@class='workOrder contentWO']//input[@id='clientAddresCheck']");
         }
 
@@ -169,7 +246,20 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         public void WhenDiligencioDireccionDeCitaDeOrdenDandoTab()
         {
             CommonElementsAction.SendKeys_InputText("XPath", WorkordersPage.Address, "calle 64 # 5-22 Bogota Colombia");
+            Thread.Sleep(2000);
             CommonHooks.driver.FindElement(By.XPath(WorkordersPage.Address)).SendKeys(Keys.Tab);
+        }
+
+        [When(@"Diligencio Dirección de cita de orden dando click en mapa")]
+        public void WhenDiligencioDireccionDeCitaDeOrdenDandoClickEnMapa()
+        {
+            try
+            {
+                UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='woMapOrder ui maps']");
+            }
+            catch
+            {
+            }
         }
     }
 }

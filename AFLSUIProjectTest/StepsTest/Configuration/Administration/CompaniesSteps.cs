@@ -57,6 +57,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         [When(@"Doy click en Nueva compañía")]
         public void WhenDoyClickEnNuevaCompania()
         {
+            Thread.Sleep(15000);
             CommonElementsAction.Click("CssSelector", CompaniesPage.CompanyButtonNew);
         }
 
@@ -151,17 +152,14 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         public void WhenDiligencioDireccionDeCompaniaDandoTab()
         {
             CommonElementsAction.SendKeys_InputText("CssSelector", CompaniesPage.CompanyAddress, "calle 64 # 5 22");
+            Thread.Sleep(2000);
             CommonHooks.driver.FindElement(By.CssSelector(CompaniesPage.CompanyAddress)).SendKeys(Keys.Tab);
         }
 
         [When(@"Diligencio dirección de compañía dando click en mapa")]
         public void WhenDiligencioDireccionDeCompaniaDandoClickEnMapa()
         {
-            CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='mapClientAddress']"));
-            Thread.Sleep(1);
-            Thread.Sleep(1);
-            Thread.Sleep(1);
-            CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='mapClientAddress']"));
+            CommonElementsAction.Click("XPath", "//div[@class='companies']//div[@id='mapCompanyAddress']"); ;
         }
 
         [When(@"Doy click en switch de estado de compañía")]

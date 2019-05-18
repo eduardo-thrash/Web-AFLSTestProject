@@ -15,7 +15,8 @@ namespace AFLSUIProjectTest.CommonAFLS
 
         public void ValidationSuccessCreate()
         {
-            for (int i = 1; i <= 8; i++)
+            int count = 15;
+            for (int i = 1; i <= count; i++)
             {
                 string TextMessage = "";
 
@@ -27,12 +28,15 @@ namespace AFLSUIProjectTest.CommonAFLS
                 }
                 catch
                 {
-                    Assert.Fail(TextMessage);
+                    if (1 == 15)
+                    {
+                        Assert.Fail(TextMessage);
+                    }
                 }
                 Thread.Sleep(1000);
             }
 
-            for (int i = 1; i <= 8; i++)
+            for (int i = 1; i <= count; i++)
             {
                 string TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
                 try
@@ -123,11 +127,10 @@ namespace AFLSUIProjectTest.CommonAFLS
         public string ValidationOrderCreate()
         {
             string TicketNumber = "";
-            int count = 15;
+            int count = 30;
+            string TextMessage = "";
             for (int i = 1; i <= count; i++)
             {
-                string TextMessage = "";
-
                 try
                 {
                     TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
@@ -137,7 +140,7 @@ namespace AFLSUIProjectTest.CommonAFLS
                 }
                 catch
                 {
-                    if (1 == 15)
+                    if (i == count)
                     {
                         Assert.Fail(TextMessage);
                     }
@@ -147,7 +150,7 @@ namespace AFLSUIProjectTest.CommonAFLS
 
             for (int i = 1; i <= 15; i++)
             {
-                string TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
+                TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
                 try
                 {
                     Assert.IsFalse(TextMessage.Contains(MessagesCopies.SuccessElementConfigurationCreateOrUpdate));

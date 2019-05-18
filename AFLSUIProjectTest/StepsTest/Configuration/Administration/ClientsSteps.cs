@@ -201,6 +201,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         public void WhenDiligencioDireccionDeClienteDandoTab()
         {
             CommonElementsAction.SendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59 # 35a-68,Of 567");
+            Thread.Sleep(2000);
             CommonHooks.driver.FindElement(By.CssSelector(ClientsPage.ClientAddress)).SendKeys(Keys.Tab);
         }
 
@@ -252,7 +253,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         {
             try
             {
-                IList<IWebElement> AFClientsListInputText = CommonHooks.driver.FindElements(By.XPath("//div[@class='clients']//div[@id='tabs-6']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//input[@class='js-input-additional-field k-valid' and @type='text']"));
+                IList<IWebElement> AFClientsListInputText = CommonHooks.driver.FindElements(By.XPath("//div[@class='clients']//div[@id='tabs-6']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//input[@type='text']"));
                 foreach (IWebElement AFClient in AFClientsListInputText)
                 {
                     AFClient.Clear();
@@ -348,6 +349,12 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         public void WhenDoyClickEnGuardarCliente()
         {
             CommonElementsAction.Click("CssSelector", ClientsPage.ClientSubmit);
+        }
+
+        [When(@"Diligencio dirección de cliente dando click en mapa")]
+        public void WhenDiligencioDireccionDeClienteDandoClickEnMapa()
+        {
+            CommonElementsAction.Click("XPath", "//div[@class='clients']//div[@id='mapClientAddress']");
         }
 
         [Then(@"Se registra el usuario cliente en la tabla AFW_USERS")]

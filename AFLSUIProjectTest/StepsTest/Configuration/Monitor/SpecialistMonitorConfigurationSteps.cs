@@ -5,6 +5,7 @@ using CommonTest.CommonTest;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace AFLSUIProjectTest.StepsTest.Configuration.Monitor
@@ -107,6 +108,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Monitor
         public void WhenDiligencioDireccionValidaDeEspecialistaDeProveedorDandoTab()
         {
             CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA");
+            Thread.Sleep(2000);
             CommonHooks.driver.FindElement(By.CssSelector(MobileUsersPage.MobileUserAddress)).SendKeys(Keys.Tab);
         }
 

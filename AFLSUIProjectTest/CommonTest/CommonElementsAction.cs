@@ -23,6 +23,7 @@ namespace CommonTest.CommonTest
         public static Exception Ex;
         public static string Error;
         public static int second;
+        private static int TimeWait = 30;
 
         ///<summary> AccessPage
         /// Método para acceder a una pagina especifica y maximizar la pantalla.
@@ -46,7 +47,7 @@ namespace CommonTest.CommonTest
         {
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     switch (ElementType)
@@ -87,10 +88,10 @@ namespace CommonTest.CommonTest
                     Thread.Sleep(1000);
                 }
             }
-
+            Thread.Sleep(2000);
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -162,7 +163,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -191,7 +192,7 @@ namespace CommonTest.CommonTest
         {
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     switch (ElementType)
@@ -235,7 +236,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -265,7 +266,7 @@ namespace CommonTest.CommonTest
         {
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     switch (ElementType)
@@ -309,7 +310,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -341,7 +342,7 @@ namespace CommonTest.CommonTest
         {
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     switch (ElementType)
@@ -385,7 +386,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -405,7 +406,7 @@ namespace CommonTest.CommonTest
             Thread.Sleep(3000);
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     ElementWait = CommonHooks.driver.FindElement(By.XPath("//" + tag + "[contains(text(),'" + Option + "')]"));
@@ -456,7 +457,7 @@ namespace CommonTest.CommonTest
                 {
                     for (second = 0; ; second++)
                     {
-                        if (second >= 10) Assert.Fail(Error);
+                        if (second >= TimeWait) Assert.Fail(Error);
                         try
                         {
                             Assert.IsTrue(Elements.Enabled);
@@ -489,7 +490,7 @@ namespace CommonTest.CommonTest
             //string tag: Tag of HTML (label,a,div,input,etc)
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     switch (ElementType)
@@ -533,7 +534,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -584,7 +585,7 @@ namespace CommonTest.CommonTest
             // string Element: Elemento de UIMap
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     switch (ElementType)
@@ -628,7 +629,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Ex.ToString());
+                if (second >= TimeWait) Assert.Fail(Ex.ToString());
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -663,7 +664,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     switch (ElementType)
@@ -707,7 +708,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -739,7 +740,7 @@ namespace CommonTest.CommonTest
             // string Input: Elemento de UIMap
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     switch (ElementType)
@@ -783,7 +784,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -864,7 +865,7 @@ namespace CommonTest.CommonTest
                 {
                     for (second = 0; ; second++)
                     {
-                        if (second >= 10) Assert.Fail(Error);
+                        if (second >= TimeWait) Assert.Fail(Error);
                         try
                         {
                             Assert.IsTrue(Elements.Enabled);
@@ -938,7 +939,7 @@ namespace CommonTest.CommonTest
         {
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     if (ElementType == null)
@@ -990,7 +991,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -1062,7 +1063,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) break;
+                if (second >= TimeWait) break;
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -1082,7 +1083,7 @@ namespace CommonTest.CommonTest
         {
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(UrlExpected.Contains(UrlActual));
@@ -1097,7 +1098,7 @@ namespace CommonTest.CommonTest
 
             for (second = 0; ; second++)
             {
-                if (second >= 10) Assert.Fail(Error);
+                if (second >= TimeWait) Assert.Fail(Error);
                 try
                 {
                     Assert.IsTrue(ElementWait.Enabled);
@@ -1119,5 +1120,277 @@ namespace CommonTest.CommonTest
 
             Thread.Sleep(1000);
         }
+    }
+
+    public class UtilAction
+    {
+        private static int Counter = 0;
+
+        public static void Click(string Element, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ElementWait = WebElement(Element, Locator);
+
+                    ValidateDisplayed(Element);
+                    ValidateEnabled(Element);
+                    ValidateSize(Element, Locator);
+
+                    ElementWait.Click();
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    Counter++;
+                    if (Counter == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Element);
+                    }
+                }
+            }
+        }
+
+        public static void SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            Thread.Sleep(1000);
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ElementWait = WebElement(Element, Locator);
+
+                    ValidateDisplayed(Element);
+                    ValidateEnabled(Element);
+                    ValidateSize(Element, Locator);
+
+                    ElementWait.Click();
+                    ElementWait.SendKeys(Value);
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    Counter++;
+                    if (Counter == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Element);
+                    }
+                }
+            }
+            Thread.Sleep(1000);
+        }
+
+        public static void EnterAfter_SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            Thread.Sleep(1000);
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ElementWait = WebElement(Element, Locator);
+
+                    ValidateDisplayed(Element);
+                    ValidateEnabled(Element);
+                    ValidateSize(Element, Locator);
+
+                    ElementWait.Click();
+                    ElementWait.SendKeys(Value);
+                    ElementWait.SendKeys(Keys.Enter);
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    Counter++;
+                    if (Counter == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Element);
+                    }
+                }
+            }
+            Thread.Sleep(1000);
+        }
+
+        public static void TabAfter_SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            Thread.Sleep(1000);
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ElementWait = WebElement(Element, Locator);
+
+                    ValidateDisplayed(Element);
+                    ValidateEnabled(Element);
+                    ValidateSize(Element, Locator);
+
+                    ElementWait.Click();
+                    ElementWait.SendKeys(Value);
+                    ElementWait.SendKeys(Keys.Tab);
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    Counter++;
+                    if (Counter == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Element);
+                    }
+                }
+            }
+            Thread.Sleep(1000);
+        }
+
+        public static void ClearBefore_SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            Thread.Sleep(1000);
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ElementWait = WebElement(Element, Locator);
+
+                    ValidateDisplayed(Element);
+                    ValidateEnabled(Element);
+                    ValidateSize(Element, Locator);
+
+                    ElementWait.Click();
+                    ElementWait.Clear();
+                    ElementWait.SendKeys(Value);
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    Counter++;
+                    if (Counter == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Element);
+                    }
+                }
+            }
+            Thread.Sleep(1000);
+        }
+
+        public static void Clear(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            Thread.Sleep(1000);
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ElementWait = WebElement(Element, Locator);
+
+                    ValidateDisplayed(Element);
+                    ValidateEnabled(Element);
+                    ValidateSize(Element, Locator);
+
+                    ElementWait.Click();
+                    ElementWait.Clear();
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    Counter++;
+                    if (Counter == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Element);
+                    }
+                }
+            }
+            Thread.Sleep(1000);
+        }
+
+        #region Validate's Method
+
+        private static void ValidateDisplayed(string Element, bool IsDisplayed = false, double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            var wait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
+            wait.Until(d => d.FindElement(By.XPath(Element)).Displayed);
+        }
+
+        private static void ValidateEnabled(string Element, bool IsEnabled = false, double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            var wait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
+            wait.Until(d => d.FindElement(By.XPath(Element)).Enabled);
+        }
+
+        private static void ValidateSize(string Element, string Locator, double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            IWebElement ElementWait = CommonHooks.driver.FindElement(By.XPath(Element));
+            var SizeWait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
+
+            switch (Locator)
+            {
+                case "Id":
+                    SizeWait.Until(d => d.FindElement(By.Id(Element)));
+                    Assert.AreNotEqual(ElementWait.Size, 0);
+                    break;
+
+                case "Name":
+                    ElementWait = CommonHooks.driver.FindElement(By.Name(Element));
+                    break;
+
+                case "ClassName":
+                    ElementWait = CommonHooks.driver.FindElement(By.ClassName(Element));
+                    break;
+
+                case "CssSelector":
+                    ElementWait = CommonHooks.driver.FindElement(By.CssSelector(Element));
+                    break;
+
+                case "XPath":
+                    SizeWait.Until(d => d.FindElement(By.XPath(Element)));
+                    Assert.AreNotEqual(ElementWait.Size, 0);
+                    break;
+
+                default:
+                    Assert.Fail("Incorrect Element");
+                    break;
+            }
+        }
+
+        private static IWebElement WebElement(string Element, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            IWebElement ElementWait = CommonHooks.driver.FindElement(By.XPath(Element));
+            WebDriverWait Ewait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
+            switch (Locator)
+            {
+                case "Id":
+                    Ewait.Until(d => d.FindElement(By.Id(Element)));
+                    ElementWait = CommonHooks.driver.FindElement(By.Id(Element));
+                    break;
+
+                case "Name":
+                    ElementWait = CommonHooks.driver.FindElement(By.Name(Element));
+                    break;
+
+                case "ClassName":
+                    ElementWait = CommonHooks.driver.FindElement(By.ClassName(Element));
+                    break;
+
+                case "CssSelector":
+                    ElementWait = CommonHooks.driver.FindElement(By.CssSelector(Element));
+                    break;
+
+                case "XPath":
+                    Ewait.Until(d => d.FindElement(By.XPath(Element)));
+                    ElementWait = CommonHooks.driver.FindElement(By.XPath(Element));
+                    break;
+
+                default:
+                    Assert.Fail("Incorrect Element");
+                    break;
+            }
+
+            return ElementWait;
+        }
+
+        #endregion Validate's Method
     }
 }
