@@ -39,7 +39,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [When(@"Accedo a ítem Configuración")]
         public void WhenAccedoAItemConfiguracion()
         {
-            CommonElementsAction.Click("XPath", PrincipalMenuPage.ItemConfiguration);
+            UtilAction.Click(PrincipalMenuPage.ItemConfiguration);
         }
 
         [When(@"Accedo al menú Administración")]
@@ -66,7 +66,8 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [When(@"Diligencio nombre de usuario móvil")]
         public void WhenDiligencioNombreDeUsuarioMovil()
         {
-            CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserName, user_name + Functions.RandomText());
+            Thread.Sleep(4000);
+            UtilAction.SendKeys(MobileUsersPage.MobileUserName, user_name + Functions.RandomText(), "CssSelector");
         }
 
         [When(@"Diligencio usuario de usuario móvil")]
@@ -90,7 +91,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [When(@"diligencio contraseña de usuario móvil")]
         public void WhenDiligencioContrasenaDeUsuarioMovil()
         {
-            CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserPassword, "123456");
+            UtilAction.SendKeys(MobileUsersPage.MobileUserPassword, "123456", "CssSelector", 5, 10);
         }
 
         [When(@"selecciono cargo de usuario móvil")]
@@ -128,7 +129,11 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [When(@"diligencio dirección valida de usuario móvil dando click en mapa")]
         public void WhenDiligencioDireccionValidaDeUsuarioMovilDandoClickEnMapa()
         {
-            CommonElementsAction.Click("XPath", "//div[@class='companies']//div[@id='mapUsersAddress']");
+            IWebElement UserMap = CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-1']//div[@id='mapUsersAddress']"));
+            Actions ac = new Actions(CommonHooks.driver);
+            ac.MoveToElement(UserMap);
+            ac.MoveByOffset(20, 20);
+            ac.Click().Build().Perform();
         }
 
         [When(@"selecciono sede de inventario")]
@@ -221,7 +226,8 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [When(@"Diligencio y selecciono una habilidad para usuario móvil")]
         public void WhenDiligencioYSeleccionoUnaHabilidadParaUsuarioMovil()
         {
-            CommonElementsAction.ClickAndSelect_Random_ComboboxAutocomplete("XPath", MobileUsersPage.MobileUserSkill, MobileUsersPage.MobileUserSkillOption);
+            string skill = CommonQuery.DBSelectAValue("SELECT TOP 1 skll_name FROM AFLS_SKILLS WHERE skll_isActive = 1 ORDER BY NEWID();", 1);
+            UtilAction.Select_ComboboxAutocomplete(MobileUsersPage.MobileUserSkill, skill, "a");
         }
 
         [When(@"Selecciono el tab Información de usuario móvil")]
@@ -239,7 +245,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [Then(@"Se muestra mensaje indicando que se guardo el registro exitosamente")]
         public void ThenSeMuestraMensajeIndicandoQueSeGuardoElRegistroExitosamente()
         {
-            ResponseValidation.ValidationSuccessCreate();
+            ResponseValidation.ValidateSuccessConfigurationCreate();
         }
 
         [Then(@"Se registra el usuario en la tabla AFW_USERS")]
@@ -258,8 +264,9 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [Then(@"Se registra el usuario móvil con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección")]
         public void ThenSeRegistraElUsuarioMovilConProveedorAsociadoEnLaTablaAFLS_USERS_SPECIALISTSConLongitudLatitudYDireccion()
         {
+            Thread.Sleep(2000);
             UserId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT user_id FROM AFW_USERS WHERE user_nick_name = '" + user_nickname + "';", 1));
-            CommonQuery.DBSelectAValue("SELECT user_id FROM AFLS_USERS_SPECIALISTS WHERE user_id = " + UserId + " AND spc_initial_longitude IS NOT NULL AND spc_initial_latitude IS NOT NULL AND spc_initial_address IS NOT NULL;", 1);
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USERS_SPECIALISTS WHERE user_id = " + UserId + " AND spc_initial_longitude IS NOT NULL AND spc_initial_latitude IS NOT NULL AND spc_initial_address IS NOT NULL;", 1);
         }
 
         [Then(@"Se registra disponibilidad de todos los días en la tabla AFLS_USER_AVAILABILITIES")]
@@ -482,14 +489,6 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [Then(@"Se muestra mensaje indicando que se borro el registro exitosamente")]
         public void ThenSeMuestraMensajeIndicandoQueSeBorroElRegistroExitosamente()
         {
-            try
-            {
-            }
-            catch
-            {
-                Assert.Fail();
-            }
-
             ResponseValidation.ValidationSuccessDelete();
         }
 

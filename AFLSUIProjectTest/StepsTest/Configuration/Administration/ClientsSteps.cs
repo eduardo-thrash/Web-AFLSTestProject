@@ -108,17 +108,19 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         [When(@"Busco y selecciono el cliente")]
         public void WhenBuscoYSeleccionoElCliente()
         {
-            CommonElementsAction.SendKeys_InputText("XPath", ClientsPage.ClientFieldSearch, user_nickname);
-            CommonElementsAction.Click("XPath", ClientsPage.ClientButtonSearch);
+            UtilAction.Click(ClientsPage.ClientView, "XPath", 5, 10);
             Thread.Sleep(5000);
-            CommonElementsAction.Click("XPath", ClientsPage.ClientView);
+            CommonElementsAction.SendKeys_InputText("XPath", ClientsPage.ClientFieldSearch, user_nickname);
+            UtilAction.Click(ClientsPage.ClientButtonSearch);
+            Thread.Sleep(5000);
+            UtilAction.Click(ClientsPage.ClientView);
         }
 
         [Then(@"Se muestra la tarjeta del cliente y el detalle del mismo")]
         public void ThenSeMuestraLaTarjetaDelClienteYElDetalleDelMismo()
         {
             Thread.Sleep(2000);
-            string Value = CommonElementsAction.VallueExtract("XPath", ClientsPage.ClientUniqueReference);
+            string Value = UtilAction.ValueExtract(ClientsPage.ClientUniqueReference);
             Assert.AreEqual(user_nickname, Value);
         }
 
@@ -175,7 +177,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         [When(@"Diligencio y selecciono una compañía para modificación de cliente")]
         public void WhenDiligencioYSeleccionoUnaCompaniaParaModificacionDeCliente()
         {
-            CommonElementsAction.Select_ComboboxAutocomplete("XPath", ClientsPage.ClientComapny, ClientCompany, "a");
+            UtilAction.Select_ComboboxAutocomplete(ClientsPage.ClientComapny, ClientCompany, "a");
         }
 
         [When(@"Diligencio dirección de cliente")]

@@ -130,7 +130,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             CommonElementsAction.SendKeys_InputText("CssSelector", WebGroupsPage.WebGroupFieldSearch, GroupName);
             CommonElementsAction.Click("CssSelector", WebGroupsPage.WebGroupButtonSearch);
 
-            CommonElementsAction.Click("XPath", WebGroupsPage.WebGroupView);
+            UtilAction.Click(WebGroupsPage.WebGroupView);
         }
 
         [Then(@"Se muestra la tarjeta del grupo web y el detalle del mismo")]

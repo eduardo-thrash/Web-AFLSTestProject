@@ -1,7 +1,7 @@
 ﻿Feature: Locations
 	
 
-Scenario: Creación exitosa de ubicación tipo sede
+Scenario: 1 Creación exitosa de ubicación tipo sede
 	Given Tengo un usuario con rol administrador
 	And No existe la ubicación de tipo sede 
 	When Accedo a la aplicación
@@ -24,7 +24,7 @@ Scenario: Creación exitosa de ubicación tipo sede
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la ubicación transporte en la tabla AFLS_STOCK_LOCATIONS_INFO
 
-Scenario: Creación exitosa de ubicación tipo transporte
+Scenario: 1 Creación exitosa de ubicación tipo transporte
 	Given Tengo un usuario con rol administrador
 	And No existe la ubicación de tipo transporte 
 	When Accedo a la aplicación
@@ -47,7 +47,7 @@ Scenario: Creación exitosa de ubicación tipo transporte
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO
 
-Scenario: Búsqueda exitosa de Ubicación existente
+Scenario: 2 Búsqueda exitosa de Ubicación existente
 	Given Tengo un usuario con rol administrador
 	And Existe la ubicación
 	When Accedo a la aplicación
@@ -58,7 +58,7 @@ Scenario: Búsqueda exitosa de Ubicación existente
 	And Ubico y selecciono la ubicación deseada
 	Then Se muestra el detalle de la ubicación
 
-Scenario: Modificación exitosa de Ubicación
+Scenario: 3 Modificación exitosa de Ubicación
 	Given Tengo un usuario con rol administrador
 	And Existe la ubicación
 	When Accedo a la aplicación
@@ -72,7 +72,7 @@ Scenario: Modificación exitosa de Ubicación
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO
 
-Scenario: Borrado exitoso de Ubicación existente
+Scenario: 4 Borrado exitoso de Ubicación existente
 	Given Tengo un usuario con rol administrador
 	And Existe la ubicación
 	When Accedo a la aplicación

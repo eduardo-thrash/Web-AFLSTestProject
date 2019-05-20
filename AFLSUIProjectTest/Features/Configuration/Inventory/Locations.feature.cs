@@ -70,10 +70,10 @@ namespace AFLSUIProjectTest.Features.Configuration.Inventory
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Creación exitosa de ubicación tipo sede")]
-        public virtual void CreacionExitosaDeUbicacionTipoSede()
+        [NUnit.Framework.DescriptionAttribute("1 Creación exitosa de ubicación tipo sede")]
+        public virtual void _1CreacionExitosaDeUbicacionTipoSede()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de ubicación tipo sede", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de ubicación tipo sede", null, ((string[])(null)));
 #line 4
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -124,10 +124,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Creación exitosa de ubicación tipo transporte")]
-        public virtual void CreacionExitosaDeUbicacionTipoTransporte()
+        [NUnit.Framework.DescriptionAttribute("1 Creación exitosa de ubicación tipo transporte")]
+        public virtual void _1CreacionExitosaDeUbicacionTipoTransporte()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de ubicación tipo transporte", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de ubicación tipo transporte", null, ((string[])(null)));
 #line 27
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -178,10 +178,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Búsqueda exitosa de Ubicación existente")]
-        public virtual void BusquedaExitosaDeUbicacionExistente()
+        [NUnit.Framework.DescriptionAttribute("2 Búsqueda exitosa de Ubicación existente")]
+        public virtual void _2BusquedaExitosaDeUbicacionExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Búsqueda exitosa de Ubicación existente", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Búsqueda exitosa de Ubicación existente", null, ((string[])(null)));
 #line 50
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -208,10 +208,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Modificación exitosa de Ubicación")]
-        public virtual void ModificacionExitosaDeUbicacion()
+        [NUnit.Framework.DescriptionAttribute("3 Modificación exitosa de Ubicación")]
+        public virtual void _3ModificacionExitosaDeUbicacion()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modificación exitosa de Ubicación", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Modificación exitosa de Ubicación", null, ((string[])(null)));
 #line 61
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -244,10 +244,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Borrado exitoso de Ubicación existente")]
-        public virtual void BorradoExitosoDeUbicacionExistente()
+        [NUnit.Framework.DescriptionAttribute("4 Borrado exitoso de Ubicación existente")]
+        public virtual void _4BorradoExitosoDeUbicacionExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Borrado exitoso de Ubicación existente", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4 Borrado exitoso de Ubicación existente", null, ((string[])(null)));
 #line 75
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

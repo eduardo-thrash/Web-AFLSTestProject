@@ -1128,6 +1128,7 @@ namespace CommonTest.CommonTest
 
         public static void Click(string Element, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
+            Counter = 0;
             bool StaleElement = false;
             while (!StaleElement)
             {
@@ -1153,8 +1154,40 @@ namespace CommonTest.CommonTest
             }
         }
 
+        public static string ValueExtract(string Input, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            Counter = 0;
+            string Value = null;
+            Thread.Sleep(1000);
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ElementWait = WebElement(Input, Locator);
+
+                    ValidateDisplayed(Input);
+                    ValidateEnabled(Input);
+                    ValidateSize(Input, Locator);
+                    Value = ElementWait.GetAttribute("value");
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    Counter++;
+                    if (Counter == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Input);
+                    }
+                }
+            }
+            Thread.Sleep(1000);
+            return Value;
+        }
+
         public static void SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
+            Counter = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1168,6 +1201,7 @@ namespace CommonTest.CommonTest
                     ValidateSize(Element, Locator);
 
                     ElementWait.Click();
+                    Thread.Sleep(1000);
                     ElementWait.SendKeys(Value);
                     StaleElement = true;
                 }
@@ -1185,6 +1219,7 @@ namespace CommonTest.CommonTest
 
         public static void EnterAfter_SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
+            Counter = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1199,6 +1234,7 @@ namespace CommonTest.CommonTest
 
                     ElementWait.Click();
                     ElementWait.SendKeys(Value);
+                    Thread.Sleep(1000);
                     ElementWait.SendKeys(Keys.Enter);
                     StaleElement = true;
                 }
@@ -1216,6 +1252,7 @@ namespace CommonTest.CommonTest
 
         public static void TabAfter_SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
+            Counter = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1230,6 +1267,7 @@ namespace CommonTest.CommonTest
 
                     ElementWait.Click();
                     ElementWait.SendKeys(Value);
+                    Thread.Sleep(1000);
                     ElementWait.SendKeys(Keys.Tab);
                     StaleElement = true;
                 }
@@ -1247,6 +1285,7 @@ namespace CommonTest.CommonTest
 
         public static void ClearBefore_SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
+            Counter = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1260,7 +1299,9 @@ namespace CommonTest.CommonTest
                     ValidateSize(Element, Locator);
 
                     ElementWait.Click();
+                    Thread.Sleep(1000);
                     ElementWait.Clear();
+                    Thread.Sleep(1000);
                     ElementWait.SendKeys(Value);
                     StaleElement = true;
                 }
@@ -1278,6 +1319,7 @@ namespace CommonTest.CommonTest
 
         public static void Clear(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
+            Counter = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1291,6 +1333,7 @@ namespace CommonTest.CommonTest
                     ValidateSize(Element, Locator);
 
                     ElementWait.Click();
+                    Thread.Sleep(1000);
                     ElementWait.Clear();
                     StaleElement = true;
                 }
@@ -1306,86 +1349,278 @@ namespace CommonTest.CommonTest
             Thread.Sleep(1000);
         }
 
-        #region Validate's Method
-
-        private static void ValidateDisplayed(string Element, bool IsDisplayed = false, double TimeDefault = 3, int MaxInteractions = 5)
+        public static void Select_ComboboxAutocomplete(string Field, string Option, string tag, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            var wait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
-            wait.Until(d => d.FindElement(By.XPath(Element)).Displayed);
+            Counter = 0;
+            Thread.Sleep(1000);
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ElementWait = WebElement(Field, Locator);
+
+                    ValidateDisplayed(Field);
+                    ValidateEnabled(Field);
+                    ValidateSize(Field, Locator);
+
+                    ElementWait.Click();
+                    Thread.Sleep(1000);
+                    ElementWait.Clear();
+                    Thread.Sleep(1000);
+                    ElementWait.SendKeys(Option);
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    Counter++;
+                    if (Counter == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Field);
+                    }
+                }
+            }
+
+            Thread.Sleep(1000);
+            StaleElement = false;
+
+            Counter = 0;
+            TimeDefault = 3;
+            MaxInteractions = 5;
+
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ElementWait = CommonHooks.driver.FindElement(By.XPath("//" + tag + "[contains(text(),'" + Option + "')]"));
+
+                    ValidateDisplayed(Field);
+                    ValidateEnabled(Field);
+                    ValidateSize(Field, Locator);
+
+                    ElementWait.Click();
+                    Thread.Sleep(1000);
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    Counter++;
+                    if (Counter == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Field);
+                    }
+                }
+            }
         }
 
-        private static void ValidateEnabled(string Element, bool IsEnabled = false, double TimeDefault = 3, int MaxInteractions = 5)
+        #region Validate's Method
+
+        private static void ValidateDisplayed(string Element, string Locator = "XPath", bool IsDisplayed = false, double TimeDefault = 3, int MaxInteractions = 5)
         {
+            Counter = 0;
+            IWebElement ElementWait = null;
             var wait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
-            wait.Until(d => d.FindElement(By.XPath(Element)).Enabled);
+
+            try
+            {
+                if (Locator == "XPath")
+                {
+                    wait.Until(d => d.FindElement(By.XPath(Element)).Displayed);
+                    ElementWait = CommonHooks.driver.FindElement(By.XPath(Element));
+                }
+                else
+                {
+                    switch (Locator)
+                    {
+                        case "Id":
+                            wait.Until(d => d.FindElement(By.Id(Element)).Displayed);
+                            ElementWait = CommonHooks.driver.FindElement(By.Id(Element));
+                            break;
+
+                        case "Name":
+                            wait.Until(d => d.FindElement(By.Name(Element)).Displayed);
+                            ElementWait = CommonHooks.driver.FindElement(By.Name(Element));
+                            break;
+
+                        case "ClassName":
+                            wait.Until(d => d.FindElement(By.ClassName(Element)).Displayed);
+                            ElementWait = CommonHooks.driver.FindElement(By.ClassName(Element));
+                            break;
+
+                        case "CssSelector":
+                            wait.Until(d => d.FindElement(By.CssSelector(Element)).Displayed);
+                            ElementWait = CommonHooks.driver.FindElement(By.CssSelector(Element));
+                            break;
+
+                        default:
+                            Assert.Fail("Incorrect entry of parameter '" + Locator + "'. (CssSelector, XPath, Id, Name, ClassName)");
+                            break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Counter++;
+                if (Counter == MaxInteractions)
+                {
+                    Assert.Fail(e.Message + " on element " + Element);
+                }
+            }
+        }
+
+        private static void ValidateEnabled(string Element, string Locator = "XPath", bool IsEnabled = false, double TimeDefault = 3, int MaxInteractions = 5)
+        {
+            Counter = 0;
+            IWebElement ElementWait = null;
+            WebDriverWait wait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
+
+            try
+            {
+                if (Locator == "XPath")
+                {
+                    wait.Until(d => d.FindElement(By.XPath(Element)).Enabled);
+                }
+                else
+                {
+                    switch (Locator)
+                    {
+                        case "Id":
+                            wait.Until(d => d.FindElement(By.Id(Element)).Enabled);
+
+                            break;
+
+                        case "Name":
+                            wait.Until(d => d.FindElement(By.Name(Element)).Enabled);
+
+                            break;
+
+                        case "ClassName":
+                            wait.Until(d => d.FindElement(By.ClassName(Element)).Enabled);
+
+                            break;
+
+                        case "CssSelector":
+                            wait.Until(d => d.FindElement(By.CssSelector(Element)).Enabled);
+
+                            break;
+
+                        default:
+                            Assert.Fail("Incorrect entry of parameter '" + Locator + "'. (CssSelector, XPath, Id, Name, ClassName)");
+                            break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Counter++;
+                if (Counter == MaxInteractions)
+                {
+                    Assert.Fail(e.Message + " on element " + Element);
+                }
+            }
         }
 
         private static void ValidateSize(string Element, string Locator, double TimeDefault = 3, int MaxInteractions = 5)
         {
-            IWebElement ElementWait = CommonHooks.driver.FindElement(By.XPath(Element));
+            Counter = 0;
+            IWebElement ElementWait = null;
             var SizeWait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
 
-            switch (Locator)
+            try
             {
-                case "Id":
-                    SizeWait.Until(d => d.FindElement(By.Id(Element)));
-                    Assert.AreNotEqual(ElementWait.Size, 0);
-                    break;
+                switch (Locator)
+                {
+                    case "Id":
+                        SizeWait.Until(d => d.FindElement(By.Id(Element)));
+                        Assert.AreNotEqual(ElementWait.Size, 0);
+                        break;
 
-                case "Name":
-                    ElementWait = CommonHooks.driver.FindElement(By.Name(Element));
-                    break;
+                    case "Name":
+                        SizeWait.Until(d => d.FindElement(By.Name(Element)));
+                        Assert.AreNotEqual(ElementWait.Size, 0);
+                        break;
 
-                case "ClassName":
-                    ElementWait = CommonHooks.driver.FindElement(By.ClassName(Element));
-                    break;
+                    case "ClassName":
+                        SizeWait.Until(d => d.FindElement(By.ClassName(Element)));
+                        Assert.AreNotEqual(ElementWait.Size, 0);
+                        break;
 
-                case "CssSelector":
-                    ElementWait = CommonHooks.driver.FindElement(By.CssSelector(Element));
-                    break;
+                    case "CssSelector":
+                        SizeWait.Until(d => d.FindElement(By.CssSelector(Element)));
+                        Assert.AreNotEqual(ElementWait.Size, 0);
+                        break;
 
-                case "XPath":
-                    SizeWait.Until(d => d.FindElement(By.XPath(Element)));
-                    Assert.AreNotEqual(ElementWait.Size, 0);
-                    break;
+                    case "XPath":
+                        SizeWait.Until(d => d.FindElement(By.XPath(Element)));
+                        Assert.AreNotEqual(ElementWait.Size, 0);
+                        break;
 
-                default:
-                    Assert.Fail("Incorrect Element");
-                    break;
+                    default:
+                        Assert.Fail("Incorrect Element");
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                Counter++;
+                if (Counter == MaxInteractions)
+                {
+                    Assert.Fail(e.Message + " on element " + Element);
+                }
             }
         }
 
         private static IWebElement WebElement(string Element, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            IWebElement ElementWait = CommonHooks.driver.FindElement(By.XPath(Element));
+            Counter = 0;
+            IWebElement ElementWait = null;
+
             WebDriverWait Ewait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
-            switch (Locator)
+
+            try
             {
-                case "Id":
-                    Ewait.Until(d => d.FindElement(By.Id(Element)));
-                    ElementWait = CommonHooks.driver.FindElement(By.Id(Element));
-                    break;
-
-                case "Name":
-                    ElementWait = CommonHooks.driver.FindElement(By.Name(Element));
-                    break;
-
-                case "ClassName":
-                    ElementWait = CommonHooks.driver.FindElement(By.ClassName(Element));
-                    break;
-
-                case "CssSelector":
-                    ElementWait = CommonHooks.driver.FindElement(By.CssSelector(Element));
-                    break;
-
-                case "XPath":
+                if (Locator == "XPath")
+                {
                     Ewait.Until(d => d.FindElement(By.XPath(Element)));
                     ElementWait = CommonHooks.driver.FindElement(By.XPath(Element));
-                    break;
+                }
+                else
+                {
+                    switch (Locator)
+                    {
+                        case "Id":
+                            Ewait.Until(d => d.FindElement(By.Id(Element)));
+                            ElementWait = CommonHooks.driver.FindElement(By.Id(Element));
+                            break;
 
-                default:
-                    Assert.Fail("Incorrect Element");
-                    break;
+                        case "Name":
+                            Ewait.Until(d => d.FindElement(By.Name(Element)));
+                            ElementWait = CommonHooks.driver.FindElement(By.Name(Element));
+                            break;
+
+                        case "ClassName":
+                            Ewait.Until(d => d.FindElement(By.ClassName(Element)));
+                            ElementWait = CommonHooks.driver.FindElement(By.ClassName(Element));
+                            break;
+
+                        case "CssSelector":
+                            Ewait.Until(d => d.FindElement(By.CssSelector(Element)));
+                            ElementWait = CommonHooks.driver.FindElement(By.CssSelector(Element));
+                            break;
+
+                        default:
+                            Assert.Fail("Incorrect entry of parameter '" + Locator + "'. (CssSelector, XPath, Id, Name, ClassName)");
+                            break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Counter++;
+                if (Counter == MaxInteractions)
+                {
+                    Assert.Fail(e.Message + " on element " + Element);
+                }
             }
 
             return ElementWait;

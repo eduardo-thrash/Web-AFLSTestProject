@@ -224,7 +224,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             CommonElementsAction.SendKeys_InputText("CssSelector", OLAsPage.OLAFieldSearch, OlaName);
             CommonElementsAction.Click("CssSelector", OLAsPage.OLAButtonSearch);
             Thread.Sleep(2000);
-            CommonElementsAction.Click("XPath", OLAsPage.OLAView);
+            UtilAction.Click(OLAsPage.OLAView);
         }
 
         [Then(@"Se muestra la tarjeta del OLA y el detalle del mismo")]

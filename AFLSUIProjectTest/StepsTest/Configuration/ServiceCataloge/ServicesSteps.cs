@@ -662,7 +662,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
             CommonElementsAction.Click("CssSelector", ServicesPage.ServiceButtonSearch);
             Thread.Sleep(3000);
 
-            CommonElementsAction.Click("XPath", ServicesPage.ServiceView);
+            UtilAction.Click(ServicesPage.ServiceView);
         }
 
         [Then(@"Se muestra la tarjeta del servicio y el detalle del mismo")]

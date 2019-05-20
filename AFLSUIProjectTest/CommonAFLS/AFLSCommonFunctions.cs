@@ -1,4 +1,5 @@
-﻿using CommonTest.CommonTest;
+﻿using AFLSUIProjectTest.UIMap.AFLS;
+using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using System;
@@ -11,6 +12,8 @@ namespace AFLSUIProjectTest.CommonAFLS
 {
     public class AFLSCommonFunctions
     {
+        private MessagesElements MessagesElements = new MessagesElements();
+
         private int second;
 
         public void MissingKeyFind()
@@ -228,6 +231,24 @@ namespace AFLSUIProjectTest.CommonAFLS
 
                 using (SqlCommand command = new SqlCommand(Query, conn))
                 { }
+            }
+        }
+
+        public void ErrorFindOnPage()
+        {
+            int count = 10;
+            for (int i = 1; i <= count; i++)
+            {
+                try
+                {
+                    string TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseError)).Text;
+                    Assert.Fail(TextMessage);
+                    break;
+                }
+                catch
+                {
+                    Thread.Sleep(1000);
+                }
             }
         }
     }

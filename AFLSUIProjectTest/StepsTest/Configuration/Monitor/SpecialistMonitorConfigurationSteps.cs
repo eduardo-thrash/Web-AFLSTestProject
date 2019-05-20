@@ -31,6 +31,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Monitor
         public void WhenSeleccionoLaOpcionEspecialistas()
         {
             CommonElementsAction.Click("XPath", "//div[@class='admin']//li[@class='active has-sub open _monitoring']//a[@href='#admin/users/mobile']");
+            Thread.Sleep(5000);
         }
 
         [Given(@"no existe el especialista")]

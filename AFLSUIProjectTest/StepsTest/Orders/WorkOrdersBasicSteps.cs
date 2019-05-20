@@ -72,6 +72,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         public void WhenAccedoAItemNuevaOrden()
         {
             CommonElementsAction.Click("XPath", PrincipalMenuPage.ItemNewOrder);
+            Thread.Sleep(5000);
         }
 
         [When(@"Diligencio y selecciono un cliente de orden")]
@@ -115,7 +116,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         [When(@"Diligencio y selecciono servicio de orden")]
         public void WhenDiligencioYSeleccionoServicioDeOrden()
         {
-            CommonElementsAction.Select_ComboboxAutocomplete("XPath", WorkordersPage.ServiceName, ServiceName, "a");
+            UtilAction.Select_ComboboxAutocomplete(WorkordersPage.ServiceName, ServiceName, "a");
             Thread.Sleep(2000);
         }
 
@@ -225,7 +226,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         [Then(@"se muestra mensaje indicando que se creo la orden de trabajo correctamente")]
         public void ThenSeMuestraMensajeIndicandoQueSeCreoLaOrdenDeTrabajoCorrectamente()
         {
-            TicketId = Convert.ToInt32(ResponseValidation.ValidationOrderCreate());
+            TicketId = Convert.ToInt32(ResponseValidation.ValidateSuccessOrdernCreate());
         }
 
         [When(@"Diligencio Dirección de cita de orden dando click en cursor")]

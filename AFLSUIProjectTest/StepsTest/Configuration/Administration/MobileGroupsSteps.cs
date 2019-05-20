@@ -110,7 +110,8 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         [When(@"Diligencio y selecciono un usuario para el grupo móvil")]
         public void WhenDiligencioYSeleccionoUnUsuarioParaElGrupoMovil()
         {
-            CommonElementsAction.ClickAndSelect_Random_ComboboxAutocomplete("XPath", MobileGroupPage.MobileGroupsUsersAutocomplete, MobileGroupPage.MobileGroupsUsersOption);
+            string UserMobile = CommonQuery.DBSelectAValue("SELECT TOP 1 AFW.user_nick_name FROM AFW_USERS AFW JOIN AFLS_USERS_SPECIALISTS AFL ON AFW.user_id = AFL.user_id WHERE AFW.user_active = 1 ORDER BY NEWID();", 1);
+            UtilAction.Select_ComboboxAutocomplete(MobileGroupPage.MobileGroupsUsersAutocomplete, UserMobile, "a");
         }
 
         [When(@"Diligencio y selecciono la habilidad para el grupo móvil")]
@@ -199,8 +200,8 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             CommonElementsAction.Click("XPath", MobileGroupPage.MobileGroupIconRemoved);
         }
 
-        [Then(@"se elimina el registro de usuario móvil de la tabla AFW_GROUPS")]
-        public void ThenSeEliminaElRegistroDeUsuarioMovilDeLaTablaAFW_GROUPS()
+        [Then(@"se elimina el registro de grupo móvil de la tabla AFW_GROUPS")]
+        public void ThenSeEliminaElRegistroDeGrupoMovilDeLaTablaAFW_GROUPS()
         {
             CommonQuery.DBSelectAValue("SELECT grou_name FROM AFW_GROUPS WHERE grou_name = '" + GroupName + "';", 0);
         }

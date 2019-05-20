@@ -96,7 +96,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Realizo Login con usuario rol monitor")]
         public void WhenRealizoLoginConUsuarioRolMonitor()
         {
-            WhenIngresoNombreDeUsuarioAdministradorValido(GivenTengoUnUsuarioConRolMonitorYConProveedoresAsociados());
+            WhenIngresoNombreDeUsuarioAdministradorValido("thrash");
             WhenIngresoContrasenaDeUsuarioAdministradorValido("123456");
             WhenDoyClickEnLogin();
             ThenAccedoALaPantallaPrincipalDeConfiguracion();
@@ -125,7 +125,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Pulso link de cierre de sesión")]
         public void WhenPulsoLinkDeCierreDeSesion()
         {
-            CommonElementsAction.Click("XPath", "//div[@class='base top header row']//a[@href='/AFLS/Account/LogOff']");
+            UtilAction.Click("//div[@class='base top header row']//a[@href='/AFLS/Account/LogOff']");
         }
 
         [Then(@"Accedo a la pantalla principal de configuración")]

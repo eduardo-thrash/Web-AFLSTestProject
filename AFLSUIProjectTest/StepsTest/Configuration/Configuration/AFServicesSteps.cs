@@ -56,7 +56,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
                         Message = CommonHooks.driver.FindElement(By.XPath("//div[@class='flag js-flag-box error']/p")).Text;
                         Assert.Fail(Message);
                     }
-                    finally { }
+                    catch { Thread.Sleep(1000); }
                 }
             }
         }

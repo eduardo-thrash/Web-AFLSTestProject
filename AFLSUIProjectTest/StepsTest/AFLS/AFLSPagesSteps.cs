@@ -236,6 +236,8 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.ClientOption);
             Thread.Sleep(10000);
+
+            Functions.ErrorFindOnPage();
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal  Clientes")]

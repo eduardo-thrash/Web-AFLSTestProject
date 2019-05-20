@@ -95,9 +95,9 @@ namespace AFLSUITestProject.TestSuite.Configuration.Service_Catalogue
         [When(@"Busco y selecciono el calendario")]
         public void WhenBuscoYSeleccionoElCalendario()
         {
-            CommonElementsAction.SendKeys_InputText("CssSelector", CalendarsPage.CalendarFieldSearch, CalendarName);
-            CommonElementsAction.Click("CssSelector", CalendarsPage.CalendarButtonSearch);
-            CommonElementsAction.Click("XPath", CalendarsPage.CalendarView);
+            UtilAction.SendKeys(CalendarsPage.CalendarFieldSearch, CalendarName, "CssSelector");
+            UtilAction.Click(CalendarsPage.CalendarButtonSearch, "CssSelector");
+            UtilAction.Click(CalendarsPage.CalendarView);
         }
 
         [Then(@"Se muestra la tarjeta del calendario y el detalle del mismo")]

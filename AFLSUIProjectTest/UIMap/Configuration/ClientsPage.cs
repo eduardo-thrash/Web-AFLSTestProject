@@ -12,7 +12,7 @@
 
         public string ClientButtonNew = "body > div.frameworks > div > div.base.container-module.bottom.row > div > div.content.col.module > div.clients #content > div.center.header.row > div > div.btnSearch #commonNewItem";
 
-        public string ClientView = "//div[@class='clients']/div/div[2]/div/div/div[@class='itemView selected']/div/div/h3";
+        public string ClientView = "//div[@class='clients']//div[@class='itemView selected']//span[@class='nameLabelInfo']";
         public string TextClientView = "client element view";
 
         public string ClientIconRemoved = "//div[@class='clients']/div/div[2]/div/div/div[@class='itemView selected']/div[2]/div[@class='icon Remove']/input[@id='btnRemove']";

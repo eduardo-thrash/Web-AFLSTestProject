@@ -183,7 +183,9 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
 
             ServId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 serv_id FROM AFLS_SERVICES ORDER BY NEWID();", 1));
             string ServName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_id = " + ServId + ";", 1);
-            CommonElementsAction.Select_ComboboxAutocomplete("CssSelector", CompaniesPage.CompanyServices, ServName, "a");
+            int RemoveCar = ServName.Length - 5;
+            ServName = ServName.Remove(5, RemoveCar);
+            UtilAction.Select_ComboboxAutocomplete(CompaniesPage.CompanyServices, ServName, "a");
             return ServId;
         }
 
@@ -198,7 +200,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         {
             try
             {
-                IList<IWebElement> AFCompaniesListInputText = CommonHooks.driver.FindElements(By.XPath("//div[@class='companies']//div[@id='tabs-3']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//input[@class='js-input-additional-field k-valid' and @type='text']"));
+                IList<IWebElement> AFCompaniesListInputText = CommonHooks.driver.FindElements(By.XPath("//div[@class='companies']//div[@id='tabs-3']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//input[@type='text']"));
                 foreach (IWebElement AFClient in AFCompaniesListInputText)
                 {
                     AFClient.Clear();

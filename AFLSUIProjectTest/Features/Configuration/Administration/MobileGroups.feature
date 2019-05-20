@@ -93,5 +93,5 @@ Scenario: 4 Borrado exitoso de grupo móvil existente
 	And Doy click en eliminar grupo móvil
 	And Selecciono Aceptar en mensaje de confirmación de borrado
 	Then Se muestra mensaje indicando que se borro el registro exitosamente
-	Then se elimina el registro de usuario móvil de la tabla AFW_GROUPS
+	Then se elimina el registro de grupo móvil de la tabla AFW_GROUPS
 	And Cierro Sesión en la aplicación

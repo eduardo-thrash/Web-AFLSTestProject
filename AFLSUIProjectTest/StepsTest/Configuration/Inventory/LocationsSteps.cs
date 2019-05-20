@@ -216,7 +216,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         [Given(@"Existe la ubicación")]
         public void GivenExisteLaUbicacion()
         {
-            CommonQuery.DBSelectAValue("", 0);
+            HeadquaterName = CommonQuery.DBSelectAValue("SELECT TOP 1 grou_name FROM AFLS_STOCK_LOCATION_INFO ORDER BY NEWID();", 1);
         }
 
         [When(@"Ubico y selecciono la ubicación deseada")]
