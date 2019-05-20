@@ -156,7 +156,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         public void GivenNoExisteLaUbicacionDeTipoTransporte()
         {
             TransportName = DefaultTransportName + Functions.RandomText();
-            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + TransportName + "';", 1);
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + TransportName + "';", 0);
         }
 
         [When(@"Doy click en Nueva sede de transporte")]

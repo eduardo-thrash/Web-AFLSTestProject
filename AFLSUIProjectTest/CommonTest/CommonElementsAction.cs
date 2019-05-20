@@ -1124,11 +1124,9 @@ namespace CommonTest.CommonTest
 
     public class UtilAction
     {
-        private static int Counter = 0;
-
         public static void Click(string Element, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterClick = 0;
             bool StaleElement = false;
             while (!StaleElement)
             {
@@ -1145,8 +1143,8 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception e)
                 {
-                    Counter++;
-                    if (Counter == MaxInteractions)
+                    CounterClick++;
+                    if (CounterClick == MaxInteractions)
                     {
                         Assert.Fail(e.Message + " on element " + Element);
                     }
@@ -1156,7 +1154,7 @@ namespace CommonTest.CommonTest
 
         public static string ValueExtract(string Input, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterExtract = 0;
             string Value = null;
             Thread.Sleep(1000);
             bool StaleElement = false;
@@ -1174,8 +1172,8 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception e)
                 {
-                    Counter++;
-                    if (Counter == MaxInteractions)
+                    CounterExtract++;
+                    if (CounterExtract == MaxInteractions)
                     {
                         Assert.Fail(e.Message + " on element " + Input);
                     }
@@ -1187,7 +1185,7 @@ namespace CommonTest.CommonTest
 
         public static void SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterSendKeys = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1207,8 +1205,8 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception e)
                 {
-                    Counter++;
-                    if (Counter == MaxInteractions)
+                    CounterSendKeys++;
+                    if (CounterSendKeys == MaxInteractions)
                     {
                         Assert.Fail(e.Message + " on element " + Element);
                     }
@@ -1219,7 +1217,7 @@ namespace CommonTest.CommonTest
 
         public static void EnterAfter_SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterEnterAfter = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1240,8 +1238,8 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception e)
                 {
-                    Counter++;
-                    if (Counter == MaxInteractions)
+                    CounterEnterAfter++;
+                    if (CounterEnterAfter == MaxInteractions)
                     {
                         Assert.Fail(e.Message + " on element " + Element);
                     }
@@ -1252,7 +1250,7 @@ namespace CommonTest.CommonTest
 
         public static void TabAfter_SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterTabAfter = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1273,8 +1271,8 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception e)
                 {
-                    Counter++;
-                    if (Counter == MaxInteractions)
+                    CounterTabAfter++;
+                    if (CounterTabAfter == MaxInteractions)
                     {
                         Assert.Fail(e.Message + " on element " + Element);
                     }
@@ -1285,7 +1283,7 @@ namespace CommonTest.CommonTest
 
         public static void ClearBefore_SendKeys(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterClearBefore = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1307,8 +1305,8 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception e)
                 {
-                    Counter++;
-                    if (Counter == MaxInteractions)
+                    CounterClearBefore++;
+                    if (CounterClearBefore == MaxInteractions)
                     {
                         Assert.Fail(e.Message + " on element " + Element);
                     }
@@ -1319,7 +1317,7 @@ namespace CommonTest.CommonTest
 
         public static void Clear(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterClear = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1339,8 +1337,8 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception e)
                 {
-                    Counter++;
-                    if (Counter == MaxInteractions)
+                    CounterClear++;
+                    if (CounterClear == MaxInteractions)
                     {
                         Assert.Fail(e.Message + " on element " + Element);
                     }
@@ -1351,7 +1349,7 @@ namespace CommonTest.CommonTest
 
         public static void Select_ComboboxAutocomplete(string Field, string Option, string tag, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterComboboxAutocomplete = 0;
             Thread.Sleep(1000);
             bool StaleElement = false;
             while (!StaleElement)
@@ -1373,8 +1371,8 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception e)
                 {
-                    Counter++;
-                    if (Counter == MaxInteractions)
+                    CounterComboboxAutocomplete++;
+                    if (CounterComboboxAutocomplete == MaxInteractions)
                     {
                         Assert.Fail(e.Message + " on element " + Field);
                     }
@@ -1384,7 +1382,7 @@ namespace CommonTest.CommonTest
             Thread.Sleep(1000);
             StaleElement = false;
 
-            Counter = 0;
+            CounterComboboxAutocomplete = 0;
             TimeDefault = 3;
             MaxInteractions = 5;
 
@@ -1404,8 +1402,8 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception e)
                 {
-                    Counter++;
-                    if (Counter == MaxInteractions)
+                    CounterComboboxAutocomplete++;
+                    if (CounterComboboxAutocomplete == MaxInteractions)
                     {
                         Assert.Fail(e.Message + " on element " + Field);
                     }
@@ -1417,7 +1415,7 @@ namespace CommonTest.CommonTest
 
         private static void ValidateDisplayed(string Element, string Locator = "XPath", bool IsDisplayed = false, double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterDisplayed = 0;
             IWebElement ElementWait = null;
             var wait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
 
@@ -1460,8 +1458,8 @@ namespace CommonTest.CommonTest
             }
             catch (Exception e)
             {
-                Counter++;
-                if (Counter == MaxInteractions)
+                CounterDisplayed++;
+                if (CounterDisplayed == MaxInteractions)
                 {
                     Assert.Fail(e.Message + " on element " + Element);
                 }
@@ -1470,7 +1468,7 @@ namespace CommonTest.CommonTest
 
         private static void ValidateEnabled(string Element, string Locator = "XPath", bool IsEnabled = false, double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterEnabled = 0;
             IWebElement ElementWait = null;
             WebDriverWait wait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
 
@@ -1512,8 +1510,8 @@ namespace CommonTest.CommonTest
             }
             catch (Exception e)
             {
-                Counter++;
-                if (Counter == MaxInteractions)
+                CounterEnabled++;
+                if (CounterEnabled == MaxInteractions)
                 {
                     Assert.Fail(e.Message + " on element " + Element);
                 }
@@ -1522,7 +1520,7 @@ namespace CommonTest.CommonTest
 
         private static void ValidateSize(string Element, string Locator, double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterSize = 0;
             IWebElement ElementWait = null;
             var SizeWait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
 
@@ -1562,8 +1560,8 @@ namespace CommonTest.CommonTest
             }
             catch (Exception e)
             {
-                Counter++;
-                if (Counter == MaxInteractions)
+                CounterSize++;
+                if (CounterSize == MaxInteractions)
                 {
                     Assert.Fail(e.Message + " on element " + Element);
                 }
@@ -1572,7 +1570,7 @@ namespace CommonTest.CommonTest
 
         private static IWebElement WebElement(string Element, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Counter = 0;
+            int CounterWebElement = 0;
             IWebElement ElementWait = null;
 
             WebDriverWait Ewait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(TimeDefault));
@@ -1616,8 +1614,8 @@ namespace CommonTest.CommonTest
             }
             catch (Exception e)
             {
-                Counter++;
-                if (Counter == MaxInteractions)
+                CounterWebElement++;
+                if (CounterWebElement == MaxInteractions)
                 {
                     Assert.Fail(e.Message + " on element " + Element);
                 }

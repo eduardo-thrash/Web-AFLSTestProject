@@ -232,7 +232,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         [When(@"Diligencio Dirección de cita de orden dando click en cursor")]
         public void WhenDiligencioDireccionDeCitaDeOrdenDandoClickEnCursor()
         {
-            CommonElementsAction.SendKeys_InputText("XPath", WorkordersPage.Address, "calle 64 # 5-22 Bogota Colombia");
+            CommonElementsAction.ClearAndSendKeys_InputText("XPath", WorkordersPage.Address, "calle 64 # 5-22 Bogota Colombia");
             Thread.Sleep(2000);
             CommonElementsAction.Click("XPath", "//div[@class='workOrder contentWO']//input[@id='clientAddresCheck']");
         }
