@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AFLSUIProjectTest.StepsTest.AFLS;
-
+﻿using AFLSUIProjectTest.StepsTest.AFLS;
+using System.Threading;
 
 namespace AFLSUIProjectTest.CommonAFLS
 {
     public class Logout
     {
-        LoginLogoutSteps LoginLogoutSteps = new LoginLogoutSteps();
+        private LoginLogoutSteps LoginLogoutSteps = new LoginLogoutSteps();
 
         public void AdministratorLogOff()
         {
+            Thread.Sleep(2000;
             LoginLogoutSteps.WhenPulsoLinkDeCierreDeSesion();
             LoginLogoutSteps.ThenSeCierraLaSesionExitosamenteDelUsuarioAdministrador();
         }

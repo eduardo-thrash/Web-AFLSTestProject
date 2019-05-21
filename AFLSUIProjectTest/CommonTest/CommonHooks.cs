@@ -55,6 +55,7 @@ namespace CommonTest.CommonTest
         public static string Screenshot()
         {
             string Image;
+            string ScenarioTitle = Regex.Replace(ScenarioContext.Current.ScenarioInfo.Title.ToString(), ">", " ").Replace(":", "-");
 
             if (!Directory.Exists(BaseScreenshotFolder))
                 Directory.CreateDirectory(BaseScreenshotFolder);
@@ -62,7 +63,7 @@ namespace CommonTest.CommonTest
             if (!Directory.Exists(ScreenshotFolder))
                 Directory.CreateDirectory(ScreenshotFolder);
 
-            Image = ScreenshotFolder + @"\Error " + FeatureContext.Current.FeatureInfo.Title + "-" + ScenarioContext.Current.ScenarioInfo.Title + ".jpg";
+            Image = ScreenshotFolder + @"\Error " + FeatureContext.Current.FeatureInfo.Title + "-" + ScenarioTitle + ".jpg";
             driver.TakeScreenshot().SaveAsFile(Image, ScreenshotImageFormat.Jpeg);
 
             return Image;

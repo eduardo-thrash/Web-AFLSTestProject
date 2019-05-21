@@ -126,7 +126,13 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Pulso link de cierre de sesión")]
         public void WhenPulsoLinkDeCierreDeSesion()
         {
-            UtilAction.Click("//div[@class='base top header row']//a[@href='/AFLS/Account/LogOff']");
+            try
+            {
+                UtilAction.Click("//div[@class='base top header row']//a[contains(@href, 'Account/LogOff')]");
+            }
+            catch
+            {
+            }
         }
 
         [Then(@"Accedo a la pantalla principal de configuración")]
