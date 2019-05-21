@@ -23,9 +23,9 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         private static string EditHeadquaterName;
         private static string HeadquaterName = "UI Sede Edit ";
 
-        private static string DefaultTransportName = "UI Sede ";
+        private static string DefaultTransportName = "UI ";
         private static string EditTransportName;
-        private static string TransportName = "UI Sede Edit ";
+        private static string TransportName;
 
         [Given(@"No existe la ubicación de tipo sede")]
         public void GivenNoExisteLaUbicacionDeTipoSede()
@@ -75,6 +75,23 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         public void WhenDiligencioDireccionDeUbicacionDandoEnter()
         {
             CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
+        }
+
+        [When(@"Diligencio detalle de dirección de ubicación transporte")]
+        public void WhenDiligencioDetalleDeDireccionDeUbicacionTransporte()
+        {
+        }
+
+        [When(@"Diligencio dirección de ubicación transporte")]
+        public void WhenDiligencioDireccionDeUbicacionTransporte()
+        {
+            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
+        }
+
+        [When(@"Doy click en el Tab Información de contacto de transporte")]
+        public void WhenDoyClickEnElTabInformacionDeContactoDeTransporte()
+        {
+            UtilAction.Click("//div[@class='zones']//a[@href='#tabs-3']");
         }
 
         [When(@"Diligencio dirección de ubicación dando tab")]
@@ -155,32 +172,32 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         [Given(@"No existe la ubicación de tipo transporte")]
         public void GivenNoExisteLaUbicacionDeTipoTransporte()
         {
-            TransportName = DefaultTransportName + Functions.RandomText();
+            TransportName = DefaultTransportName + Functions.RandomText(3);
             CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + TransportName + "';", 0);
         }
 
         [When(@"Doy click en Nueva sede de transporte")]
         public void WhenDoyClickEnNuevaSedeDeTransporte()
         {
-            CommonElementsAction.Click("CsSelector", LocationsTransportPage.LocationTransportNew);
+            CommonElementsAction.Click("CssSelector", LocationsTransportPage.LocationTransportNew);
         }
 
         [When(@"Selecciono tipo de ubicación de transporte")]
         public void WhenSeleccionoTipoDeUbicacionDeTransporte()
         {
-            CommonElementsAction.ClickAndSelect_DropDownList("CsSelector", LocationsTransportPage.LocationTypeTransport, "Vehiculo", "label");
+            CommonElementsAction.ClickAndSelect_DropDownList("CssSelector", LocationsTransportPage.LocationTypeTransport, "Vehiculo", "label");
         }
 
         [When(@"Diligencio nombre de ubicación transporte")]
         public void WhenDiligencioNombreDeUbicacionTransporte()
         {
-            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsTransportPage.LocationNameTransport, "mail@mailer.com");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsTransportPage.LocationNameTransport, TransportName);
         }
 
         [When(@"Diligencio descripción de ubicación transporte")]
         public void WhenDiligencioDescripcionDeUbicacionTransporte()
         {
-            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsTransportPage.LocationDescriptionTransport, "mail@mailer.com");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsTransportPage.LocationDescriptionTransport, "descripcion");
         }
 
         [When(@"Doy click en switch de estado de ubicación transporte")]
@@ -192,25 +209,25 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         [When(@"Selecciono el Tab información de contacto de transporte")]
         public void WhenSeleccionoElTabInformacionDeContactoDeTransporte()
         {
-            ScenarioContext.Current.Pending();
+            UtilAction.Click("//div[@class='zones']//a[@href='#tabs-3']");
         }
 
         [When(@"Diligencio nombre de contacto de transporte")]
         public void WhenDiligencioNombreDeContactoDeTransporte()
         {
-            ScenarioContext.Current.Pending();
+            UtilAction.SendKeys("//div[@id='tabs-3']//input[@name='ContactName']", "Roberto Serna");
         }
 
         [When(@"Diligencio teléfono de contacto de transporte")]
         public void WhenDiligencioTelefonoDeContactoDeTransporte()
         {
-            ScenarioContext.Current.Pending();
+            UtilAction.SendKeys("//div[@id='tabs-3']//input[@name='ContactPhone']", "300458596632");
         }
 
         [When(@"Diligencio email de contacto de transporte")]
         public void WhenDiligencioEmailDeContactoDeTransporte()
         {
-            ScenarioContext.Current.Pending();
+            UtilAction.SendKeys("//div[@id='tabs-3']//input[@name='ContactMail']", "rserna@mailer.com");
         }
 
         [Given(@"Existe la ubicación")]
@@ -222,33 +239,41 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         [When(@"Ubico y selecciono la ubicación deseada")]
         public void WhenUbicoYSeleccionoLaUbicacionDeseada()
         {
-            CommonElementsAction.ClickOn_Random_List("CssSelector", "");
+            UtilAction.SelectOptionList("//div[@class='k-treeView k-widget k-treeview']/ul/li/div/span", HeadquaterName, "span");
         }
 
         [Then(@"Se muestra el detalle de la ubicación")]
         public void ThenSeMuestraElDetalleDeLaUbicacion()
         {
-            string Value = CommonHooks.driver.FindElement(By.CssSelector(LocationsHeadquaterPage.LocationHeadquaterName)).GetAttribute("value");
-            string Valuea = CommonHooks.driver.FindElement(By.CssSelector(LocationsTransportPage.LocationNameTransport)).GetAttribute("value");
+            string Value;
+            try
+            {
+                Value = CommonHooks.driver.FindElement(By.CssSelector(LocationsHeadquaterPage.LocationHeadquaterName)).GetAttribute("value");
+            }
+            catch
+            {
+                Value = CommonHooks.driver.FindElement(By.CssSelector(LocationsTransportPage.LocationNameTransport)).GetAttribute("value");
+            }
+
             Assert.AreEqual(HeadquaterName, Value);
         }
 
         [When(@"Modifico nombre de ubicación")]
         public void WhenModificoNombreDeUbicacion()
         {
-            CommonElementsAction.ClearAndSendKeys_InputText("", LocationsHeadquaterPage.LocationHeadquaterName, HeadquaterName);
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterName, HeadquaterName);
         }
 
         [When(@"Doy click en eliminar ubicación")]
         public void WhenDoyClickEnEliminarUbicacion()
         {
-            CommonElementsAction.Click("", "");
+            UtilAction.Click("//li[@id='k-treeView_tv_active']/div/span/span[4]");
         }
 
-        [Then(@"Se borra el registro de la ubicación en la tabla AFLS_STOCK_PRODUCTS")]
-        public void ThenSeBorraElRegistroDeLaUbicacionEnLaTablaAFLS_STOCK_PRODUCTS()
+        [Then(@"Se borra el registro de la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO")]
+        public void ThenSeBorraElRegistroDeLaUbicacionEnLaTablaAFLS_STOCK_LOCATIONS_INFO()
         {
-            CommonQuery.DBSelectAValue("", 0);
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + HeadquaterName + "';", 0);
         }
     }
 }

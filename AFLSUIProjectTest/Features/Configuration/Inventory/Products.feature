@@ -18,7 +18,7 @@ Scenario: 1 Creación exitosa de producto tipo cantidad
 	And Diligencio cantidad mínima de producto
 	And Selecciono una medida
 	And Diligencio precio de venta
-	And Doy click en switch de estado de producto
+	#And Doy click en switch de estado de producto
 	And Doy click en Guardar producto
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el producto de tipo cantidad en la tabla AFLS_STOCK_PRODUCTS
@@ -40,7 +40,7 @@ Scenario: 1 Creación exitosa de producto tipo único
 	And Diligencio cantidad mínima de producto
 	And Selecciono una medida
 	And Diligencio precio de venta
-	And Doy click en switch de estado de producto
+	#And Doy click en switch de estado de producto
 	And Doy click en Guardar producto
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el producto de tipo único en la tabla AFLS_STOCK_PRODUCTS
@@ -79,7 +79,6 @@ Scenario: 4 Borrado exitoso de producto existente
 	And Accedo al menú Inventario
 	And Selecciono la opción Productos
 	And Busco y selecciono el producto
-	And Modifico el nombre de producto
 	And Doy click en eliminar producto
 	And Selecciono Aceptar en mensaje de confirmación de borrado
 	Then Se muestra mensaje indicando que se borro el registro exitosamente

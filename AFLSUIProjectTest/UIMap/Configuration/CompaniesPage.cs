@@ -49,7 +49,7 @@
 
         /*Tab Services*/
         public string CompanyTabServices = "a[href = '#tabs-2'] > span.ui-icon.icon-services.icons_Cm";
-        public string CompanyServices = "input.partSearch.ui-autocomplete-input";
+        public string CompanyServices = "//div[@id='tabs-2']//input[@class='partSearch ui-autocomplete-input']";
 
         public string TextCompanyTabServices = "Services tab";
         public string TextCompanyServices = "company services";

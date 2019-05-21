@@ -178,13 +178,12 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         public int WhenDiligencioYSeleccionoElServicioParaLaCompania()
         {
             Actions action = new Actions(CommonHooks.driver);
-            IWebElement ServicesCompany = CommonHooks.driver.FindElement(By.CssSelector(CompaniesPage.CompanyServices));
-            action.MoveToElement(ServicesCompany);
+            IWebElement ServicesCompany = CommonHooks.driver.FindElement(By.XPath(CompaniesPage.CompanyServices));
+            action.MoveToElement(ServicesCompany).Build().Perform();
 
             ServId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 serv_id FROM AFLS_SERVICES ORDER BY NEWID();", 1));
             string ServName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_id = " + ServId + ";", 1);
-            int RemoveCar = ServName.Length - 5;
-            ServName = ServName.Remove(5, RemoveCar);
+
             UtilAction.Select_ComboboxAutocomplete(CompaniesPage.CompanyServices, ServName, "a");
             return ServId;
         }
@@ -292,14 +291,14 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             }
             catch
             {
-                Assert.Fail("No se registra relación de servicios y compañía. Requisito para prueba.");
+                Assert.Fail("Fallo en consulta SELECT * FROM AFLS_COMPANY_SERVICES WHERE serv_id = " + ServId + "  AND comp_id = " + CompId + ";. No se registra relación de servicios y compañía. Requisito para prueba.");
             }
         }
 
         [Then(@"se registran campos adicionales de compañía diligenciados en la tabla AFW_ADDITIONAL_FIELD_VALUE")]
         public void ThenSeRegistranCamposAdicionalesDeCompaniaDiligenciadosEnLaTablaAFW_ADDITIONAL_FIELD_VALUE()
         {
-            int AdditionalFieldCompanyResult = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_VALUE AFV ON AFV.field_id = AF.id WHERE AF.definition_id = 5 AND AFV.item_id = " + CompId + ";", 1));
+            int AdditionalFieldCompanyResult = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_VALUE AFV ON AFV.field_id = AF.id WHERE AFV.item_id = " + CompId + ";", 1));
 
             Assert.AreEqual(AdditionalFieldFound, AdditionalFieldCompanyResult);
         }

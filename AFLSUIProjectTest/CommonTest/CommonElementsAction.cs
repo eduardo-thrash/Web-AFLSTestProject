@@ -525,7 +525,7 @@ namespace CommonTest.CommonTest
                 {
                     if (ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
-                        Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CSS, XPath, Id, Name, ClassName)");
+                        Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CssSelector, XPath, Id, Name, ClassName)");
                     }
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -552,7 +552,7 @@ namespace CommonTest.CommonTest
                     Thread.Sleep(1000);
                 }
             }
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             for (int second = 0; ; second++)
             {
                 if (second >= 5) Assert.Fail(Error);
@@ -1126,6 +1126,7 @@ namespace CommonTest.CommonTest
     {
         public static void Click(string Element, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
+            Thread.Sleep(1000);
             int CounterClick = 0;
             bool StaleElement = false;
             while (!StaleElement)
@@ -1150,6 +1151,7 @@ namespace CommonTest.CommonTest
                     }
                 }
             }
+            Thread.Sleep(1000);
         }
 
         public static string ValueExtract(string Input, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
@@ -1407,6 +1409,40 @@ namespace CommonTest.CommonTest
                     {
                         Assert.Fail(e.Message + " on element " + Field);
                     }
+                }
+            }
+        }
+
+        public void SelectOptionList(string Element, string Option, string tag, string Locator = "XPath", double TimeDefault = 5, int MaxInteractions = 5)
+        {
+            int CounterSelectOptionList = 0;
+            Thread.Sleep(1000);
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    CommonHooks.driver.FindElement(By.XPath(Element)).Click();
+                    Thread.Sleep(2000);
+                    IWebElement ElementWait = CommonHooks.driver.FindElement(By.XPath("//" + tag + "[contains(text(),'" + Option + "')]"));
+
+                    ValidateDisplayed("//" + tag + "[contains(text(),'" + Option + "')]");
+                    ValidateEnabled("//" + tag + "[contains(text(),'" + Option + "')]");
+                    ValidateSize("//" + tag + "[contains(text(),'" + Option + "')]", Locator);
+
+                    ElementWait.Click();
+                    Thread.Sleep(1000);
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    CounterSelectOptionList++;
+                    if (CounterSelectOptionList == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Option);
+                    }
+                    CommonHooks.driver.FindElement(By.XPath("//div[@class='mCSB_dragger_bar']")).Click();
+                    CommonHooks.driver.FindElement(By.XPath(Element)).SendKeys(Keys.ArrowDown);
                 }
             }
         }

@@ -109,8 +109,6 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("Selecciono una medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
  testRunner.And("Diligencio precio de venta", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
- testRunner.And("Doy click en switch de estado de producto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
  testRunner.And("Doy click en Guardar producto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
@@ -161,8 +159,6 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("Selecciono una medida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 42
  testRunner.And("Diligencio precio de venta", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 43
- testRunner.And("Doy click en switch de estado de producto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 44
  testRunner.And("Doy click en Guardar producto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 45
@@ -264,14 +260,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 81
  testRunner.And("Busco y selecciono el producto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 82
- testRunner.And("Modifico el nombre de producto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 83
  testRunner.And("Doy click en eliminar producto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 84
+#line 83
  testRunner.And("Selecciono Aceptar en mensaje de confirmación de borrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 85
+#line 84
  testRunner.Then("Se muestra mensaje indicando que se borro el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 86
+#line 85
  testRunner.And("Se borra el registro de el producto en la tabla AFLS_STOCK_PRODUCTS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

@@ -84,6 +84,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
             WhenDoyClickEnLogin();
             ThenAccedoALaPantallaPrincipalDeConfiguracion();
             ThenSeRegistraEnBaseDeDatosElUsuarioConSesionActivaEnLaTablaAFW_USER_SESSION_TOKEN();
+            Thread.Sleep(5000);
         }
 
         [Given(@"Tengo un usuario con rol monitor y con proveedores asociados")]

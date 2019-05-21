@@ -441,6 +441,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         public void WhenSeleccionoLaOpcionProductos()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.ProductOption);
+            Thread.Sleep(5000);
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal  Productos")]
