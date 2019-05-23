@@ -383,18 +383,27 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         {
             CommonElementsAction.Click("XPath", MobileUsersPage.MobileUsersModulePath);
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.MobileUserOption);
+            Thread.Sleep(10000);
+
+            Functions.ErrorFindOnPage();
         }
 
         [When(@"selecciono la opción Grupos Movil")]
         public void WhenSeleccionoLaOpcionGruposMovil()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.MobileGroupOption);
+            Thread.Sleep(10000);
+
+            Functions.ErrorFindOnPage();
         }
 
         [When(@"selecciono la opción Zonas")]
         public void WhenSeleccionoLaOpcionZonas()
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.ZoneOption);
+            Thread.Sleep(10000);
+
+            Functions.ErrorFindOnPage();
         }
 
         [When(@"Valido que no existan MissingKey en pantalla principal  Zonas")]

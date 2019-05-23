@@ -102,7 +102,45 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         [Given(@"El canal de AssistMe esta habilitado")]
         public void GivenElCanalDeAssistMeEstaHabilitado()
         {
-            CommonQuery.DBSelectAValue("SELECT * FROM AFW_ASSISTME_CONFIGURATION WHERE IsActive = 1;", 1);
+            try
+            {
+                CommonQuery.DBSelectAValue("SELECT * FROM AFW_ASSISTME_CONFIGURATION WHERE IsActive = 1;", 1);
+            }
+            catch
+            {
+                Functions.DBInsert("INSERT INTO AFW_ASSISTME_CONFIGURATION"
+                                    + "(WelcomeMessage"
+                                    + ", Attendant"
+                                    + ", Needed"
+                                    + ", AssistMeURL"
+                                    + ", AboutUsURL"
+                                    + ", IsActive"
+                                    + ", EnableRegisterClient)"
+                                    + "VALUES"
+                                    + "('Bienvenido a nuestro portal de servicio al cliente'"
+                                    + ", 'Especialista'"
+                                    + ", 'Solicitud'"
+                                    + ", 'http://afls.arandasoft.com/AssistMe'"
+                                    + ", 'http://www.xdeamx.com'"
+                                    + ", 1"
+                                    + ", 1)"
+                                    + "GO");
+            }
+
+            try
+            {
+                CommonQuery.DBSelectAValue("SELECT * FROM AFW_ASSISTME_CONFIGURATION WHERE IsActive = 1;", 1);
+            }
+            catch
+            {
+                Assert.Fail("Fallo en definición de paso en BD.");
+            }
+        }
+
+        [Given(@"Tengo usuario cliente con canal AssistMe activo")]
+        public void GivenTengoUsuarioClienteConCanalAssistMeActivo()
+        {
+            CommonQuery.DBSelectAValue("SELECT TOP 1 IdUser FROM AFLS_USERS_CHANNEL ORDER BY NEWID();", 1);
         }
 
         [When(@"Busco y selecciono el cliente")]

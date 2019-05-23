@@ -311,7 +311,34 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
             }
             catch
             {
-                Assert.Fail("No hay servidor de correo activo.");
+                Functions.DBInsert("INSERT INTO AFW_MAIL_ACCOUNT"
+                                    + "(maac_server_name"
+                                    + ", maac_server_alias"
+                                    + ", maac_user_account"
+                                    + ", maac_user_password"
+                                    + ", maac_is_ssl"
+                                    + ", maac_sender_name"
+                                    + ", maac_port"
+                                    + ", maac_sender)"
+                                    + "VALUES"
+                                          + "('smtp.office365.com'"
+                                          + ", ''"
+                                          + ", 'eduardo-thrash@hotmail.com'"
+                                          + ", 's8HM8xCDH4VVOBL8wv45kSWQ/fv4cvvqto2z/VD9xCk='"
+                                          + ", 1"
+                                          + ", 'Aranda V992'"
+                                          + ", 587"
+                                          + ", 'eduardo-thrash@hotmail.com')"
+                                          + "GO");
+            }
+
+            try
+            {
+                CommonQuery.DBSelectAValue("SELECT * FROM AFW_MAIL_ACCOUNT;", 1);
+            }
+            catch
+            {
+                Assert.Fail("Fallo en definición de paso en BD.");
             }
         }
 

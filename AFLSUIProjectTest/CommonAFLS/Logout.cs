@@ -9,7 +9,7 @@ namespace AFLSUIProjectTest.CommonAFLS
 
         public void AdministratorLogOff()
         {
-            Thread.Sleep(2000;
+            Thread.Sleep(2000);
             LoginLogoutSteps.WhenPulsoLinkDeCierreDeSesion();
             LoginLogoutSteps.ThenSeCierraLaSesionExitosamenteDelUsuarioAdministrador();
         }

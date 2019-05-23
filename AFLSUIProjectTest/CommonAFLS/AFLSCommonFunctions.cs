@@ -208,7 +208,7 @@ namespace AFLSUIProjectTest.CommonAFLS
             }
         }
 
-        public void DBEstablismentInsert(string Query)
+        public void DBInsert(string Query)
         {
             using (SqlConnection conn = new SqlConnection())
             {

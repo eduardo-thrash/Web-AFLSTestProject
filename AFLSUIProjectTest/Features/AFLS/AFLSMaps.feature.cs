@@ -1755,11 +1755,13 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de zonas")]
         [NUnit.Framework.CategoryAttribute("Maps")]
         [NUnit.Framework.CategoryAttribute("Zones")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
         public virtual void CP_AFLSMapasValidacionExitosaDeControlDeMapaEnCreacionDeZonas()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de zonas", null, new string[] {
                         "Maps",
-                        "Zones"});
+                        "Zones",
+                        "Automation"});
 #line 609
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -1786,32 +1788,30 @@ this.ScenarioInitialize(scenarioInfo);
 #line 620
  testRunner.And("Selecciono prioridad Máxima", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 621
- testRunner.And("Doy click en switch de estado de zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 622
  testRunner.And("Selecciono el tab Zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 623
+#line 622
  testRunner.And("Doy click en crear zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 624
+#line 623
  testRunner.And("Dibujo polígono de zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 625
+#line 624
  testRunner.And("Doy click en cerrar zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 626
+#line 625
  testRunner.And("Selecciono el tab Proveedores", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 627
+#line 626
  testRunner.And("Diligencio y selecciono proveedor para zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 628
+#line 627
  testRunner.And("Selecciono el tab Información de zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 629
+#line 628
  testRunner.And("Doy click en Guardar zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 630
+#line 629
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 631
+#line 630
  testRunner.And("Se registra la zona en la tabla AFLS_ZONES", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 632
+#line 631
  testRunner.And("Se registra el polígono de la zona en la tabla AFLS_ZONE_POLYGON", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 633
+#line 632
  testRunner.And("Se registra la relación de proveedor con zona en la tabla AFLS_PROVIDER_ZONE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 634
+#line 633
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1820,62 +1820,44 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("CP_AFLS: Mapas > Validación exitosa de control de mapa en actualización de zonas")]
         [NUnit.Framework.CategoryAttribute("Maps")]
+        [NUnit.Framework.CategoryAttribute("Zones")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
         public virtual void CP_AFLSMapasValidacionExitosaDeControlDeMapaEnActualizacionDeZonas()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Mapas > Validación exitosa de control de mapa en actualización de zonas", null, new string[] {
-                        "Maps"});
-#line 636
+                        "Maps",
+                        "Zones",
+                        "Automation"});
+#line 635
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 637
+#line 636
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 638
+#line 637
     testRunner.And("Existe la zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 639
+#line 638
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 640
+#line 639
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 641
+#line 640
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 642
+#line 641
  testRunner.And("Accedo al menú Administración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 643
+#line 642
  testRunner.And("selecciono la opción Zonas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 643
+ testRunner.And("Busco y selecciono la zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 644
- testRunner.And("Doy click en Nueva zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 645
- testRunner.And("Diligencio nombre de zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 646
- testRunner.And("Diligencio descripción de zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 647
- testRunner.And("Selecciono prioridad Máxima", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 648
- testRunner.And("Doy click en switch de estado de zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 649
  testRunner.And("Selecciono el tab Zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 650
- testRunner.And("Doy click en crear zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 651
- testRunner.And("modifico polígono de zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 652
- testRunner.And("Doy click en cerrar zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 653
- testRunner.And("Selecciono el tab Proveedores", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 654
- testRunner.And("Diligencio y selecciono proveedor para zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 655
- testRunner.And("Selecciono el tab Información de zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 656
+#line 645
+ testRunner.And("modifico el polígono de la zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 646
  testRunner.And("Doy click en Guardar zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 657
+#line 647
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 658
+#line 648
  testRunner.And("Se registra la zona en la tabla AFLS_ZONES", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 659
- testRunner.And("Se registra el polígono de la zona en la tabla AFLS_ZONE_POLYGON", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 660
- testRunner.And("Se registra la relación de proveedor con zona en la tabla AFLS_PROVIDER_ZONE", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 661
+#line 649
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1894,41 +1876,41 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Locations",
                         "Automation"});
-#line 663
+#line 652
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 664
+#line 653
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 665
+#line 654
  testRunner.And("No existe la ubicación de tipo sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 666
+#line 655
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 667
+#line 656
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 668
+#line 657
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 669
+#line 658
  testRunner.And("Accedo al menú Inventario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 670
+#line 659
  testRunner.And("Selecciono la opción Ubicaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 671
+#line 660
  testRunner.And("Doy click en Nueva ubicación sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 672
+#line 661
  testRunner.And("Selecciono tipo de ubicación de sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 673
+#line 662
  testRunner.And("Diligencio nombre de ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 674
+#line 663
  testRunner.And("Diligencio descripción de ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 675
+#line 664
  testRunner.And("Diligencio dirección de ubicación dando click en cursor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 676
+#line 665
  testRunner.And("Doy click en Guardar ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 677
+#line 666
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 678
+#line 667
  testRunner.And("Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, lati" +
                     "tud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 679
+#line 668
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1943,35 +1925,35 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Mapas > Validación exitosa de control de mapa en actualización de ubicac" +
                     "iones al dar click en cursor de validación", null, new string[] {
                         "Maps"});
-#line 681
+#line 670
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 682
+#line 671
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 683
+#line 672
  testRunner.And("Existe la ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 684
+#line 673
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 685
+#line 674
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 686
+#line 675
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 687
+#line 676
  testRunner.And("Accedo al menú Inventario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 688
+#line 677
  testRunner.And("Selecciono la opción Ubicaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 689
+#line 678
  testRunner.And("Selecciono una ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 690
+#line 679
  testRunner.And("Modifico dirección de ubicación dando click en cursor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 691
+#line 680
  testRunner.And("Doy click en Guardar ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 692
+#line 681
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 693
+#line 682
  testRunner.And("Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, lati" +
                     "tud y dirección modificada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 694
+#line 683
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1986,35 +1968,35 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Mapas > Validación exitosa de control de mapa en actualización de ubicac" +
                     "iones al dar Enter", null, new string[] {
                         "Maps"});
-#line 696
+#line 685
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 697
+#line 686
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 698
+#line 687
  testRunner.And("Existe la ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 699
+#line 688
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 700
+#line 689
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 701
+#line 690
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 702
+#line 691
  testRunner.And("Accedo al menú Inventario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 703
+#line 692
  testRunner.And("Selecciono la opción Ubicaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 704
+#line 693
  testRunner.And("Selecciono una ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 705
+#line 694
  testRunner.And("Modifico dirección de ubicación dando Enter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 706
+#line 695
  testRunner.And("Doy click en Guardar ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 707
+#line 696
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 708
+#line 697
  testRunner.And("Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, lati" +
                     "tud y dirección modificada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 709
+#line 698
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2029,35 +2011,35 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Mapas > Validación exitosa de control de mapa en actualización de ubicac" +
                     "iones al dar Tab", null, new string[] {
                         "Maps"});
-#line 711
+#line 700
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 712
+#line 701
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 713
+#line 702
  testRunner.And("Existe la ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 714
+#line 703
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 715
+#line 704
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 716
+#line 705
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 717
+#line 706
  testRunner.And("Accedo al menú Inventario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 718
+#line 707
  testRunner.And("Selecciono la opción Ubicaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 719
+#line 708
  testRunner.And("Selecciono una ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 720
+#line 709
  testRunner.And("Modifico dirección de ubicación dando Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 721
+#line 710
  testRunner.And("Doy click en Guardar ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 722
+#line 711
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 723
+#line 712
  testRunner.And("Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, lati" +
                     "tud y dirección modificada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 724
+#line 713
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2072,35 +2054,35 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Mapas > Validación exitosa de control de mapa en actualización de ubicac" +
                     "iones al dar click en mapa", null, new string[] {
                         "Maps"});
-#line 726
+#line 715
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 727
+#line 716
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 728
+#line 717
  testRunner.And("Existe la ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 729
+#line 718
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 730
+#line 719
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 731
+#line 720
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 732
+#line 721
  testRunner.And("Accedo al menú Inventario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 733
+#line 722
  testRunner.And("Selecciono la opción Ubicaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 734
+#line 723
  testRunner.And("Selecciono una ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 735
+#line 724
  testRunner.And("Modifico dirección de ubicación dando click en mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 736
+#line 725
  testRunner.And("Doy click en Guardar ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 737
+#line 726
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 738
+#line 727
  testRunner.And("Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, lati" +
                     "tud y dirección modificada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 739
+#line 728
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2119,41 +2101,41 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Locations",
                         "Automation"});
-#line 741
+#line 730
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 742
+#line 731
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 743
+#line 732
  testRunner.And("No existe la ubicación de tipo sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 744
+#line 733
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 745
+#line 734
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 746
+#line 735
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 747
+#line 736
  testRunner.And("Accedo al menú Inventario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 748
+#line 737
  testRunner.And("Selecciono la opción Ubicaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 749
+#line 738
  testRunner.And("Doy click en Nueva ubicación sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 750
+#line 739
  testRunner.And("Selecciono tipo de ubicación de sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 751
+#line 740
  testRunner.And("Diligencio nombre de ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 752
+#line 741
  testRunner.And("Diligencio descripción de ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 753
+#line 742
  testRunner.And("Diligencio dirección de ubicación dando enter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 754
+#line 743
  testRunner.And("Doy click en Guardar ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 755
+#line 744
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 756
+#line 745
  testRunner.And("Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, lati" +
                     "tud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 757
+#line 746
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2172,41 +2154,41 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Locations",
                         "Automation"});
-#line 759
+#line 748
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 760
+#line 749
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 761
+#line 750
  testRunner.And("No existe la ubicación de tipo sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 762
+#line 751
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 763
+#line 752
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 764
+#line 753
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 765
+#line 754
  testRunner.And("Accedo al menú Inventario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 766
+#line 755
  testRunner.And("Selecciono la opción Ubicaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 767
+#line 756
  testRunner.And("Doy click en Nueva ubicación sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 768
+#line 757
  testRunner.And("Selecciono tipo de ubicación de sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 769
+#line 758
  testRunner.And("Diligencio nombre de ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 770
+#line 759
  testRunner.And("Diligencio descripción de ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 771
+#line 760
  testRunner.And("Diligencio dirección de ubicación dando tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 772
+#line 761
  testRunner.And("Doy click en Guardar ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 773
+#line 762
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 774
+#line 763
  testRunner.And("Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, lati" +
                     "tud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 775
+#line 764
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2225,41 +2207,41 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Locations",
                         "Automation"});
-#line 777
+#line 766
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 778
+#line 767
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 779
+#line 768
  testRunner.And("No existe la ubicación de tipo sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 780
+#line 769
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 781
+#line 770
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 782
+#line 771
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 783
+#line 772
  testRunner.And("Accedo al menú Inventario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 784
+#line 773
  testRunner.And("Selecciono la opción Ubicaciones", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 785
+#line 774
  testRunner.And("Doy click en Nueva ubicación sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 786
+#line 775
  testRunner.And("Selecciono tipo de ubicación de sede", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 787
+#line 776
  testRunner.And("Diligencio nombre de ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 788
+#line 777
  testRunner.And("Diligencio descripción de ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 789
+#line 778
  testRunner.And("Diligencio dirección de ubicación dando click en mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 790
+#line 779
  testRunner.And("Doy click en Guardar ubicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 791
+#line 780
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 792
+#line 781
  testRunner.And("Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, lati" +
                     "tud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 793
+#line 782
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2278,37 +2260,37 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Establishment",
                         "Automation"});
-#line 795
+#line 784
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 796
+#line 785
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 797
+#line 786
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 798
+#line 787
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 799
+#line 788
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 800
+#line 789
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 801
+#line 790
  testRunner.And("Selecciono opción de Información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 802
+#line 791
  testRunner.And("Diligencio nombre de compañía en información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 803
+#line 792
  testRunner.And("Diligencio NIT de compañía en información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 804
+#line 793
  testRunner.And("Diligencio dirección de compañía en información básica dando click en cursor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 805
+#line 794
  testRunner.And("Doy click en Guardar información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 806
+#line 795
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 807
+#line 796
  testRunner.And("Se registra la configuración básica en la tabla AFLS_ESTABLISHMENT con longitud, " +
                     "latitud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 808
+#line 797
  testRunner.And("Se registra por base de datos la zona geográfica de dos países", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 809
+#line 798
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2327,37 +2309,37 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Establishment",
                         "Automation"});
-#line 811
+#line 800
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 812
+#line 801
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 813
+#line 802
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 814
+#line 803
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 815
+#line 804
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 816
+#line 805
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 817
+#line 806
  testRunner.And("Selecciono opción de Información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 818
+#line 807
  testRunner.And("Diligencio nombre de compañía en información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 819
+#line 808
  testRunner.And("Diligencio NIT de compañía en información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 820
+#line 809
  testRunner.And("Diligencio dirección de compañía en información básica dando enter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 821
+#line 810
  testRunner.And("Doy click en Guardar información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 822
+#line 811
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 823
+#line 812
  testRunner.And("Se registra la configuración básica en la tabla AFLS_ESTABLISHMENT con longitud, " +
                     "latitud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 824
+#line 813
  testRunner.And("Se registra por base de datos la zona geográfica de dos países", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 825
+#line 814
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2376,37 +2358,37 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Establishment",
                         "Automation"});
-#line 827
+#line 816
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 828
+#line 817
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 829
+#line 818
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 830
+#line 819
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 831
+#line 820
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 832
+#line 821
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 833
+#line 822
  testRunner.And("Selecciono opción de Información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 834
+#line 823
  testRunner.And("Diligencio nombre de compañía en información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 835
+#line 824
  testRunner.And("Diligencio NIT de compañía en información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 836
+#line 825
  testRunner.And("Diligencio dirección de compañía en información básica dando tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 837
+#line 826
  testRunner.And("Doy click en Guardar información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 838
+#line 827
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 839
+#line 828
  testRunner.And("Se registra la configuración básica en la tabla AFLS_ESTABLISHMENT con longitud, " +
                     "latitud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 840
+#line 829
  testRunner.And("Se registra por base de datos la zona geográfica de dos países", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 841
+#line 830
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2423,37 +2405,37 @@ this.ScenarioInitialize(scenarioInfo);
                     "ación básica al dar click en mapa", null, new string[] {
                         "Maps",
                         "Establishment"});
-#line 843
+#line 832
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 844
+#line 833
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 845
+#line 834
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 846
+#line 835
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 847
+#line 836
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 848
+#line 837
  testRunner.And("Accedo al menú Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 849
+#line 838
  testRunner.And("Selecciono opción de Información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 850
+#line 839
  testRunner.And("Diligencio nombre de compañía en información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 851
+#line 840
  testRunner.And("Diligencio NIT de compañía en información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 852
+#line 841
  testRunner.And("Diligencio dirección de compañía en información básica dando click en mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 853
+#line 842
  testRunner.And("Doy click en Guardar información básica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 854
+#line 843
  testRunner.Then("Se muestra mensaje indicando que se guardo el registro exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 855
+#line 844
  testRunner.And("Se registra la configuración básica en la tabla AFLS_ESTABLISHMENT con longitud, " +
                     "latitud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 856
+#line 845
  testRunner.And("Se registra por base de datos la zona geográfica de dos países", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 857
+#line 846
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2470,27 +2452,27 @@ this.ScenarioInitialize(scenarioInfo);
                     "listas", null, new string[] {
                         "Maps",
                         "Monitoring"});
-#line 859
+#line 848
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 860
+#line 849
  testRunner.Given("Tengo un usuario con rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 861
+#line 850
  testRunner.And("Tengo proveedores asociados al proveedor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 862
+#line 851
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 863
+#line 852
  testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 864
+#line 853
  testRunner.And("Selecciono la opción de ítem Monitoreo de especialistas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 865
+#line 854
  testRunner.Then("Se carga la pantalla principal de monitoreo de especialistas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 866
+#line 855
  testRunner.And("Se muestra correctamente el control de mapas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 867
+#line 856
  testRunner.And("Al seleccionar un especialista se muestra su información en el mapa correctamente" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 868
+#line 857
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2507,30 +2489,30 @@ this.ScenarioInitialize(scenarioInfo);
                     "s", null, new string[] {
                         "Maps",
                         "Monitoring"});
-#line 870
+#line 859
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 871
+#line 860
  testRunner.Given("Tengo un usuario con rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 872
+#line 861
  testRunner.And("El usuario monitor tiene proveedores asociados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 873
+#line 862
  testRunner.And("Existen clientes con ordenes del día en curso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 874
+#line 863
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 875
+#line 864
  testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 876
+#line 865
  testRunner.And("Selecciono la opción de ítem de Monitoreo de clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 877
+#line 866
  testRunner.Then("Se carga la pantalla principal de monitoreo de clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 878
+#line 867
  testRunner.And("No se cargan errores en el modulo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 879
+#line 868
  testRunner.And("Se muestra correctamente el control de mapas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 880
+#line 869
  testRunner.And("Al seleccionar un cliente se muestra su información en el mapa correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 881
+#line 870
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2547,31 +2529,31 @@ this.ScenarioInitialize(scenarioInfo);
                     "ión", null, new string[] {
                         "Maps",
                         "Monitoring"});
-#line 883
+#line 872
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 884
+#line 873
  testRunner.Given("Tengo un usuario con rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 885
+#line 874
  testRunner.And("El usuario monitor tiene proveedores asociados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 886
+#line 875
  testRunner.And("Existen especialistas con ordenes del día en curso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 887
+#line 876
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 888
+#line 877
  testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 889
+#line 878
  testRunner.And("Selecciono la opción de ítem de Monitoreo de planeación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 890
+#line 879
  testRunner.Then("Se carga la pantalla principal de monitoreo de planeación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 891
+#line 880
  testRunner.And("No se cargan errores en el modulo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 892
+#line 881
  testRunner.And("Se muestra correctamente el control de mapas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 893
+#line 882
  testRunner.And("Al seleccionar un especialista se muestra su información en el mapa correctamente" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 894
+#line 883
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2590,45 +2572,45 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Orders",
                         "Automation"});
-#line 896
+#line 885
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 897
+#line 886
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 898
+#line 887
  testRunner.And("Existe un cliente sin email, teléfono y compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 899
+#line 888
  testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 900
+#line 889
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 901
+#line 890
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 902
+#line 891
  testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 903
+#line 892
  testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 904
+#line 893
  testRunner.And("Diligencio Dirección de cita de orden dando click en cursor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 905
+#line 894
  testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 906
+#line 895
  testRunner.And("Selecciono Tipo de Orden Normal de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 907
+#line 896
  testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 908
+#line 897
  testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 909
+#line 898
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 910
+#line 899
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 911
+#line 900
  testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 912
+#line 901
  testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 913
+#line 902
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 914
+#line 903
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2647,45 +2629,45 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Orders",
                         "Automation"});
-#line 916
+#line 905
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 917
+#line 906
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 918
+#line 907
  testRunner.And("Existe un cliente sin email, teléfono y compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 919
+#line 908
  testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 920
+#line 909
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 921
+#line 910
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 922
+#line 911
  testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 923
+#line 912
  testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 924
+#line 913
  testRunner.And("Diligencio Dirección de cita de orden dando enter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 925
+#line 914
  testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 926
+#line 915
  testRunner.And("Selecciono Tipo de Orden Normal de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 927
+#line 916
  testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 928
+#line 917
  testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 929
+#line 918
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 930
+#line 919
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 931
+#line 920
  testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 932
+#line 921
  testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 933
+#line 922
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 934
+#line 923
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2704,45 +2686,45 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Orders",
                         "Automation"});
-#line 936
+#line 925
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 937
+#line 926
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 938
+#line 927
  testRunner.And("Existe un cliente sin email, teléfono y compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 939
+#line 928
  testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 940
+#line 929
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 941
+#line 930
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 942
+#line 931
  testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 943
+#line 932
  testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 944
+#line 933
  testRunner.And("Diligencio Dirección de cita de orden dando tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 945
+#line 934
  testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 946
+#line 935
  testRunner.And("Selecciono Tipo de Orden Normal de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 947
+#line 936
  testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 948
+#line 937
  testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 949
+#line 938
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 950
+#line 939
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 951
+#line 940
  testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 952
+#line 941
  testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 953
+#line 942
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 954
+#line 943
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2759,45 +2741,45 @@ this.ScenarioInitialize(scenarioInfo);
                     "creación de orden de trabajo al dar click en mapa", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 956
+#line 945
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 957
+#line 946
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 958
+#line 947
  testRunner.And("Existe un cliente sin email, teléfono y compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 959
+#line 948
  testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 960
+#line 949
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 961
+#line 950
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 962
+#line 951
  testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 963
+#line 952
  testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 964
+#line 953
  testRunner.And("Diligencio Dirección de cita de orden dando click en mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 965
+#line 954
  testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 966
+#line 955
  testRunner.And("Selecciono Tipo de Orden Normal de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 967
+#line 956
  testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 968
+#line 957
  testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 969
+#line 958
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 970
+#line 959
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 971
+#line 960
  testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 972
+#line 961
  testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 973
+#line 962
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 974
+#line 963
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2814,45 +2796,45 @@ this.ScenarioInitialize(scenarioInfo);
                     "ra creación de orden de trabajo al dar click en cursor de validación", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 976
+#line 965
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 977
+#line 966
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 978
+#line 967
  testRunner.And("Existe un cliente sin email, teléfono y compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 979
+#line 968
  testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 980
+#line 969
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 981
+#line 970
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 982
+#line 971
  testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 983
+#line 972
  testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 984
+#line 973
  testRunner.And("Diligencio Dirección de cita de orden dando click en cursor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 985
+#line 974
  testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 986
+#line 975
  testRunner.And("Selecciono Tipo de Orden Normal de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 987
+#line 976
  testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 988
+#line 977
  testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 989
+#line 978
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 990
+#line 979
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 991
+#line 980
  testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 992
+#line 981
  testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 993
+#line 982
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud de desti" +
                     "no, latitud de destino y dirección de destino", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 994
+#line 983
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2869,45 +2851,45 @@ this.ScenarioInitialize(scenarioInfo);
                     "ra creación de orden de trabajo al presionar Enter", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 996
+#line 985
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 997
+#line 986
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 998
+#line 987
  testRunner.And("Existe un cliente sin email, teléfono y compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 999
+#line 988
  testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1000
+#line 989
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1001
+#line 990
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1002
+#line 991
  testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1003
+#line 992
  testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1004
+#line 993
  testRunner.And("Diligencio Dirección de cita de orden dando enter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1005
+#line 994
  testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1006
+#line 995
  testRunner.And("Selecciono Tipo de Orden Normal de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1007
+#line 996
  testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1008
+#line 997
  testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1009
+#line 998
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1010
+#line 999
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1011
+#line 1000
  testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1012
+#line 1001
  testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1013
+#line 1002
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1014
+#line 1003
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2924,45 +2906,45 @@ this.ScenarioInitialize(scenarioInfo);
                     "ra creación de orden de trabajo al presionar Tab", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1016
+#line 1005
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1017
+#line 1006
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1018
+#line 1007
  testRunner.And("Existe un cliente sin email, teléfono y compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1019
+#line 1008
  testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1020
+#line 1009
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1021
+#line 1010
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1022
+#line 1011
  testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1023
+#line 1012
  testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1024
+#line 1013
  testRunner.And("Diligencio Dirección de cita de orden dando tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1025
+#line 1014
  testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1026
+#line 1015
  testRunner.And("Selecciono Tipo de Orden Normal de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1027
+#line 1016
  testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1028
+#line 1017
  testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1029
+#line 1018
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1030
+#line 1019
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1031
+#line 1020
  testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1032
+#line 1021
  testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1033
+#line 1022
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud de desti" +
                     "no, latitud de destino y dirección de destino", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1034
+#line 1023
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2979,45 +2961,45 @@ this.ScenarioInitialize(scenarioInfo);
                     "ra creación de orden de trabajo al dar click en mapa", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1036
+#line 1025
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1037
+#line 1026
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1038
+#line 1027
  testRunner.And("Existe un cliente sin email, teléfono y compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1039
+#line 1028
  testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1040
+#line 1029
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1041
+#line 1030
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1042
+#line 1031
  testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1043
+#line 1032
  testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1044
+#line 1033
  testRunner.And("Diligencio Dirección de cita de orden dando click en mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1045
+#line 1034
  testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1046
+#line 1035
  testRunner.And("Selecciono Tipo de Orden Normal de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1047
+#line 1036
  testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1048
+#line 1037
  testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1049
+#line 1038
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1050
+#line 1039
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1051
+#line 1040
  testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1052
+#line 1041
  testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1053
+#line 1042
  testRunner.And("Se registra la orden en la tabla AFLS_WORKORDERS con ticket_id, longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1054
+#line 1043
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3034,38 +3016,38 @@ this.ScenarioInitialize(scenarioInfo);
                     "actualización de orden de trabajo al dar click en cursor de validación", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1056
+#line 1045
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1057
+#line 1046
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1058
+#line 1047
  testRunner.And("Existe una orden de trabajo en estado abierta", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1059
+#line 1048
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1060
+#line 1049
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1061
+#line 1050
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1062
+#line 1051
  testRunner.And("Diligencio y selecciono la orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1063
+#line 1052
  testRunner.And("Doy click en Abrir orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1064
+#line 1053
  testRunner.And("Edito dirección de cita de orden de trabajo dando click en cursor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1065
+#line 1054
  testRunner.But("Si se muestra mensaje de reasignación doy click en Aceptar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
-#line 1066
+#line 1055
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1067
+#line 1056
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1068
+#line 1057
  testRunner.And("Doy click en Guardar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1069
+#line 1058
  testRunner.Then("se muestra mensaje indicando que se guardo orden de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1070
+#line 1059
  testRunner.And("se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1071
+#line 1060
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3082,38 +3064,38 @@ this.ScenarioInitialize(scenarioInfo);
                     "actualización de orden de trabajo al presionar Enter", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1073
+#line 1062
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1074
+#line 1063
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1075
+#line 1064
  testRunner.And("Existe una orden de trabajo en estado abierta", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1076
+#line 1065
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1077
+#line 1066
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1078
+#line 1067
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1079
+#line 1068
  testRunner.And("Diligencio y selecciono la orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1080
+#line 1069
  testRunner.And("Doy click en Abrir orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1081
+#line 1070
  testRunner.And("Edito dirección de cita de orden de trabajo dando enter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1082
+#line 1071
  testRunner.But("Si se muestra mensaje de reasignación doy click en Aceptar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
-#line 1083
+#line 1072
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1084
+#line 1073
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1085
+#line 1074
  testRunner.And("Doy click en Guardar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1086
+#line 1075
  testRunner.Then("se muestra mensaje indicando que se guardo orden de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1087
+#line 1076
  testRunner.And("se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1088
+#line 1077
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3130,34 +3112,34 @@ this.ScenarioInitialize(scenarioInfo);
                     "actualización de orden de trabajo al presionar Tab", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1090
+#line 1079
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1091
+#line 1080
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1092
+#line 1081
  testRunner.And("Existe una orden de trabajo en estado abierta", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1093
+#line 1082
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1094
+#line 1083
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1095
+#line 1084
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1096
+#line 1085
  testRunner.And("Diligencio y selecciono la orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1097
+#line 1086
  testRunner.And("Doy click en Abrir orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1098
+#line 1087
  testRunner.And("Edito dirección de cita de orden de trabajo dando tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1099
+#line 1088
  testRunner.But("Si se muestra mensaje de reasignación doy click en Aceptar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
-#line 1100
+#line 1089
  testRunner.And("Doy click en Guardar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1101
+#line 1090
  testRunner.Then("se muestra mensaje indicando que se guardo orden de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1102
+#line 1091
  testRunner.And("se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1103
+#line 1092
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3174,34 +3156,34 @@ this.ScenarioInitialize(scenarioInfo);
                     "actualización de orden de trabajo al dar click en mapa", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1105
+#line 1094
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1106
+#line 1095
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1107
+#line 1096
  testRunner.And("Existe una orden de trabajo en estado abierta", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1108
+#line 1097
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1109
+#line 1098
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1110
+#line 1099
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1111
+#line 1100
  testRunner.And("Diligencio y selecciono la orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1112
+#line 1101
  testRunner.And("Doy click en Abrir orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1113
+#line 1102
  testRunner.And("Edito dirección de cita de orden de trabajo dando click en mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1114
+#line 1103
  testRunner.But("Si se muestra mensaje de reasignación doy click en Aceptar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
-#line 1115
+#line 1104
  testRunner.And("Doy click en Guardar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1116
+#line 1105
  testRunner.Then("se muestra mensaje indicando que se guardo orden de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1117
+#line 1106
  testRunner.And("se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1118
+#line 1107
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3218,34 +3200,34 @@ this.ScenarioInitialize(scenarioInfo);
                     "ra actualización de orden de trabajo al dar click en cursor de validación", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1120
+#line 1109
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1121
+#line 1110
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1122
+#line 1111
  testRunner.And("Existe una orden de trabajo abierta o en proceso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1123
+#line 1112
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1124
+#line 1113
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1125
+#line 1114
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1126
+#line 1115
  testRunner.And("Diligencio y selecciono la orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1127
+#line 1116
  testRunner.And("Doy click en Abrir orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1128
+#line 1117
  testRunner.And("Edito dirección de destino de orden de trabajo dando click en cursor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1129
+#line 1118
  testRunner.But("Si se muestra mensaje de reasignación doy click en Aceptar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
-#line 1130
+#line 1119
  testRunner.And("Doy click en Guardar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1131
+#line 1120
  testRunner.Then("se muestra mensaje indicando que se guardo orden de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1132
+#line 1121
  testRunner.And("se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1133
+#line 1122
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3262,34 +3244,34 @@ this.ScenarioInitialize(scenarioInfo);
                     "ra actualización de orden de trabajo al presionar Enter", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1135
+#line 1124
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1136
+#line 1125
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1137
+#line 1126
  testRunner.And("Existe una orden de trabajo abierta o en proceso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1138
+#line 1127
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1139
+#line 1128
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1140
+#line 1129
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1141
+#line 1130
  testRunner.And("Diligencio y selecciono la orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1142
+#line 1131
  testRunner.And("Doy click en Abrir orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1143
+#line 1132
  testRunner.And("Edito dirección de destino de orden de trabajo dando enter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1144
+#line 1133
  testRunner.But("Si se muestra mensaje de reasignación doy click en Aceptar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
-#line 1145
+#line 1134
  testRunner.And("Doy click en Guardar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1146
+#line 1135
  testRunner.Then("se muestra mensaje indicando que se guardo orden de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1147
+#line 1136
  testRunner.And("se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1148
+#line 1137
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3306,34 +3288,34 @@ this.ScenarioInitialize(scenarioInfo);
                     "ra actualización de orden de trabajo al presionar Tab", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1150
+#line 1139
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1151
+#line 1140
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1152
+#line 1141
  testRunner.And("Existe una orden de trabajo abierta o en proceso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1153
+#line 1142
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1154
+#line 1143
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1155
+#line 1144
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1156
+#line 1145
  testRunner.And("Diligencio y selecciono la orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1157
+#line 1146
  testRunner.And("Doy click en Abrir orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1158
+#line 1147
  testRunner.And("Edito dirección de destino de orden de trabajo dando tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1159
+#line 1148
  testRunner.But("Si se muestra mensaje de reasignación doy click en Aceptar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
-#line 1160
+#line 1149
  testRunner.And("Doy click en Guardar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1161
+#line 1150
  testRunner.Then("se muestra mensaje indicando que se guardo orden de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1162
+#line 1151
  testRunner.And("se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1163
+#line 1152
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3350,34 +3332,34 @@ this.ScenarioInitialize(scenarioInfo);
                     "ra actualización de orden de trabajo al dar click en mapa", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1165
+#line 1154
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1166
+#line 1155
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1167
+#line 1156
  testRunner.And("Existe una orden de trabajo abierta o en proceso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1168
+#line 1157
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1169
+#line 1158
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1170
+#line 1159
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1171
+#line 1160
  testRunner.And("Diligencio y selecciono la orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1172
+#line 1161
  testRunner.And("Doy click en Abrir orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1173
+#line 1162
  testRunner.And("Edito dirección de destino de orden de trabajo dando click en mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1174
+#line 1163
  testRunner.But("Si se muestra mensaje de reasignación doy click en Aceptar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
-#line 1175
+#line 1164
  testRunner.And("Doy click en Guardar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1176
+#line 1165
  testRunner.Then("se muestra mensaje indicando que se guardo orden de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1177
+#line 1166
  testRunner.And("se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1178
+#line 1167
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3392,24 +3374,24 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Mapas > Visualización exitosa de control de mapa en ordenes disponibles", null, new string[] {
                         "Maps",
                         "Orders"});
-#line 1180
+#line 1169
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1181
+#line 1170
  testRunner.Given("Tengo un usuario con rol monitor y proveedores asociados", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1182
+#line 1171
  testRunner.And("Existe una orden sin proveedor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1183
+#line 1172
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1184
+#line 1173
  testRunner.And("Realizo Login con usuario rol monitor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1185
+#line 1174
  testRunner.And("Accedo a ítem de menú de Ordenes disponibles", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1186
+#line 1175
  testRunner.And("Diligencio y selecciono la orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1187
+#line 1176
  testRunner.Then("se muestra control de mapa en resumen de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1188
+#line 1177
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3426,33 +3408,33 @@ this.ScenarioInitialize(scenarioInfo);
                     " dirección y con coordenadas", null, new string[] {
                         "Maps",
                         "Import"});
-#line 1190
+#line 1179
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1191
+#line 1180
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1192
+#line 1181
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1193
+#line 1182
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1194
+#line 1183
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1195
+#line 1184
  testRunner.And("Accedo al menú Administración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1196
+#line 1185
  testRunner.And("Selecciono la opción Clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1197
+#line 1186
  testRunner.And("Doy click en importar clientes desde archivo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1198
+#line 1187
  testRunner.And("Adjunto archivo csv valido con clientes sin dirección y con coordenadas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1199
+#line 1188
  testRunner.And("Doy click en Importar clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1200
+#line 1189
  testRunner.Then("Se importan correctamente los clientes y se muestran ubicaciones en el mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1201
+#line 1190
  testRunner.And("se registran clientes importados en la tabla AFLS_USER_CLIENTS con longitud, lati" +
                     "tud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1202
+#line 1191
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3469,33 +3451,33 @@ this.ScenarioInitialize(scenarioInfo);
                     " dirección y sin coordenadas", null, new string[] {
                         "Maps",
                         "Import"});
-#line 1204
+#line 1193
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1205
+#line 1194
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1206
+#line 1195
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1207
+#line 1196
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1208
+#line 1197
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1209
+#line 1198
  testRunner.And("Accedo al menú Administración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1210
+#line 1199
  testRunner.And("Selecciono la opción Clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1211
+#line 1200
  testRunner.And("Doy click en importar clientes desde archivo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1212
+#line 1201
  testRunner.And("Adjunto archivo csv valido con clientes con dirección y sin coordenadas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1213
+#line 1202
  testRunner.And("Doy click en Importar clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1214
+#line 1203
  testRunner.Then("Se importan correctamente los clientes y se muestran ubicaciones en el mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1215
+#line 1204
  testRunner.And("se registran clientes importados en la tabla AFLS_USER_CLIENTS con longitud, lati" +
                     "tud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1216
+#line 1205
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3512,32 +3494,32 @@ this.ScenarioInitialize(scenarioInfo);
                     "dirección y con coordenadas", null, new string[] {
                         "Maps",
                         "Import"});
-#line 1218
+#line 1207
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1219
+#line 1208
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1220
+#line 1209
  testRunner.And("Existe una orden de trabajo abierta o en proceso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1221
+#line 1210
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1222
+#line 1211
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1223
+#line 1212
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1224
+#line 1213
  testRunner.And("Doy click en importar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1225
+#line 1214
  testRunner.And("Adjunto archivo csv valido con ordenes sin dirección y con coordenadas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1226
+#line 1215
  testRunner.And("Doy click en importar ordenes de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1227
+#line 1216
  testRunner.Then("Se importan correctamente las ordenes de trabajo y se muestran ubicaciones en el " +
                     "mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1228
+#line 1217
  testRunner.And("se registran ordenes importadas en la tabla AFLS_WORKORDERS con longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1229
+#line 1218
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3554,32 +3536,32 @@ this.ScenarioInitialize(scenarioInfo);
                     "dirección y sin coordenadas", null, new string[] {
                         "Maps",
                         "Import"});
-#line 1231
+#line 1220
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1232
+#line 1221
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1233
+#line 1222
  testRunner.And("Existe una orden de trabajo abierta o en proceso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1234
+#line 1223
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1235
+#line 1224
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1236
+#line 1225
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1237
+#line 1226
  testRunner.And("Doy click en importar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1238
+#line 1227
  testRunner.And("Adjunto archivo csv valido con ordenes con dirección y sin coordenadas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1239
+#line 1228
  testRunner.And("Doy click en importar ordenes de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1240
+#line 1229
  testRunner.Then("Se importan correctamente las ordenes de trabajo y se muestran ubicaciones en el " +
                     "mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1241
+#line 1230
  testRunner.And("se registran ordenes importadas en la tabla AFLS_WORKORDERS con longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1242
+#line 1231
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3596,35 +3578,35 @@ this.ScenarioInitialize(scenarioInfo);
                     " de ordenes", null, new string[] {
                         "Maps",
                         "Import"});
-#line 1244
+#line 1233
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1245
+#line 1234
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1246
+#line 1235
  testRunner.And("Existe una orden de trabajo abierta o en proceso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1247
+#line 1236
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1248
+#line 1237
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1249
+#line 1238
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1250
+#line 1239
  testRunner.And("Doy click en importar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1251
+#line 1240
  testRunner.And("Adjunto archivo csv valido con ordenes con dirección o coordenadas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1252
+#line 1241
  testRunner.And("Doy click en importar ordenes de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1253
+#line 1242
  testRunner.Then("Se importan correctamente las ordenes de trabajo y se muestran ubicaciones en el " +
                     "mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1254
+#line 1243
  testRunner.And("se muestra control de mapa con información de ordenes importadas y no importadas " +
                     "y puntos de ubicación de ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1255
+#line 1244
  testRunner.And("se registran ordenes importadas en la tabla AFLS_WORKORDERS con longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1256
+#line 1245
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3641,36 +3623,36 @@ this.ScenarioInitialize(scenarioInfo);
                     " de clientes", null, new string[] {
                         "Maps",
                         "Import"});
-#line 1258
+#line 1247
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1259
+#line 1248
  testRunner.Given("Tengo un usuario con rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1260
+#line 1249
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1261
+#line 1250
  testRunner.And("Realizo Login con usuario rol administrador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1262
+#line 1251
  testRunner.And("Accedo a ítem Configuración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1263
+#line 1252
  testRunner.And("Accedo al menú Administración", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1264
+#line 1253
  testRunner.And("Selecciono la opción Clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1265
+#line 1254
  testRunner.And("Doy click en importar clientes desde archivo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1266
+#line 1255
  testRunner.And("Adjunto archivo csv valido con clientes con dirección o coordenadas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1267
+#line 1256
  testRunner.And("Doy click en Importar clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1268
+#line 1257
  testRunner.Then("Se importan correctamente los clientes y se muestran ubicaciones en el mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1269
+#line 1258
  testRunner.And("se muestra control de mapa con información de clientes importadas y no importadas" +
                     " y puntos de ubicación de clientes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1270
+#line 1259
  testRunner.And("se registran clientes importados en la tabla AFLS_USER_CLIENTS con longitud, lati" +
                     "tud y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1271
+#line 1260
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3689,18 +3671,18 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Motor",
                         "Orders"});
-#line 1273
+#line 1262
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1274
+#line 1263
  testRunner.Given("Tengo ordenes de trabajo sin asignar especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1275
+#line 1264
  testRunner.When("Accedo a base de datos de aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1276
+#line 1265
  testRunner.And("Se espera ejecución de motor de asignación y finalización de la ejecución", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1277
+#line 1266
  testRunner.And("Se revisan ordenes de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1278
+#line 1267
  testRunner.Then("Se reflejan las ordenes de trabajo con asignación correcta de especialista y fech" +
                     "as tentativas de inicio, finalización y transporte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -3720,39 +3702,39 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Motor",
                         "Orders"});
-#line 1280
+#line 1269
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1281
+#line 1270
  testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1282
+#line 1271
  testRunner.And("Tengo ordenes de trabajo sin asignar especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1283
+#line 1272
  testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1284
+#line 1273
  testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1285
+#line 1274
  testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1286
+#line 1275
  testRunner.And("Diligencio y selecciono la orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1287
+#line 1276
  testRunner.And("Doy click en Abrir orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1288
+#line 1277
  testRunner.And("Doy click en el Tab Asignación de especialista en orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1289
+#line 1278
  testRunner.And("Doy click en Filtrar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1290
+#line 1279
  testRunner.And("Se espera ejecución de motor de asignación y finalización de la ejecución", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1291
+#line 1280
  testRunner.And("Selecciono un especialista del listado resultante", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1292
+#line 1281
  testRunner.And("Doy click en Guardar orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1293
+#line 1282
  testRunner.Then("se muestra mensaje indicando que se guardo orden de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1294
+#line 1283
  testRunner.Then("Se reflejan las ordenes de trabajo con asignación correcta de especialista y fech" +
                     "as tentativas de inicio, finalización y transporte", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1295
+#line 1284
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3771,24 +3753,24 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "AssitMe",
                         "Orders"});
-#line 1297
+#line 1286
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1298
+#line 1287
  testRunner.Given("Tengo usuario cliente con canal AssistMe activo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1299
+#line 1288
  testRunner.When("Accedo a la aplicación AssistMe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1300
+#line 1289
  testRunner.And("Realizo Login con usuario cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1301
+#line 1290
  testRunner.And("Diligencio dirección dando click en cursor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1302
+#line 1291
  testRunner.And("Selecciono servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1303
+#line 1292
  testRunner.And("diligencio descripción para servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1304
+#line 1293
  testRunner.And("Doy click en crear solicitud", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1305
+#line 1294
  testRunner.Then("se muestra mensaje pantalla con datos de solicitud creada exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -3807,25 +3789,25 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "AssitMe",
                         "Orders"});
-#line 1307
+#line 1296
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1308
+#line 1297
  testRunner.Given("Tengo usuario cliente con canal AssistMe activo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1309
+#line 1298
  testRunner.And("Tengo solicitudes creadas para el cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1310
+#line 1299
  testRunner.When("Accedo a la aplicación AssistMe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1311
+#line 1300
  testRunner.And("Realizo Login con usuario cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1312
+#line 1301
  testRunner.And("Selecciono solicitud existente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1313
+#line 1302
  testRunner.And("Doy click en ubicación de especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1314
+#line 1303
  testRunner.Then("se muestra control de mapa con ubicación de solicitud y ubicación actual de espec" +
                     "ialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1315
+#line 1304
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3844,23 +3826,23 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Mobile",
                         "Orders"});
-#line 1317
+#line 1306
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1318
+#line 1307
  testRunner.Given("Tengo usuario con rol especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1319
+#line 1308
  testRunner.And("Tengo ordenes asignadas a especialista con solo dirección de cita", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1320
+#line 1309
  testRunner.When("Accedo a la aplicación móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1321
+#line 1310
  testRunner.And("Realizo Login con usuario rol especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1322
+#line 1311
  testRunner.And("Selecciono mapa de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1323
+#line 1312
  testRunner.Then("se dirige mapa a aplicación externa y se muestra ruta hacia la dirección de la or" +
                     "den", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1324
+#line 1313
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3879,22 +3861,22 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Mobile",
                         "Orders"});
-#line 1326
+#line 1315
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1327
+#line 1316
  testRunner.Given("Tengo usuario con rol especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1328
+#line 1317
  testRunner.And("Tengo ordenes asignadas a especialista con dirección de cita y destino", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1329
+#line 1318
  testRunner.When("Accedo a la aplicación móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1330
+#line 1319
  testRunner.And("Realizo Login con usuario rol especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1331
+#line 1320
  testRunner.And("Selecciono mapa de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1332
+#line 1321
  testRunner.Then("se dirige mapa a aplicación externa y se muestra ruta de orden de cita y destino", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1333
+#line 1322
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3913,31 +3895,31 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Mobile",
                         "Clients"});
-#line 1335
+#line 1324
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1336
+#line 1325
  testRunner.Given("Tengo usuario con rol especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1337
+#line 1326
  testRunner.And("El cliente no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1338
+#line 1327
  testRunner.When("Accedo a la aplicación móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1339
+#line 1328
  testRunner.And("Realizo Login con usuario rol especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1340
+#line 1329
  testRunner.And("Pulso crear cliente ne móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1341
+#line 1330
  testRunner.And("Diligencio datos básicos de cliente en móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1342
+#line 1331
  testRunner.And("Diligencio y valido dirección de cliente en móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1343
+#line 1332
  testRunner.And("Pulso Crear cliente en móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1344
+#line 1333
  testRunner.Then("Se muestra mensaje indicado que se creó el cliente exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1345
+#line 1334
  testRunner.And("Se registra el cliente en la tabla AFLS_USER_CLIENTS con longitud, latitud y dire" +
                     "cción", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1346
+#line 1335
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -3956,29 +3938,29 @@ this.ScenarioInitialize(scenarioInfo);
                         "Maps",
                         "Mobile",
                         "Orders"});
-#line 1348
+#line 1337
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 1349
+#line 1338
  testRunner.Given("Tengo usuario con rol especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1350
+#line 1339
  testRunner.When("Accedo a la aplicación móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1351
+#line 1340
  testRunner.And("Realizo Login con usuario rol especialista", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1352
+#line 1341
  testRunner.And("Pulso crear orden en móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1353
+#line 1342
  testRunner.And("Diligencio datos básicos de orden en móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1354
+#line 1343
  testRunner.And("Diligencio y valido dirección de orden en móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1355
+#line 1344
  testRunner.And("Pulso Crear orden en móvil", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1356
+#line 1345
  testRunner.Then("Se muestra mensaje indicado que se creó la orden exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1357
+#line 1346
  testRunner.And("Se registra la orden en la tabla AFLS_WORKORDERS con longitud, latitud y direcció" +
                     "n", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 1358
+#line 1347
  testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

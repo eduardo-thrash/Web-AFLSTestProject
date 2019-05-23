@@ -32,9 +32,24 @@ namespace CommonTest.CommonTest
         ///</summary>
         public static void AccessPage(string Url)
         {
+            int secondFindText;
+            string ErrorFindText = null;
+
             CommonHooks.driver.Manage().Window.Maximize();
             Thread.Sleep(1000);
             CommonHooks.driver.Navigate().GoToUrl(Url);
+           
+            for (secondFindText = 0; ; secondFindText++)
+            {
+                if (secondFindText >= 20) Assert.Fail(ErrorFindText);
+                try
+                {
+                    Assert.IsTrue(((IJavaScriptExecutor)CommonHooks.driver).ExecuteScript("return document.readyState").Equals("complete"));
+                    break;
+                }
+                catch
+                { }
+            }
         }
 
         ///<summary> Click
@@ -1135,8 +1150,8 @@ namespace CommonTest.CommonTest
                 {
                     IWebElement ElementWait = WebElement(Element, Locator);
 
-                    ValidateDisplayed(Element);
-                    ValidateEnabled(Element);
+                    ValidateDisplayed(Element, Locator);
+                    ValidateEnabled(Element, Locator);
                     ValidateSize(Element, Locator);
 
                     ElementWait.Click();
@@ -1196,8 +1211,8 @@ namespace CommonTest.CommonTest
                 {
                     IWebElement ElementWait = WebElement(Element, Locator);
 
-                    ValidateDisplayed(Element);
-                    ValidateEnabled(Element);
+                    ValidateDisplayed(Element, Locator);
+                    ValidateEnabled(Element, Locator);
                     ValidateSize(Element, Locator);
 
                     ElementWait.Click();
@@ -1228,8 +1243,8 @@ namespace CommonTest.CommonTest
                 {
                     IWebElement ElementWait = WebElement(Element, Locator);
 
-                    ValidateDisplayed(Element);
-                    ValidateEnabled(Element);
+                    ValidateDisplayed(Element, Locator);
+                    ValidateEnabled(Element, Locator);
                     ValidateSize(Element, Locator);
 
                     ElementWait.Click();
@@ -1261,8 +1276,8 @@ namespace CommonTest.CommonTest
                 {
                     IWebElement ElementWait = WebElement(Element, Locator);
 
-                    ValidateDisplayed(Element);
-                    ValidateEnabled(Element);
+                    ValidateDisplayed(Element, Locator);
+                    ValidateEnabled(Element, Locator);
                     ValidateSize(Element, Locator);
 
                     ElementWait.Click();
@@ -1294,8 +1309,8 @@ namespace CommonTest.CommonTest
                 {
                     IWebElement ElementWait = WebElement(Element, Locator);
 
-                    ValidateDisplayed(Element);
-                    ValidateEnabled(Element);
+                    ValidateDisplayed(Element, Locator);
+                    ValidateEnabled(Element, Locator);
                     ValidateSize(Element, Locator);
 
                     ElementWait.Click();
@@ -1328,8 +1343,8 @@ namespace CommonTest.CommonTest
                 {
                     IWebElement ElementWait = WebElement(Element, Locator);
 
-                    ValidateDisplayed(Element);
-                    ValidateEnabled(Element);
+                    ValidateDisplayed(Element, Locator);
+                    ValidateEnabled(Element, Locator);
                     ValidateSize(Element, Locator);
 
                     ElementWait.Click();
@@ -1360,8 +1375,8 @@ namespace CommonTest.CommonTest
                 {
                     IWebElement ElementWait = WebElement(Field, Locator);
 
-                    ValidateDisplayed(Field);
-                    ValidateEnabled(Field);
+                    ValidateDisplayed(Field, Locator);
+                    ValidateEnabled(Field, Locator);
                     ValidateSize(Field, Locator);
 
                     ElementWait.Click();
@@ -1426,8 +1441,8 @@ namespace CommonTest.CommonTest
                     Thread.Sleep(2000);
                     IWebElement ElementWait = CommonHooks.driver.FindElement(By.XPath("//" + tag + "[contains(text(),'" + Option + "')]"));
 
-                    ValidateDisplayed("//" + tag + "[contains(text(),'" + Option + "')]");
-                    ValidateEnabled("//" + tag + "[contains(text(),'" + Option + "')]");
+                    ValidateDisplayed("//" + tag + "[contains(text(),'" + Option + "')]", Locator);
+                    ValidateEnabled("//" + tag + "[contains(text(),'" + Option + "')]", Locator);
                     ValidateSize("//" + tag + "[contains(text(),'" + Option + "')]", Locator);
 
                     ElementWait.Click();

@@ -126,6 +126,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProviderAlerts.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\AssistMe\AssistMeRegister.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssistMeRegister.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Configuration\Monitor\GroupsMonitorConfiguration.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -415,6 +420,7 @@
     <Compile Include="StepsTest\AFLS\AFLSPagesSteps.cs" />
     <Compile Include="StepsTest\AFLS\CommonSteps.cs" />
     <Compile Include="StepsTest\Alerts\GeneralAlertsSteps.cs" />
+    <Compile Include="StepsTest\AssistMe\AssistMeRegisterSteps.cs" />
     <Compile Include="StepsTest\Configuration\Administration\ClientsSteps.cs" />
     <Compile Include="StepsTest\Configuration\Administration\CompaniesSteps.cs" />
     <Compile Include="StepsTest\Configuration\Administration\MeansTransportSteps.cs" />
@@ -458,6 +464,7 @@
     <Compile Include="StepsTest\Orders\WorkOrdersBasicSteps.cs" />
     <Compile Include="UIMap\AFLS\ConfigurationMenuPage.cs" />
     <Compile Include="UIMap\AFLS\MessagesPage.cs" />
+    <Compile Include="UIMap\AssistMe\AssistMePage.cs" />
     <Compile Include="UIMap\Configuration\AccuracyPage.cs" />
     <Compile Include="UIMap\Configuration\AFClientsPage.cs" />
     <Compile Include="UIMap\Configuration\AFCompaniesPage.cs" />
@@ -518,6 +525,10 @@
     <None Include="Features\Alerts\ProviderAlerts.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ProviderAlerts.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\AssistMe\AssistMeRegister.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AssistMeRegister.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Configuration\Monitor\GroupsMonitorConfiguration.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

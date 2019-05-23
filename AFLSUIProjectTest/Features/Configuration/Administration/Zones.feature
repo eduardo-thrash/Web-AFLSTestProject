@@ -1,5 +1,6 @@
 ﻿Feature: Zones
 
+@regression
 Scenario: Creación exitosa de Zonas
 	Given Tengo un usuario con rol administrador
     And No existe la zona
@@ -12,7 +13,7 @@ Scenario: Creación exitosa de Zonas
 	And Diligencio nombre de zona
 	And Diligencio descripción de zona
 	And Selecciono prioridad Máxima
-	And Doy click en switch de estado de zona
+	#And Doy click en switch de estado de zona
 	And Selecciono el tab Zona
 	And Doy click en crear zona
 	And Dibujo polígono de zona
@@ -25,10 +26,12 @@ Scenario: Creación exitosa de Zonas
 	And Se registra la zona en la tabla AFLS_ZONES
 	And Se registra el polígono de la zona en la tabla AFLS_ZONE_POLYGON
 	And Se registra la relación de proveedor con zona en la tabla AFLS_PROVIDER_ZONE
+	And Cierro Sesión en la aplicación
 
+@regression
 Scenario: Búsqueda exitosa de zona existente
 	Given Tengo un usuario con rol administrador
-    And No existe la zona
+    And Existe la zona
 	When Accedo a la aplicación
 	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración

@@ -31,7 +31,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
 
             if (FindRow == 0)
             {
-                AFLSCommonFunctions.DBEstablismentInsert("INSERT INTO dbo.AFLS_ESTABLISHMENT(esta_id"
+                AFLSCommonFunctions.DBInsert("INSERT INTO dbo.AFLS_ESTABLISHMENT(esta_id"
                                                         + ", esta_code"
                                                         + ", esta_name"
                                                         + ", esta_address"
