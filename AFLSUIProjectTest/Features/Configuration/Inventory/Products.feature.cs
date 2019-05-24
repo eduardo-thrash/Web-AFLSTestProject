@@ -71,9 +71,11 @@ namespace AFLSUIProjectTest.Features.Configuration.Inventory
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("1 Creación exitosa de producto tipo cantidad")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
         public virtual void _1CreacionExitosaDeProductoTipoCantidad()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de producto tipo cantidad", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de producto tipo cantidad", null, new string[] {
+                        "Automation"});
 #line 4
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -121,9 +123,11 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("1 Creación exitosa de producto tipo único")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
         public virtual void _1CreacionExitosaDeProductoTipoUnico()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de producto tipo único", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Creación exitosa de producto tipo único", null, new string[] {
+                        "Automation"});
 #line 26
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -171,9 +175,11 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("2 Búsqueda exitosa de un producto existente")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
         public virtual void _2BusquedaExitosaDeUnProductoExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Búsqueda exitosa de un producto existente", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Búsqueda exitosa de un producto existente", null, new string[] {
+                        "Automation"});
 #line 48
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -201,9 +207,11 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("3 Modificación exitosa de un producto")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
         public virtual void _3ModificacionExitosaDeUnProducto()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Modificación exitosa de un producto", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Modificación exitosa de un producto", null, new string[] {
+                        "Automation"});
 #line 59
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -237,9 +245,11 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("4 Borrado exitoso de producto existente")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
         public virtual void _4BorradoExitosoDeProductoExistente()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4 Borrado exitoso de producto existente", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4 Borrado exitoso de producto existente", null, new string[] {
+                        "Automation"});
 #line 73
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

@@ -1,6 +1,6 @@
 ﻿Feature: Products
 	
-
+@Automation
 Scenario: 1 Creación exitosa de producto tipo cantidad
 	Given Tengo un usuario con rol administrador
 	And El producto tipo cantidad con SKU no existe
@@ -22,7 +22,7 @@ Scenario: 1 Creación exitosa de producto tipo cantidad
 	And Doy click en Guardar producto
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el producto de tipo cantidad en la tabla AFLS_STOCK_PRODUCTS
-
+@Automation
 Scenario: 1 Creación exitosa de producto tipo único
 	Given Tengo un usuario con rol administrador
 	And El producto tipo único con SKU no existe
@@ -44,7 +44,7 @@ Scenario: 1 Creación exitosa de producto tipo único
 	And Doy click en Guardar producto
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el producto de tipo único en la tabla AFLS_STOCK_PRODUCTS
-
+@Automation
 Scenario: 2 Búsqueda exitosa de un producto existente
 	Given Tengo un usuario con rol administrador
 	And El producto existe
@@ -55,7 +55,7 @@ Scenario: 2 Búsqueda exitosa de un producto existente
 	And Selecciono la opción Productos
 	And Busco y selecciono el producto
 	Then Se muestra la tarjeta del producto y el detalle del mismo
-
+@Automation
 Scenario: 3 Modificación exitosa de un producto
 	Given Tengo un usuario con rol administrador
 	And El producto existe
@@ -69,7 +69,7 @@ Scenario: 3 Modificación exitosa de un producto
 	And Doy click en Guardar producto
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el producto modificado en la tabla AFLS_STOCK_PRODUCTS
-
+@Automation
 Scenario: 4 Borrado exitoso de producto existente
 	Given Tengo un usuario con rol administrador
 	And El producto existe

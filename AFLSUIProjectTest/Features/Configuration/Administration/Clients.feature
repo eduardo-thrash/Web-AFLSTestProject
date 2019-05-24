@@ -1,6 +1,6 @@
 ﻿Feature: Clients
 
-@regression
+@Automation
 Scenario: 1 Creación completa exitosa de cliente
 	Given Tengo un usuario con rol administrador
 	And El cliente no existe
@@ -34,8 +34,7 @@ Scenario: 1 Creación completa exitosa de cliente
 	And se registran campos adicionales de cliente diligenciados en la tabla AFW_ADDITIONAL_FIELD_VALUE
 	And se muestra cliente con canal de AssistMe habilitado
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 2 Búsqueda exitosa de cliente existente
 	Given Tengo un usuario con rol administrador
 	And El cliente existe
@@ -47,8 +46,7 @@ Scenario: 2 Búsqueda exitosa de cliente existente
 	And Busco y selecciono el cliente
 	Then Se muestra la tarjeta del cliente y el detalle del mismo
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 3 Modificación exitosa de cliente
 	Given Tengo un usuario con rol administrador
 	And El cliente existe
@@ -67,8 +65,7 @@ Scenario: 3 Modificación exitosa de cliente
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente	
 	And Se registra el usuario cliente modificado en código único y nombre en la tabla AFW_USERS
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 3 Envío exitoso de correo de invitación AssistMe a cliente
 	Given Tengo un usuario con rol administrador
 	And El canal de AssistMe esta habilitado
@@ -84,8 +81,7 @@ Scenario: 3 Envío exitoso de correo de invitación AssistMe a cliente
 	And Acepto el envío de correo
 	Then Se muestra un mensaje indicando que se envío correo a email de cliente
 	And Se registra el mensaje de correo en la tabla AFW_MAIL sin enviar a cliente aún
-
-@regression
+@Automation
 Scenario: 3 Modificación exitosa de cliente agregando compañía
 	Given Tengo un usuario con rol administrador
 	And Existe al menos una compañía
@@ -102,8 +98,7 @@ Scenario: 3 Modificación exitosa de cliente agregando compañía
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente	
 	And Se registra el cliente modificado con compañía asociada en la tabla AFLS_USER_CLIENTS
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 4 Borrado exitoso de cliente existente
 	Given Tengo un usuario con rol administrador
 	And El cliente existe

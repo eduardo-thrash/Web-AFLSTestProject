@@ -55,12 +55,34 @@ namespace AFLSUIProjectTest.CommonAFLS
 
         public void ValidationSuccessAFCreate(string Element)
         {
-            IList<IWebElement> Messsages = CommonHooks.driver.FindElements(By.XPath(Element));
-
-            foreach (IWebElement Elements in Messsages)
+            int countResponse = 0;
+            bool Validate = false;
+            while (!Validate)
             {
-                string TextMessage = Elements.Text;
-                Assert.IsTrue(TextMessage.Contains(MessagesCopies.SuccessResponseAF));
+                try
+                {
+                    string Message = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseSuccessAFClient)).Text;
+                    Assert.IsTrue(Message.Contains(MessagesCopies.SuccessResponseAF));
+                    Validate = true;
+                }
+                catch
+                {
+                    try
+                    {
+                        string MessageError = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseErrorAFClient)).Text;
+                        Assert.Fail(MessageError);
+                        break;
+                    }
+                    catch
+                    {
+                        countResponse++;
+                        if (countResponse == 10)
+                        {
+                            Assert.Fail("Timeout en respuesta de campos adicionales.");
+                        }
+                        Thread.Sleep(1000);
+                    }
+                }
             }
         }
 

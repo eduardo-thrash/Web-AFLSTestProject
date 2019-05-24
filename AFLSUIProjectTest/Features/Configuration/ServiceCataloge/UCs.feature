@@ -1,6 +1,6 @@
 ﻿Feature: UCs
 
-@regression
+@Automation
 Scenario: 1 Creación exitosa de UC
 	Given Tengo un usuario con rol administrador
 	And El UC no existe
@@ -28,8 +28,7 @@ Scenario: 1 Creación exitosa de UC
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el UC en la tabla AFLS_SLA
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 2 Búsqueda exitosa de UC existente
 	Given Tengo un usuario con rol administrador
 	And El UC existe
@@ -40,8 +39,7 @@ Scenario: 2 Búsqueda exitosa de UC existente
 	And Busco y selecciono el UC
 	Then Se muestra la tarjeta del UC y el detalle del mismo
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 3 Modificación exitosa de UC
 	Given Tengo un usuario con rol administrador
 	And El UC existe
@@ -55,8 +53,7 @@ Scenario: 3 Modificación exitosa de UC
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el UC modificado en la tabla AFLS_SLA
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 4 Borrado exitoso de UC existente
 	Given Tengo un usuario con rol administrador
 	And El UC existe sin relaciones

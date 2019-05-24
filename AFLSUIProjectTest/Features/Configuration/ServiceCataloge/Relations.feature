@@ -1,6 +1,6 @@
 ﻿Feature: Relations
 
-@regression
+@Automation
 Scenario: 1 Creación exitosa de relación
 	Given Tengo un usuario con rol administrador
 	And La relación no existe
@@ -17,8 +17,7 @@ Scenario: 1 Creación exitosa de relación
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la relación en la tabla AFLS_RELATIONSHIP de tipo vinculo
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 1 Creación fallida de relación con nombre repetido de tipo vinculo
 	Given Tengo un usuario con rol administrador
 	And La relación existe
@@ -34,8 +33,7 @@ Scenario: 1 Creación fallida de relación con nombre repetido de tipo vinculo
 	And Doy click en Guardar relación
 	Then Se muestra mensaje indicando que el elemento ya existe
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 1 Cancelación exitosa de creación de relación
 	Given Tengo un usuario con rol administrador
 	And La relación no existe
@@ -52,8 +50,7 @@ Scenario: 1 Cancelación exitosa de creación de relación
 	And Doy click en Si de mensaje de confirmación
 	Then No se registra la relación en la tabla AFLS_RELATIONSHIP de tipo vinculo
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 2 Consulta exitosa de relación por nombre
 	Given Tengo un usuario con rol administrador
 	And La relación existe
@@ -63,8 +60,7 @@ Scenario: 2 Consulta exitosa de relación por nombre
 	And selecciono la opción Relaciones
 	And Busco y selecciono la relación
 	Then Se muestra la tarjeta de la relación y el detalle del mismo
-
-@regression
+@Automation
 Scenario: 3 Modificación exitosa de relaciones editado nombre
 	Given Tengo un usuario con rol administrador
 	And La relación existe
@@ -80,8 +76,7 @@ Scenario: 3 Modificación exitosa de relaciones editado nombre
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Al buscar la relación con nuevo nombre se muestra exitosamente
 	And Se modifica la información de la relación en la tabla AFLS_RELATIONSHIP
-
-@regression
+@Automation
 Scenario: 3 Modificación fallida de relaciones dejando nombre o conectores vacíos
 	Given Tengo un usuario con rol administrador
 	And La relación existe
@@ -97,8 +92,7 @@ Scenario: 3 Modificación fallida de relaciones dejando nombre o conectores vac�
 	Then Se muestra mensaje indicando que existen campos inválidos
 	And Al buscar la relación con anterior nombre se muestra exitosamente
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 3 Inactivación exitosa de relaciones
     Given Tengo un usuario con rol administrador
 	And La relación existe activa
@@ -112,9 +106,7 @@ Scenario: 3 Inactivación exitosa de relaciones
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la relación en la tabla AFLS_RELATIONSHIP como inactiva
 	And Cierro Sesión en la aplicación
-
-
-@regression
+@Automation
 Scenario: 4 Eliminación exitosa de relaciones
 	Given Tengo un usuario con rol administrador
 	And La relación existe
@@ -129,4 +121,3 @@ Scenario: 4 Eliminación exitosa de relaciones
 	And Se borra la relación de la tabla AFLS_RELATIONSHIP
 	And Al buscar la relación en la aplicación, no se lista en la búsqueda
 	And Cierro Sesión en la aplicación
-

@@ -1,6 +1,6 @@
 ﻿Feature: ANSs
 
-@regression
+@Automation
 Scenario: 1 Creación exitosa de ANS
 	Given Tengo un usuario con rol administrador
 	And El ANS no existe
@@ -28,8 +28,7 @@ Scenario: 1 Creación exitosa de ANS
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el ANS en la tabla AFLS_SLA
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 2 Búsqueda exitosa de ANS existente
 	Given Tengo un usuario con rol administrador
 	And El ANS existe
@@ -40,8 +39,7 @@ Scenario: 2 Búsqueda exitosa de ANS existente
 	And Busco y selecciono el ANS
 	Then Se muestra la tarjeta del ANS y el detalle del mismo
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 3 Modificación exitosa de ANS
 	Given Tengo un usuario con rol administrador
 	And El ANS existe
@@ -55,8 +53,7 @@ Scenario: 3 Modificación exitosa de ANS
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el ANS modificado en la tabla AFLS_SLA
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 4 Borrado exitoso de ANS existente
 	Given Tengo un usuario con rol administrador
 	And El ANS existe sin relaciones

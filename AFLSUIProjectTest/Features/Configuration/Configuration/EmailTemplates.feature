@@ -1,6 +1,6 @@
 ﻿Feature: Email Templates
 	
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Registro
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -14,7 +14,7 @@ Scenario: Configuración exitosa de plantilla de correo Registro
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Asignación
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -28,7 +28,7 @@ Scenario: Configuración exitosa de plantilla de correo Asignación
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Retraso
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -42,7 +42,7 @@ Scenario: Configuración exitosa de plantilla de correo Retraso
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Cambio de especialista
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -56,7 +56,7 @@ Scenario: Configuración exitosa de plantilla de correo Cambio de especialista
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Cancelación
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -70,7 +70,7 @@ Scenario: Configuración exitosa de plantilla de correo Cancelación
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Ejecutada
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -84,7 +84,7 @@ Scenario: Configuración exitosa de plantilla de correo Ejecutada
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Vinculación
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -98,7 +98,7 @@ Scenario: Configuración exitosa de plantilla de correo Vinculación
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Proveedores
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -112,7 +112,7 @@ Scenario: Configuración exitosa de plantilla de correo Proveedores
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Encuesta de satisfacción al Cliente
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -126,7 +126,7 @@ Scenario: Configuración exitosa de plantilla de correo Encuesta de satisfacció
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Alerta de Nivel de satisfacción
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -140,7 +140,7 @@ Scenario: Configuración exitosa de plantilla de correo Alerta de Nivel de satis
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Notificación de medición de encuesta
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -154,7 +154,7 @@ Scenario: Configuración exitosa de plantilla de correo Notificación de medici�
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de correo Notificación de resumen de encuesta
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -168,7 +168,7 @@ Scenario: Configuración exitosa de plantilla de correo Notificación de resumen
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de ANS de correo Revisión
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -182,7 +182,7 @@ Scenario: Configuración exitosa de plantilla de ANS de correo Revisión
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de ANS de correo Finalización
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -196,7 +196,7 @@ Scenario: Configuración exitosa de plantilla de ANS de correo Finalización
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de UC de correo Revisión
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -210,7 +210,7 @@ Scenario: Configuración exitosa de plantilla de UC de correo Revisión
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de UC de correo Finalización
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -224,7 +224,7 @@ Scenario: Configuración exitosa de plantilla de UC de correo Finalización
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de OLA de correo Revisión
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -238,7 +238,7 @@ Scenario: Configuración exitosa de plantilla de OLA de correo Revisión
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla de OLA de correo Finalización
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -252,7 +252,7 @@ Scenario: Configuración exitosa de plantilla de OLA de correo Finalización
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla AssistMe de correo Notificación de cuenta de usuarios Assistme
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -266,7 +266,7 @@ Scenario: Configuración exitosa de plantilla AssistMe de correo Notificación d
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla AssistMe de correo Notificación orden registrada desde Assistme
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -280,7 +280,7 @@ Scenario: Configuración exitosa de plantilla AssistMe de correo Notificación o
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
 
-@migrationAFLS
+
 Scenario: Configuración exitosa de plantilla AssistMe de correo Verificación datos de usuario
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación

@@ -5,11 +5,8 @@ using AFLSUIProjectTest.UIMap.AFLS;
 using AFLSUIProjectTest.UIMap.Configurationonfiguration.MenuConfiguration;
 using AFLSUIProjectTest.UIMap.Messages;
 using CommonTest.CommonTest;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
-using System;
-using System.Configuration;
-using System.Data.SqlClient;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -29,8 +26,13 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
         private MessagesCopies MessagesCopies = new MessagesCopies();
 
+        private string ValueFieldCompanyName;
+        private string ValueFieldCompanyNIT;
+        private string ValueFieldCompanyAddress;
+
         [When(@"Selecciono opción de Información básica")]
         public void WhenSeleccionoOpcionDeInformacionBasica()
+
         {
             CommonElementsAction.Click("XPath", ConfigurationMenuPage.EstablishmentOption);
         }
@@ -38,21 +40,53 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [When(@"Diligencio nombre de compañía en información básica")]
         public void WhenDiligencioNombreDeCompaniaEnInformacionBasica()
         {
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputName, "Aranda Software");
+            ValueFieldCompanyName = CommonElementsAction.VallueExtract("CssSelector", EstablishmentPage.EstablishmentInputName);
+            UtilAction.ClearBefore_SendKeys(EstablishmentPage.EstablishmentInputName, "Aranda Software" + Functions.RandomText(5), "CssSelector");
         }
 
         [When(@"Diligencio NIT de compañía en información básica")]
         public void WhenDiligencioNITDeCompaniaEnInformacionBasica()
         {
+            ValueFieldCompanyNIT = CommonElementsAction.VallueExtract("CssSelector", EstablishmentPage.EstablishmentInputId);
             CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputId, "9008756744-6");
         }
 
         [When(@"Diligencio dirección de compañía en información básica dando click en cursor")]
         public void WhenDiligencioDireccionDeCompaniaEnInformacionBasicaDandoClickEnCursor()
         {
+            ValueFieldCompanyAddress = CommonElementsAction.VallueExtract("CssSelector", EstablishmentPage.EstablishmentInputId);
             CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputAddress, "calle 45 # 45-23 bogota");
             Thread.Sleep(2000);
             CommonElementsAction.Click("XPath", EstablishmentPage.EstablishmentAddressValidate);
+        }
+
+        [When(@"Modifico nombre de compañía en información básica")]
+        public void WhenModificoNombreDeCompaniaEnInformacionBasica()
+        {
+            UtilAction.ClearBefore_SendKeys(EstablishmentPage.EstablishmentInputName, "Aranda Software" + Functions.RandomText(5), "CssSelector");
+            ValueFieldCompanyName = CommonElementsAction.VallueExtract("CssSelector", EstablishmentPage.EstablishmentInputName);
+        }
+
+        [When(@"Modifico NIT de compañía en información básica")]
+        public void WhenModificoNITDeCompaniaEnInformacionBasica()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputId, "900875555555-0");
+            ValueFieldCompanyNIT = CommonElementsAction.VallueExtract("CssSelector", EstablishmentPage.EstablishmentInputId);
+        }
+
+        [When(@"Modifico dirección de compañía en información básica dando click en cursor")]
+        public void WhenModificoDireccionDeCompaniaEnInformacionBasicaDandoClickEnCursor()
+        {
+            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputAddress, "calle 45 # 45-23 bogota");
+            Thread.Sleep(2000);
+            UtilAction.Click(EstablishmentPage.EstablishmentAddressValidate);
+            ValueFieldCompanyAddress = CommonElementsAction.VallueExtract("CssSelector", EstablishmentPage.EstablishmentInputId);
+        }
+
+        [Then(@"Se registra la configuración básica en la tabla AFLS_ESTABLISHMENT con nombre, NIT y dirección modificado")]
+        public void ThenSeRegistraLaConfiguracionBasicaEnLaTablaAFLS_ESTABLISHMENTConNombreNITYDireccionModificado()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_ESTABLISHMENT where esta_name = '" + ValueFieldCompanyName + "' AND esta_code = '" + ValueFieldCompanyNIT + "' AND esta_address = '" + ValueFieldCompanyAddress + "';", 1);
         }
 
         [When(@"Diligencio dirección de compañía en información básica dando tab")]
@@ -87,93 +121,29 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             CommonElementsAction.Click("CssSelector", EstablishmentPage.EstablishmentSubmit);
         }
 
-        [When(@"Configuración exitosa de Información básica")]
-        public void WhenConfiguracionExitosaDeInformacionBasica()
+        [When(@"Doy click en Cancelar información básica")]
+        public void WhenDoyClickEnCancelarInformacionBasica()
         {
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
-
-            ///     And diligencio el campo de nombre
-            Thread.Sleep(3000);
-
-            ///     And diligencio el campo de identificación
-
-            ///     And diligencio el campo de Ubicación
-            IWebElement element = CommonHooks.driver.FindElement(By.XPath("//div[@id='mapEstablishmentAddress']/div/div/div/div/div"));
-            Thread.Sleep(2000);
-
-            CommonHooks.driver.FindElement(By.CssSelector(".container-app .container-module .admin .content.col.module .establishment .details .tabContent.svGeneral input[name='Address']")).Click();
-            Thread.Sleep(2000);
-
-            new Actions(CommonHooks.driver).MoveByOffset(-200, 100).Click().Build().Perform();
-            Thread.Sleep(3000);
-
-            Console.WriteLine("\n" + "End Navigate from Principal tab.");
-
-            CommonElementsAction.Click("CssSelector", EstablishmentPage.EstablishmentSubmit);
-
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = ConfigurationManager.AppSettings["DatabaseConnection"];
-
-                conn.Open();
-                //Console.WriteLine("Open connection");
-
-                SqlCommand commandUpdate = new SqlCommand("UPDATE AFLS_ESTABLISHMENT SET esta_country = 'CO - Colombia'", conn);
-                using (SqlDataReader reader = commandUpdate.ExecuteReader())
-                { }
-            }
-
-            //LogOut.
-
-            //End LogOut.
+            UtilAction.Click(EstablishmentPage.EstablishmentCancel, "CssSelector");
         }
 
-        [When(@"Cancelación exitosa configuración de Información básica")]
-        public void WhenCancelacionExitosaConfiguracionDeInformacionBasica()
+        [When(@"Modifico nombre de compañía en información básica dejándolo vacío")]
+        public void WhenModificoNombreDeCompaniaEnInformacionBasicaDejandoloVacio()
         {
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputName, "Aranda Software");
-
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputId, "9008756744-6");
-
-            IWebElement element = CommonHooks.driver.FindElement(By.XPath("//div[@id='mapEstablishmentAddress']/div/div/div/div/div"));
-
-            CommonHooks.driver.FindElement(By.CssSelector(".container-app .container-module .admin .content.col.module .establishment .details .tabContent.svGeneral input[name='Address']")).Click();
-            Thread.Sleep(1000);
-
-            new Actions(CommonHooks.driver).MoveByOffset(-200, 100).Click().Build().Perform();
-            Thread.Sleep(1000);
-
-            CommonElementsAction.Click("CssSelector", EstablishmentPage.EstablishmentCancel);
-
-            Thread.Sleep(1000);
-            //CommonElementsAction.Click("CssSelector",ElementsDialogBoxes.SubmitButton);
-
-            //LogOut.
-
-            //End LogOut.
+            UtilAction.Clear(EstablishmentPage.EstablishmentInputName, "Aranda Software" + Functions.RandomText(5), "CssSelector");
         }
 
-        [When(@"Modificación exitosa de Información básica")]
-        public void WhenModificacionExitosaDeInformacionBasica()
+        [Given(@"Tengo información básica configurada")]
+        public void GivenTengoInformacionBasicaConfigurada()
         {
-            ///     And Ingreso al modulo de Configuración > Configuración > Plantillas de correo > General
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_ESTABLISHMENT", 1);
+        }
 
-            ///     And diligencio el campo de nombre
-            Thread.Sleep(3000);
-
-            CommonElementsAction.SendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputName, "Aranda Software");
-
-            ///     And diligencio el campo de identificación
-            CommonElementsAction.ClearAndSendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputId, "900111234-6");
-
-            CommonElementsAction.Clear("CssSelector", EstablishmentPage.EstablishmentInputAddress);
-            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", EstablishmentPage.EstablishmentInputAddress, "calle 45 # 45-23 bogota");
-
-            CommonElementsAction.Click("CssSelector", EstablishmentPage.EstablishmentSubmit);
-
-            //LogOut.
-
-            //End LogOut.
+        [When(@"Doy click en confirmar cancelación de información básica")]
+        public void WhenDoyClickEnConfirmarCancelacionDeInformacionBasica()
+        {
+            UtilAction.Click("//div[@class='ui-dialog-buttonpane ui-widget-content ui-helper-clearfix']//button[@class='my-button-submit ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only']");
+            Thread.Sleep(2000);
         }
 
         [When(@"Modificación fallida de información básica dejando nombre vacio")]
@@ -191,6 +161,18 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             //LogOut.
 
             //End LogOut.
+        }
+
+        [Then(@"se mantiene la información básica sin modificar")]
+        public void ThenSeMantieneLaInformacionBasicaSinModificar()
+        {
+            string NewValueFieldCompanyName = CommonElementsAction.VallueExtract("CssSelector", EstablishmentPage.EstablishmentInputName);
+            string NewValueFieldCompanyNIT = CommonElementsAction.VallueExtract("CssSelector", EstablishmentPage.EstablishmentInputId);
+            string NewValueFieldCompanyAddress = CommonElementsAction.VallueExtract("CssSelector", EstablishmentPage.EstablishmentInputId);
+
+            Assert.AreEqual(ValueFieldCompanyName, NewValueFieldCompanyName);
+            Assert.AreEqual(ValueFieldCompanyNIT, NewValueFieldCompanyNIT);
+            Assert.AreEqual(ValueFieldCompanyAddress, NewValueFieldCompanyAddress);
         }
     }
 }

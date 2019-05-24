@@ -1,6 +1,6 @@
 ﻿Feature: GeneralAlerts
 
-@migrationAFLS
+
 Scenario: Carga exitosa de modulo Alertas generales
 	Given Tengo un usuario con rol monitor
 	And El usuario monitor y administrador tiene proveedores asociados

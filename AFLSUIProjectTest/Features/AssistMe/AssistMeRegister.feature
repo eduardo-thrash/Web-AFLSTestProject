@@ -8,7 +8,7 @@ Scenario: Carga exitosa de link de registro de cliente en AssistMe
 
 Scenario: Pre registro exitoso de cliente en AssistMe
 	Given El cliente para registro en AssitMe no existe
-	Given El servidor de correo esta configurado como activo
+	And El servidor de correo esta configurado como activo
 	And El canal de AssistMe esta habilitado
 	And Tengo usuario cliente con canal AssistMe activo
 	And Tengo usuario cliente con canal AssistMe activo para realizar Login en AssistMe
@@ -35,5 +35,7 @@ Scenario: Pre registro exitoso de cliente básico en AssistMe
 	And completo los campos nombre, usuario, contraseña y confirmar contraseña
 	And pulso el botón registrar
 	Then Se muestra un mensaje indicando que el registro se realizo exitosamente.
+
+
 
 	

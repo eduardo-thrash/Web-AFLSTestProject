@@ -1,5 +1,6 @@
 ﻿Feature: MeansTransport
 
+@Automation
 Scenario: Creación exitosa de Transportes
 	Given Tengo un usuario con rol administrador
 	And El transporte no existe
@@ -18,7 +19,7 @@ Scenario: Creación exitosa de Transportes
 	And Doy click en Guardar transporte
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el transporte en la tabla AFLS_VEHICLE_TYPE
-
+@Automation
 Scenario: Búsqueda exitosa de un transporte existente
 	Given Tengo un usuario con rol administrador
 	And El transporte existe
@@ -28,7 +29,7 @@ Scenario: Búsqueda exitosa de un transporte existente
 	And Selecciono la opción Transportes
 	And Busco y selecciono el transporte
 	Then Se muestra la tarjeta del transporte y el detalle del mismo
-
+@Automation
 Scenario: Modificación exitosa de un transporte
 	Given Tengo un usuario con rol administrador
 	And El transporte existe
@@ -41,7 +42,7 @@ Scenario: Modificación exitosa de un transporte
 	And Doy click en Guardar transporte
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra modificado el transporte en la tabla AFLS_VEHICLE_TYPE
-
+@Automation
 Scenario: Borrado exitoso de transporte existente
 	Given Tengo un usuario con rol administrador
 	And El transporte existe

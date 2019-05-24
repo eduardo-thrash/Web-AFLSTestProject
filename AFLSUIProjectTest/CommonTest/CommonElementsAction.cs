@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace CommonTest.CommonTest
             CommonHooks.driver.Manage().Window.Maximize();
             Thread.Sleep(1000);
             CommonHooks.driver.Navigate().GoToUrl(Url);
-           
+
             for (secondFindText = 0; ; secondFindText++)
             {
                 if (secondFindText >= 20) Assert.Fail(ErrorFindText);
@@ -1458,6 +1459,96 @@ namespace CommonTest.CommonTest
                     }
                     CommonHooks.driver.FindElement(By.XPath("//div[@class='mCSB_dragger_bar']")).Click();
                     CommonHooks.driver.FindElement(By.XPath(Element)).SendKeys(Keys.ArrowDown);
+                }
+            }
+        }
+
+        public static void SelectDropDownList(string List, string Option, string tag, string Locator = "XPath", double TimeDefault = 5, int MaxInteractions = 5)
+        {
+            int CounterComboboxAutocomplete = 0;
+            Thread.Sleep(1000);
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ListWait = WebElement(List, Locator);
+
+                    ValidateDisplayed(List, Locator);
+                    ValidateEnabled(List, Locator);
+                    ValidateSize(List, Locator);
+
+                    ListWait.Click();
+
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    CounterComboboxAutocomplete++;
+                    if (CounterComboboxAutocomplete == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + List);
+                    }
+                }
+            }
+
+            StaleElement = false;
+
+            CounterComboboxAutocomplete = 0;
+            TimeDefault = 3;
+            MaxInteractions = 5;
+
+            Thread.Sleep(3000);
+
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement OptionWait = CommonHooks.driver.FindElement(By.XPath("//" + tag + "[contains(text(),'" + Option + "')]"));
+
+                    Actions OptionAction = new Actions(CommonHooks.driver);
+                    OptionAction.MoveToElement(OptionWait).Click().Build().Perform();
+                    //Thread.Sleep(1000);
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    CounterComboboxAutocomplete++;
+                    if (CounterComboboxAutocomplete == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Option);
+                    }
+                }
+            }
+        }
+
+        public static void SelectByValue(string Select, string Value, string Locator = "XPath", double TimeDefault = 5, int MaxInteractions = 5)
+        {
+            int CounterComboboxAutocomplete = 0;
+            Thread.Sleep(1000);
+            bool StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    IWebElement ListWait = WebElement(Select, Locator);
+
+                    ValidateDisplayed(Select, Locator);
+                    ValidateEnabled(Select, Locator);
+                    ValidateSize(Select, Locator);
+
+                    SelectElement DropDown = new SelectElement(ListWait);
+                    DropDown.SelectByValue(Value);
+
+                    StaleElement = true;
+                }
+                catch (Exception e)
+                {
+                    CounterComboboxAutocomplete++;
+                    if (CounterComboboxAutocomplete == MaxInteractions)
+                    {
+                        Assert.Fail(e.Message + " on element " + Select);
+                    }
                 }
             }
         }

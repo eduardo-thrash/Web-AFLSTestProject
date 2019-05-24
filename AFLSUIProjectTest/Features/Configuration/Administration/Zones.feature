@@ -1,6 +1,6 @@
 ﻿Feature: Zones
 
-@regression
+@Automation
 Scenario: Creación exitosa de Zonas
 	Given Tengo un usuario con rol administrador
     And No existe la zona
@@ -27,8 +27,7 @@ Scenario: Creación exitosa de Zonas
 	And Se registra el polígono de la zona en la tabla AFLS_ZONE_POLYGON
 	And Se registra la relación de proveedor con zona en la tabla AFLS_PROVIDER_ZONE
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: Búsqueda exitosa de zona existente
 	Given Tengo un usuario con rol administrador
     And Existe la zona
@@ -39,7 +38,7 @@ Scenario: Búsqueda exitosa de zona existente
 	And selecciono la opción Zonas
 	And Busco y selecciono la zona
 	Then Se muestra la tarjeta de la zona y el detalle del mismo
-
+@Automation
 Scenario: Modificación exitosa de Zonas
 	Given Tengo un usuario con rol administrador
     And No existe la zona
@@ -53,7 +52,7 @@ Scenario: Modificación exitosa de Zonas
 	And Doy click en Guardar zona
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la zona en la tabla AFLS_ZONES
-
+@Automation
 Scenario: Borrado exitoso de Zonas
 	Given Tengo un usuario con rol administrador
     And No existe la zona

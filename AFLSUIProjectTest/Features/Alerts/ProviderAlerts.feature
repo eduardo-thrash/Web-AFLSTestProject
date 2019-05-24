@@ -1,7 +1,7 @@
 ﻿Feature: ProviderAlerts
 
 
-@migrationAFLS
+
 Scenario: Carga exitosa de modulo Alertas de proveedores con selector de todos los proveedores
 	Given Tengo un usuario con rol monitor y despachador
 	When Accedo a la aplicación

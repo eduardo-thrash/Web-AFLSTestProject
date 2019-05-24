@@ -1,8 +1,7 @@
 ﻿Feature: Positions
 
-
+@Automation
 Scenario: Creación exitosa de Cargos
-
 	Given Tengo un usuario con rol administrador
 	And El cargo no existe
 	When Accedo a la aplicación
@@ -17,8 +16,7 @@ Scenario: Creación exitosa de Cargos
 	And Doy click en Guardar cargo
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el cargo en la tabla AFLS_WORK_POSITIONS
-
-
+@Automation
 Scenario: Búsqueda exitosa de cargo existente
 	Given Tengo un usuario con rol administrador
 	And El cargo existe
@@ -29,7 +27,7 @@ Scenario: Búsqueda exitosa de cargo existente
 	And Selecciono la opción Cargos
 	And Busco y selecciono el cargo	
 	Then Se muestra la tarjeta del cargo y el detalle del mismo
-
+@Automation
 Scenario: Modificación exitosa de cargos
 	Given Tengo un usuario con rol administrador
 	And El cargo existe
@@ -43,7 +41,7 @@ Scenario: Modificación exitosa de cargos
 	And Doy click en Guardar cargo
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el cargo modificado en la tabla AFLS_WORK_POSITIONS
-
+@Automation
 Scenario: Borrado exitoso de cargo existente
 	Given Tengo un usuario con rol administrador
 	And El cargo existe

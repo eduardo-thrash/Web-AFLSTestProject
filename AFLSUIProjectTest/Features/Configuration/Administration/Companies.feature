@@ -1,7 +1,7 @@
 ﻿Feature: Companies
 	Configuración de compañías para asociar a clientes
 
-@regression
+@Automation
 Scenario: 1 Creación exitosa de compañía
 	Given Tengo un usuario con rol administrador
 	And No existe la compañía
@@ -29,8 +29,7 @@ Scenario: 1 Creación exitosa de compañía
 	And Se registra el servicio asociado a compañía en la tabla AFLS_COMPANY_SERVICES
 	And se registran campos adicionales de compañía diligenciados en la tabla AFW_ADDITIONAL_FIELD_VALUE
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 2 Búsqueda exitosa de compañía
 	Given Tengo un usuario con rol administrador
 	And Existe la compañía
@@ -42,8 +41,7 @@ Scenario: 2 Búsqueda exitosa de compañía
 	And Busco y selecciono la compañía
 	Then Se muestra la tarjeta de la compañía y el detalle de la misma
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 3 Modificación exitosa de compañías
 	Given Tengo un usuario con rol administrador
 	And Existe la compañía
@@ -61,8 +59,7 @@ Scenario: 3 Modificación exitosa de compañías
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía modificada en la tabla AFLS_COMPANIES
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 4 Borrado exitoso de compañía existente
 	Given Tengo un usuario con rol administrador
 	And Existe la compañía

@@ -93,7 +93,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.Given("El cliente para registro en AssitMe no existe", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 11
- testRunner.Given("El servidor de correo esta configurado como activo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.And("El servidor de correo esta configurado como activo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
  testRunner.And("El canal de AssistMe esta habilitado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13

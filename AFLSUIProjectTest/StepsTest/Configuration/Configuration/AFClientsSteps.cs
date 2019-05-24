@@ -5,6 +5,7 @@ using AFLSUIProjectTest.UIMap.Messages;
 using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -17,16 +18,62 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
     {
         private readonly AFClientsPage AFClientsPage = new AFClientsPage();
         private readonly PageMessages PageMessages = new PageMessages();
+        private string AFClientName;
+        private string DefaultAFClientName = "UI AFClient Simple";
+        private string EditAFClientName = "UI Edit AFClient Simple";
+        private string EditLabelAFClientName = "Edit UI AFClient Simple";
         private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
+        private string LabelAFClientName;
+        private AFLSUIProjectTest.UIMap.ConfigurationMenuPage Menu = new AFLSUIProjectTest.UIMap.ConfigurationMenuPage();
         private MessagesElements Messages = new MessagesElements();
         private MessagesCopies MessagesCopies = new MessagesCopies();
         private ResponseValidation Validation = new ResponseValidation();
-        private AFLSUIProjectTest.UIMap.ConfigurationMenuPage Menu = new AFLSUIProjectTest.UIMap.ConfigurationMenuPage();
-        private string AFClientName;
-        private string LabelAFClientName;
-        private string EditLabelAFClientName = "Edit UI AFClient Simple";
-        private string DefaultAFClientName = "UI AFClient Simple";
-        private string EditAFClientName = "UI Edit AFClient Simple";
+        private int OrderField;
+        private string Label;
+
+        private int CountOptions;
+
+        [Given(@"Existe el campo adicional de cliente de tipo simple")]
+        public string GivenExisteElCampoAdicionalDeClienteDeTipoSimple()
+
+        {
+            AFClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 ORDER BY NEWID();", 1);
+            return AFClientName;
+        }
+
+        [Given(@"No existe el campo adicional de cliente de tipo fecha")]
+        public void GivenNoExisteElCampoAdicionalDeClienteDeTipoFecha()
+        {
+            AFClientName = DefaultAFClientName + Functions.RandomText(4);
+            LabelAFClientName = AFClientName;
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 4 AND name = '" + AFClientName + "';", 0);
+        }
+
+        [Given(@"No existe el campo adicional de cliente de tipo listado")]
+        public void GivenNoExisteElCampoAdicionalDeClienteDeTipoListado()
+        {
+            AFClientName = DefaultAFClientName + Functions.RandomText(4);
+            LabelAFClientName = AFClientName;
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 5 AND name = '" + AFClientName + "';", 0);
+        }
+
+        [Given(@"No existe el campo adicional de cliente de tipo numérico")]
+        public string GivenNoExisteElCampoAdicionalDeClienteDeTipoNumerico()
+        {
+            AFClientName = DefaultAFClientName + Functions.RandomText(4);
+            LabelAFClientName = AFClientName;
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 2 AND name = '" + AFClientName + "';", 0);
+            return AFClientName;
+        }
+
+        [Given(@"No existe el campo adicional de cliente de tipo párrafo")]
+        public string GivenNoExisteElCampoAdicionalDeClienteDeTipoParrafo()
+        {
+            AFClientName = DefaultAFClientName + Functions.RandomText(4);
+            LabelAFClientName = AFClientName;
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 6 AND name = '" + AFClientName + "';", 0);
+            return AFClientName;
+        }
 
         [Given(@"No existe el campo adicional de cliente de tipo simple")]
         public string GivenNoExisteElCampoAdicionalDeClienteDeTipoSimple()
@@ -37,24 +84,93 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             return AFClientName;
         }
 
-        [When(@"Selecciono la opción Campos adicionales clientes")]
-        public void WhenSeleccionoLaOpcionCamposAdicionalesClientes()
+        [Then(@"Se borra el registro de el campo adicional de cliente en la tabla AFW_ADDiTIONAL_FIELDS")]
+        public void ThenSeBorraElRegistroDeElCampoAdicionalDeClienteEnLaTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonElementsAction.Click("XPath", AFClientsPage.AFClientsModulePath);
-            CommonElementsAction.Click("XPath", Menu.AFClientsOption);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 AND name = '" + AFClientName + "';", 0);
         }
 
-        [Given(@"Existe el campo adicional de cliente de tipo simple")]
-        public string GivenExisteElCampoAdicionalDeClienteDeTipoSimple()
+        [Then(@"Se muestra un mensaje indicando que se creo que campo adicional de cliente correctamente")]
+        public void ThenSeMuestraUnMensajeIndicandoQueSeCreoQueCampoAdicionalDeClienteCorrectamente()
         {
-            AFClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 ORDER BY NEWID();", 1);
-            return AFClientName;
+            Validation.ValidationSuccessAFCreate(Messages.ResponseSuccessAFClient);
         }
 
-        [When(@"Doy click en Nuevo campo adicional de cliente")]
-        public void WhenDoyClickEnNuevoCampoAdicionalDeCliente()
+        [Then(@"Se registra campo adicional de cliente de tipo fecha en tabla AFW_ADDiTIONAL_FIELDS")]
+        public void ThenSeRegistraCampoAdicionalDeClienteDeTipoFechaEnTablaAFW_ADDiTIONAL_FIELDS()
         {
-            CommonElementsAction.Click("CssSelector", AFClientsPage.AFClientsButtonNew);
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 4 AND name = '" + AFClientName + "';", 1);
+        }
+
+        [When(@"Diligencio y confirmo las opciones de listado")]
+        public void WhenDiligencioYConfirmoLasOpcionesDeListado()
+        {
+            Thread.Sleep(3000);
+            IList<IWebElement> ListField = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-client']/div/div[2]/ul/li"));
+
+            Random rdn = new Random();
+            CountOptions = rdn.Next(3, 10);
+
+            for (int i = 1; i <= CountOptions; i++)
+            {
+                try
+                {
+                    CommonHooks.driver.FindElement(By.XPath("//*[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/input"));
+                    //CommonHooks.driver.FindElement(By.XPath("//div[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/input[@class='new-option js-new-option k-valid']"));
+
+                    UtilAction.SendKeys("//*[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/input", "OptionUI" + i.ToString());
+                    Thread.Sleep(1000);
+                    UtilAction.Click("//*[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/button");
+                    Thread.Sleep(1000);
+                }
+                catch (Exception e)
+                {
+                }
+            }
+        }
+
+        [Then(@"Se registra campo adicional de cliente de tipo listado en tabla AFW_ADDiTIONAL_FIELDS")]
+        public void ThenSeRegistraCampoAdicionalDeClienteDeTipoListadoEnTablaAFW_ADDiTIONAL_FIELDS()
+        {
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 5 AND name = '" + AFClientName + "';", 1);
+        }
+
+        [Then(@"Se registran las opciones de campo adicional de cliente de tipo listado en tabla AFW_ADDITIONAL_FIELD_LOOKUP")]
+        public void ThenSeRegistranLasOpcionesDeCampoAdicionalDeClienteDeTipoListadoEnTablaAFW_ADDITIONAL_FIELD_LOOKUP()
+        {
+            int Options = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFW_ADDITIONAL_FIELD_LOOKUP LP JOIN AFW_ADDITIONAL_FIELD AD ON LP.field_id = AD.id WHERE AD.name = '" + AFClientName + "';", 1));
+            Assert.AreEqual(Options, CountOptions);
+        }
+
+        [Then(@"Se registra campo adicional de cliente de tipo numérico en tabla AFW_ADDiTIONAL_FIELDS")]
+        public void ThenSeRegistraCampoAdicionalDeClienteDeTipoNumericoEnTablaAFW_ADDiTIONAL_FIELDS()
+        {
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 2 AND name = '" + AFClientName + "';", 1);
+        }
+
+        [Then(@"Se registra campo adicional de cliente de tipo párrafo en tabla AFW_ADDiTIONAL_FIELDS")]
+        public void ThenSeRegistraCampoAdicionalDeClienteDeTipoParrafoEnTablaAFW_ADDiTIONAL_FIELDS()
+        {
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 6 AND name = '" + AFClientName + "';", 1);
+        }
+
+        [Then(@"Se registra campo adicional de cliente de tipo simple en tabla AFW_ADDiTIONAL_FIELDS")]
+        public void ThenSeRegistraCampoAdicionalDeClienteDeTipoSimpleEnTablaAFW_ADDiTIONAL_FIELDS()
+        {
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 AND name = '" + AFClientName + "';", 1);
+        }
+
+        [Then(@"Se registra el campo adicional de cliente modificado en la tabla AFW_ADDiTIONAL_FIELDS")]
+        public void ThenSeRegistraElCampoAdicionalDeClienteModificadoEnLaTablaAFW_ADDiTIONAL_FIELDS()
+        {
+            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 AND name = '" + AFClientName + "' AND label = '" + EditLabelAFClientName + "';", 1);
+        }
+
+        [Then(@"Se registra el campo adicional de cliente modificado en la tabla AFW_ADDiTIONAL_FIELDS con nuevo orden")]
+        public void ThenSeRegistraElCampoAdicionalDeClienteModificadoEnLaTablaAFW_ADDiTIONAL_FIELDSConNuevoOrden()
+        {
+            int NewOrder = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT [order] FROM AFW_ADDITIONAL_FIELD WHERE label = '" + Label + "';", 1));
+            Assert.AreNotEqual(OrderField, NewOrder);
         }
 
         [When(@"Diligencio etiqueta de campo adicional de cliente")]
@@ -64,10 +180,11 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             CommonElementsAction.SendKeys_InputText("XPath", AFClientsPage.AFClientsInputLabel, LabelAFClientName);
         }
 
-        [When(@"Selecciono tipo de campo adicional de cliente simple")]
-        public void WhenSeleccionoTipoDeCampoAdicionalDeClienteSimple()
+        [When(@"Diligencio nombre de campo adicional de cliente")]
+        public void WhenDiligencioNombreDeCampoAdicionalDeCliente()
         {
-            CommonElementsAction.ClickAndSelect_DropDownList("XPath", "//div[@id='addtional-fields-client']/div/div[2]/ul/li/form/div[2]/div[2]/div/div/select", "simple", "option");
+            CommonElementsAction.ClearAndSendKeys_InputText("XPath", "//div[2]/div/div/div/div/div[2]/div[2]/input", AFClientName);
+            AFClientName = CommonElementsAction.VallueExtract("XPath", "//div[2]/div/div/div/div/div[2]/div[2]/input");
         }
 
         [When(@"Diligencio texto de ayuda de campo adicional de cliente")]
@@ -76,50 +193,10 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             CommonElementsAction.SendKeys_InputText("XPath", "//div[@id='addtional-fields-client']/div/div[2]/ul/li/form/div[2]/div/div[2]/div/textarea", "Descriptontext help message");
         }
 
-        [When(@"Doy click en opciones avanzadas de campo adicional de cliente")]
-        public void WhenDoyClickEnOpcionesAvanzadasDeCampoAdicionalDeCliente()
-        {
-            CommonElementsAction.Click("XPath", "//div[@id='addtional-fields-client']/div[1]/div[2]/ul/li/form/div[2]/div[3]/div[1]");
-        }
-
-        [When(@"Diligencio nombre de campo adicional de cliente")]
-        public void WhenDiligencioNombreDeCampoAdicionalDeCliente()
-        {
-            CommonElementsAction.ClearAndSendKeys_InputText("XPath", "//div[2]/div/div/div/div/div[2]/div[2]/input", AFClientName);
-            AFClientName = CommonElementsAction.VallueExtract("XPath", "//div[2]/div/div/div/div/div[2]/div[2]/input");
-        }
-
         [When(@"Doy click en Aceptar campo adicional de cliente")]
         public void WhenDoyClickEnAceptarCampoAdicionalDeOrden()
         {
             CommonElementsAction.Click("CssSelector", AFClientsPage.AFClientsAccept);
-        }
-
-        [When(@"Doy click en Guardar campo adicional de cliente")]
-        public void WhenDoyClickEnGuardarCampoAdicionalDeOrden()
-        {
-            CommonElementsAction.Click("XPath", AFClientsPage.AFClientsSubmit);
-        }
-
-        [Then(@"Se muestra un mensaje indicando que se creo que campo adicional de cliente correctamente")]
-        public void ThenSeMuestraUnMensajeIndicandoQueSeCreoQueCampoAdicionalDeClienteCorrectamente()
-        {
-            string Message = CommonElementsAction.TextExtract("XPath", Messages.ResponseSuccessAFClient);
-            try
-            {
-                Validation.ValidationSuccessAFCreate(Messages.ResponseSuccessAFClient);
-            }
-            catch
-            {
-                string MessageError = CommonElementsAction.TextExtract("XPath", Messages.ResponseErrorAFClient);
-                Assert.Fail(MessageError);
-            }
-        }
-
-        [Then(@"Se registra campo adicional de cliente de tipo simple en tabla AFW_ADDiTIONAL_FIELDS")]
-        public void ThenSeRegistraCampoAdicionalDeClienteDeTipoSimpleEnTablaAFW_ADDiTIONAL_FIELDS()
-        {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 AND name = '" + AFClientName + "';", 1);
         }
 
         [When(@"Doy click en editar el campo adicional de cliente de tipo simple")]
@@ -155,19 +232,6 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             js.ExecuteScript("window.scrollBy(0,1000)");
         }
 
-        [When(@"Edito nombre de etiqueta de campo adicional de cliente de tipo simple")]
-        public void WhenEditoNombreDeEtiquetaDeCampoAdicionalDeClienteDeTipoSimple()
-        {
-            EditLabelAFClientName = EditLabelAFClientName + Functions.RandomText(3);
-            CommonElementsAction.ClearAndSendKeys_InputText("XPath", AFClientsPage.AFClientsInputLabel, EditLabelAFClientName);
-        }
-
-        [Then(@"Se registra el campo adicional de cliente modificado en la tabla AFW_ADDiTIONAL_FIELDS")]
-        public void ThenSeRegistraElCampoAdicionalDeClienteModificadoEnLaTablaAFW_ADDiTIONAL_FIELDS()
-        {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 AND name = '" + AFClientName + "' AND label = '" + EditLabelAFClientName + "';", 1);
-        }
-
         [When(@"Doy click en eliminar el campo adicional de cliente de tipo simple")]
         public void WhenDoyClickEnEliminarElCampoAdicionalDeClienteDeTipoSimple()
         {
@@ -201,54 +265,100 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             js.ExecuteScript("window.scrollBy(0,1000)");
         }
 
-        [Then(@"Se borra el registro de el campo adicional de cliente en la tabla AFW_ADDiTIONAL_FIELDS")]
-        public void ThenSeBorraElRegistroDeElCampoAdicionalDeClienteEnLaTablaAFW_ADDiTIONAL_FIELDS()
+        [When(@"Doy click en Guardar campo adicional de cliente")]
+        public void WhenDoyClickEnGuardarCampoAdicionalDeOrden()
         {
-            CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 AND name = '" + AFClientName + "';", 0);
+            CommonElementsAction.Click("XPath", AFClientsPage.AFClientsSubmit);
         }
 
-        [When(@"Eliminación exitosa de campos adicionales clientes")]
-        public void WhenEliminacionExitosaDeCamposAdicionalesClientes()
+        [When(@"Doy click en Nuevo campo adicional de cliente")]
+        public void WhenDoyClickEnNuevoCampoAdicionalDeCliente()
         {
-            Thread.Sleep(3000);
-            IList<IWebElement> all = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-client']/div/div[2]/ul/li/div/div[2]/div/label"));
-            Thread.Sleep(3000);
-            String[] allText = new String[all.Count];
-            int IndexButtonDelete = 0;
-            for (int count = 0; count < all.Count; count++)
+            CommonElementsAction.Click("CssSelector", AFClientsPage.AFClientsButtonNew);
+        }
+
+        [When(@"Doy click en opciones avanzadas de campo adicional de cliente")]
+        public void WhenDoyClickEnOpcionesAvanzadasDeCampoAdicionalDeCliente()
+        {
+            CommonElementsAction.Click("XPath", "//div[@id='addtional-fields-client']/div[1]/div[2]/ul/li/form/div[2]/div[3]/div[1]");
+        }
+
+        [When(@"Edito nombre de etiqueta de campo adicional de cliente de tipo simple")]
+        public void WhenEditoNombreDeEtiquetaDeCampoAdicionalDeClienteDeTipoSimple()
+        {
+            EditLabelAFClientName = EditLabelAFClientName + Functions.RandomText(3);
+            CommonElementsAction.ClearAndSendKeys_InputText("XPath", AFClientsPage.AFClientsInputLabel, EditLabelAFClientName);
+        }
+
+        [When(@"Selecciono el campo adicional y modifico su orden mediante drag and drop")]
+        public void WhenSeleccionoElCampoAdicionalYModificoSuOrdenMedianteDragAndDrop()
+        {
+            Thread.Sleep(5000);
+            CommonElementsAction.WaitElement("//div[@id='addtional-fields-client']//ul/li//div[@class='drag-button']", "XPath");
+
+            int CountField = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003;", 1));
+            OrderField = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 [order] FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 and [order] <> " + CountField + " ORDER BY NEWID();", 1));
+
+            int count = 0;
+
+            IList<IWebElement> AddFieldList = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-client']//ul/li//div[@class='drag-button']"));
+
+            foreach (IWebElement Field in AddFieldList)
             {
-                string Locat = all[count].Text;
-                if (Locat == "Campo prueba 1")
+                count++;
+                if (count == OrderField)
                 {
-                    IndexButtonDelete = count + 1;
+                    Actions Act = new Actions(CommonHooks.driver);
+                    Label = CommonHooks.driver.FindElement(By.XPath("//div[@id='addtional-fields-client']//ul/li[" + OrderField + "]//label[@class='additional-field-label primary_color']")).Text;
+
+                    Act.MoveToElement(AddFieldList[OrderField]).DragAndDropToOffset(Field, 0, 180).Build().Perform();
+                    Thread.Sleep(3000);
                 }
             }
-            try
-            {
-                Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreNotEqual(0, IndexButtonDelete);
-            }
-            catch
-            {
-                Microsoft.VisualStudio.TestTools.UnitTesting.Assert.Fail("Not found: " + "Campo prueba 1");
-            }
-            ///     Selecciono el botón eliminar
-            CommonHooks.driver.FindElement(By.XPath("//div[@id='addtional-fields-service']/div/div[2]/ul/li[" + IndexButtonDelete + "]/div/div/button[@class='delete-button secondary_bg js-delete-button']")).Click();
-            Thread.Sleep(3000);
-            IJavaScriptExecutor js = (IJavaScriptExecutor)CommonHooks.driver;
-            js.ExecuteScript("window.scrollBy(0,1000)");
+        }
 
-            Console.WriteLine("\n" + "End Navigate from Principal tab.");
+        [Given(@"Existe mas de un campo adicional de cliente")]
+        public void GivenExisteMasDeUnCampoAdicionalDeCliente()
+        {
+            int FieldCount = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003;", 1));
+            Assert.IsTrue(FieldCount > 1);
+        }
 
-            ///     pulso Si
+        [When(@"Selecciono la opción Campos adicionales clientes")]
+        public void WhenSeleccionoLaOpcionCamposAdicionalesClientes()
+        {
+            CommonElementsAction.Click("XPath", AFClientsPage.AFClientsModulePath);
+            CommonElementsAction.Click("XPath", Menu.AFClientsOption);
+        }
 
-            CommonElementsAction.Click("CssSelector", AFClientsPage.AFClientsYes);
+        [When(@"Selecciono tipo de campo adicional de cliente fecha")]
+        public void WhenSeleccionoTipoDeCampoAdicionalDeClienteFecha()
+        {
+            UtilAction.SelectByValue("//div[@id='addtional-fields-client']/div/div[2]/ul/li/form/div[2]/div[2]/div/div/select", "3");
+        }
 
-            ///     pulso guardar
-            CommonElementsAction.Click("XPath", AFClientsPage.AFClientsSubmit);
+        [When(@"Selecciono tipo de campo adicional de cliente listado")]
+        public void WhenSeleccionoTipoDeCampoAdicionalDeClienteListado()
+        {
+            UtilAction.SelectByValue("//div[@id='addtional-fields-client']/div/div[2]/ul/li/form/div[2]/div[2]/div/div/select", "4");
+        }
 
-            //Validate response.
-            //CommonAFLS.CommonAflsValidateMessages.ValidateMessageComponent(PageMessages.SuccessElementConfigurationDelete);
-            //End Validate response.
+        [When(@"Selecciono tipo de campo adicional de cliente numérico")]
+        public void WhenSeleccionoTipoDeCampoAdicionalDeClienteNumerico()
+        {
+            UtilAction.SelectByValue("//div[@id='addtional-fields-client']/div/div[2]/ul/li/form/div[2]/div[2]/div/div/select", "2");
+        }
+
+        [When(@"Selecciono tipo de campo adicional de cliente párrafo")]
+        public void WhenSeleccionoTipoDeCampoAdicionalDeClienteParrafo()
+        {
+            CommonElementsAction.ClickAndSelect_DropDownList("XPath", "//div[@id='addtional-fields-client']/div/div[2]/ul/li/form/div[2]/div[2]/div/div/select", "párrafo", "option");
+        }
+
+        [When(@"Selecciono tipo de campo adicional de cliente simple")]
+        public void WhenSeleccionoTipoDeCampoAdicionalDeClienteSimple()
+        {
+            CommonElementsAction.ClickAndSelect_DropDownList("XPath", "//div[@id='addtional-fields-client']/div/div[2]/ul/li/form/div[2]/div[2]/div/div/select", "simple", "option");
         }
     }
 }

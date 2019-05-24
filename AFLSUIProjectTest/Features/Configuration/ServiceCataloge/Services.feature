@@ -1,6 +1,6 @@
 ﻿Feature: Services
 
-@regression
+@Automation
 Scenario: 1 Creación exitosa de Servicio completo
 	Given Tengo un usuario con rol administrador
 	And No existe el servicio
@@ -50,8 +50,7 @@ Scenario: 1 Creación exitosa de Servicio completo
 	And Se registra la tarea asociada al servicio en la tabla AFLS_SERVICE_TASKS
 	And se registran campos adicionales de servicio diligenciados en la tabla AFW_ADDITIONAL_FIELD_VALUE
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
  Scenario: 1 Creación exitosa de servicio tipo estándar
  	Given Tengo un usuario con rol administrador
 	And No existe el servicio
@@ -82,8 +81,7 @@ Scenario: 1 Creación exitosa de Servicio completo
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el servicio en la tabla AFLS_SERVICES de tipo estándar
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
  Scenario: 1 Creación exitosa de servicio tipo desplazamiento
  Given Tengo un usuario con rol administrador
 	And No existe el servicio
@@ -114,8 +112,7 @@ Scenario: 1 Creación exitosa de Servicio completo
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el servicio en la tabla AFLS_SERVICES de tipo desplazamiento
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
  Scenario: 1 Creación exitosa de servicios tipo asignación directa
  Given Tengo un usuario con rol administrador
 	And No existe el servicio
@@ -146,8 +143,7 @@ Scenario: 1 Creación exitosa de Servicio completo
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el servicio en la tabla AFLS_SERVICES de asignación directa
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
  Scenario: 1 Creación exitosa de servicios tipo distribución publica
  Given Tengo un usuario con rol administrador
 	And No existe el servicio
@@ -178,8 +174,7 @@ Scenario: 1 Creación exitosa de Servicio completo
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el servicio en la tabla AFLS_SERVICES de distribución publica
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
  Scenario: 2 Búsqueda exitosa de servicios por nombre
   Given Tengo un usuario con rol administrador
 	And Existe el servicio
@@ -190,8 +185,7 @@ Scenario: 1 Creación exitosa de Servicio completo
 	And Busco y selecciono el servicio
 	Then Se muestra la tarjeta del servicio y el detalle del mismo
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
  Scenario: 3 Modificación exitosa de servicios cambiando tipo de servicio y tipo de distribución
 	Given Tengo un usuario con rol administrador
 	And Existe el servicio
@@ -208,8 +202,7 @@ Scenario: 1 Creación exitosa de Servicio completo
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el servicio modificado en nombre, tipo de servicio y tipo de asignación de servicio en la tabla AFLS_SERVICES
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
  Scenario: 4 Borrado exitoso de servicios
 	Given Tengo un usuario con rol administrador
 	And Existe el servicio

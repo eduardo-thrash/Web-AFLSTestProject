@@ -1,7 +1,7 @@
 ﻿Feature: Chronometers
 	#Configuración de Cronómetros para uso sobre ANS y Ordenes de trabajo
 
-@regression
+@Automation
 Scenario:1 Creación completa de Cronómetros
 	Given Tengo un usuario con rol administrador
 	And El cronómetro no existe
@@ -16,8 +16,7 @@ Scenario:1 Creación completa de Cronómetros
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el cronometro en la tabla AFW_ITEM_TIMES
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 2 consulta exitosa de cronómetro por nombre
 	Given Tengo un usuario con rol administrador
 	And El cronómetro existe
@@ -28,8 +27,7 @@ Scenario: 2 consulta exitosa de cronómetro por nombre
 	And Busco y selecciono el cronómetro
 	Then Se muestra la tarjeta del cronómetro y el detalle del mismo
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 3 Modificación parcial de cronómetros
 	Given Tengo un usuario con rol administrador
 	And El cronómetro existe
@@ -43,8 +41,7 @@ Scenario: 3 Modificación parcial de cronómetros
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se modifica la información del cronómetro en la tabla AFW_ITEM_TIMES
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 4 Borrar cronómetro existente
 	Given Tengo un usuario con rol administrador
 	And El cronómetro existe

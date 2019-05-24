@@ -1,6 +1,6 @@
 ﻿Feature: Providers
 
-@migrationAFLS
+@Automation
 Scenario: 1 Creación exitosa completa de proveedores asociando servicio, zona y monitor
 	Given Tengo un usuario con rol administrador
 	And El proveedor no existe
@@ -35,8 +35,7 @@ Scenario: 1 Creación exitosa completa de proveedores asociando servicio, zona y
 	And Se registra la zona relacionada a proveedor en la tabla AFLS_PROVIDER_ZONE
 	And Se registra el monitor relacionado a proveedor en la tabla AFLS_PROVIDER_MONITORS
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 1 Creación exitosa de proveedor de prioridad media
 	Given Tengo un usuario con rol administrador
 	And El proveedor no existe
@@ -58,8 +57,7 @@ Scenario: 1 Creación exitosa de proveedor de prioridad media
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad media
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 1 Creación exitosa de proveedor de prioridad alta
 	Given Tengo un usuario con rol administrador
 	And El proveedor no existe
@@ -81,8 +79,7 @@ Scenario: 1 Creación exitosa de proveedor de prioridad alta
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad alta
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 1 Creación exitosa de proveedor de prioridad baja
 	Given Tengo un usuario con rol administrador
 	And El proveedor no existe
@@ -104,8 +101,7 @@ Scenario: 1 Creación exitosa de proveedor de prioridad baja
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad baja
 	And Cierro Sesión en la aplicación
-	
-@migrationAFLS
+@Automation
 Scenario: 1 Creación exitosa de proveedor externo
 	Given Tengo un usuario con rol administrador
 	And El proveedor no existe
@@ -128,8 +124,7 @@ Scenario: 1 Creación exitosa de proveedor externo
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el proveedor en la tabla AFLS_PROVIDERS de tipo externo
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 1 Creación exitosa de proveedor interno
 	Given Tengo un usuario con rol administrador
 	And El proveedor no existe
@@ -152,8 +147,7 @@ Scenario: 1 Creación exitosa de proveedor interno
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el proveedor en la tabla AFLS_PROVIDERS de tipo interno
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 1 Creación exitosa de proveedor con asignación manual
 	Given Tengo un usuario con rol administrador
 	And El proveedor no existe
@@ -176,8 +170,7 @@ Scenario: 1 Creación exitosa de proveedor con asignación manual
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el proveedor en la tabla AFLS_PROVIDERS con asignación manual
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 1 Creación exitosa de proveedor con asignación automática
 	Given Tengo un usuario con rol administrador
 	And El proveedor no existe
@@ -200,8 +193,7 @@ Scenario: 1 Creación exitosa de proveedor con asignación automática
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el proveedor en la tabla AFLS_PROVIDERS con asignación automática
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 1 Creación fallida de proveedor sin nombre
 	Given Tengo un usuario con rol administrador
 	And El proveedor no existe
@@ -220,8 +212,7 @@ Scenario: 1 Creación fallida de proveedor sin nombre
 	Then Se muestra mensaje indicando que existen campos inválidos
 	And No Se registra el proveedor en la tabla AFLS_PROVIDERS
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 1 Creación fallida de proveedor sin descripción
 	Given Tengo un usuario con rol administrador
 	And El proveedor no existe
@@ -240,8 +231,7 @@ Scenario: 1 Creación fallida de proveedor sin descripción
 	Then Se muestra mensaje indicando que existen campos inválidos
 	And No Se registra el proveedor en la tabla AFLS_PROVIDERS
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 3 Modificación exitosa de proveedor cambiando nombre
 	Given Tengo un usuario con rol administrador
 	And El proveedor existe
@@ -256,8 +246,7 @@ Scenario: 3 Modificación exitosa de proveedor cambiando nombre
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el proveedor en la tabla AFLS_PROVIDERS con nombre editado
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 3 Modificación exitosa de proveedor cambiando prioridad
 	Given Tengo un usuario con rol administrador
 	And El proveedor existe
@@ -272,8 +261,7 @@ Scenario: 3 Modificación exitosa de proveedor cambiando prioridad
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el proveedor en la tabla AFLS_PROVIDERS con prioridad editado
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 3 Modificación exitosa de proveedor cambiando asignación
 	Given Tengo un usuario con rol administrador
 	And El proveedor existe
@@ -288,8 +276,7 @@ Scenario: 3 Modificación exitosa de proveedor cambiando asignación
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el proveedor en la tabla AFLS_PROVIDERS con asignación editada
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 2 Consulta exitosa de proveedor por nombre
 	Given Tengo un usuario con rol administrador
 	And El proveedor existe
@@ -301,8 +288,7 @@ Scenario: 2 Consulta exitosa de proveedor por nombre
 	And Busco y selecciono el proveedor
 	Then Se muestra la tarjeta del proveedor y el detalle del mismo
 	And Cierro Sesión en la aplicación
-
-@migrationAFLS
+@Automation
 Scenario: 4 Borrado exitoso de proveedor
 	Given Tengo un usuario con rol administrador
 	And El proveedor existe

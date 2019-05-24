@@ -1,6 +1,6 @@
 ﻿Feature: Surveys
 
-@migrationAFLS
+
 Scenario: 1 Configuración completa exitosa de encuestas
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación

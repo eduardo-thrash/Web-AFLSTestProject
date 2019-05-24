@@ -1,6 +1,6 @@
 ﻿Feature: Models
 
-@regression
+@Automation
 Scenario: 1 Creación exitosa de modelos
 	Given Tengo un usuario con rol administrador
 	And El modelo no existe
@@ -16,8 +16,7 @@ Scenario: 1 Creación exitosa de modelos
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el modelo en la tabla AFW_ITEM_MODEL
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 2 Búsqueda exitosa de un modelo existente
 	Given Tengo un usuario con rol administrador
 	And El modelo existe
@@ -28,8 +27,7 @@ Scenario: 2 Búsqueda exitosa de un modelo existente
 	And Busco y selecciono el modelo	
 	Then Se muestra la tarjeta de modelo y se carga formulario de información básica
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 3 Modificación exitosa de un modelo
 	Given Tengo un usuario con rol administrador
 	And El modelo existe
@@ -43,8 +41,7 @@ Scenario: 3 Modificación exitosa de un modelo
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se modifica la información del modelo en la tabla AFW_ITEM_MODEL
 	And Cierro Sesión en la aplicación
-
-@regression
+@Automation
 Scenario: 4 Borrado exitoso de modelo existente
 	Given Tengo un usuario con rol administrador
 	And El modelo existe
