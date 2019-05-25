@@ -49,9 +49,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DataGenerationAFLS\Versión 9.9 - 9.9.1 01 - MenuInventory.webtest" />
     <None Include="WebTest1.webtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WebServiceTest\Configuration\Administration\" />
+    <Folder Include="WebServiceTest\Configuration\Configuration\" />
+    <Folder Include="WebServiceTest\Configuration\ServiceCatalogue\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
