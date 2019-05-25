@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="05 - Services" Id="93a862fb-162b-47b0-ae99-1f1363f7f01f" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest1.3d708769-138d-47b6-87bb-5f095542d9fa.rec.webtestresult" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="29630691-b559-4167-a2d0-d737b30576e6" Version="1.1" Url="{{Url}}{{Instance}}" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="{{Url}}{{Instance}}LogOn" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="POST" Guid="0c330cea-5676-41db-8969-71fdfac1d15e" Version="1.1" Url="{{Url}}{{Instance}}Account/LogOn" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="*/*" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}LogOn" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewAiAEQAZQBmAGEAdQBsAHQAQQB1AHQAaAAiADoAIgBBAFIAQQBOAEQAQQAiACwAIgBVAHMAZQByAE4AYQBtAGUAIgA6ACIAYQBkAG0AaQBuAGkAcwB0AHIAYQB0AG8AcgAiACwAIgBQAGEAcwBzAHcAbwByAGQAIgA6ACIAQQBCAEMAMQAyADMAIgAsACIAUgBlAG0AZQBtAGIAZQByAE0AZQAiADoAIgB0AHIAdQBlACIAfQA=</StringHttpBody>
+    </Request>
+    <Loop UniqueStringId="96046a85-3659-4979-91ef-fe7dda84ffaf">
+      <ConditionalRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.CountingLoopRule, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Bucle para contar" Description="Ejecuta la solicitud contenida en el bucle el número de veces especificado." MaxIterations="-1" AdvanceDataCursors="True">
+        <RuleParameters>
+          <RuleParameter Name="ContextParameterName" Value="Contador de bucle" />
+          <RuleParameter Name="IterationsCount" Value="261" />
+        </RuleParameters>
+      </ConditionalRule>
+      <Items>
+        <Request Method="POST" Guid="03bbe55b-2c77-457e-803a-2defc8e12ea6" Version="1.1" Url="{{Url}}{{Instance}}Services/Save" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+            <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+            <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+          </Headers>
+          <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIAQgBhAHMAZQBDAG8AcwB0ACIAOgAgADEAMgA0ADAAMAAsAA0ACgAgACAAIgBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AIgA6ACAAIgB7AHsAUwBlAHIAdgBpAGMAZQBzAFMAbwB1AHIAYwBlAC4AUwBlAHIAdgBpAGMAZQBEAGEAdABhACMAYwBzAHYALgBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AfQB9ACIALAANAAoAIAAgACIATgBhAG0AZQAiADoAIAAiAHsAewBTAGUAcgB2AGkAYwBlAHMAUwBvAHUAcgBjAGUALgBTAGUAcgB2AGkAYwBlAEQAYQB0AGEAIwBjAHMAdgAuAE4AYQBtAGUAfQB9ACIALAANAAoAIAAgACIARQB4AGUAYwB1AHQAaQBvAG4AVABpAG0AZQAiADoAIAAiACIALAANAAoAIAAgACIASQBzAEEAYwB0AGkAdgBlACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAcwBlAGwAZQBjAHQAZQBkACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIASQBuAHYAQwBvAHMAdAAiADoAIAAwACwADQAKACAAIAAiAE0AbwBkAGUAbABJAGQAIgA6ACAAMQAsAA0ACgAgACAAIgBDAGEAbABlAG4AZABhAHIASQBkACIAOgAgADEALAANAAoAIAAgACIAUwBsAGEASQBkACIAOgAgAHsAewBTAGUAcgB2AGkAYwBlAHMAUwBvAHUAcgBjAGUALgBTAGUAcgB2AGkAYwBlAEQAYQB0AGEAIwBjAHMAdgAuAFMATABBAH0AfQAsAA0ACgAgACAAIgBVAGMASQBkACIAOgAgAHsAewBTAGUAcgB2AGkAYwBlAHMAUwBvAHUAcgBjAGUALgBTAGUAcgB2AGkAYwBlAEQAYQB0AGEAIwBjAHMAdgAuAFUAQwB9AH0ALAANAAoAIAAgACIATwBsAGEASQBkACIAOgAgAHsAewBTAGUAcgB2AGkAYwBlAHMAUwBvAHUAcgBjAGUALgBTAGUAcgB2AGkAYwBlAEQAYQB0AGEAIwBjAHMAdgAuAE8ATABBAH0AfQAsAA0ACgAgACAAIgBUAHkAcABlACIAOgAgAHsAewBTAGUAcgB2AGkAYwBlAHMAUwBvAHUAcgBjAGUALgBTAGUAcgB2AGkAYwBlAEQAYQB0AGEAIwBjAHMAdgAuAFMAZQByAHYAaQBjAGUAVAB5AHAAZQB9AH0ALAANAAoAIAAgACIAUAByAG8AdgBpAGQAZQByAEEAcwBzAGkAZwBuAG0AZQBuAHQAVAB5AHAAZQAiADoAIAAiAHsAewBTAGUAcgB2AGkAYwBlAHMAUwBvAHUAcgBjAGUALgBTAGUAcgB2AGkAYwBlAEQAYQB0AGEAIwBjAHMAdgAuAEEAcwBzAGkAZwBuAG0AZQBuAHQAVAB5AHAAZQB9AH0AIgAsAA0ACgAgACAAIgBNAG8AZABlAGwAIgA6ACAAMQAsAA0ACgAgACAAIgBTAHUAYgBqAGUAYwB0AEQAZQBmAGEAdQBsAHQAIgA6ACAAIgB7AHsAUwBlAHIAdgBpAGMAZQBzAFMAbwB1AHIAYwBlAC4AUwBlAHIAdgBpAGMAZQBEAGEAdABhACMAYwBzAHYALgBTAHUAYgBqAGUAYwB0AH0AfQAiACwADQAKACAAIAAiAEMAYQBsAGUAbgBkAGEAcgAiADoAIAAxACwADQAKACAAIAAiAFMAbABhACIAOgAgAHsAewBTAGUAcgB2AGkAYwBlAHMAUwBvAHUAcgBjAGUALgBTAGUAcgB2AGkAYwBlAEQAYQB0AGEAIwBjAHMAdgAuAFMATABBAH0AfQAsAA0ACgAgACAAIgBVAGMAIgA6ACAAewB7AFMAZQByAHYAaQBjAGUAcwBTAG8AdQByAGMAZQAuAFMAZQByAHYAaQBjAGUARABhAHQAYQAjAGMAcwB2AC4AVQBDAH0AfQAsAA0ACgAgACAAIgBPAGwAYQAiADoAIAB7AHsAUwBlAHIAdgBpAGMAZQBzAFMAbwB1AHIAYwBlAC4AUwBlAHIAdgBpAGMAZQBEAGEAdABhACMAYwBzAHYALgBPAEwAQQB9AH0ALAANAAoAIAAgACIAUwBlAHIAdgBpAGMAZQBUAHkAcABlACIAOgAgACIAewB7AFMAZQByAHYAaQBjAGUAcwBTAG8AdQByAGMAZQAuAFMAZQByAHYAaQBjAGUARABhAHQAYQAjAGMAcwB2AC4AUwBlAHIAdgBpAGMAZQBUAHkAcABlAH0AfQAiACwADQAKACAAIAAiAHMAZQByAF8AaABvAHUAcgBzACIAOgAgACIAMAAiACwADQAKACAAIAAiAHMAZQByAF8AbQBpAG4AcwAiADoAIAAiADMAMAAiACwADQAKACAAIAAiAEkAcwBEAGUAZgBhAHUAbAB0ACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIASQBzAFAAcgBpAG8AcgBpAHQAeQBPAHIARQBtAGUAcgBnAGUAbgBjAHkAIgA6ACAAZgBhAGwAcwBlACwADQAKACAAIAAiAEkAcwBQAHIAbwB2AGkAZABlAEEAbABsAEMASQBzACIAOgAgAGYAYQBsAHMAZQAsAA0ACgAgACAAIgBUAGkAbQBlAFAAbABhAG4AbgBpAG4AZwAiADoAIAAzADAALAANAAoAIAAgACIAUwBrAGkAbABsAHMAIgA6ACAAWwANAAoAIAAgACAAIAB7AA0ACgAgACAAIAAgACAAIAAiAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAiADoAIAAiAGQAZQBzAGMAIgAsAA0ACgAgACAAIAAgACAAIAAiAEkAZAAiADoAIAAxACwADQAKACAAIAAgACAAIAAgACIASQBzAEEAYwB0AGkAdgBlACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACAAIAAgACAAIgBOAGEAbQBlACIAOgAgACIASABhAGIAaQBsAGkAZABhAGQAIgAsAA0ACgAgACAAIAAgACAAIAAiAFEAdQBhAHQAaQB0AHkAQQBzAHMAbwBjAGkAYQB0AGUAZABHAHIAbwB1AHAAcwAiADoAIAAwACwADQAKACAAIAAgACAAIAAgACIAUQB1AGEAdABpAHQAeQBBAHMAcwBvAGMAaQBhAHQAZQBkAFMAZQByAHYAaQBjAGUAcwAiADoAIAAwACwADQAKACAAIAAgACAAIAAgACIAUQB1AGEAdABpAHQAeQBBAHMAcwBvAGMAaQBhAHQAZQBkAFMAcABlAGMAaQBhAGwAaQBzAHQAcwAiADoAIAAwACwADQAKACAAIAAgACAAIAAgACIAbABhAGIAZQBsACIAOgAgACIASABhAGIAaQBsAGkAZABhAGQAIgAsAA0ACgAgACAAIAAgACAAIAAiAHYAYQBsAHUAZQAiADoAIAAiAEgAYQBiAGkAbABpAGQAYQBkACIALAANAAoAIAAgACAAIAAgACAAIgBJAHMAUgBlAHEAdQBpAHIAZQBkACIAOgAgAGYAYQBsAHMAZQAsAA0ACgAgACAAIAAgACAAIAAiAFcAZQBpAGcAaAB0ACIAOgAgADIADQAKACAAIAAgACAAfQANAAoAIAAgAF0ALAANAAoAIAAgACIAUwBlAHIAdgBpAGMAZQBQAHIAbwBkAHUAYwB0AHMAIgA6ACAAWwBdACwADQAKACAAIAAiAFAAcgBvAHYAaQBkAGUAcgBTAGUAcgB2AGkAYwBlAHMAIgA6ACAAWwBdACwADQAKACAAIAAiAFMAZQByAHYAaQBjAGUAVABhAHMAawBzACIAOgAgAFsAXQAsAA0ACgAgACAAIgBBAGQAZABpAHQAaQBvAG4AYQBsAEYAaQBlAGwAZABzACIAOgAgAFsAXQANAAoAfQA=</StringHttpBody>
+        </Request>
+      </Items>
+    </Loop>
+  </Items>
+  <DataSources>
+    <DataSource Name="ServicesSource" Provider="Microsoft.VisualStudio.TestTools.DataSource.CSV" Connection="|DataDirectory|\ServiceData.csv">
+      <Tables>
+        <DataSourceTable Name="ServiceData#csv" SelectColumns="SelectOnlyBoundColumns" AccessMethod="Sequential" />
+      </Tables>
+    </DataSource>
+  </DataSources>
+  <ContextParameters>
+    <ContextParameter Name="Url" Value="http://localhost" />
+    <ContextParameter Name="Instance" Value="/AFLS/" />
+  </ContextParameters>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Dirección URL de respuesta" Description="Comprueba que la dirección URL de respuesta tras el seguimiento de las redirecciones es la misma que la dirección URL de respuesta registrada. Se omiten los parámetros de QueryString." Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Objetivo de tiempo de respuesta" Description="Valida que el tiempo de respuesta de la solicitud sea menor o igual que el objetivo de tiempo de respuesta especificado en la solicitud. Se pasarán por alto los objetivos de tiempo de respuesta que sean cero." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+</WebTest>

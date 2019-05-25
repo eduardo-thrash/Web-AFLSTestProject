@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="11 - UserWeb - Groups" Id="5effe3c0-366e-4062-880b-5ca8361b1249" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" DeploymentItemsEditable="License_12001.lic" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest1.e547431f-2cfb-4515-94f6-c6a3043c7434.rec.webtestresult" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="fafe9999-4b3d-406e-9bf1-39c91d87587d" Version="1.1" Url="{{Url}}{{Instance}}" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="{{Url}}{{Instance}}LogOn" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="POST" Guid="37eb7c6d-8bb2-455b-a689-b751f58442c6" Version="1.1" Url="{{Url}}{{Instance}}Account/LogOn" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="*/*" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}LogOn" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewAiAEQAZQBmAGEAdQBsAHQAQQB1AHQAaAAiADoAIgBBAFIAQQBOAEQAQQAiACwAIgBVAHMAZQByAE4AYQBtAGUAIgA6ACIAYQBkAG0AaQBuAGkAcwB0AHIAYQB0AG8AcgAiACwAIgBQAGEAcwBzAHcAbwByAGQAIgA6ACIAQQBCAEMAMQAyADMAIgAsACIAUgBlAG0AZQBtAGIAZQByAE0AZQAiADoAIgB0AHIAdQBlACIAfQA=</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="51666a56-4a65-4357-b9bc-69c992e11cb2" Version="1.1" Url="{{Url}}{{Instance}}Users/Save" ThinkTime="9" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIARgB1AGwAbABOAGEAbQBlACIAOgAgACIAIgAsAA0ACgAgACAAIgBJAHMATABvAGMAYQBsACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAQQB2AGEAaQBsAGEAYgBpAGwAaQB0AGkAZQBzACIAOgAgAFsAXQAsAA0ACgAgACAAIgBOAGEAbQBlACIAOgAgACIASABlAGMAdABvAHIAIABOAGUAaQByAGEAIABXAFQAIgAsAA0ACgAgACAAIgBVAHMAZQByAE4AYQBtAGUAIgA6ACAAIgBoAGUAYwB0AG8AcgAuAG4AZQBpAHIAYQAiACwADQAKACAAIAAiAEUAbQBhAGkAbAAiADoAIAAiAHkAcwBlAHIAQABtAGkAbABlAHIALgBjAG8AbQAiACwADQAKACAAIAAiAFAAaABvAG4AZQAiADoAIAAiADMANAA0ADMANAA0ADMANAA0ADQAIgAsAA0ACgAgACAAIgBJAHMAQQBjAHQAaQB2AGUAIgA6ACAAdAByAHUAZQAsAA0ACgAgACAAIgBuAGUAdwBDAGwAYQBzAHMAIgA6ACAAIgBOAG8AcgBtAGEAbAAiACwADQAKACAAIAAiAHMAZQBsAGUAYwB0AGUAZAAiADoAIAB0AHIAdQBlACwADQAKACAAIAAiAFAAYQBzAHMAdwBvAHIAZAAiADoAIAAiADEAMgAzADQANQA2ACIALAANAAoAIAAgACIAUgBvAGwAZQBzACIAOgAgAFsADQAKACAAIAAgACAAewANAAoAIAAgACAAIAAgACAAIgBOAGEAbQBlACIAOgAgACIAQQBkAG0AaQBuAGkAcwB0AHIAYQB0AG8AcgAiAA0ACgAgACAAIAAgAH0ADQAKACAAIABdACwADQAKACAAIAAiAFQAeQBwAGUAIgA6ACAAIgBXAGUAYgAiACwADQAKACAAIAAiAEcAcgBvAHUAcABzACIAOgAgAFsAXQANAAoAfQA=</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="51666a56-4a65-4357-b9bc-69c992e11cb2" Version="1.1" Url="{{Url}}{{Instance}}Users/Save" ThinkTime="9" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIARgB1AGwAbABOAGEAbQBlACIAOgAgACIAIgAsAA0ACgAgACAAIgBJAHMATABvAGMAYQBsACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAQQB2AGEAaQBsAGEAYgBpAGwAaQB0AGkAZQBzACIAOgAgAFsAXQAsAA0ACgAgACAAIgBOAGEAbQBlACIAOgAgACIATwBzAGMAYQByACAAQwBhAHIAaQBsAGwAbwAgAFcAVAAiACwADQAKACAAIAAiAFUAcwBlAHIATgBhAG0AZQAiADoAIAAiAG8AcwBjAGEAcgAuAGMAYQByAGkAbABsAG8AIgAsAA0ACgAgACAAIgBFAG0AYQBpAGwAIgA6ACAAIgB5AHMAZQByAEAAbQBpAGwAZQByAC4AYwBvAG0AIgAsAA0ACgAgACAAIgBQAGgAbwBuAGUAIgA6ACAAIgAzADQANAAzADQANAAzADQANAA0ACIALAANAAoAIAAgACIASQBzAEEAYwB0AGkAdgBlACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAbgBlAHcAQwBsAGEAcwBzACIAOgAgACIATgBvAHIAbQBhAGwAIgAsAA0ACgAgACAAIgBzAGUAbABlAGMAdABlAGQAIgA6ACAAdAByAHUAZQAsAA0ACgAgACAAIgBQAGEAcwBzAHcAbwByAGQAIgA6ACAAIgAxADIAMwA0ADUANgAiACwADQAKACAAIAAiAFIAbwBsAGUAcwAiADoAIABbAA0ACgAgACAAIAAgAHsADQAKACAAIAAgACAAIAAgACIATgBhAG0AZQAiADoAIAAiAEEAZABtAGkAbgBpAHMAdAByAGEAdABvAHIAIgANAAoAIAAgACAAIAB9AA0ACgAgACAAXQAsAA0ACgAgACAAIgBUAHkAcABlACIAOgAgACIAVwBlAGIAIgAsAA0ACgAgACAAIgBHAHIAbwB1AHAAcwAiADoAIABbAF0ADQAKAH0A</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="51666a56-4a65-4357-b9bc-69c992e11cb2" Version="1.1" Url="{{Url}}{{Instance}}Users/Save" ThinkTime="9" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIARgB1AGwAbABOAGEAbQBlACIAOgAgACIAIgAsAA0ACgAgACAAIgBJAHMATABvAGMAYQBsACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAQQB2AGEAaQBsAGEAYgBpAGwAaQB0AGkAZQBzACIAOgAgAFsAXQAsAA0ACgAgACAAIgBOAGEAbQBlACIAOgAgACIASgBvAHIAZwBlACAAUgB1AGIAaQBvACAAVwBUACIALAANAAoAIAAgACIAVQBzAGUAcgBOAGEAbQBlACIAOgAgACIAagBvAHIAZwBlAC4AcgB1AGIAaQBvACIALAANAAoAIAAgACIARQBtAGEAaQBsACIAOgAgACIAeQBzAGUAcgBAAG0AaQBsAGUAcgAuAGMAbwBtACIALAANAAoAIAAgACIAUABoAG8AbgBlACIAOgAgACIAMwA0ADQAMwA0ADQAMwA0ADQANAAiACwADQAKACAAIAAiAEkAcwBBAGMAdABpAHYAZQAiADoAIAB0AHIAdQBlACwADQAKACAAIAAiAG4AZQB3AEMAbABhAHMAcwAiADoAIAAiAE4AbwByAG0AYQBsACIALAANAAoAIAAgACIAcwBlAGwAZQBjAHQAZQBkACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAUABhAHMAcwB3AG8AcgBkACIAOgAgACIAMQAyADMANAA1ADYAIgAsAA0ACgAgACAAIgBSAG8AbABlAHMAIgA6ACAAWwANAAoAIAAgACAAIAB7AA0ACgAgACAAIAAgACAAIAAiAE4AYQBtAGUAIgA6ACAAIgBBAGQAbQBpAG4AaQBzAHQAcgBhAHQAbwByACIADQAKACAAIAAgACAAfQANAAoAIAAgAF0ALAANAAoAIAAgACIAVAB5AHAAZQAiADoAIAAiAFcAZQBiACIALAANAAoAIAAgACIARwByAG8AdQBwAHMAIgA6ACAAWwBdAA0ACgB9AA==</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="51666a56-4a65-4357-b9bc-69c992e11cb2" Version="1.1" Url="{{Url}}{{Instance}}Users/Save" ThinkTime="9" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIARgB1AGwAbABOAGEAbQBlACIAOgAgACIAIgAsAA0ACgAgACAAIgBJAHMATABvAGMAYQBsACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAQQB2AGEAaQBsAGEAYgBpAGwAaQB0AGkAZQBzACIAOgAgAFsAXQAsAA0ACgAgACAAIgBOAGEAbQBlACIAOgAgACIATQBpAGsAZQAgAEgAZQByAG4AYQBuAGQAZQB6ACAAVwBUACIALAANAAoAIAAgACIAVQBzAGUAcgBOAGEAbQBlACIAOgAgACIAbQBpAGsAZQAuAGgAZQByAGEAbgBkAGUAegAiACwADQAKACAAIAAiAEUAbQBhAGkAbAAiADoAIAAiAHkAcwBlAHIAQABtAGkAbABlAHIALgBjAG8AbQAiACwADQAKACAAIAAiAFAAaABvAG4AZQAiADoAIAAiADMANAA0ADMANAA0ADMANAA0ADQAIgAsAA0ACgAgACAAIgBJAHMAQQBjAHQAaQB2AGUAIgA6ACAAdAByAHUAZQAsAA0ACgAgACAAIgBuAGUAdwBDAGwAYQBzAHMAIgA6ACAAIgBOAG8AcgBtAGEAbAAiACwADQAKACAAIAAiAHMAZQBsAGUAYwB0AGUAZAAiADoAIAB0AHIAdQBlACwADQAKACAAIAAiAFAAYQBzAHMAdwBvAHIAZAAiADoAIAAiADEAMgAzADQANQA2ACIALAANAAoAIAAgACIAUgBvAGwAZQBzACIAOgAgAFsADQAKACAAIAAgACAAewANAAoAIAAgACAAIAAgACAAIgBOAGEAbQBlACIAOgAgACIAQQBkAG0AaQBuAGkAcwB0AHIAYQB0AG8AcgAiAA0ACgAgACAAIAAgAH0ADQAKACAAIABdACwADQAKACAAIAAiAFQAeQBwAGUAIgA6ACAAIgBXAGUAYgAiACwADQAKACAAIAAiAEcAcgBvAHUAcABzACIAOgAgAFsAXQANAAoAfQA=</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="51666a56-4a65-4357-b9bc-69c992e11cb2" Version="1.1" Url="{{Url}}{{Instance}}Users/Save" ThinkTime="9" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIARgB1AGwAbABOAGEAbQBlACIAOgAgACIAIgAsAA0ACgAgACAAIgBJAHMATABvAGMAYQBsACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAQQB2AGEAaQBsAGEAYgBpAGwAaQB0AGkAZQBzACIAOgAgAFsAXQAsAA0ACgAgACAAIgBOAGEAbQBlACIAOgAgACIAQQBsAGUAagBhAG4AZAByAGEAIABIAGUAcgBuAGEAbgBkAGUAegAgAFcAVAAiACwADQAKACAAIAAiAFUAcwBlAHIATgBhAG0AZQAiADoAIAAiAGEAbABlAGoAYQBuAGQAcgBhAC4AaABlAHIAYQBuAGQAZQB6ACIALAANAAoAIAAgACIARQBtAGEAaQBsACIAOgAgACIAeQBzAGUAcgBAAG0AaQBsAGUAcgAuAGMAbwBtACIALAANAAoAIAAgACIAUABoAG8AbgBlACIAOgAgACIAMwA0ADQAMwA0ADQAMwA0ADQANAAiACwADQAKACAAIAAiAEkAcwBBAGMAdABpAHYAZQAiADoAIAB0AHIAdQBlACwADQAKACAAIAAiAG4AZQB3AEMAbABhAHMAcwAiADoAIAAiAE4AbwByAG0AYQBsACIALAANAAoAIAAgACIAcwBlAGwAZQBjAHQAZQBkACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAUABhAHMAcwB3AG8AcgBkACIAOgAgACIAMQAyADMANAA1ADYAIgAsAA0ACgAgACAAIgBSAG8AbABlAHMAIgA6ACAAWwANAAoAIAAgACAAIAB7AA0ACgAgACAAIAAgACAAIAAiAE4AYQBtAGUAIgA6ACAAIgBBAGQAbQBpAG4AaQBzAHQAcgBhAHQAbwByACIADQAKACAAIAAgACAAfQANAAoAIAAgAF0ALAANAAoAIAAgACIAVAB5AHAAZQAiADoAIAAiAFcAZQBiACIALAANAAoAIAAgACIARwByAG8AdQBwAHMAIgA6ACAAWwBdAA0ACgB9AA==</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="c20c9b68-b049-4375-92b7-7499812b0a2f" Version="1.1" Url="{{Url}}{{Instance}}Groups/Save" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIATgBhAG0AZQAiADoAIAAiAEcAcgB1AHAAbwAgAEIAbwBnAG8AdABhACAARwBlAG4AZQByAGEAbAAgAFcAVAAiACwADQAKACAAIAAiAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAiADoAIAAiAGQAZQBzAGQAIgAsAA0ACgAgACAAIgBJAHMAQQBjAHQAaQB2AGUAIgA6ACAAdAByAHUAZQAsAA0ACgAgACAAIgBJAHMATABvAGMAYQBsACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAQQB2AGEAaQBsAGEAYgBpAGwAaQB0AGkAZQBzACIAOgAgAFsAXQAsAA0ACgAgACAAIgBQAHIAbwB2AGkAZABlAHIASQBkACIAOgAgAG4AdQBsAGwALAANAAoAIAAgACIAbgBlAHcAQwBsAGEAcwBzACIAOgAgACIATgBvAHIAbQBhAGwAIgAsAA0ACgAgACAAIgBzAGUAbABlAGMAdABlAGQAIgA6ACAAdAByAHUAZQAsAA0ACgAgACAAIgBhAHYAbwBpAGQAUgBlAHAAcgBvAGMAZQBzAHMAVQBUAEMAIgA6ACAAdAByAHUAZQAsAA0ACgAgACAAIgByAG8AbAAiADoAIAAiAGEAZABtAGkAbgBpAHMAdAByAGEAdABvAHIAIgAsAA0ACgAgACAAIgBQAHIAbwB2AGkAZABlAHIATgBhAG0AZQAiADoAIAAiAFQAbwBkAG8AcwAgAGwAbwBzACAAcAByAG8AdgBlAGUAZABvAHIAZQBzACIALAANAAoAIAAgACIAUAByAG8AdgBpAGQAZQByACIAOgAgACIALQAxACIALAANAAoAIAAgACIAVAB5AHAAZQAiADoAIAAiAE0AbwBiAGkAbABlACIALAANAAoAIAAgACIAVQBzAGUAcgBzACIAOgAgAFsAXQAsAA0ACgAgACAAIgBTAGsAaQBsAGwAcwAiADoAIABbAF0ALAANAAoAIAAgACIAUwBlAHIAdgBpAGMAZQBzACIAOgAgAFsAXQANAAoAfQA=</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="c20c9b68-b049-4375-92b7-7499812b0a2f" Version="1.1" Url="{{Url}}{{Instance}}Groups/Save" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIATgBhAG0AZQAiADoAIAAiAEcAcgB1AHAAbwAgAEIAbwBnAG8AdABhACAAUwB1AHIAIABHAGUAbgBlAHIAYQBsACAAVwBUACIALAANAAoAIAAgACIARABlAHMAYwByAGkAcAB0AGkAbwBuACIAOgAgACIAZABlAHMAZAAiACwADQAKACAAIAAiAEkAcwBBAGMAdABpAHYAZQAiADoAIAB0AHIAdQBlACwADQAKACAAIAAiAEkAcwBMAG8AYwBhAGwAIgA6ACAAdAByAHUAZQAsAA0ACgAgACAAIgBBAHYAYQBpAGwAYQBiAGkAbABpAHQAaQBlAHMAIgA6ACAAWwBdACwADQAKACAAIAAiAFAAcgBvAHYAaQBkAGUAcgBJAGQAIgA6ACAAbgB1AGwAbAAsAA0ACgAgACAAIgBuAGUAdwBDAGwAYQBzAHMAIgA6ACAAIgBOAG8AcgBtAGEAbAAiACwADQAKACAAIAAiAHMAZQBsAGUAYwB0AGUAZAAiADoAIAB0AHIAdQBlACwADQAKACAAIAAiAGEAdgBvAGkAZABSAGUAcAByAG8AYwBlAHMAcwBVAFQAQwAiADoAIAB0AHIAdQBlACwADQAKACAAIAAiAHIAbwBsACIAOgAgACIAYQBkAG0AaQBuAGkAcwB0AHIAYQB0AG8AcgAiACwADQAKACAAIAAiAFAAcgBvAHYAaQBkAGUAcgBOAGEAbQBlACIAOgAgACIAVABvAGQAbwBzACAAbABvAHMAIABwAHIAbwB2AGUAZQBkAG8AcgBlAHMAIgAsAA0ACgAgACAAIgBQAHIAbwB2AGkAZABlAHIAIgA6ACAAIgAtADEAIgAsAA0ACgAgACAAIgBUAHkAcABlACIAOgAgACIATQBvAGIAaQBsAGUAIgAsAA0ACgAgACAAIgBVAHMAZQByAHMAIgA6ACAAWwBdACwADQAKACAAIAAiAFMAawBpAGwAbABzACIAOgAgAFsAXQAsAA0ACgAgACAAIgBTAGUAcgB2AGkAYwBlAHMAIgA6ACAAWwBdAA0ACgB9AA==</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="c20c9b68-b049-4375-92b7-7499812b0a2f" Version="1.1" Url="{{Url}}{{Instance}}Groups/Save" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIATgBhAG0AZQAiADoAIAAiAEcAcgB1AHAAbwAgAEIAbwBnAG8AdABhACAATwByAGkAZQBuAHQAZQAgAEcAZQBuAGUAcgBhAGwAIABXAFQAIgAsAA0ACgAgACAAIgBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AIgA6ACAAIgBkAGUAcwBkACIALAANAAoAIAAgACIASQBzAEEAYwB0AGkAdgBlACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIASQBzAEwAbwBjAGEAbAAiADoAIAB0AHIAdQBlACwADQAKACAAIAAiAEEAdgBhAGkAbABhAGIAaQBsAGkAdABpAGUAcwAiADoAIABbAF0ALAANAAoAIAAgACIAUAByAG8AdgBpAGQAZQByAEkAZAAiADoAIABuAHUAbABsACwADQAKACAAIAAiAG4AZQB3AEMAbABhAHMAcwAiADoAIAAiAE4AbwByAG0AYQBsACIALAANAAoAIAAgACIAcwBlAGwAZQBjAHQAZQBkACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAYQB2AG8AaQBkAFIAZQBwAHIAbwBjAGUAcwBzAFUAVABDACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAcgBvAGwAIgA6ACAAIgBhAGQAbQBpAG4AaQBzAHQAcgBhAHQAbwByACIALAANAAoAIAAgACIAUAByAG8AdgBpAGQAZQByAE4AYQBtAGUAIgA6ACAAIgBUAG8AZABvAHMAIABsAG8AcwAgAHAAcgBvAHYAZQBlAGQAbwByAGUAcwAiACwADQAKACAAIAAiAFAAcgBvAHYAaQBkAGUAcgAiADoAIAAiAC0AMQAiACwADQAKACAAIAAiAFQAeQBwAGUAIgA6ACAAIgBNAG8AYgBpAGwAZQAiACwADQAKACAAIAAiAFUAcwBlAHIAcwAiADoAIABbAF0ALAANAAoAIAAgACIAUwBrAGkAbABsAHMAIgA6ACAAWwBdACwADQAKACAAIAAiAFMAZQByAHYAaQBjAGUAcwAiADoAIABbAF0ADQAKAH0A</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="c20c9b68-b049-4375-92b7-7499812b0a2f" Version="1.1" Url="{{Url}}{{Instance}}Groups/Save" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIATgBhAG0AZQAiADoAIAAiAEcAcgB1AHAAbwAgAEIAbwBnAG8AdABhACAATwBjAGMAaQBkAGUAbgB0AGUAIABXAFQAIgAsAA0ACgAgACAAIgBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AIgA6ACAAIgBkAGUAcwBkACIALAANAAoAIAAgACIASQBzAEEAYwB0AGkAdgBlACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIASQBzAEwAbwBjAGEAbAAiADoAIAB0AHIAdQBlACwADQAKACAAIAAiAEEAdgBhAGkAbABhAGIAaQBsAGkAdABpAGUAcwAiADoAIABbAF0ALAANAAoAIAAgACIAUAByAG8AdgBpAGQAZQByAEkAZAAiADoAIABuAHUAbABsACwADQAKACAAIAAiAG4AZQB3AEMAbABhAHMAcwAiADoAIAAiAE4AbwByAG0AYQBsACIALAANAAoAIAAgACIAcwBlAGwAZQBjAHQAZQBkACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAYQB2AG8AaQBkAFIAZQBwAHIAbwBjAGUAcwBzAFUAVABDACIAOgAgAHQAcgB1AGUALAANAAoAIAAgACIAcgBvAGwAIgA6ACAAIgBhAGQAbQBpAG4AaQBzAHQAcgBhAHQAbwByACIALAANAAoAIAAgACIAUAByAG8AdgBpAGQAZQByAE4AYQBtAGUAIgA6ACAAIgBUAG8AZABvAHMAIABsAG8AcwAgAHAAcgBvAHYAZQBlAGQAbwByAGUAcwAiACwADQAKACAAIAAiAFAAcgBvAHYAaQBkAGUAcgAiADoAIAAiAC0AMQAiACwADQAKACAAIAAiAFQAeQBwAGUAIgA6ACAAIgBNAG8AYgBpAGwAZQAiACwADQAKACAAIAAiAFUAcwBlAHIAcwAiADoAIABbAF0ALAANAAoAIAAgACIAUwBrAGkAbABsAHMAIgA6ACAAWwBdACwADQAKACAAIAAiAFMAZQByAHYAaQBjAGUAcwAiADoAIABbAF0ADQAKAH0A</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="eff04375-f530-4116-be0f-691ed5a50b3f" Version="1.1" Url="{{Url}}{{Instance}}Groups/Save" ThinkTime="9" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewAiAE4AYQBtAGUAIgA6ACIARwByAHUAcABvACAAQQBkAG0AaQBuAGkAcwB0AHIAYQBkAG8AcgBlAHMAIABXAFQAIgAsACIARABlAHMAYwByAGkAcAB0AGkAbwBuACIAOgAiAGQAZQBzAGMAIABHAHIAdQBwAG8AIABBAGQAbQBpAG4AaQBzAHQAcgBhAGQAbwByAGUAcwAgAFcAVAAiACwAIgBJAHMAQQBjAHQAaQB2AGUAIgA6AHQAcgB1AGUALAAiAEkAcwBMAG8AYwBhAGwAIgA6AHQAcgB1AGUALAAiAEEAdgBhAGkAbABhAGIAaQBsAGkAdABpAGUAcwAiADoAWwBdACwAIgBuAGUAdwBDAGwAYQBzAHMAIgA6ACIATgBvAHIAbQBhAGwAIgAsACIAcwBlAGwAZQBjAHQAZQBkACIAOgB0AHIAdQBlACwAIgBUAHkAcABlACIAOgAiAFcAZQBiACIALAAiAFIAbwBsAGUAcwAiADoAWwB7ACIATgBhAG0AZQAiADoAIgBBAGQAbQBpAG4AaQBzAHQAcgBhAHQAbwByACIAfQBdACwAIgBVAHMAZQByAHMAIgA6AFsAXQB9AA==</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="f4b1bf44-4079-4808-8458-d3050800f117" Version="1.1" Url="{{Url}}{{Instance}}Groups/Save" ThinkTime="9" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewAiAE4AYQBtAGUAIgA6ACIARwByAHUAcABvACAATQBvAG4AaQB0AG8AcgBlAHMAIABXAFQAIgAsACIARABlAHMAYwByAGkAcAB0AGkAbwBuACIAOgAiAGQAZQBzAGMAIABHAHIAdQBwAG8AIABNAG8AbgBpAHQAbwByAGUAcwAgAFcAVAAiACwAIgBJAHMAQQBjAHQAaQB2AGUAIgA6AHQAcgB1AGUALAAiAEkAcwBMAG8AYwBhAGwAIgA6AHQAcgB1AGUALAAiAEEAdgBhAGkAbABhAGIAaQBsAGkAdABpAGUAcwAiADoAWwBdACwAIgBuAGUAdwBDAGwAYQBzAHMAIgA6ACIATgBvAHIAbQBhAGwAIgAsACIAcwBlAGwAZQBjAHQAZQBkACIAOgB0AHIAdQBlACwAIgBUAHkAcABlACIAOgAiAFcAZQBiACIALAAiAFIAbwBsAGUAcwAiADoAWwB7ACIATgBhAG0AZQAiADoAIgBBAEYATABTAF8ATQBvAG4AaQB0AG8AcgAiAH0AXQAsACIAVQBzAGUAcgBzACIAOgBbAF0AfQA=</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="188c73a9-5de8-418c-8b9c-ab5a4ace8c4c" Version="1.1" Url="{{Url}}{{Instance}}Groups/Save" ThinkTime="10" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewAiAE4AYQBtAGUAIgA6ACIARwByAHUAcABvACAARABlAHMAcABhAGMAaABhAGQAbwByAGUAcwAgAFcAVAAiACwAIgBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AIgA6ACIAZABlAHMAYwAgAEcAcgB1AHAAbwAgAEQAZQBzAHAAYQBjAGgAYQBkAG8AcgBlAHMAIABXAFQAIgAsACIASQBzAEEAYwB0AGkAdgBlACIAOgB0AHIAdQBlACwAIgBJAHMATABvAGMAYQBsACIAOgB0AHIAdQBlACwAIgBBAHYAYQBpAGwAYQBiAGkAbABpAHQAaQBlAHMAIgA6AFsAXQAsACIAbgBlAHcAQwBsAGEAcwBzACIAOgAiAE4AbwByAG0AYQBsACIALAAiAHMAZQBsAGUAYwB0AGUAZAAiADoAdAByAHUAZQAsACIAVAB5AHAAZQAiADoAIgBXAGUAYgAiACwAIgBSAG8AbABlAHMAIgA6AFsAewAiAE4AYQBtAGUAIgA6ACIAQQBGAEwAUwBfAEQAaQBzAHAAYQB0AGMAaABlAHIAIgB9AF0ALAAiAFUAcwBlAHIAcwAiADoAWwBdAH0A</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="3db27b55-d56d-4da6-963a-d13763d6ffd9" Version="1.1" Url="{{Url}}{{Instance}}Groups/Save" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{Url}}{{Instance}}" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewAiAE4AYQBtAGUAIgA6ACIARwByAHUAcABvACAARwBlAHMAdABvAHIAZQBzACAAZABlACAAaQBuAHYAZQBuAHQAYQByAGkAbwAgAFcAVAAiACwAIgBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AIgA6ACIAZABlAHMAIABHAHIAdQBwAG8AIABHAGUAcwB0AG8AcgBlAHMAIABkAGUAIABpAG4AdgBlAG4AdABhAHIAaQBvACAAVwBUACIALAAiAEkAcwBBAGMAdABpAHYAZQAiADoAdAByAHUAZQAsACIASQBzAEwAbwBjAGEAbAAiADoAdAByAHUAZQAsACIAQQB2AGEAaQBsAGEAYgBpAGwAaQB0AGkAZQBzACIAOgBbAF0ALAAiAG4AZQB3AEMAbABhAHMAcwAiADoAIgBOAG8AcgBtAGEAbAAiACwAIgBzAGUAbABlAGMAdABlAGQAIgA6AHQAcgB1AGUALAAiAFQAeQBwAGUAIgA6ACIAVwBlAGIAIgAsACIAUgBvAGwAZQBzACIAOgBbAHsAIgBOAGEAbQBlACIAOgAiAEEARgBMAFMAXwBJAG4AdgBlAG4AdABvAHIAeQAiAH0AXQAsACIAVQBzAGUAcgBzACIAOgBbAF0AfQA=</StringHttpBody>
+    </Request>
+  </Items>
+  <ContextParameters>
+    <ContextParameter Name="Url" Value="http://localhost" />
+    <ContextParameter Name="Instance" Value="/AFLS/" />
+  </ContextParameters>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Dirección URL de respuesta" Description="Comprueba que la dirección URL de respuesta tras el seguimiento de las redirecciones es la misma que la dirección URL de respuesta registrada. Se omiten los parámetros de QueryString." Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Objetivo de tiempo de respuesta" Description="Valida que el tiempo de respuesta de la solicitud sea menor o igual que el objetivo de tiempo de respuesta especificado en la solicitud. Se pasarán por alto los objetivos de tiempo de respuesta que sean cero." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+</WebTest>

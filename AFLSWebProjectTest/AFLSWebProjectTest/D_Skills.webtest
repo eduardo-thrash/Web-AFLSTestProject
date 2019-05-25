@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="04 - Skills" Id="d0656c32-cedf-4f27-adb1-49f8753d1d43" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest1.3d708769-138d-47b6-87bb-5f095542d9fa.rec.webtestresult" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="29630691-b559-4167-a2d0-d737b30576e6" Version="1.1" Url="{{WebServer1}}{{Instance}}" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="{{WebServer1}}{{Instance}}LogOn" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="POST" Guid="0c330cea-5676-41db-8969-71fdfac1d15e" Version="1.1" Url="{{WebServer1}}{{Instance}}Account/LogOn" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="*/*" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="{{WebServer1}}{{Instance}}LogOn" />
+      </Headers>
+      <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewAiAEQAZQBmAGEAdQBsAHQAQQB1AHQAaAAiADoAIgBBAFIAQQBOAEQAQQAiACwAIgBVAHMAZQByAE4AYQBtAGUAIgA6ACIAYQBkAG0AaQBuAGkAcwB0AHIAYQB0AG8AcgAiACwAIgBQAGEAcwBzAHcAbwByAGQAIgA6ACIAQQBCAEMAMQAyADMAIgAsACIAUgBlAG0AZQBtAGIAZQByAE0AZQAiADoAIgB0AHIAdQBlACIAfQA=</StringHttpBody>
+    </Request>
+    <Loop UniqueStringId="47c48126-c036-4634-b00a-9fa1563dceeb">
+      <ConditionalRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.CountingLoopRule, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Bucle para contar" Description="Ejecuta la solicitud contenida en el bucle el número de veces especificado." MaxIterations="-1" AdvanceDataCursors="True">
+        <RuleParameters>
+          <RuleParameter Name="ContextParameterName" Value="Contador de bucle" />
+          <RuleParameter Name="IterationsCount" Value="67" />
+        </RuleParameters>
+      </ConditionalRule>
+      <Items>
+        <Request Method="POST" Guid="e0bdb789-3e6b-44a3-8399-4cd126257272" Version="1.1" Url="{{WebServer1}}{{Instance}}Skills/Save" ThinkTime="35" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+            <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+            <Header Name="Referer" Value="{{WebServer1}}{{Instance}}" />
+          </Headers>
+          <StringHttpBody ContentType="application/json" InsertByteOrderMark="False">ewANAAoAIAAgACIATgBhAG0AZQAiADoAIAAiAHsAewBEAGEAdABhAFMAbwB1AHIAYwBlAFMAawBpAGwAbABzAC4AUwBrAGkAbABsAHMARABhAHQAYQAjAGMAcwB2AC4ATgBhAG0AZQB9AH0AIgAsAA0ACgAgACAAIgBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AIgA6ACAAIgB7AHsARABhAHQAYQBTAG8AdQByAGMAZQBTAGsAaQBsAGwAcwAuAFMAawBpAGwAbABzAEQAYQB0AGEAIwBjAHMAdgAuAEQAZQBzAGMAcgBpAHAAdABpAG8AbgB9AH0AIgAsAA0ACgAgACAAIgBJAHMAQQBjAHQAaQB2AGUAIgA6ACAAdAByAHUAZQAsAA0ACgAgACAAIgBzAGUAbABlAGMAdABlAGQAIgA6ACAAdAByAHUAZQANAAoAfQA=</StringHttpBody>
+        </Request>
+      </Items>
+    </Loop>
+  </Items>
+  <DataSources>
+    <DataSource Name="DataSourceSkills" Provider="Microsoft.VisualStudio.TestTools.DataSource.CSV" Connection="|DataDirectory|\SkillsData.csv">
+      <Tables>
+        <DataSourceTable Name="SkillsData#csv" SelectColumns="SelectOnlyBoundColumns" AccessMethod="Sequential" />
+      </Tables>
+    </DataSource>
+  </DataSources>
+  <ContextParameters>
+    <ContextParameter Name="WebServer1" Value="http://localhost" />
+    <ContextParameter Name="Instance" Value="/AFLS/" />
+  </ContextParameters>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Dirección URL de respuesta" Description="Comprueba que la dirección URL de respuesta tras el seguimiento de las redirecciones es la misma que la dirección URL de respuesta registrada. Se omiten los parámetros de QueryString." Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Objetivo de tiempo de respuesta" Description="Valida que el tiempo de respuesta de la solicitud sea menor o igual que el objetivo de tiempo de respuesta especificado en la solicitud. Se pasarán por alto los objetivos de tiempo de respuesta que sean cero." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+</WebTest>

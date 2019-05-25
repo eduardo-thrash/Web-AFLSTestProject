@@ -46,12 +46,43 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="A_MenuInventoryCoded.cs" />
+    <Compile Include="B_CalendarsCoded.cs" />
+    <Compile Include="B_ChronometersCoded.cs" />
+    <Compile Include="B_ModelsCoded.cs" />
+    <Compile Include="C_RelationsCoded.cs" />
+    <Compile Include="C_SLA_UC_OLACoded.cs" />
+    <Compile Include="D_SkillsCoded.cs" />
+    <Compile Include="E_ServicesCoded.cs" />
+    <Compile Include="F_QuickAnswersCoded.cs" />
+    <Compile Include="G_ProvidersCoded.cs" />
+    <Compile Include="G_VehicPositCoded.cs" />
+    <Compile Include="H_ZonesCoded.cs" />
+    <Compile Include="I_MobileUsersCoded.cs" />
+    <Compile Include="J_LicenseCoded.cs" />
+    <Compile Include="K_UserWebGroupsCoded.cs" />
+    <Compile Include="L_CompaniesCoded.cs" />
+    <Compile Include="M_ClientsCoded.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="WebTest1.webtest">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="A_MenuInventory.webtest" />
+    <None Include="B_Calendars.webtest" />
+    <None Include="B_Chronometers.webtest" />
+    <None Include="B_Models.webtest" />
+    <None Include="C_Relations.webtest" />
+    <None Include="C_SLA_UC_OLA.webtest" />
+    <None Include="D_Skills.webtest" />
+    <None Include="E_Services.webtest" />
+    <None Include="F_QuickAnswers.webtest" />
+    <None Include="G_Providers.webtest" />
+    <None Include="G_VehicPosit.webtest" />
+    <None Include="H_Zones.webtest" />
+    <None Include="I_MobileUsers.webtest" />
+    <None Include="J_License.webtest" />
+    <None Include="K_UserWebGroups.webtest" />
+    <None Include="L_Companies.webtest" />
+    <None Include="M_Clients.webtest" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
