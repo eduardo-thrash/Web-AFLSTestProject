@@ -71,11 +71,9 @@ namespace AFLSUIProjectTest.Features.Alerts
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Carga exitosa de modulo Alertas generales")]
-        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
         public virtual void CargaExitosaDeModuloAlertasGenerales()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Carga exitosa de modulo Alertas generales", null, new string[] {
-                        "migrationAFLS"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Carga exitosa de modulo Alertas generales", null, ((string[])(null)));
 #line 4
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

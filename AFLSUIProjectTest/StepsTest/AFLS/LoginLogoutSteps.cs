@@ -61,13 +61,13 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
         [When(@"Ingreso nombre de usuario administrador valido")]
         public void WhenIngresoNombreDeUsuarioAdministradorValido(string user_nickname)
         {
-            CommonElementsAction.SendKeys_InputText("XPath", "//form[@class='login-form']//input[@id='UserName']", user_nickname);
+            UtilAction.SendKeys("//form[@class='login-form']//input[@id='UserName']", user_nickname);
         }
 
         [When(@"Ingreso contraseña de usuario administrador valido")]
         public void WhenIngresoContrasenaDeUsuarioAdministradorValido(string password)
         {
-            CommonElementsAction.SendKeys_InputText("XPath", "//form[@class='login-form']//input[@id='Password']", password);
+            UtilAction.SendKeys("//form[@class='login-form']//input[@id='Password']", password);
         }
 
         [When(@"Doy click en Login")]

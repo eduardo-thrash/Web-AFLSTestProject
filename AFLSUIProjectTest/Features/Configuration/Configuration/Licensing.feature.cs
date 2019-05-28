@@ -71,11 +71,9 @@ namespace AFLSUIProjectTest.Features.Configuration.Configuration
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Licenciamiento exitoso de especialistas móviles")]
-        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
         public virtual void LicenciamientoExitosoDeEspecialistasMoviles()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Licenciamiento exitoso de especialistas móviles", null, new string[] {
-                        "migrationAFLS"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Licenciamiento exitoso de especialistas móviles", null, ((string[])(null)));
 #line 4
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -109,11 +107,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Eliminación exitosa de usuarios móviles")]
-        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
         public virtual void EliminacionExitosaDeUsuariosMoviles()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Eliminación exitosa de usuarios móviles", null, new string[] {
-                        "migrationAFLS"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Eliminación exitosa de usuarios móviles", null, ((string[])(null)));
 #line 19
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -147,11 +143,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Eliminación fallida de usuarios móviles por trabajo en campo en curso")]
-        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
         public virtual void EliminacionFallidaDeUsuariosMovilesPorTrabajoEnCampoEnCurso()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Eliminación fallida de usuarios móviles por trabajo en campo en curso", null, new string[] {
-                        "migrationAFLS"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Eliminación fallida de usuarios móviles por trabajo en campo en curso", null, ((string[])(null)));
 #line 34
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

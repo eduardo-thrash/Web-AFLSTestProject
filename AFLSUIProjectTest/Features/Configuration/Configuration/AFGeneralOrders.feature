@@ -21,6 +21,87 @@ Scenario: 1 Creación exitosa de campos adicionales de orden de tipo simple
 	And Se registra campo adicional de orden de tipo simple en tabla AFW_ADDiTIONAL_FIELDS
 	And Cierro Sesión en la aplicación
 @Automation
+Scenario: 1 Creación exitosa de campos adicionales de orden de tipo párrafo
+	Given Tengo un usuario con rol administrador
+	And No existe el campo adicional de orden de tipo párrafo
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Configuración
+	And Selecciono la opción Campos adicionales de ordenes
+	And Doy click en Nuevo campo adicional de orden
+	And Diligencio etiqueta de campo adicional de orden
+	And Selecciono tipo de campo adicional de orden párrafo
+	And Diligencio texto de ayuda de campo adicional de orden
+	And Doy click en opciones avanzadas de campo adicional de oren
+	And Diligencio nombre de campo adicional de orden
+	And Doy click en Aceptar campo adicional de orden
+	And Doy click en Guardar campo adicional de orden
+	Then Se muestra un mensaje indicando que se creo que campo adicional de orden correctamente
+	And Se registra campo adicional de orden de tipo párrafo en tabla AFW_ADDiTIONAL_FIELDS
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: 1 Creación exitosa de campos adicionales de orden de tipo numérico
+	Given Tengo un usuario con rol administrador
+	And No existe el campo adicional de orden de tipo numérico
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Configuración
+	And Selecciono la opción Campos adicionales de ordenes
+	And Doy click en Nuevo campo adicional de orden
+	And Diligencio etiqueta de campo adicional de orden
+	And Selecciono tipo de campo adicional de orden numérico
+	And Diligencio texto de ayuda de campo adicional de orden
+	And Doy click en opciones avanzadas de campo adicional de oren
+	And Diligencio nombre de campo adicional de orden
+	And Doy click en Aceptar campo adicional de orden
+	And Doy click en Guardar campo adicional de orden
+	Then Se muestra un mensaje indicando que se creo que campo adicional de orden correctamente
+	And Se registra campo adicional de orden de tipo numérico en tabla AFW_ADDiTIONAL_FIELDS
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: 1 Creación exitosa de campos adicionales de orden de tipo fecha
+	Given Tengo un usuario con rol administrador
+	And No existe el campo adicional de orden de tipo fecha
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Configuración
+	And Selecciono la opción Campos adicionales de ordenes
+	And Doy click en Nuevo campo adicional de orden
+	And Diligencio etiqueta de campo adicional de orden
+	And Selecciono tipo de campo adicional de orden fecha
+	And Diligencio texto de ayuda de campo adicional de orden
+	And Doy click en opciones avanzadas de campo adicional de oren
+	And Diligencio nombre de campo adicional de orden
+	And Doy click en Aceptar campo adicional de orden
+	And Doy click en Guardar campo adicional de orden
+	Then Se muestra un mensaje indicando que se creo que campo adicional de orden correctamente
+	And Se registra campo adicional de orden de tipo fecha en tabla AFW_ADDiTIONAL_FIELDS
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: 1 Creación exitosa de campos adicionales de orden de tipo listado
+	Given Tengo un usuario con rol administrador
+	And No existe el campo adicional de orden de tipo listado
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Configuración
+	And Selecciono la opción Campos adicionales de ordenes
+	And Doy click en Nuevo campo adicional de orden
+	And Diligencio etiqueta de campo adicional de orden
+	And Selecciono tipo de campo adicional de orden listado
+	And Diligencio texto de ayuda de campo adicional de orden
+	And Diligencio y confirmo las opciones de listado de cliente
+	And Doy click en opciones avanzadas de campo adicional de oren
+	And Diligencio nombre de campo adicional de orden
+	And Doy click en Aceptar campo adicional de orden
+	And Doy click en Guardar campo adicional de orden
+	Then Se muestra un mensaje indicando que se creo que campo adicional de orden correctamente
+	And Se registra campo adicional de orden de tipo listado en tabla AFW_ADDiTIONAL_FIELDS
+	And Cierro Sesión en la aplicación
+@Automation
 Scenario: 2 Modificación exitosa de campos adicionales de ordenes de tipo simple
 	Given Tengo un usuario con rol administrador
 	And Existe el campo adicional de orden de tipo simple
@@ -35,6 +116,20 @@ Scenario: 2 Modificación exitosa de campos adicionales de ordenes de tipo simpl
 	And Doy click en Guardar campo adicional de orden
 	Then Se muestra un mensaje indicando que se guardo que campo adicional correctamente
 	And Se registra el campo adicional de orden modificado en la tabla AFW_ADDiTIONAL_FIELDS
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: 2 Modificación exitosa de campos adicionales de ordenes modificando orden
+	Given Tengo un usuario con rol administrador
+	And Existe mas de un campo adicional de ordenes
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
+	And Accedo a ítem Configuración
+	And Accedo al menú Configuración
+	And Selecciono la opción Campos adicionales de ordenes
+	And Selecciono el campo adicional de orden y modifico su orden mediante drag and drop
+	And Doy click en Guardar campo adicional de orden
+	Then Se muestra un mensaje indicando que se guardo que campo adicional correctamente
+	And Se registra el campo adicional de ordene modificado en la tabla AFW_ADDiTIONAL_FIELDS con nuevo orden
 	And Cierro Sesión en la aplicación
 @Automation
 Scenario: 3 Eliminación exitosa de campos adicionales ordenes de tipo simple

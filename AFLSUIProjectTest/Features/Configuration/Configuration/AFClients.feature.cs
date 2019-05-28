@@ -302,7 +302,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 91
  testRunner.And("Selecciono tipo de campo adicional de cliente listado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 92
- testRunner.And("Diligencio y confirmo las opciones de listado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Diligencio y confirmo las opciones de listado de cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 93
  testRunner.And("Doy click en opciones avanzadas de campo adicional de cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 94

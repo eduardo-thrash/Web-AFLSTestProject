@@ -1,5 +1,4 @@
 ﻿Feature: SurveyTemplates
-	
 
 Scenario: Creación exitosa de plantilla de encuesta
 	Given Tengo un usuario con rol administrador

@@ -89,7 +89,7 @@ Scenario: 1 Creación exitosa de campos adicionales clientes de tipo listado
 	And Doy click en Nuevo campo adicional de cliente
 	And Diligencio etiqueta de campo adicional de cliente
 	And Selecciono tipo de campo adicional de cliente listado
-	And Diligencio y confirmo las opciones de listado
+	And Diligencio y confirmo las opciones de listado de cliente
 	And Doy click en opciones avanzadas de campo adicional de cliente
 	And Diligencio nombre de campo adicional de cliente
 	And Doy click en Aceptar campo adicional de cliente

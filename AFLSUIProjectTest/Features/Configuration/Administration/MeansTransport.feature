@@ -1,10 +1,11 @@
 ﻿Feature: MeansTransport
 
 @Automation
-Scenario: Creación exitosa de Transportes
+Scenario: 1 Creación exitosa de Transportes
 	Given Tengo un usuario con rol administrador
 	And El transporte no existe
 	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
 	And Accedo al menú Administración
 	And Selecciono la opción Transportes
@@ -15,25 +16,26 @@ Scenario: Creación exitosa de Transportes
 	And Diligencio costo por kilómetro de transporte
 	And Selecciono medio de transporte
 	And Selecciono tipo de transporte publico si se habilita
-	And Doy click en switch de estado de transporte
 	And Doy click en Guardar transporte
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el transporte en la tabla AFLS_VEHICLE_TYPE
 @Automation
-Scenario: Búsqueda exitosa de un transporte existente
+Scenario: 2 Búsqueda exitosa de un transporte existente
 	Given Tengo un usuario con rol administrador
 	And El transporte existe
 	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
 	And Accedo al menú Administración
 	And Selecciono la opción Transportes
 	And Busco y selecciono el transporte
 	Then Se muestra la tarjeta del transporte y el detalle del mismo
 @Automation
-Scenario: Modificación exitosa de un transporte
+Scenario: 3 Modificación exitosa de un transporte
 	Given Tengo un usuario con rol administrador
 	And El transporte existe
 	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
 	And Accedo al menú Administración
 	And Selecciono la opción Transportes
@@ -43,10 +45,11 @@ Scenario: Modificación exitosa de un transporte
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra modificado el transporte en la tabla AFLS_VEHICLE_TYPE
 @Automation
-Scenario: Borrado exitoso de transporte existente
+Scenario: 4 Borrado exitoso de transporte existente
 	Given Tengo un usuario con rol administrador
 	And El transporte existe
 	When Accedo a la aplicación
+	And Realizo Login con usuario rol administrador
 	And Accedo a ítem Configuración
 	And Accedo al menú Administración
 	And Selecciono la opción Transportes

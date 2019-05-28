@@ -72,12 +72,10 @@ namespace AFLSUIProjectTest.Features.Alerts
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Carga exitosa de modulo Alertas de proveedores con selector de todos los proveedo" +
             "res")]
-        [NUnit.Framework.CategoryAttribute("migrationAFLS")]
         public virtual void CargaExitosaDeModuloAlertasDeProveedoresConSelectorDeTodosLosProveedores()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Carga exitosa de modulo Alertas de proveedores con selector de todos los proveedo" +
-                    "res", null, new string[] {
-                        "migrationAFLS"});
+                    "res", null, ((string[])(null)));
 #line 5
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

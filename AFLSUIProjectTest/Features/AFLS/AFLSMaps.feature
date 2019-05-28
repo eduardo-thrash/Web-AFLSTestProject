@@ -6,7 +6,6 @@
 	Pre requisitos: Configuración de columna [esta_country] de tabla [AFLS_ESTABLISHMENT]
 	- identificador del conjunto: 112505
 	- FEATURE 112507
-@Maps @Companies
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de compañía al dar click en cursor de validación
 	Given Tengo un usuario con rol administrador
@@ -43,7 +42,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección modificada
 	And Cierro Sesión en la aplicación
-@Maps @Companies@Automation
+@Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de compañía al presionar Enter
 Given Tengo un usuario con rol administrador
 	And No existe la compañía
@@ -79,7 +78,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección modificada
 	And Cierro Sesión en la aplicación
-@Maps @Companies@Automation
+@Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de compañía al presionar Tab
 	Given Tengo un usuario con rol administrador
 	And No existe la compañía
@@ -114,8 +113,8 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	And Doy click en Guardar compañía
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección modificada
-	And Cierro Sesión en la aplicación
-@Maps @Companies@Automation
+	And Cierro Sesión en la aplicación 
+@Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de compañía al dar click en mapa
 	Given Tengo un usuario con rol administrador
 	And No existe la compañía
@@ -151,7 +150,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección modificada
 	And Cierro Sesión en la aplicación
-@Maps @Clients@Automation
+@Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de clientes al dar click en cursor de validación
 	Given Tengo un usuario con rol administrador
 	And El cliente no existe
@@ -188,7 +187,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_USER_CLIENTS con longitud, latitud y dirección modificada
 	And Cierro Sesión en la aplicación
-@Maps @Clients@Automation
+@Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de clientes al presionar Enter
 	Given Tengo un usuario con rol administrador
 	And El cliente no existe
@@ -225,7 +224,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_USER_CLIENTS con longitud, latitud y dirección modificada
 	And Cierro Sesión en la aplicación
-@Maps @Clients@Automation
+@Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de clientes al presionar Tab
 	Given Tengo un usuario con rol administrador
 	And El cliente no existe
@@ -262,7 +261,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_USER_CLIENTS con longitud, latitud y dirección modificada
 	And Cierro Sesión en la aplicación
-@Maps @Clients@Automation
+@Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de clientes al dar click en mapa
 	Given Tengo un usuario con rol administrador
 	And El cliente no existe
@@ -299,7 +298,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_USER_CLIENTS con longitud, latitud y dirección modificada
 	And Cierro Sesión en la aplicación
-@Maps @MobileUsers
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de usuarios móviles al dar click en cursor de validación
 	Given No existe el usuario móvil
@@ -384,7 +382,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la compañía en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección modificada
 	And Cierro Sesión en la aplicación
-@Maps @MobileUsers
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de usuarios móviles al presionar Enter
 	Given No existe el usuario móvil
@@ -410,7 +407,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación d
 	And Se registra el usuario en la tabla AFW_USERS
 	And Se registra el usuario móvil con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @MobileUsers
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de usuarios móviles al presionar Tab
 	Given No existe el usuario móvil
@@ -436,7 +432,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación d
 	And Se registra el usuario en la tabla AFW_USERS
 	And Se registra el usuario móvil con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @MobileUsers
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de usuarios móviles al dar click en mapa
 	Given No existe el usuario móvil
@@ -462,7 +457,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación d
 	And Se registra el usuario en la tabla AFW_USERS
 	And Se registra el usuario móvil con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @Specialist
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de especialistas de monitor al dar click en cursor de validación
 	Given Tengo un usuario con rol monitor y con proveedores asociados
@@ -542,7 +536,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra el especialista de proveedor  con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección modificado
 	And Cierro Sesión en la aplicación
-@Maps @Specialist
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de especialistas de monitor al presionar Enter
 	Given Tengo un usuario con rol monitor y con proveedores asociados
@@ -566,7 +559,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación d
 	And Se registra el especialista de proveedor en la tabla AFW_USERS
 	And Se registra el especialista de proveedor  con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @Specialist
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de especialistas de monitor al presionar Tab
 	Given Tengo un usuario con rol monitor y con proveedores asociados
@@ -613,7 +605,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación d
 	And Se registra el especialista de proveedor en la tabla AFW_USERS
 	And Se registra el especialista de proveedor  con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @Zones
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de zonas
 	Given Tengo un usuario con rol administrador
@@ -640,7 +631,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación d
 	And Se registra el polígono de la zona en la tabla AFLS_ZONE_POLYGON
 	And Se registra la relación de proveedor con zona en la tabla AFLS_PROVIDER_ZONE
 	And Cierro Sesión en la aplicación
-@Maps @Zones
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualización de zonas
 	Given Tengo un usuario con rol administrador
@@ -657,8 +647,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la zona en la tabla AFLS_ZONES
 	And Cierro Sesión en la aplicación
-
-@Maps @Locations
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de ubicaciones al dar click en cursor de validación
 	Given Tengo un usuario con rol administrador
@@ -737,7 +725,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en actualizaci
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, latitud y dirección modificada
 	And Cierro Sesión en la aplicación
-@Maps @Locations
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de ubicaciones al presionar Enter
 	Given Tengo un usuario con rol administrador
@@ -756,7 +743,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación d
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @Locations
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación de ubicaciones al presionar Tab
 	Given Tengo un usuario con rol administrador
@@ -794,7 +780,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en creación d
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @Establishment
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en configuración de información básica al dar click en cursor de validación
 	Given Tengo un usuario con rol administrador
@@ -811,7 +796,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en configuraci
 	And Se registra la configuración básica en la tabla AFLS_ESTABLISHMENT con longitud, latitud y dirección
 	And Se registra por base de datos la zona geográfica de dos países
 	And Cierro Sesión en la aplicación
-@Maps @Establishment
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en configuración de información básica al presionar Enter
 	Given Tengo un usuario con rol administrador
@@ -828,7 +812,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en configuraci
 	And Se registra la configuración básica en la tabla AFLS_ESTABLISHMENT con longitud, latitud y dirección
 	And Se registra por base de datos la zona geográfica de dos países
 	And Cierro Sesión en la aplicación
-@Maps @Establishment
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en configuración de información básica al presionar Tab
 	Given Tengo un usuario con rol administrador
@@ -845,7 +828,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en configuraci
 	And Se registra la configuración básica en la tabla AFLS_ESTABLISHMENT con longitud, latitud y dirección
 	And Se registra por base de datos la zona geográfica de dos países
 	And Cierro Sesión en la aplicación
-@Maps @Establishment
+@Establishment
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en configuración de información básica al dar click en mapa
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -898,7 +881,6 @@ Scenario: CP_AFLS: Mapas > Visualización exitosa de control de mapa en monitore
 	And Se muestra correctamente el control de mapas
 	And Al seleccionar un especialista se muestra su información en el mapa correctamente
 	And Cierro Sesión en la aplicación
-@Maps @Orders
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección de cita para creación de orden de trabajo al dar click en cursor de validación
 	Given Tengo un usuario con rol despachador
@@ -919,7 +901,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección 
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @Orders
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección de cita para creación de orden de trabajo al presionar Enter
 	Given Tengo un usuario con rol despachador
@@ -940,7 +921,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección 
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
 	And Cierro Sesión en la aplicación
-@Maps @Orders
 @Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección de cita para creación de orden de trabajo al presionar Tab
 	Given Tengo un usuario con rol despachador
@@ -1096,7 +1076,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección 
 	And se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS
 	And Cierro Sesión en la aplicación
 @Maps @Orders
-Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección de cita para actualización de orden de trabajo al presionar Tab
+Scenario: CP_AFLS: Mapas > Validación exitosa de mapa en dirección de cita para actualización de orden de trabajo al presionar Tab
 	Given Tengo un usuario con rol despachador
 	And Existe una orden de trabajo en estado abierta
 	When Accedo a la aplicación
@@ -1111,7 +1091,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección 
 	And se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS
 	And Cierro Sesión en la aplicación
 @Maps @Orders
-Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección de cita para actualización de orden de trabajo al dar click en mapa
+Scenario: CP_AFLS: Mapas > Validación exitosa de mapa en dirección de cita para actualización de orden de trabajo al dar click en mapa
 	Given Tengo un usuario con rol despachador
 	And Existe una orden de trabajo en estado abierta
 	When Accedo a la aplicación
@@ -1126,7 +1106,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección 
 	And se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS
 	And Cierro Sesión en la aplicación
 @Maps @Orders
-Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección de destino para actualización de orden de trabajo al dar click en cursor de validación
+Scenario: CP_AFLS: Mapas > Validación exitosa de mapa en dirección de destino para actualización de orden de trabajo al dar click en cursor de validación
 	Given Tengo un usuario con rol despachador
 	And Existe una orden de trabajo abierta o en proceso
 	When Accedo a la aplicación
@@ -1141,7 +1121,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección 
 	And se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS
 	And Cierro Sesión en la aplicación
 @Maps @Orders
-Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección de destino para actualización de orden de trabajo al presionar Enter
+Scenario: CP_AFLS: Mapas > Validación exitosa de mapa en dirección de destino para actualización de orden de trabajo al presionar Enter
 	Given Tengo un usuario con rol despachador
 	And Existe una orden de trabajo abierta o en proceso
 	When Accedo a la aplicación
@@ -1156,7 +1136,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección 
 	And se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS
 	And Cierro Sesión en la aplicación
 @Maps @Orders
-Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección de destino para actualización de orden de trabajo al presionar Tab
+Scenario: CP_AFLS: Mapas > Validación exitosa de mapa en dirección de destino para actualización de orden de trabajo al presionar Tab
 	Given Tengo un usuario con rol despachador
 	And Existe una orden de trabajo abierta o en proceso
 	When Accedo a la aplicación
@@ -1171,7 +1151,7 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección 
 	And se actualiza dirección, longitud y latitud de orden en la tabla AFLS_WORKORDERS
 	And Cierro Sesión en la aplicación
 @Maps @Orders
-Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección de destino para actualización de orden de trabajo al dar click en mapa
+Scenario: CP_AFLS: Mapas > Validación exitosa de mapa en dirección de destino para actualización de orden de trabajo al dar click en mapa
 	Given Tengo un usuario con rol despachador
 	And Existe una orden de trabajo abierta o en proceso
 	When Accedo a la aplicación

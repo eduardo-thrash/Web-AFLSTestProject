@@ -19,19 +19,18 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         private readonly AFClientsPage AFClientsPage = new AFClientsPage();
         private readonly PageMessages PageMessages = new PageMessages();
         private string AFClientName;
-        private string DefaultAFClientName = "UI AFClient Simple";
-        private string EditAFClientName = "UI Edit AFClient Simple";
-        private string EditLabelAFClientName = "Edit UI AFClient Simple";
+        private int CountOptions;
+        private string DefaultAFClientName = "UI AFClient ";
+        private string EditAFClientName = "UI Edit AFClient ";
+        private string EditLabelAFClientName = "Edit UI AFClient ";
         private AFLSCommonFunctions Functions = new AFLSCommonFunctions();
+        private string Label;
         private string LabelAFClientName;
         private AFLSUIProjectTest.UIMap.ConfigurationMenuPage Menu = new AFLSUIProjectTest.UIMap.ConfigurationMenuPage();
         private MessagesElements Messages = new MessagesElements();
         private MessagesCopies MessagesCopies = new MessagesCopies();
-        private ResponseValidation Validation = new ResponseValidation();
         private int OrderField;
-        private string Label;
-
-        private int CountOptions;
+        private ResponseValidation Validation = new ResponseValidation();
 
         [Given(@"Existe el campo adicional de cliente de tipo simple")]
         public string GivenExisteElCampoAdicionalDeClienteDeTipoSimple()
@@ -39,6 +38,13 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         {
             AFClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 1 ORDER BY NEWID();", 1);
             return AFClientName;
+        }
+
+        [Given(@"Existe mas de un campo adicional de cliente")]
+        public void GivenExisteMasDeUnCampoAdicionalDeCliente()
+        {
+            int FieldCount = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003;", 1));
+            Assert.IsTrue(FieldCount > 1);
         }
 
         [Given(@"No existe el campo adicional de cliente de tipo fecha")]
@@ -102,44 +108,10 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 4 AND name = '" + AFClientName + "';", 1);
         }
 
-        [When(@"Diligencio y confirmo las opciones de listado")]
-        public void WhenDiligencioYConfirmoLasOpcionesDeListado()
-        {
-            Thread.Sleep(3000);
-            IList<IWebElement> ListField = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-client']/div/div[2]/ul/li"));
-
-            Random rdn = new Random();
-            CountOptions = rdn.Next(3, 10);
-
-            for (int i = 1; i <= CountOptions; i++)
-            {
-                try
-                {
-                    CommonHooks.driver.FindElement(By.XPath("//*[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/input"));
-                    //CommonHooks.driver.FindElement(By.XPath("//div[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/input[@class='new-option js-new-option k-valid']"));
-
-                    UtilAction.SendKeys("//*[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/input", "OptionUI" + i.ToString());
-                    Thread.Sleep(1000);
-                    UtilAction.Click("//*[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/button");
-                    Thread.Sleep(1000);
-                }
-                catch (Exception e)
-                {
-                }
-            }
-        }
-
         [Then(@"Se registra campo adicional de cliente de tipo listado en tabla AFW_ADDiTIONAL_FIELDS")]
         public void ThenSeRegistraCampoAdicionalDeClienteDeTipoListadoEnTablaAFW_ADDiTIONAL_FIELDS()
         {
             CommonQuery.DBSelectAValue("SELECT name FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003 AND type_id = 5 AND name = '" + AFClientName + "';", 1);
-        }
-
-        [Then(@"Se registran las opciones de campo adicional de cliente de tipo listado en tabla AFW_ADDITIONAL_FIELD_LOOKUP")]
-        public void ThenSeRegistranLasOpcionesDeCampoAdicionalDeClienteDeTipoListadoEnTablaAFW_ADDITIONAL_FIELD_LOOKUP()
-        {
-            int Options = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFW_ADDITIONAL_FIELD_LOOKUP LP JOIN AFW_ADDITIONAL_FIELD AD ON LP.field_id = AD.id WHERE AD.name = '" + AFClientName + "';", 1));
-            Assert.AreEqual(Options, CountOptions);
         }
 
         [Then(@"Se registra campo adicional de cliente de tipo numérico en tabla AFW_ADDiTIONAL_FIELDS")]
@@ -173,6 +145,13 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             Assert.AreNotEqual(OrderField, NewOrder);
         }
 
+        [Then(@"Se registran las opciones de campo adicional de cliente de tipo listado en tabla AFW_ADDITIONAL_FIELD_LOOKUP")]
+        public void ThenSeRegistranLasOpcionesDeCampoAdicionalDeClienteDeTipoListadoEnTablaAFW_ADDITIONAL_FIELD_LOOKUP()
+        {
+            int Options = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFW_ADDITIONAL_FIELD_LOOKUP LP JOIN AFW_ADDITIONAL_FIELD AD ON LP.field_id = AD.id WHERE AD.name = '" + AFClientName + "';", 1));
+            Assert.AreEqual(Options, CountOptions);
+        }
+
         [When(@"Diligencio etiqueta de campo adicional de cliente")]
         public void WhenDiligencioEtiquetaDeCampoAdicionalDeCliente()
         {
@@ -191,6 +170,33 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         public void WhenDiligencioTextoDeAyudaDeCampoAdicionalDeCliente()
         {
             CommonElementsAction.SendKeys_InputText("XPath", "//div[@id='addtional-fields-client']/div/div[2]/ul/li/form/div[2]/div/div[2]/div/textarea", "Descriptontext help message");
+        }
+
+        [When(@"Diligencio y confirmo las opciones de listado de cliente")]
+        public void WhenDiligencioYConfirmoLasOpcionesDeListadoDeCliente()
+        {
+            Thread.Sleep(3000);
+            IList<IWebElement> ListField = CommonHooks.driver.FindElements(By.XPath("//div[@id='addtional-fields-client']/div/div[2]/ul/li"));
+
+            Random rdn = new Random();
+            CountOptions = rdn.Next(3, 10);
+
+            for (int i = 1; i <= CountOptions; i++)
+            {
+                try
+                {
+                    CommonHooks.driver.FindElement(By.XPath("//*[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/input"));
+                    //CommonHooks.driver.FindElement(By.XPath("//div[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/input[@class='new-option js-new-option k-valid']"));
+
+                    UtilAction.SendKeys("//*[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/input", "OptionUI" + i.ToString());
+                    Thread.Sleep(1000);
+                    UtilAction.Click("//*[@id='addtional-fields-client']/div/div[2]/ul/li[" + ListField.Count + "]/form/div[2]/div[2]/div[2]/div[1]/button");
+                    Thread.Sleep(1000);
+                }
+                catch (Exception e)
+                {
+                }
+            }
         }
 
         [When(@"Doy click en Aceptar campo adicional de cliente")]
@@ -315,13 +321,6 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
                     Thread.Sleep(3000);
                 }
             }
-        }
-
-        [Given(@"Existe mas de un campo adicional de cliente")]
-        public void GivenExisteMasDeUnCampoAdicionalDeCliente()
-        {
-            int FieldCount = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFW_ADDITIONAL_FIELD AF JOIN AFW_ADDITIONAL_FIELD_DEFINTION AFD ON AF.definition_id = AFD.id WHERE AFD.concept_id = 34003;", 1));
-            Assert.IsTrue(FieldCount > 1);
         }
 
         [When(@"Selecciono la opción Campos adicionales clientes")]

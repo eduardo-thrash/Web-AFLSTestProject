@@ -1,6 +1,6 @@
 ﻿Feature: Email Templates
 	
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Registro
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -13,8 +13,7 @@ Scenario: Configuración exitosa de plantilla de correo Registro
 	And Pulso Guardar plantilla general
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Asignación
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -27,8 +26,7 @@ Scenario: Configuración exitosa de plantilla de correo Asignación
 	And Pulso Guardar plantilla general
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Retraso
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -41,8 +39,7 @@ Scenario: Configuración exitosa de plantilla de correo Retraso
 	And Pulso Guardar plantilla general
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Cambio de especialista
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -55,8 +52,7 @@ Scenario: Configuración exitosa de plantilla de correo Cambio de especialista
 	And Pulso Guardar plantilla general
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Cancelación
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -69,8 +65,7 @@ Scenario: Configuración exitosa de plantilla de correo Cancelación
 	And Pulso Guardar plantilla general
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Ejecutada
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -83,8 +78,7 @@ Scenario: Configuración exitosa de plantilla de correo Ejecutada
 	And Pulso Guardar plantilla general
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Vinculación
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -97,8 +91,7 @@ Scenario: Configuración exitosa de plantilla de correo Vinculación
 	And Pulso Guardar plantilla general
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Proveedores
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -111,8 +104,7 @@ Scenario: Configuración exitosa de plantilla de correo Proveedores
 	And Pulso Guardar plantilla general
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Encuesta de satisfacción al Cliente
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -125,8 +117,7 @@ Scenario: Configuración exitosa de plantilla de correo Encuesta de satisfacció
 	And Pulso Guardar plantilla de encuestas
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Alerta de Nivel de satisfacción
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -139,8 +130,7 @@ Scenario: Configuración exitosa de plantilla de correo Alerta de Nivel de satis
 	And Pulso Guardar plantilla de encuestas
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Notificación de medición de encuesta
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -153,8 +143,7 @@ Scenario: Configuración exitosa de plantilla de correo Notificación de medici�
 	And Pulso Guardar plantilla de encuestas
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de correo Notificación de resumen de encuesta
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -167,8 +156,7 @@ Scenario: Configuración exitosa de plantilla de correo Notificación de resumen
 	And Pulso Guardar plantilla de encuestas
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de ANS de correo Revisión
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -181,8 +169,7 @@ Scenario: Configuración exitosa de plantilla de ANS de correo Revisión
 	And Pulso Guardar plantilla de ANS's
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de ANS de correo Finalización
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -195,8 +182,7 @@ Scenario: Configuración exitosa de plantilla de ANS de correo Finalización
 	And Pulso Guardar plantilla de ANS's
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de UC de correo Revisión
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -209,8 +195,7 @@ Scenario: Configuración exitosa de plantilla de UC de correo Revisión
 	And Pulso Guardar plantilla de UC's
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de UC de correo Finalización
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -223,8 +208,7 @@ Scenario: Configuración exitosa de plantilla de UC de correo Finalización
 	And Pulso Guardar plantilla de UC's
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de OLA de correo Revisión
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -237,8 +221,7 @@ Scenario: Configuración exitosa de plantilla de OLA de correo Revisión
 	And Pulso Guardar plantilla de OLA's
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla de OLA de correo Finalización
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -251,8 +234,7 @@ Scenario: Configuración exitosa de plantilla de OLA de correo Finalización
 	And Pulso Guardar plantilla de OLA's
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla AssistMe de correo Notificación de cuenta de usuarios Assistme
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -265,8 +247,7 @@ Scenario: Configuración exitosa de plantilla AssistMe de correo Notificación d
 	And Pulso Guardar plantilla de AssistMe
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla AssistMe de correo Notificación orden registrada desde Assistme
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación
@@ -279,8 +260,7 @@ Scenario: Configuración exitosa de plantilla AssistMe de correo Notificación o
 	And Pulso Guardar plantilla de AssistMe
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Cierro Sesión en la aplicación
-
-
+@Automation
 Scenario: Configuración exitosa de plantilla AssistMe de correo Verificación datos de usuario
 	Given Tengo un usuario con rol administrador
 	When Accedo a la aplicación

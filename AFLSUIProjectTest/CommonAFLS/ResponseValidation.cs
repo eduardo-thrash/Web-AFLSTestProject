@@ -279,7 +279,7 @@ namespace AFLSUIProjectTest.CommonAFLS
         {
             string TextMessage;
             int Counter = 0;
-            int MaxInteractions = 20;
+            int MaxInteractions = 10;
             bool StaleElement = false;
 
             while (!StaleElement)
@@ -290,12 +290,27 @@ namespace AFLSUIProjectTest.CommonAFLS
                     Assert.IsTrue(TextMessage.Contains(MessagesCopies.SuccessElementConfigurationCreateOrUpdate));
                     StaleElement = true;
                 }
-                catch (Exception e)
+                catch
                 {
-                    Counter++;
-                    if (Counter == MaxInteractions)
+                    try
                     {
-                        Assert.Fail(e.Message);
+                        TextMessage = CommonHooks.driver.FindElement(By.XPath(MessagesElements.ResponseElement)).Text;
+                        if (TextMessage != "")
+                        {
+                            Assert.IsFalse(TextMessage.Contains(MessagesCopies.SuccessElementConfigurationCreateOrUpdate));
+                            Counter = MaxInteractions;
+                            Assert.Fail(TextMessage);
+                            StaleElement = true;
+                        }
+                        
+                    }
+                    catch (Exception e)
+                    {
+                        Counter++;
+                        if (Counter >= MaxInteractions)
+                        {
+                            Assert.Fail(e.Message);
+                        }
                     }
                     Thread.Sleep(1000);
                 }

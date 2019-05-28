@@ -217,7 +217,9 @@ namespace AFLSUIProjectTest.CommonAFLS
                 conn.Open();
 
                 using (SqlCommand command = new SqlCommand(Query, conn))
-                { }
+                {
+                    command.ExecuteNonQuery();
+                }
             }
         }
 
@@ -230,7 +232,9 @@ namespace AFLSUIProjectTest.CommonAFLS
                 conn.Open();
 
                 using (SqlCommand command = new SqlCommand(Query, conn))
-                { }
+                {
+                    command.ExecuteNonQuery();
+                }
             }
         }
 

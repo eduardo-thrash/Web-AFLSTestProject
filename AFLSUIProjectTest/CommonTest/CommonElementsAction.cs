@@ -186,6 +186,7 @@ namespace CommonTest.CommonTest
                     Assert.IsTrue(ElementWait.Displayed);
                     Assert.AreNotEqual(ElementWait.Size, 0);
                     ElementWait.Click();
+                    ElementWait.Clear();
                     ElementWait.SendKeys(Value);
                     break;
                 }
@@ -332,6 +333,7 @@ namespace CommonTest.CommonTest
                     Assert.IsTrue(ElementWait.Enabled);
                     Assert.IsTrue(ElementWait.Displayed);
                     Assert.AreNotEqual(ElementWait.Size, 0);
+                    ElementWait.Clear();
                     ElementWait.Click();
                     ElementWait.SendKeys(Value);
                     ElementWait.SendKeys(Keys.Enter);

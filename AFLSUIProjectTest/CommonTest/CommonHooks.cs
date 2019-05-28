@@ -63,7 +63,10 @@ namespace CommonTest.CommonTest
             if (!Directory.Exists(ScreenshotFolder))
                 Directory.CreateDirectory(ScreenshotFolder);
 
-            Image = ScreenshotFolder + @"\Error " + FeatureContext.Current.FeatureInfo.Title + "-" + ScenarioTitle + ".jpg";
+            int RemoveCar = ScenarioTitle.Length - 30;
+            string ScenarioName = ScenarioTitle.Remove(10, RemoveCar);
+
+            Image = ScreenshotFolder + @"\Error " + FeatureContext.Current.FeatureInfo.Title + "-" + ScenarioName + ".jpg";
             driver.TakeScreenshot().SaveAsFile(Image, ScreenshotImageFormat.Jpeg);
 
             return Image;
