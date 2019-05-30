@@ -280,7 +280,8 @@ namespace CommonTest.CommonTest
         [BeforeStep]
         public static void StepUp()
         {
-            Thread.Sleep(500);
+            int Delay = Convert.ToInt32(ConfigurationManager.AppSettings["WaitBetweenSteps"]);
+            Thread.Sleep(Delay);
             Console.WriteLine("\n");
         }
 
@@ -349,7 +350,9 @@ namespace CommonTest.CommonTest
                     Assert.Fail("Incorrect condition" + ValidateGenerateReport + ". suggestion(true or false)");
                     break;
             }
-            Thread.Sleep(500);
+
+            int Delay = Convert.ToInt32(ConfigurationManager.AppSettings["WaitBetweenSteps"]);
+            Thread.Sleep(Delay);
         }
 
         public static void MassiveScenarioResult(int NumberTest, bool IsSuccess, string MessageError)
