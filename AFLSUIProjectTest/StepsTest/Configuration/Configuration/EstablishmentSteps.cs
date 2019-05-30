@@ -97,6 +97,12 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
             CommonHooks.driver.FindElement(By.CssSelector(EstablishmentPage.EstablishmentInputAddress)).SendKeys(Keys.Tab);
         }
 
+        [When(@"Diligencio dirección de compañía en información básica dando click en mapa")]
+        public void WhenDiligencioDireccionDeCompaniaEnInformacionBasicaDandoClickEnMapa()
+        {
+            UtilAction.Click("//div[@class='establishment']//div[@id='mapEstablishmentAddress']");
+        }
+
         [Then(@"Se registra la configuración básica en la tabla AFLS_ESTABLISHMENT con longitud, latitud y dirección")]
         public void ThenSeRegistraLaConfiguracionBasicaEnLaTablaAFLS_ESTABLISHMENTConLongitudLatitudYDireccion()
         {
@@ -130,7 +136,7 @@ namespace AFLSUITestProject.TestSuite.Configuration.Configuration
         [When(@"Modifico nombre de compañía en información básica dejándolo vacío")]
         public void WhenModificoNombreDeCompaniaEnInformacionBasicaDejandoloVacio()
         {
-            UtilAction.Clear(EstablishmentPage.EstablishmentInputName, "Aranda Software" + Functions.RandomText(5), "CssSelector");
+            UtilAction.Clear(EstablishmentPage.EstablishmentInputName, "CssSelector");
         }
 
         [Given(@"Tengo información básica configurada")]

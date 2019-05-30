@@ -93,7 +93,9 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             Thread.Sleep(3000);
             new Actions(CommonHooks.driver).MoveByOffset(0, 100).Click().Build().Perform();
             Thread.Sleep(3000);
-            new Actions(CommonHooks.driver).MoveByOffset(280, 0).Click().Build().Perform();
+            new Actions(CommonHooks.driver).MoveByOffset(300, 0).Click().Build().Perform();
+            Thread.Sleep(3000);
+            new Actions(CommonHooks.driver).MoveByOffset(0, -100).Click().Build().Perform();
             Thread.Sleep(3000);
         }
 

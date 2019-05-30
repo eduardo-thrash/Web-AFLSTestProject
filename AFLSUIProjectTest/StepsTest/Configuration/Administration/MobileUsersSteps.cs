@@ -113,6 +113,20 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
             CommonElementsAction.Click("XPath", MobileUsersPage.MobileUserAddressValidate);
         }
 
+        [When(@"modifico dirección de usuario móvil dando enter")]
+        public void WhenModificoDireccionDeUsuarioMovilDandoEnter()
+        {
+            UtilAction.Clear(MobileUsersPage.MobileUserAddress, "CssSelector");
+            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA");
+        }
+
+        [When(@"modifico dirección de usuario móvil dando click en mapa")]
+        public void WhenModificoDireccionDeUsuarioMovilDandoClickEnMapa()
+        {
+            CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA");
+            UtilAction.Click("//div[@class='users']//div[@id='mapUsersAddress']");
+        }
+
         [When(@"diligencio dirección valida de usuario móvil dando enter")]
         public void WhenDiligencioDireccionValidaDeUsuarioMovilDandoEnter()
         {
@@ -269,6 +283,14 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
             CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USERS_SPECIALISTS WHERE user_id = " + UserId + " AND spc_initial_longitude IS NOT NULL AND spc_initial_latitude IS NOT NULL AND spc_initial_address IS NOT NULL;", 1);
         }
 
+        [Then(@"Se registra la compañía en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección modificada")]
+        public void ThenSeRegistraLaCompaniaEnLaTablaAFLS_USERS_SPECIALISTSConLongitudLatitudYDireccionModificada()
+        {
+            Thread.Sleep(2000);
+            UserId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT user_id FROM AFW_USERS WHERE user_nick_name = '" + user_nickname + "';", 1));
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USERS_SPECIALISTS WHERE user_id = " + UserId + " AND spc_initial_longitude IS NOT NULL AND spc_initial_latitude IS NOT NULL AND spc_initial_address IS NOT NULL;", 1);
+        }
+
         [Then(@"Se registra disponibilidad de todos los días en la tabla AFLS_USER_AVAILABILITIES")]
         public void ThenSeRegistraDisponibilidadDeTodosLosDiasEnLaTablaAFLS_USER_AVAILABILITIES()
         {
@@ -328,8 +350,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
                                           + ", 1"
                                           + ", 'Aranda V992'"
                                           + ", 587"
-                                          + ", 'eduardo-thrash@hotmail.com')"
-                                          + "GO");
+                                          + ", 'eduardo-thrash@hotmail.com');");
             }
 
             try
@@ -392,6 +413,13 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
             CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserButtonSearch);
             Thread.Sleep(3000);
             CommonElementsAction.Click("XPath", MobileUsersPage.MobileUserView);
+        }
+
+        [When(@"modifico dirección de usuario móvil dando tab")]
+        public void WhenModificoDireccionDeUsuarioMovilDandoTab()
+        {
+            UtilAction.Clear(MobileUsersPage.MobileUserAddress, "CssSelector");
+            UtilAction.TabAfter_SendKeys(MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA", "CssSelector");
         }
 
         [Given(@"El usuario móvil existe sin disponibilidad y habilidades")]

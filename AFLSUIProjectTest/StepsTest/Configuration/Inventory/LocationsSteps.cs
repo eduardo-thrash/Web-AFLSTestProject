@@ -107,6 +107,28 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
             UtilAction.Click("//div[@class='zones']//div[@id='mapHeadquarterAddress']");
         }
 
+        [When(@"Modifico dirección de ubicación dando click en mapa")]
+        public void WhenModificoDireccionDeUbicacionDandoClickEnMapa()
+        {
+            UtilAction.Click(LocationsHeadquaterPage.LocationHeadquaterAddress, "CssSelector");
+            UtilAction.Click("//div[@class='zones']//div[@id='mapHeadquarterAddress']");
+        }
+
+        [When(@"Modifico dirección de ubicación dando Tab")]
+        public void WhenModificoDireccionDeUbicacionDandoTab()
+        {
+            UtilAction.Clear(LocationsHeadquaterPage.LocationHeadquaterAddress, "CssSelector");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
+            CommonHooks.driver.FindElement(By.CssSelector(LocationsHeadquaterPage.LocationHeadquaterAddress)).SendKeys(Keys.Tab);
+        }
+
+        [When(@"Modifico dirección de ubicación dando Enter")]
+        public void WhenModificoDireccionDeUbicacionDandoEnter()
+        {
+            UtilAction.Clear(LocationsHeadquaterPage.LocationHeadquaterAddress, "CssSelector");
+            UtilAction.EnterAfter_SendKeys(LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota", "CssSelector");
+        }
+
         [When(@"Diligencio detalle de dirección de ubicación")]
         public void WhenDiligencioDetalleDeDireccionDeUbicacion()
         {
@@ -165,6 +187,12 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
 
         [Then(@"Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, latitud y dirección")]
         public void ThenSeRegistraLaUbicacionEnLaTablaAFLS_STOCK_LOCATIONS_INFOConLongitudLatitudYDireccion()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + HeadquaterName + "' AND asli_longitude IS NOT NULL AND asli_latitude IS NOT NULL AND asli_address IS NOT NULL;", 1);
+        }
+
+        [Then(@"Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO con longitud, latitud y dirección modificada")]
+        public void ThenSeRegistraLaUbicacionEnLaTablaAFLS_STOCK_LOCATIONS_INFOConLongitudLatitudYDireccionModificada()
         {
             CommonQuery.DBSelectAValue("SELECT * FROM AFLS_STOCK_LOCATION_INFO WHERE grou_name = '" + HeadquaterName + "' AND asli_longitude IS NOT NULL AND asli_latitude IS NOT NULL AND asli_address IS NOT NULL;", 1);
         }
@@ -240,6 +268,14 @@ namespace AFLSUITestProject.TestSuite.Configuration.Inventory
         public void WhenUbicoYSeleccionoLaUbicacionDeseada()
         {
             UtilAction.SelectOptionList("//div[@class='k-treeView k-widget k-treeview']/ul/li/div/span", HeadquaterName, "span");
+        }
+
+        [When(@"Modifico dirección de ubicación dando click en cursor")]
+        public void WhenModificoDireccionDeUbicacionDandoClickEnCursor()
+        {
+            UtilAction.Clear(LocationsHeadquaterPage.LocationHeadquaterAddress, "CssSelector");
+            CommonElementsAction.SendKeys_InputText("CssSelector", LocationsHeadquaterPage.LocationHeadquaterAddress, "calle 4 bogota");
+            CommonElementsAction.Click("XPath", LocationsHeadquaterPage.LocationAddressValidate);
         }
 
         [Then(@"Se muestra el detalle de la ubicación")]

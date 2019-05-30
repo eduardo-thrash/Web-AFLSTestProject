@@ -2,6 +2,7 @@
 using AFLSUIProjectTest.UIMap;
 using AFLSUIProjectTest.UIMap.AFLS;
 using CommonTest.CommonTest;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
@@ -26,6 +27,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Monitor
         private string EditSpecialistNickName = "ui.specialist.edit";
         private string SpecialistName = "UI Specialist";
         private int SpecialistId;
+        private int UserId;
 
         [When(@"Selecciono la opción especialistas")]
         public void WhenSeleccionoLaOpcionEspecialistas()
@@ -99,6 +101,52 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Monitor
             CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserAddress);
         }
 
+        [When(@"modifico dirección valida de especialista de proveedor dando click en cursor")]
+        public void WhenModificoDireccionValidaDeEspecialistaDeProveedorDandoClickEnCursor()
+        {
+            UtilAction.Clear(MobileUsersPage.MobileUserAddress, "CssSelector");
+            CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA");
+            CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserAddressValidate);
+            Thread.Sleep(3000);
+        }
+
+        [When(@"modifico dirección valida de especialista de proveedor dando enter")]
+        public void WhenModificoDireccionValidaDeEspecialistaDeProveedorDandoEnter()
+        {
+            UtilAction.Clear(MobileUsersPage.MobileUserAddress, "CssSelector");
+            UtilAction.EnterAfter_SendKeys(MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA", "CssSelector");
+        }
+
+        [When(@"modifico dirección valida de especialista de proveedor dando Tab")]
+        public void WhenModificoDireccionValidaDeEspecialistaDeProveedorDandoTab()
+        {
+            UtilAction.Clear(MobileUsersPage.MobileUserAddress, "CssSelector");
+            UtilAction.TabAfter_SendKeys(MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA", "CssSelector");
+        }
+
+        [When(@"modifico dirección valida de especialista de proveedor dando click en mapa")]
+        public void WhenModificoDireccionValidaDeEspecialistaDeProveedorDandoClickEnMapa()
+        {
+            UtilAction.Click(MobileUsersPage.MobileUserAddress, "CssSelector");
+            IWebElement UserMap = CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-1']//div[@id='mapUsersAddress']"));
+            Actions ac = new Actions(CommonHooks.driver);
+            ac.MoveToElement(UserMap);
+            ac.MoveByOffset(20, 20);
+            ac.Click().Build().Perform();
+            
+        }
+
+        [When(@"diligencio dirección valida de especialista de proveedor click en mapa")]
+        public void WhenDiligencioDireccionValidaDeEspecialistaDeProveedorClickEnMapa()
+        {
+            
+            IWebElement UserMap = CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-1']//div[@id='mapUsersAddress']"));
+            Actions ac = new Actions(CommonHooks.driver);
+            ac.MoveToElement(UserMap);
+            ac.MoveByOffset(20, 20);
+            ac.Click().Build().Perform();
+        }
+
         [When(@"diligencio dirección valida de especialista de proveedor dando enter")]
         public void WhenDiligencioDireccionValidaDeEspecialistaDeProveedorDandoEnter()
         {
@@ -132,6 +180,43 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Monitor
             CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserSubmit);
         }
 
+        [When(@"Busco y selecciono el especialista de proveedor")]
+        public void WhenBuscoYSeleccionoElEspecialistaDeProveedor()
+        {
+            SpecialistNickName = CommonQuery.DBSelectAValue("SELECT user_nick_name FROM AFW_USERS WHERE user_id = " + UserId + ";", 1);
+            CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserFieldSearch, SpecialistNickName);
+            CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserButtonSearch);
+            Thread.Sleep(3000);
+            CommonElementsAction.Click("XPath", MobileUsersPage.MobileUserView);
+        }
+
+        [Given(@"Existe el especialista con proveedor y monitor relacionado")]
+        public void GivenExisteElEspecialistaConProveedorYMonitorRelacionado()
+        {
+            try
+            {
+                CommonQuery.DBSelectAValue("SELECT TOP 1 PRM.UserId FROM AFLS_USERS_SPECIALISTS SPE JOIN AFLS_PROVIDER_MONITORS PRM ON PRM.ProviderId = SPE.spc_provider_id ORDER BY NEWID();", 1);
+                UserId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 SPE.user_id FROM AFLS_USERS_SPECIALISTS SPE JOIN AFLS_PROVIDER_MONITORS PRM ON PRM.ProviderId = SPE.spc_provider_id ORDER BY NEWID();", 1));
+            }
+            catch
+            {
+                try
+                {
+                    Functions.DBInsert("INSERT INTO AFLS_PROVIDER_MONITORS"
+                                    + "(ProviderId"
+                                    + ", UserId)"
+                                    + "VALUES"
+                                    + "(1"
+                                    + ", (SELECT user_id FROM AFW_USERS WHERE user_nick_name = 'thrash'));");
+                    UserId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 PRM.UserId FROM AFLS_USERS_SPECIALISTS SPE JOIN AFLS_PROVIDER_MONITORS PRM ON PRM.ProviderId = SPE.spc_provider_id ORDER BY NEWID();", 1));
+                }
+                catch
+                {
+                    Assert.Fail("Error en consulta " + "SELECT TOP 1 PRM.UserId FROM AFLS_USERS_SPECIALISTS SPE JOIN AFLS_PROVIDER_MONITORS PRM ON PRM.ProviderId = SPE.spc_provider_id ORDER BY NEWID();");
+                }
+            }
+        }
+
         [Then(@"Se registra el especialista de proveedor en la tabla AFW_USERS")]
         public void ThenSeRegistraElEspecialistaDeProveedorEnLaTablaAFW_USERS()
         {
@@ -142,7 +227,14 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Monitor
         public void ThenSeRegistraElEspecialistaDeProveedorConProveedorAsociadoEnLaTablaAFLS_USERS_SPECIALISTSConLongitudLatitudYDireccion()
         {
             SpecialistId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT user_id FROM AFW_USERS WHERE user_nick_name = '" + SpecialistNickName + "';", 1));
-            CommonQuery.DBSelectAValue("SELECT user_id FROM AFLS_USERS_SPECIALISTS WHERE user_id = " + SpecialistId + ";", 1);
+            CommonQuery.DBSelectAValue("SELECT user_id FROM AFLS_USERS_SPECIALISTS WHERE user_id = " + SpecialistId + " AND spc_initial_address IS NOT NULL AND spc_initial_longitude IS NOT NULL AND spc_initial_latitude IS NOT NULL;", 1);
+        }
+
+        [Then(@"Se registra el especialista de proveedor  con proveedor asociado en la tabla AFLS_USERS_SPECIALISTS con longitud, latitud y dirección modificado")]
+        public void ThenSeRegistraElEspecialistaDeProveedorConProveedorAsociadoEnLaTablaAFLS_USERS_SPECIALISTSConLongitudLatitudYDireccionModificado()
+        {
+            SpecialistId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT user_id FROM AFW_USERS WHERE user_nick_name = '" + SpecialistNickName + "';", 1));
+            CommonQuery.DBSelectAValue("SELECT user_id FROM AFLS_USERS_SPECIALISTS WHERE user_id = " + SpecialistId + " AND spc_initial_address IS NOT NULL AND spc_initial_longitude IS NOT NULL AND spc_initial_latitude IS NOT NULL;", 1);
         }
     }
 }

@@ -53,6 +53,35 @@ namespace AFLSUIProjectTest.StepsTest.AssistMe
         [When(@"Accedo a la aplicación de AssistMe")]
         public void WhenAccedoALaAplicacionDeAssistMe()
         {
+            int FindRow = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFLS_ESTABLISHMENT", 1));
+            int FindCOuntry = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFLS_ESTABLISHMENT WHERE esta_country IS NOT NULL", 1));
+
+            if (FindRow == 0)
+            {
+                Functions.DBInsert("INSERT INTO dbo.AFLS_ESTABLISHMENT(esta_id"
+                                                        + ", esta_code"
+                                                        + ", esta_name"
+                                                        + ", esta_address"
+                                                        + ", esta_latitude"
+                                                        + ", esta_longitude"
+                                                        + ", esta_country"
+                                                        + ", esta_filter_address)"
+                                                        + "VALUES"
+                                                        + "(1"
+                                                        + ", 90008736364 - 3"
+                                                        + ", 'Aranda Software Automation'"
+                                                        + ", 'Calle 64, Chapinero, 111221 Chapinero, Distrito Capital, Colombia'"
+                                                        + ", 4.6507338"
+                                                        + ", -74.0632001"
+                                                        + ", 'CO- COlombia, BR - Brasil'"
+                                                        + ", 1);");
+            }
+
+            if (FindCOuntry == 0)
+            {
+                Functions.DBEstablismentUpdate("UPDATE AFLS_ESTABLISHMENT SET esta_country = 'CO - Colombia'");
+            }
+
             CommonElementsAction.AccessPage(ConfigurationManager.AppSettings["UrlAssistMe"]);
         }
 
@@ -72,7 +101,10 @@ namespace AFLSUIProjectTest.StepsTest.AssistMe
         public void WhenDiligencioCampoDireccionParaRegistroEnAssistMe()
         {
             UtilAction.Click(AssistMeRegisterPage.InputAddressRegisterClient, "Id");
-            UtilAction.SendKeys(AssistMeRegisterPage.InputControldAddressRegisterClient, "carrera 64 # 5-22 bogota colombia", "Id");
+            Thread.Sleep(2000);
+            UtilAction.ClearBefore_SendKeys(AssistMeRegisterPage.InputControldAddressRegisterClient, "carrera 64 # 5-22 bogota colombia", "Id");
+            UtilAction.Click("/html/body/div[1]/div[1]/div[3]/div[1]/div[3]/span");
+            Thread.Sleep(4000);
             UtilAction.Click(AssistMeRegisterPage.ButtontControldAddressRegisterClient, "Id");
         }
 
@@ -121,41 +153,71 @@ namespace AFLSUIProjectTest.StepsTest.AssistMe
         [Then(@"Se muestra un mensaje indicando que el registro se realizo exitosamente\.")]
         public void ThenSeMuestraUnMensajeIndicandoQueElRegistroSeRealizoExitosamente_()
         {
-            IWebElement ElementIcon = CommonHooks.driver.FindElement(By.XPath("//div[@id='MessageBoxResponse']/div/div/span[@class='ValidSpan']"));
-            IWebElement ElementToLogin = CommonHooks.driver.FindElement(By.XPath("//div[@id='MessageBoxResponse']//a[@href='#/login']"));
+            bool Validate = false;
+            int Count = 0;
 
-            Thread.Sleep(2000);
-
-            for (int second = 0; ; second++)
+            while (!Validate)
             {
-                if (second >= 10) Assert.Fail("No found Element");
                 try
                 {
-                    Assert.IsTrue(ElementIcon.Enabled);
-                    Assert.IsTrue(ElementIcon.Displayed);
-                    Assert.AreNotEqual(ElementIcon.Size, 0);
-                    ElementIcon.Click();
-                    break;
+                    IWebElement ElementIcon = CommonHooks.driver.FindElement(By.XPath("//div[@id='MessageBoxResponse']/div/div/span[@class='ValidSpan']"));
+                    IWebElement ElementToLogin = CommonHooks.driver.FindElement(By.XPath("//div[@id='MessageBoxResponse']//a[@href='#/login']"));
+
+                    for (int second = 0; ; second++)
+                    {
+                        if (second >= 10) Assert.Fail("No found Element");
+                        try
+                        {
+                            Assert.IsTrue(ElementIcon.Enabled);
+                            Assert.IsTrue(ElementIcon.Displayed);
+                            Assert.AreNotEqual(ElementIcon.Size, 0);
+                            ElementIcon.Click();
+                            break;
+                        }
+                        catch (Exception)
+                        {
+                        }
+                    }
+
+                    string Message = CommonHooks.driver.FindElement(By.Id("Greatting")).Text;
+
+                    for (int second = 0; ; second++)
+                    {
+                        if (second >= 10) Assert.Fail("No found Element");
+                        try
+                        {
+                            Assert.IsTrue(ElementToLogin.Enabled);
+                            Assert.IsTrue(ElementToLogin.Displayed);
+                            Assert.AreNotEqual(ElementToLogin.Size, 0);
+                            ElementToLogin.Click();
+                            break;
+                        }
+                        catch (Exception)
+                        { Thread.Sleep(1000); }
+                    }
+                    Validate = true;
                 }
-                catch (Exception)
-                { Thread.Sleep(1000); }
-            }
-
-            string Message = CommonHooks.driver.FindElement(By.Id("Greatting")).Text;
-
-            for (int second = 0; ; second++)
-            {
-                if (second >= 10) Assert.Fail("No found Element");
-                try
+                catch
                 {
-                    Assert.IsTrue(ElementToLogin.Enabled);
-                    Assert.IsTrue(ElementToLogin.Displayed);
-                    Assert.AreNotEqual(ElementToLogin.Size, 0);
-                    ElementToLogin.Click();
-                    break;
+                    try
+                    {
+                        string Error = CommonHooks.driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/p")).Text;
+                        if (Error != "")
+                        {
+                            Count = 10;
+                            Assert.Fail(Error);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Thread.Sleep(1000);
+                        Count++;
+                        if (Count >= 10)
+                        {
+                            Assert.Fail(e.Message);
+                        }
+                    }
                 }
-                catch (Exception)
-                { Thread.Sleep(1000); }
             }
         }
     }

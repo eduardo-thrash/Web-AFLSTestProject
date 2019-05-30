@@ -59,12 +59,27 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             try
             {
                 ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();", 1);
-                int RemoveCar = ServiceName.Length - 10;
-                ServiceName = ServiceName.Remove(10, RemoveCar);
+                //int RemoveCar = ServiceName.Length - 2;
+                //ServiceName = ServiceName.Remove(1, RemoveCar);
             }
             catch
             {
                 Assert.Fail("Error en consulta SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();");
+            }
+        }
+
+        [Given(@"Existen servicios asociados al cliente de tipo desplazamiento")]
+        public void GivenExistenServiciosAsociadosAlClienteDeTipoDesplazamiento()
+        {
+            try
+            {
+                ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_type = 1 ORDER BY NEWID();", 1);
+                //int RemoveCar = ServiceName.Length - 2;
+                //ServiceName = ServiceName.Remove(RemoveCar, 2);
+            }
+            catch
+            {
+                Assert.Fail("Error en consulta SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_type = 2 ORDER BY NEWID();");
             }
         }
 
@@ -160,7 +175,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         {
             try
             {
-                IList<IWebElement> AFClientsListInputText = CommonHooks.driver.FindElements(By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-9']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//input[@type='text']"));
+                IList<IWebElement> AFClientsListInputText = CommonHooks.driver.FindElements(By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-9']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//input[@class='js-input-additional-field k-valid']"));
                 foreach (IWebElement AFClient in AFClientsListInputText)
                 {
                     AFClient.Clear();
@@ -186,12 +201,15 @@ namespace AFLSUIProjectTest.StepsTest.Orders
                     AdditionalFieldFound++;
                 }
 
+                int TableCalend = 0;
                 IList<IWebElement> AFClientsListDate = CommonHooks.driver.FindElements(By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-9']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//span[@class='k-icon k-i-calendar']"));
                 foreach (IWebElement AFClient in AFClientsListDate)
                 {
+                    TableCalend++;
                     AFClient.Click();
-                    CommonElementsAction.Click("XPath", "//div[@class='k-widget k-calendar']/table/tbody/tr/td/a");
-                    Thread.Sleep(1000);
+                    string IdCalendar = CommonHooks.driver.FindElement(By.XPath("(//div[@class='k-widget k-calendar'])[" + TableCalend + "]")).GetAttribute("id");
+                    CommonElementsAction.Click("XPath", "//div[@id='" + IdCalendar + "']/table/tbody/tr/td/a");
+                    Thread.Sleep(2000);
                     AdditionalFieldFound++;
                 }
 
@@ -223,6 +241,12 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_longitude IS NOT NULL AND work_latitude IS NOT NULL AND work_address IS NOT NULL;", 1);
         }
 
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud de destino, latitud de destino y dirección de destino")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConTicket_IdLongitudDeDestinoLatitudDeDestinoYDireccionDeDestino()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_end_address IS NOT NULL AND work_end_longitude IS NOT NULL AND work_end_latitude IS NOT NULL;", 1);
+        }
+
         [Then(@"se muestra mensaje indicando que se creo la orden de trabajo correctamente")]
         public void ThenSeMuestraMensajeIndicandoQueSeCreoLaOrdenDeTrabajoCorrectamente()
         {
@@ -235,6 +259,44 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             CommonElementsAction.ClearAndSendKeys_InputText("XPath", WorkordersPage.Address, "calle 64 # 5-22 Bogota Colombia");
             Thread.Sleep(2000);
             CommonElementsAction.Click("XPath", "//div[@class='workOrder contentWO']//input[@id='clientAddresCheck']");
+        }
+
+        [When(@"Diligencio y selecciono servicio de orden de tipo desplazamiento")]
+        public void WhenDiligencioYSeleccionoServicioDeOrdenDeTipoDesplazamiento()
+        {
+            UtilAction.Select_ComboboxAutocomplete(WorkordersPage.ServiceName, ServiceName, "a");
+            CommonHooks.driver.FindElement(By.XPath(WorkordersPage.ServiceName)).SendKeys(Keys.Tab);
+            Thread.Sleep(2000);
+        }
+
+        [When(@"Diligencio Dirección de destino de orden dando click en cursor")]
+        public void WhenDiligencioDireccionDeDestinoDeOrdenDandoClickEnCursor()
+        {
+            UtilAction.SendKeys(WorkordersPage.AddressEndPoint, "calle 38 sur Bogota Colombia");
+            Thread.Sleep(2000);
+            UtilAction.Click("//input[@id='EndPointAddresCheck']");
+        }
+
+        [When(@"Diligencio Dirección de destino de orden dando enter")]
+        public void WhenDiligencioDireccionDeDestinoDeOrdenDandoEnter()
+        {
+            UtilAction.Click(WorkordersPage.AddressEndPoint);
+            UtilAction.EnterAfter_SendKeys(WorkordersPage.AddressEndPoint, "calle 38 sur Bogota Colombia");
+        }
+
+        [When(@"Diligencio Dirección de destino de orden dando Tab")]
+        public void WhenDiligencioDireccionDeDestinoDeOrdenDandoTab()
+        {
+            UtilAction.Click(WorkordersPage.AddressEndPoint);
+            UtilAction.TabAfter_SendKeys(WorkordersPage.AddressEndPoint, "calle 38 sur Bogota Colombia");
+        }
+
+        [When(@"Diligencio Dirección de destino de orden dando click en mapa")]
+        public void WhenDiligencioDireccionDeDestinoDeOrdenDandoClickEnMapa()
+        {
+            UtilAction.Click(WorkordersPage.AddressEndPoint);
+
+            UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='woMapOrder ui maps']");
         }
 
         [When(@"Diligencio Dirección de cita de orden dando enter")]
@@ -254,13 +316,8 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         [When(@"Diligencio Dirección de cita de orden dando click en mapa")]
         public void WhenDiligencioDireccionDeCitaDeOrdenDandoClickEnMapa()
         {
-            try
-            {
-                UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='woMapOrder ui maps']");
-            }
-            catch
-            {
-            }
+            UtilAction.Click(WorkordersPage.Address);
+            UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='woMapOrder ui maps']");
         }
     }
 }

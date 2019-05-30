@@ -11,6 +11,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -108,7 +109,15 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             }
             catch
             {
-                Functions.DBInsert("INSERT INTO AFW_ASSISTME_CONFIGURATION"
+                try
+                {
+                    int Result = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFW_ASSISTME_CONFIGURATION;", 1));
+                    Assert.AreEqual(1, Result);
+                    Functions.DBEstablismentUpdate("UPDATE AFW_ASSISTME_CONFIGURATION SET AssistMeURL = '" + ConfigurationManager.AppSettings["UrlAssistMe"] + "', AboutUsURL = 'http://www.xdeamx.com', IsActive = 1, EnableRegisterClient = 1;");
+                }
+                catch
+                {
+                    Functions.DBInsert("INSERT INTO AFW_ASSISTME_CONFIGURATION"
                                     + "(WelcomeMessage"
                                     + ", Attendant"
                                     + ", Needed"
@@ -120,20 +129,11 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
                                     + "('Bienvenido a nuestro portal de servicio al cliente'"
                                     + ", 'Especialista'"
                                     + ", 'Solicitud'"
-                                    + ", 'http://afls.arandasoft.com/AssistMe'"
+                                    + ", '" + ConfigurationManager.AppSettings["UrlAssistMe"] + "'"
                                     + ", 'http://www.xdeamx.com'"
                                     + ", 1"
-                                    + ", 1)"
-                                    + "GO");
-            }
-
-            try
-            {
-                CommonQuery.DBSelectAValue("SELECT * FROM AFW_ASSISTME_CONFIGURATION WHERE IsActive = 1;", 1);
-            }
-            catch
-            {
-                Assert.Fail("Fallo en definición de paso en BD.");
+                                    + ", 1);");
+                }
             }
         }
 
@@ -148,10 +148,27 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         {
             UtilAction.Click(ClientsPage.ClientView, "XPath", 5, 10);
             Thread.Sleep(5000);
-            CommonElementsAction.SendKeys_InputText("XPath", ClientsPage.ClientFieldSearch, user_nickname);
+            UtilAction.SendKeys(ClientsPage.ClientFieldSearch, user_nickname);
             UtilAction.Click(ClientsPage.ClientButtonSearch);
             Thread.Sleep(5000);
             UtilAction.Click(ClientsPage.ClientView);
+        }
+
+        [When(@"modifico dirección de cliente dando click en cursor")]
+        public void WhenModificoDireccionDeClienteDandoClickEnCursor()
+        {
+            UtilAction.Clear(ClientsPage.ClientAddress, "CssSelector");
+            UtilAction.SendKeys(ClientsPage.ClientAddress, "calle 64 # 5-22 bogota colombia", "CssSelector");
+            UtilAction.Click(ClientsPage.ClientAddressValidate);
+        }
+
+        [When(@"modifico dirección de cliente dando Tab")]
+        public void WhenModificoDireccionDeClienteDandoTab()
+        {
+            UtilAction.Clear(ClientsPage.ClientAddress, "CssSelector");
+            CommonElementsAction.SendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59  bogota");
+            Thread.Sleep(2000);
+            CommonHooks.driver.FindElement(By.CssSelector(ClientsPage.ClientAddress)).SendKeys(Keys.Tab);
         }
 
         [Then(@"Se muestra la tarjeta del cliente y el detalle del mismo")]
@@ -221,26 +238,33 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         [When(@"Diligencio dirección de cliente")]
         public void WhenDiligencioDireccionDeCliente()
         {
-            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59 # 35a-68,Of 567");
+            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59  bogota");
         }
 
         [When(@"Diligencio dirección de cliente dando click en cursor")]
         public void WhenDiligencioDireccionDeClienteDandoClickEnCursor()
         {
-            CommonElementsAction.SendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59 # 35a-68,Of 567");
+            CommonElementsAction.SendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59  bogota");
             CommonElementsAction.Click("CssSelector", ClientsPage.ClientAddress);
         }
 
         [When(@"Diligencio dirección de cliente dando enter")]
         public void WhenDiligencioDireccionDeClienteDandoEnter()
         {
-            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59 # 35a-68,Of 567");
+            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59  bogota");
+        }
+
+        [When(@"modifico dirección de cliente dando enter")]
+        public void WhenModificoDireccionDeClienteDandoEnter()
+        {
+            UtilAction.Clear(ClientsPage.ClientAddress, "CssSelector");
+            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59  bogota");
         }
 
         [When(@"Diligencio dirección de cliente dando tab")]
         public void WhenDiligencioDireccionDeClienteDandoTab()
         {
-            CommonElementsAction.SendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59 # 35a-68,Of 567");
+            CommonElementsAction.SendKeys_InputText("CssSelector", ClientsPage.ClientAddress, "calle 59  bogota");
             Thread.Sleep(2000);
             CommonHooks.driver.FindElement(By.CssSelector(ClientsPage.ClientAddress)).SendKeys(Keys.Tab);
         }
@@ -320,12 +344,15 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
                     AdditionalFieldFound++;
                 }
 
+                int TableCalend = 0;
                 IList<IWebElement> AFClientsListDate = CommonHooks.driver.FindElements(By.XPath("//div[@class='clients']//div[@id='tabs-6']//div[@class='listAdditionalFields']//div[@class='additionalFieldContainer']//span[@class='k-icon k-i-calendar']"));
                 foreach (IWebElement AFClient in AFClientsListDate)
                 {
+                    TableCalend++;
                     AFClient.Click();
-                    CommonElementsAction.Click("XPath", "//div[@class='k-widget k-calendar']/table/tbody/tr/td/a");
-                    Thread.Sleep(1000);
+                    string IdCalendar = CommonHooks.driver.FindElement(By.XPath("(//div[@class='k-widget k-calendar'])[" + TableCalend + "]")).GetAttribute("id");
+                    CommonElementsAction.Click("XPath", "//div[@id='" + IdCalendar + "']/table/tbody/tr/td/a");
+                    Thread.Sleep(2000);
                     AdditionalFieldFound++;
                 }
 
@@ -397,6 +424,13 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             CommonElementsAction.Click("XPath", "//div[@class='clients']//div[@id='mapClientAddress']");
         }
 
+        [When(@"modifico dirección de cliente dando click en mapa")]
+        public void WhenModificoDireccionDeClienteDandoClickEnMapa()
+        {
+            UtilAction.Click(ClientsPage.ClientAddress, "CssSelector");
+            CommonElementsAction.Click("XPath", "//div[@class='clients']//div[@id='mapClientAddress']");
+        }
+
         [Then(@"Se registra el usuario cliente en la tabla AFW_USERS")]
         public int ThenSeRegistraElUsuarioClienteEnLaTablaAFW_USERS()
         {
@@ -425,6 +459,13 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
         [Then(@"Se registra el cliente en la tabla AFLS_USER_CLIENTS con longitud, latitud y dirección")]
         public void ThenSeRegistraElClienteEnLaTablaAFLS_USER_CLIENTSConLongitudLatitudYDireccion()
         {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USERS_CLIENTS WHERE user_id = " + UserId + " AND clie_longitude IS NOT NULL AND clie_latitude IS NOT NULL AND clie_address IS NOT NULL;", 1);
+        }
+
+        [Then(@"Se registra la compañía en la tabla AFLS_USER_CLIENTS con longitud, latitud y dirección modificada")]
+        public void ThenSeRegistraLaCompaniaEnLaTablaAFLS_USER_CLIENTSConLongitudLatitudYDireccionModificada()
+        {
+            UserId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT user_id FROM AFW_USERS WHERE user_nick_name = '" + user_nickname + "';", 1));
             CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USERS_CLIENTS WHERE user_id = " + UserId + " AND clie_longitude IS NOT NULL AND clie_latitude IS NOT NULL AND clie_address IS NOT NULL;", 1);
         }
 

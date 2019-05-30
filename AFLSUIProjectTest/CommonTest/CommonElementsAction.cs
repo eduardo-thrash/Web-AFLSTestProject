@@ -791,9 +791,9 @@ namespace CommonTest.CommonTest
                 }
                 catch (Exception Ex)
                 {
-                    if (ElementType != "CSS" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
+                    if (ElementType != "CssSelector" && ElementType != "XPath" && ElementType != "Id" && ElementType != "Name" && ElementType != "ClassName")
                     {
-                        Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CSS, XPath, Id, Name, ClassName)");
+                        Assert.Fail("Incorrect entry of parameter '" + ElementType + "'. (CssSelector, XPath, Id, Name, ClassName)");
                     }
                     Error = Ex.Message;
                     Thread.Sleep(1000);
@@ -1335,7 +1335,7 @@ namespace CommonTest.CommonTest
             Thread.Sleep(1000);
         }
 
-        public static void Clear(string Element, string Value, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
+        public static void Clear(string Element, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
             int CounterClear = 0;
             Thread.Sleep(1000);

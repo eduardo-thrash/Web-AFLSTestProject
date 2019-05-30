@@ -63,10 +63,14 @@ namespace CommonTest.CommonTest
             if (!Directory.Exists(ScreenshotFolder))
                 Directory.CreateDirectory(ScreenshotFolder);
 
-            int RemoveCar = ScenarioTitle.Length - 30;
-            string ScenarioName = ScenarioTitle.Remove(10, RemoveCar);
+            Image = ScreenshotFolder + @"\Error " + FeatureContext.Current.FeatureInfo.Title + "-" + ScenarioTitle + ".jpg";
 
-            Image = ScreenshotFolder + @"\Error " + FeatureContext.Current.FeatureInfo.Title + "-" + ScenarioName + ".jpg";
+            if (Image.Length > 200)
+            {
+                int RemoveCar = Image.Length - 30;
+                Image = Image.Remove(10, RemoveCar);
+            }
+
             driver.TakeScreenshot().SaveAsFile(Image, ScreenshotImageFormat.Jpeg);
 
             return Image;
@@ -92,6 +96,9 @@ namespace CommonTest.CommonTest
         public static void BeforeExecution()
 
         {
+            SystemTask SystemTask = new SystemTask();
+            SystemTask.KillChromeDriver();
+
             switch (ValidateGenerateReport)
             {
                 case "true":
@@ -122,6 +129,9 @@ namespace CommonTest.CommonTest
         [AfterTestRun]
         public static void AfterExecution()
         {
+            SystemTask SystemTask = new SystemTask();
+            SystemTask.KillChromeDriver();
+
             switch (ValidateGenerateReport)
             {
                 case "true":

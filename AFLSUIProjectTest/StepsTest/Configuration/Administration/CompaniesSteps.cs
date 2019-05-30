@@ -118,6 +118,13 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             CommonElementsAction.Click("XPath", CompaniesPage.CompanyAddressValidate);
         }
 
+        [When(@"modifico dirección de compañía dando click en cursor")]
+        public void WhenModificoDireccionDeCompaniaDandoClickEnCursor()
+        {
+            UtilAction.ClearBefore_SendKeys(CompaniesPage.CompanyAddress, "calle 64 # 5 22", "CssSelector");
+            CommonElementsAction.Click("XPath", CompaniesPage.CompanyAddressValidate);
+        }
+
         [When(@"Diligencio nombre de contacto de compañía")]
         public void WhenDiligencioNombreDeContactoDeCompania()
         {
@@ -148,6 +155,13 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", CompaniesPage.CompanyAddress, "calle 64 # 5 22");
         }
 
+        [When(@"modifico dirección de compañía dando enter")]
+        public void WhenModificoDireccionDeCompaniaDandoEnter()
+        {
+            UtilAction.Clear(CompaniesPage.CompanyAddress, "CssSelector");
+            CommonElementsAction.EnterAfterSendKeys_InputText("CssSelector", CompaniesPage.CompanyAddress, "calle 64 # 5 22");
+        }
+
         [When(@"Diligencio dirección de compañía dando tab")]
         public void WhenDiligencioDireccionDeCompaniaDandoTab()
         {
@@ -156,10 +170,32 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
             CommonHooks.driver.FindElement(By.CssSelector(CompaniesPage.CompanyAddress)).SendKeys(Keys.Tab);
         }
 
+        [When(@"modifico dirección de compañía dando tab")]
+        public void WhenModificoDireccionDeCompaniaDandoTab()
+        {
+            UtilAction.Clear(CompaniesPage.CompanyAddress, "CssSelector");
+            CommonElementsAction.SendKeys_InputText("CssSelector", CompaniesPage.CompanyAddress, "calle 64 # 5 22");
+            Thread.Sleep(1000);
+            CommonHooks.driver.FindElement(By.CssSelector(CompaniesPage.CompanyAddress)).SendKeys(Keys.Tab);
+        }
+
         [When(@"Diligencio dirección de compañía dando click en mapa")]
         public void WhenDiligencioDireccionDeCompaniaDandoClickEnMapa()
         {
-            CommonElementsAction.Click("XPath", "//div[@class='companies']//div[@id='mapCompanyAddress']"); ;
+            CommonElementsAction.Click("XPath", "//div[@class='companies']//div[@id='mapCompanyAddress']");
+        }
+
+        [When(@"modifico dirección de compañía dando click en mapa")]
+        public void WhenModificoDireccionDeCompaniaDandoClickEnMapa()
+        {
+            CommonElementsAction.Click("XPath", "//div[@class='companies']//div[@id='mapCompanyAddress']");
+        }
+
+        [When(@"modifico dirección de compañía dando click en cursor de validación")]
+        public void WhenModificoDireccionDeCompaniaDandoClickEnCursorDeValidacion()
+        {
+            UtilAction.ClearBefore_SendKeys(CompaniesPage.CompanyAddress, "calle 64 # 5 22", "CssSelector");
+            CommonElementsAction.Click("XPath", CompaniesPage.CompanyAddressValidate);
         }
 
         [When(@"Doy click en switch de estado de compañía")]
@@ -265,6 +301,19 @@ namespace AFLSUITestProject.TestSuite.Configuration.Administration
 
         [Then(@"Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección")]
         public void ThenSeRegistraLaCompaniaEnLaTablaAFLS_COMPANIESConLongitudLatitudYDireccion()
+        {
+            try
+            {
+                CompId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT * FROM AFLS_COMPANIES WHERE comp_name = '" + CompanyName + "' AND comp_unique_reference = '" + CompanyUniqueReference + "' AND comp_contact_longitude IS NOT NULL AND comp_contact_latitude IS NOT NULL AND comp_contact_address IS NOT NULL;", 1));
+            }
+            catch
+            {
+                Assert.Fail("Fallo en consulta " + "SELECT * FROM AFLS_COMPANIES WHERE comp_name = '" + CompanyName + "' AND comp_unique_reference = '" + CompanyUniqueReference + "' AND comp_contact_longitude IS NOT NULL AND comp_contact_latitude IS NOT NULL AND comp_contact_address IS NOT NULL;");
+            }
+        }
+
+        [Then(@"Se registra la compañía en la tabla AFLS_COMPANIES con longitud, latitud y dirección modificada")]
+        public void ThenSeRegistraLaCompaniaEnLaTablaAFLS_COMPANIESConLongitudLatitudYDireccionModificada()
         {
             try
             {

@@ -1,6 +1,4 @@
 ﻿Feature: Locations
-	
-@Locations 
 @Automation
 Scenario: 1 Creación exitosa de ubicación tipo sede
 	Given Tengo un usuario con rol administrador
@@ -25,7 +23,6 @@ Scenario: 1 Creación exitosa de ubicación tipo sede
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO
 	And Cierro Sesión en la aplicación
-@Locations 
 @Automation
 Scenario: 1 Creación exitosa de ubicación tipo transporte
 	Given Tengo un usuario con rol administrador
@@ -47,7 +44,6 @@ Scenario: 1 Creación exitosa de ubicación tipo transporte
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la ubicación transporte en la tabla AFLS_STOCK_LOCATIONS_INFO
 	And Cierro Sesión en la aplicación
-@Locations
 @Automation
 Scenario: 2 Búsqueda exitosa de Ubicación existente
 	Given Tengo un usuario con rol administrador
@@ -60,7 +56,6 @@ Scenario: 2 Búsqueda exitosa de Ubicación existente
 	And Ubico y selecciono la ubicación deseada
 	Then Se muestra el detalle de la ubicación
 	And Cierro Sesión en la aplicación
-@Locations 
 @Automation
 Scenario: 3 Modificación exitosa de Ubicación
 	Given Tengo un usuario con rol administrador
@@ -76,7 +71,6 @@ Scenario: 3 Modificación exitosa de Ubicación
 	Then Se muestra mensaje indicando que se guardo el registro exitosamente
 	And Se registra la ubicación en la tabla AFLS_STOCK_LOCATIONS_INFO
 	And Cierro Sesión en la aplicación
-@Locations 
 @Automation
 Scenario: 4 Borrado exitoso de Ubicación existente
 	Given Tengo un usuario con rol administrador
