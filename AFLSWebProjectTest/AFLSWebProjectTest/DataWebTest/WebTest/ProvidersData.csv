@@ -1,0 +1,35 @@
+IsActive,AssignType,IsExternal,ServiceDefault,Priority,providerType,isManual,Name,Description
+true,true,true,true,3,2,1,AF-Proveedor Ext Alto,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,true,false,true,2,2,2,AF-Proveedor Ext Medio,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,false,true,1,1,2,AF-Proveedor Int Bajo,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,true,false,true,3,1,2,Proveedor interno M alto,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,true,false,true,2,1,2,Proveedor interno M medio,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,false,true,1,1,2,Proveedor interno M bajo,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,false,true,3,1,2,Proveedor interno B alto,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,false,true,2,1,2,Proveedor interno B Medio,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,false,true,1,1,2,Proveedor interno B Bajo,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,true,true,true,3,2,2,Proveedor externo M alto,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,true,true,true,2,2,2,Proveedor externo M Medio,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,1,2,2,Proveedor externo M Bajo,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,Proveedor externo B alto,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,2,2,2,Proveedor externo B Medio,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,1,2,2,Proveedor externo B Bajo,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Bogota Norte Urbano Create,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Bogota Sur Urbano Create,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Barranquilla Urbano Create,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Medellin Urbano Create,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Bucaramanga Urbano Create,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Manizales Urbano Update,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Pereira Urbano Update,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Popayan Urbano Update,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Cali Urbano Update,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Santa Marta Urbano Update,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Neiva Urbano Read,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Villavicencio Urbano Read,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Yopal Urbano Read,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Ibague Urbano Read,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Girardot urbano Read,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Monteria urbano Delete,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Valledupar urbano Delete,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Cucuta Urbano Delete,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.
+true,false,true,true,3,2,2,WT-Prov Cartagena Urbano Delete,Morbi ut facilisis lacus. Nullam odio augue faucibus at maximus sed fringilla quis odio.

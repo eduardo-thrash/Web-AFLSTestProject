@@ -1,0 +1,262 @@
+ServiceType,AssignmentType,SLA,UC,OLA,Name,Description,Subject
+2,1,1,2,3,Servicio Intalación Premium WT,Actualizar Datafono con el impuesto INC,CB-Actualizar Datafono
+2,1,1,2,3,Servicio Soporte WT,Actualizar Datafono con el impuesto INC,CB-Actualizar Datafono
+2,1,1,2,3,Servicio Desarrollo WT,Actualizar Datafono con el impuesto INC,CB-Actualizar Datafono
+2,1,1,2,3,Servicio Auditoria WT,Actualizar Datafono con el impuesto INC,CB-Actualizar Datafono
+2,1,1,2,3,Up_Actualizar Datafono-CB,Actualizar Datafono con el impuesto INC,CB-Actualizar Datafono
+2,1,1,2,3,Up_Cambio por Datafono-ST,Cambio de dispositivo por Datáfono,ST-Cambio por Datafono
+2,1,1,2,3,Up_Cambio Aplicativo-ST,Reinstalación de software del equipo,ST-Cambio Aplicativo
+2,1,1,2,3,Up_Cambio Razon Social-ST,Reconfiguracion por cambio de razon social,ST-Cambio Razon Social
+2,1,1,2,3,Up_Conexiones-ST,Cables mal conectados o dañados /medio de comunicación sin servicio,ST-Conexiones
+1,1,1,2,3,Up_Configuracion y o Parametrizacion-ST,Cambio de: fecha Hora PBX IVA cambio y/o olvido de clave,ST-Configuracion y o Parametrizacion
+2,1,1,2,3,Up_Error LLT unatorize Alert Interuption 0223-0325 ST,Mensaje de la pantalla: Alert Interuption y/o mensaje 0223 0233. Error LLT (por mala manipulación del teclado o pico de voltaje) - Reiniciar equipo no funciona programar.,Error LLT unaathorize o Alert Interuption Mensaje 0223-0325-ST-
+1,1,1,2,3,Up_Error Sim Locked o no SIM GPRS-ST,GPRS con daño en la Sim,ST-Error Sim Locked o no SIM GPRS
+2,1,1,2,3,Up_Flash Full-ST,Memoria del datafono llena. Programar al Asesor.,ST-Flash Full
+1,1,1,2,3,Up_Fuente de Poder o Bateria-ST,(GPRS Bluetooth) Daño de la fuente Batería o sus accesorios,ST-Fuente de Poder o Bateria
+2,2,1,2,3,Up_Habilitacion o Deshabilitacion Impuestos-ST,Habilitar: Iva o Impoconsumo,ST-Habilitacion o Deshabilitacion Impuestos
+1,2,1,2,3,Up_Impresora-ST,Motivos: Imprime lento y/o no imprime formato desconfigurado daños fisicos Pita cuando imprime,ST-Impresora
+2,2,1,2,3,Up_Inconsistencias con Telecarga-ST,Inconsistencias presentadas con la Telecarga CAC,ST-Inconsistencias con Telecarga
+2,2,1,2,3,Up_Inicializar y o Cambio de version Terminal-ST,Por: error ISSL Error Aux Leal  transaccion invalida en solicitud papelería POS Cambio medio de comunicación No acepta Medio de pago  terminal sin inicializar cambio,ST-Inicializar y o Cambio de version Terminal
+2,2,1,2,3,Up_Kiosco SURA Soporte Técnico-ST,Datafono ubicado en el dispositivo de venta de seguro obligatorio SOAT.,ST-Kiosco SURA Soporte Técnico
+1,2,1,2,3,Up_Lector de Banda o Chip dañado o no lee tarjeta-ST,Daño en Lector del POS: Chip o Banda o tarjeta deteriorada,ST-Lector de Banda o Chip dañado o no lee tarjeta
+1,2,1,2,3,Up_Mantenimiento Preventivo Datafono-ST,Solicitud de Mantenimiento preventivo en datafono.,ST-Mantenimiento Preventivo Datafono
+1,2,1,2,3,Up_POS Prende Se Apaga o No prende-ST,Datafono bien bien conectado pero se apaga y se prende o definitivamente no prende,ST-POS Prende Se Apaga o No prende
+1,2,1,2,3,Up_Proceso Sacar o Borrar Reverso-ST,Se debe monitorear en PTLF / Generar saldo o prueba comunicación / No genero reverso (Visualizar en PTLF)/ se puede o no borrar (Asignar Asesor),ST-Proceso Sacar o Borrar Reverso
+1,2,1,2,3,Up_Rechazo transacciones Emisor RBM o Franquicia-ST,Mensaje pantalla del POS: No existe comprobante Pin Offline o Firma Electrónica Monto invalido tarjeta Restringida. En PTL verifique el reponder  3 RBM 5 Banco 7 Franquicia etc.,ST-Rechazo transacciones Emisor RBM o Franquicia
+1,2,1,2,3,Up_Rechazo General-ST,Por: medio de pago sin habilitar Fecha de posteo invalida perdida de llave (TDebito) O declina la entidad,ST-Rechazo General
+1,2,1,2,3,Up_Solicitan Minidatafono Nuevo o por Cambio-ST,Cambio por dispositivo de RBMovil,ST-Solicitan Cambio por Minidatafono
+1,1,1,2,3,Teclado Bloqueado-ST,Teclado Bloqueado,ST-Teclado Bloqueado
+1,1,1,2,3,Transacción no se visualiza en PTLF (SDP-12)-ST,No viaja la transacción al sistema central,ST-Transacción no se visualiza en PTLF (SDP-12)
+1,1,1,2,3,Upload Started-ST,En el cierre muestra el mensaje debido a la Memoria del datafono llena. Progamar al Asesor.,ST-Upload Started
+1,1,1,2,3,Desplazamiento 1-CB,12 días Visitas Bimensual,CB-Desplazamiento 1
+1,1,1,2,3,Desplazamiento 2-CB,25 días Visita Mensual,CB-Desplazamiento 2
+1,1,1,2,3,Desplazamiento 3-CB,52 días Visita Bimestral,CB-Desplazamiento 3
+1,1,1,2,3,Desplazamiento 4-CB,78 días Visita Trimestral,CB-Desplazamiento 4
+1,1,1,2,3,Desplazamiento 5-CB,156 días Visita Semestral,CB-Desplazamiento 5
+1,1,1,2,3,Desplazamiento 6-CB,312 días Visita Anual,CB-Desplazamiento 6
+1,1,1,2,3,Avantel Falla en Comunicacion,Sin comunicación conectando. Motivo: puede tener reverso pendiente. Reiniciar equipo. Hacer prueba de comunicación.,CB-Avantel Falla en Comunicacion
+1,1,1,2,3,Claro Comcel Falla en Comunicación,Mensaje: Sin comunicación conectando. Motivo: puede tener reverso pendiente. Reiniciar equipo. Hacer prueba de comunicación,CB-Claro Comcel Falla en Comunicación
+1,1,1,2,3,DIAL Falla en Comunicación,POS Sin tono mensaje: Error Reintente CE (Hypercom) sin comunicación conectando o procesando. Puede tener reverso pendiente. Revisar Linea Telefonico conexiones y,CB-DIAL Falla en Comunicación
+1,1,1,2,3,Habilitacion Caja Teff,Solicitud de Habilitacion Caja Tef directamente en el comercio.,CB-Habilitacion Caja Teff
+1,1,1,2,3,Movistar Falla en Comunicación,Mensaje: Sin comunicación conectando. Motivo: puede tener reverso pendiente. Reiniciar equipo. Hacer prueba de comunicación.,CB-Movistar Falla en Comunicación
+1,1,1,2,3,TCP IP Falla en Comunicación,Mensaje: Error Socker Error TCPIP Sin comunicación Concectando Procesando. Motivo: Cable de Red desconcetado Fallo de Red  Puede tener reverso pendiente. Revisar conexiones estado de los cables. Verificar con comunicaciones estado del punto. ,CB-TCP IP Falla en Comunicación
+1,1,1,2,3,Tigo Falla en Comunicación,Mensaje: Sin comunicación conectando. Motivo: puede tener reverso pendiente. Reiniciar equipo. Hacer prueba de comunicación,CB-Tigo Falla en Comunicación
+1,1,1,2,3,Cambio Razon Social-CB,Reconfiguracion por cambio de razon social,CB-Cambio Razon Social
+1,1,1,2,3,Mapa teclado-CB,Se da instrucción para salir (Botón rojo) de opción o se desconfigura y no sale,CB-CB Mapa teclado
+1,1,1,2,3,Configuración del POS-CB,Sin funcionalidad CB / Configuración Base 24 o PAN virtual Mixto mal inicializado.,CB-CB Configuración del POS 
+1,1,1,2,3,Gestión de Claves-CB,Cambio y/o olvido de clave. El CB no puede ingresar por error en Clave. Configuran clave al PAN Virtual,CB-CB Gestión de Claves
+1,1,1,2,3,Lector barras Scanner desc o dañado-CB,Daño del lector de código de Barras,CB-CB Lector barras Scanner desc o dañado 
+1,1,1,2,3,Conexiones-CB,Cables mal conectados o dañados /medio de comunicación sin servicio,CB-Conexiones
+1,1,1,2,3,Configuracion y o Parametrizacion-CB,Cambio de: fecha Hora PBX IVA cambio y/o olvido de clave,CB-Configuracion y o Parametrizacion
+1,1,1,2,3,Error LLT unathorize-Alert-Interuption 0223-0325CB,Mensaje de la pantalla: Alert Interuption y/o mensaje 0223 0233. Error LLT (por mala manipulación del teclado o pico de voltaje) - Reiniciar equipo no funciona programar.,Error LLT unaathorize o Alert Interuption Mensaje 0223-0325 CB
+2,1,1,2,3,Error Sim Locked o no SIM GPRS-CB,Daño en el chip o Sim Card del datafono,CB-Error Sim Locked o no SIM GPRS
+2,1,1,2,3,Flash Full-CB,Memoria del datafono llena. Programar al Asesor.,CB-Flash Full
+2,1,1,2,3,Fuente de Poder o Bateria-CB,(GPRS Bluetooth) Daño de la fuente Batería o sus accesorios,CB-Fuente de Poder o Bateria
+2,1,1,2,3,Impresora-CB,Motivos: Imprime lento y/o no imprime formato desconfigurado daños fisicos Pita cuando imprime,CB-Impresora
+2,1,1,2,3,Inicializar y o Cambio de version Terminal-CB,Por: error ISSL Error Aux Leal  transaccion invalida en solicitud papelería POS Cambio medio de comunicación No acepta Medio de pago  terminal sin inicializar cambio,CB-Inicializar y o Cambio de version Terminal
+2,1,1,2,3,Instalar Datafono Ciudad-CB,Solicitud de Instalación nuevo Datafono en la ciudad,CB-Instalar Datafono Ciudad
+2,1,1,2,3,Instalar Datafono Periferia-CB,Solicitud de Instalación nuevo Datafono en periferia,CB-Instalar Datafono Periferia
+2,1,1,2,3,Lector de Banda o Chip dañado o no lee tarjeta-CB,Daño en Lector del POS: Chip o Banda o tarjeta deteriorada,CB-Lector de Banda o Chip dañado o no lee tarjeta
+2,1,1,2,3,Mantenimiento Preventivo Datafono-CB,Solicitud de Mantenimiento preventivo en datafono.,CB-Mantenimiento Preventivo Datafono
+2,1,1,2,3,No permite el ingreso al menú de descuentos,la opción no está activa en el datafono,CB-No permite el ingreso al menú de descuentos
+2,1,1,2,3,POS Prende Se Apaga o No prende-CB,Datafono bien bien conectado pero se apaga y se prende o definitivamente no prende,CB-POS Prende Se Apaga o No prende
+2,1,1,2,3,Proceso Sacar o Borrar Reverso,Se debe monitorear en PTLF / Generar saldo o prueba comunicación / No genero reverso (Visualizar en PTLF)/ se puede o no borrar (Asignar Asesor),CB-Proceso Sacar o Borrar Reverso
+2,1,1,2,3,Rechazo transacciones Emisor RBM o Franquicia-CB,Mensaje pantalla del POS: No existe comprobante Pin Offline o Firma Electrónica Monto invalido tarjeta Restringida. En PTL verifique el reponder  3 RBM 5 Banco 7 Franquicia etc.,CB-Rechazo transacciones Emisor RBM o Franquicia
+2,1,1,2,3,Rechazo General-CB,Por: medio de pago sin habilitar Fecha de posteo invalida perdida de llave (TDebito) O declina la entidad,CB-Rechazo General
+2,1,1,2,3,Retiro de Accesorios-CB,Solicitan el retiro de los Accesorios que corresponden al CB.,CB-Retiro de Accesorios CB
+2,1,1,2,3,Teclado Bloqueado-CB,Teclado Bloqueado,CB-Teclado Bloqueado
+2,1,1,2,3,Transacción no se visualiza en PTLF (SDP-12)-CB,No viaja la transacción al sistema central,CB-Transacción no se visualiza en PTLF (SDP-12)
+2,1,1,2,3,Upload Started-CB,En el cierre muestra el mensaje debido a la Memoria del datafono llena. Progamar al Asesor.,CB-Upload Started
+2,1,1,2,3,ENTREGA POS-Retiro Datafono en Otra Direccion,El comercio solicita retirar el Datáfono en otra dirección diferente a la del punto de venta.,ENTREGA POS-Retiro Datafono en Otra Direccion
+2,1,1,2,3,ENTREGA POS-Retiro Datafono,Solicitud de Retirar Datafono del Establecimiento.,ENTREGA POS-Retiro Datafono
+2,1,1,2,3,ENTREGA POS-Retiro PuntoPago,Solicitud de Retirar de Punto Pago,ENTREGA POS-Retiro PuntoPago
+1,1,1,2,3,ENTREGA POS-Bajas Ventas,Ventas muy bajas y no cumple con lo esperado,ENTREGA POS-Bajas Ventas
+1,1,1,2,3,ENTREGA POS-Cambio de Red,Cliente prefiere la otra red,ENTREGA POS-Cambio de Red
+1,1,1,2,3,ENTREGA POS-Carga Tributaria,Carga tributaria con el datafono o minidatafono.,ENTREGA POS-Carga Tributaria
+1,1,1,2,3,ENTREGA POS-Cierre de Caja,El comercio retira del almacen cajas de pago,ENTREGA POS-Cierre de Caja
+1,1,1,2,3,ENTREGA POS-Comisión Banco,Al cliente le parece costosa la comisión del Banco,ENTREGA POS-Comisión Banco
+1,1,1,2,3,ENTREGA POS-Costo Disponibilidad Tecnológica,Cliente no conforme por el cobro de Disponibilidad Tecnologica,ENTREGA POS-Costo Disponibilidad Tecnológica
+1,1,1,2,3,ENTREGA POS-Embargo Cuenta,Cuenta embargada,ENTREGA POS-Embargo Cuenta
+1,1,1,2,3,ENTREGA POS-Ferias Eventos,Datafono o MiniDatafono prestado temporalmente,ENTREGA POS-Ferias Eventos
+1,1,1,2,3,ENTREGA POS-Mal Servicio de RBM,Inconforme con el servicio de RBM,ENTREGA POS-Mal Servicio de RBM
+1,1,1,2,3,ENTREGA POS-Otras Cuales,Documentar motivo del retiro del datáfono,ENTREGA POS-Otras Cuales
+1,1,1,2,3,ENTREGA MINI-Retiro MiniDatafono en Otra Direccion,El comercio solicita retirar el Datáfono en otra dirección diferente a la del punto de venta.,ENTREGA MINI-Retiro MiniDatafono en Otra Direccion
+2,1,1,2,3,ENTREGA MINI-Retiro MiniDatafono,Solicitud de Retirar MiniDatafono del Establecimiento.,ENTREGA MINI-Retiro MiniDatafono
+2,1,1,2,3,ENTREGA MINI-Seguridad Riesgos,Manejo Inadecuado del Pos,ENTREGA MINI-Seguridad Riesgos
+2,1,1,2,3,ENTREGA MINI-Bajas Ventas,Ventas muy bajas y no cumple con lo esperado,ENTREGA MINI-Bajas Ventas
+2,1,1,2,3,ENTREGA MINI-Cambio de Red,Cliente prefiere la otra red,ENTREGA MINI-Cambio de Red
+2,1,1,2,3,ENTREGA MINI-Carga Tributaria,Carga tributaria con el datafono o minidatafono.,ENTREGA MINI-Carga Tributaria
+2,1,1,2,3,ENTREGA MINI-Cierre de Caja,El comercio retira del almacen cajas de pago,ENTREGA MINI-Cierre de Caja
+2,1,1,2,3,ENTREGA MINI-Comisión Banco,Al cliente le parece costosa la comisión del Banco,ENTREGA MINI-Comisión Banco
+2,1,1,2,3,ENTREGA MINI-Costo Disponibilidad Tecnológica,Cliente no conforme por el cobro de Disponibilidad Tecnologica,ENTREGA MINI-Costo Disponibilidad Tecnológica
+2,1,1,2,3,ENTREGA MINI-Embargo Cuenta,Cuenta embargada,ENTREGA MINI-Embargo Cuenta
+2,1,1,2,3,ENTREGA MINI-Ferias Eventos,Datafono o MiniDatafono prestado temporalmente,ENTREGA MINI-Ferias Eventos
+2,1,1,2,3,ENTREGA MINI-Mal Servicio de RBM,Inconforme con el servicio de RBM,ENTREGA MINI-Mal Servicio de RBM
+2,1,1,2,3,ENTREGA MINI-Otras Cuales,Documentar motivo del retiro del datáfono,ENTREGA MINI-Otras Cuales
+2,1,1,2,3,ENTREGA MINI-Seguridad Riesgos v1,Manejo Inadecuado del Pos,ENTREGA MINI-Seguridad Riesgos
+2,1,1,2,3,INSTALACIONES-Cambio de datafono,El establecimiento solicita cambiar tecnologia del datafono.,INSTALACIONES-Cambio de datafono
+2,1,1,2,3,INSTALACIONES-Instalar Datafono,Solicitud Instalación a nuevo comercio,INSTALACIONES-Instalar Datafono
+2,1,1,2,3,INSTALACIONES-Instalar Punto Pago,Solicitud de instalación de un Punto Pago,INSTALACIONES-Instalar Punto Pago
+2,1,1,2,3,INSTALACIONES-Alistamiento de Equipos,Configuración limpieza y validación de accesorios completos de la terminal.,INSTALACIONES-Alistamiento de Equipos
+2,1,1,2,3,INSTALACIONES-Reubicacion Datafono,Mover temporalmente el datafono a otro sitio,INSTALACIONES-Reubiion Datafono
+2,1,1,2,3,De_INSTALACIONES-Verificar Placa Datafono,Se requiere verificar la placa del Datáfono,INSTALACIONES-Verificar Placa Datafono
+2,1,1,2,3,De_MINIDATAFONO-Configuracion Celular,Descargar aplicativo sincronizar lector MIURA,MINIDATAFONO-Configuracion Celular
+2,1,1,2,3,De_MINIDATAFONO-Programar Visita Soporte Tecnico,El cliente necesita soporte tecnico agendar cita.,MINIDATAFONO-Programar Visita Soporte Tecnico
+2,1,1,2,3,De_MEDIO DE COM-Instalar Punto Red,Instalar un punto nuevo de red del punto de pago al rack del comercio.,MEDIO DE COM-Instalar Punto Red
+2,1,1,2,3,De_MEDIO DE COM-Revisar Punto Red,Punto de red existe pero tiene problemas.,MEDIO DE COM-Revisar Punto Red
+2,1,1,2,3,De_MULTI POS-VIAJES ÉXITO-No imprime Tran Aprobada,El datáfono no imprime y fu una Transacción Aprobada,MULTI POS-VIAJES ÉXITO-No imprime Transaccion Aprobada
+1,1,1,2,3,De_MULTPOSVIAJES ÉXITO-No imprime y no se ve en PTLF,El datáfono no imprimió el Comprobante y la transacción no se visualiza en PTLF,MULTI POS-VIAJES ÉXITO-No imprime y no se visualzia en PTLF
+1,1,1,2,3,De_MULTI POS-VIAJES ÉXITO-Transacciones Reversadas,Se monitorea y se encuentra la transacción reversada,MULTI POS-VIAJES ÉXITO-Transacciones Reversadas
+1,1,1,2,3,De_MULTPOS-VIAJES ÉXITO-No imprime y fue una Tran Ap,El datáfono no imprime y fu una Transacción Aprobada,MULTI POS-VIAJES ÉXITO-No imprime y fue una Transaccion Aprobada
+1,1,1,2,3,De_MULTPOSVIAJES ÉXITO No imprime y no se ve en PTLF,El datáfono no imprimió el Comprobante y la transacción no se visualiza en PTLF,MULTI POS-VIAJES ÉXITO-No imprime y no se visualiza en PTLF
+1,2,1,2,3,De_SOLICITUD DATAFONO-Pin Pad ,Instalacion de Pin Pad,SOLICITUD DATAFONO-Pin Pad 
+1,2,1,2,3,De_SOLICITUD DATAFONO-Punto Pago,Solicitud de datáfono para pago de servicios públicos.,SOLICITUD DATAFONO-Punto Pago
+1,2,1,2,3,De_SOLICITUD DATAFONO-Evento,Solicitud de datafonos para evento.,SOLICITUD DATAFONO-Evento
+1,2,1,2,3,De_SOLICITUD DATAFONO-Ferias,Solicitud de Datafonos Ferias,SOLICITUD DATAFONO-Ferias
+1,2,1,2,3,De_SOLICITUD DATAFONO-Nuevo,Solicitud de Nuevo Datafono,SOLICITUD DATAFONO-Nuevo
+1,2,1,2,3,De_SOLICITUD DATAFONO-Gestión Comercial Bonos,El comercio está intereasado en adquirir el producto de Bonos.,SOLICITUD DATAFONO-Gestión Comercial Bonos
+1,2,1,2,3,De_SOLICITUD DATAFONO-Accesorios Datafonos,Soportes Modulos Estuches para GPRS Cubre teclado,SOLICITUD DATAFONO-Accesorios Datafonos
+2,2,1,2,3,De_PAGO CLICK-Pago Click Terpel,Pago Click Terpel,PAGO CLICK-Pago Click Terpel
+2,2,1,2,3,De_Retiro de Datafono,Comercio desea entregar el Datafono,Retiro de Datafono
+2,2,1,2,3,De_Servicios especiales de 1 Hora,Este servicio es de uso exclusivo del monitor o administrador  y se usa únicamente para programar un servicio o labor especial a un asesor en donde se va a demorar determinado tiempo,Servicios especiales de 1 Hora
+2,1,1,2,3,Servicios especiales de 2 Horas,Este servicio es de uso exclusivo del monitor o administrador  y se usa únicamente para programar un servicio o labor especial a un asesor en donde se va a demorar determinado tiempo,Servicios especiales de 2 Horas
+2,1,1,2,3,Servicios especiales de 3 Horas,Este servicio es de uso exclusivo del monitor o administrador  y se usa únicamente para programar un servicio o labor especial a un asesor en donde se va a demorar determinado tiempo,Servicios especiales de 3 Horas
+2,1,1,2,3,Servicios especiales de 4 Horas,Este servicio es de uso exclusivo del monitor o administrador  y se usa únicamente para programar un servicio o labor especial a un asesor en donde se va a demorar determinado tiempo,Servicios especiales de 4 Horas
+2,1,1,2,3,Capacitación Operativa del Datafono-ST,Comercio solicita Capacitación  Operativa del Datafono,ST-Capacitación Operativa del Datafono
+2,1,1,2,3,TEMAS COMERCIALES,Todos las solicitudes relacionadas con temas comerciales. este servicio se creo para Rio Negro donde esta el asesor David Gomez Gomez por que la zona es Satélite y el atiende todo,TEMAS COMERCIALES
+2,1,1,2,3,HYM Soporte Tecnico y Operativo,Instrucciones: 1. Creación del Caso: En el campo descripción de ASDK pegue la ,Soporte Tecnico y Operativo HYM
+2,1,1,2,3,Información Para Habilitar Producto,La oficina principal hace la solicitud al area comercial de RBM y /o ya la hizo y aun no tiene el servicio.  ,Información Para Habilitar Producto
+2,1,1,2,3,Srv Papeleria CAC,caso para enrutar a una asesor AFLS. ,Srv Papeleria CAC
+2,1,1,2,3,Instalacion SIC,Instalación SIC,Instalacion SIC
+2,1,1,2,3,INSTALACION POR ARCHIVO,Instalacion cargada por archivo de forma masiva,INSTALACION
+2,1,1,2,3,DISPONIBILIDAD-Actualizar Datafono-CB,Actualizar Datafono con el impuesto INC,Actualizar Datafono-CB-DISP
+2,1,1,2,3,Servicios especiales de 5 Horas,Este servicio es de uso exclusivo del monitor o administrador y se usa únicamente para programar un servicio o labor especial a un asesor en donde se va a demorar determinado tiempo,Servicios especiales de 5 Horas
+2,1,1,2,3,Servicios especiales de 6 Horas,Este servicio es de uso exclusivo del monitor o administrador y se usa únicamente para programar un servicio o labor especial a un asesor en donde se va a demorar determinado tiempo,Servicios especiales de 6 Horas
+2,1,1,2,3,Servicios especiales de 7 Horas,Este servicio es de uso exclusivo del monitor o administrador y se usa únicamente para programar un servicio o labor especial a un asesor en donde se va a demorar determinado tiempo,Servicios especiales de 7 Horas
+2,1,1,2,3,Servicios especiales de 8 Horas,Este servicio es de uso exclusivo del monitor o administrador y se usa únicamente para programar un servicio o labor especial a un asesor en donde se va a demorar determinado tiempo,Servicios especiales de 8 Horas
+2,1,1,2,3,Cambio por Datafono-ST-DISP,Cambio de dispositivo por Datáfono,Cambio por Datafono-ST-DISP
+2,1,1,2,3,Cambio Aplicativo-ST-DISP,Reinstalación de software del equipo,Cambio Aplicativo-ST-DISP
+2,1,1,2,3,Cambio Razon Social-ST-DISP,Reconfiguracion por cambio de razon social,Cambio Razon Social-ST-DISP
+2,1,1,2,3,Z - DISPONIBILIDAD Conexiones-ST,Cables mal conectados o dañados /medio de comunicación sin servicio,Conexiones-ST-DISP
+2,1,1,2,3,Configuracion y o Parametrizacion-ST-DISP,Cambio de: fecha Hora PBX IVA cambio y/o olvido de clave,Configuracion y o Parametrizacion-ST-DISP
+2,1,1,2,3,Error LLT unatorize Interuption 0223-0325-ST DISP,Mensaje de la pantalla: Alert Interuption y/o mensaje 0223 0233. Error LLT (por mala manipulación del teclado o pico de voltaje) - Reiniciar equipo no funciona programar.,Error LLT unatorize Alert Interuption 0223-0325CB-DISP
+2,1,1,2,3,Error Sim Locked o no SIM GPRS-ST-DISP,GPRS con daño en la Sim,Error Sim Locked o no SIM GPRS-ST-DISP
+2,1,1,2,3,Flash Full-ST-DISP,Memoria del datafono llena. Programar al Asesor.,Flash Full-ST-DISP
+2,1,1,2,3,Fuente de Poder o Bateria-ST-DISP,(GPRS Bluetooth) Daño de la fuente Batería o sus accesorios,Fuente de Poder o Bateria-ST-DISP
+2,1,1,2,3,Habilitacion o Deshabilitacion Impuestos-ST-DISP,Habilitar: Iva o Impoconsumo,Habilitacion o Deshabilitacion Impuestos-ST-DISP
+2,1,1,2,3,Impresora-ST-DISP,Motivos: Imprime lento y/o no imprime formato desconfigurado daños fisicos Pita cuando imprime,Impresora-ST-DISP
+2,1,1,2,3,Inconsistencias con Telecarga-ST-DISP,Inconsistencias presentadas con la Telecarga CAC,Inconsistencias con Telecarga-ST-DISP
+2,1,1,2,3,Inicializar y o Cambio de version Terminal-ST-DISP,Por: error ISSL Error Aux Leal  transaccion invalida en solicitud papelería POS Cambio medio de comunicación No acepta Medio de pago  terminal sin inicializar cambio,Inicializar y o Cambio de version Terminal-ST-DISP
+2,1,1,2,3,Kiosco SURA Soporte Técnico-ST-DISP,Datafono ubicado en el dispositivo de venta de seguro obligatorio SOAT.,Kiosco SURA Soporte Técnico-ST-DISP
+1,1,1,2,3,Mantenimiento Preventivo Datafono-ST-DISP,Solicitud de Mantenimiento preventivo en datafono.,Mantenimiento Preventivo Datafono-ST-DISP
+1,1,1,2,3,POS Prende Se Apaga o No prende-ST-DISP,Datafono bien bien conectado pero se apaga y se prende o definitivamente no prende,POS Prende Se Apaga o No prende-ST-DISP
+1,1,1,2,3,Proceso Sacar o Borrar Reverso-ST-DISP,Se debe monitorear en PTLF / Generar saldo o prueba comunicación / No genero reverso (Visualizar en PTLF)/ se puede o no borrar (Asignar Asesor),Proceso Sacar o Borrar Reverso-ST-DISP
+1,1,1,2,3,Rechazo trans Emisor RBM o Franq-ST-DISP,Mensaje pantalla del POS: No existe comprobante Pin Offline o Firma Electrónica Monto invalido tarjeta Restringida. En PTL verifique el reponder  3 RBM 5 Banco 7 Franquicia etc.,Rechazo transacciones Emisor RBM o Franquicia-ST-DISP
+1,1,1,2,3,Rechazo General-ST-DISP,Por: medio de pago sin habilitar Fecha de posteo invalida perdida de llave (TDebito) O declina la entidad,Rechazo General-ST-DISP
+1,1,1,2,3,Solicitan Minidatafono Nuevo o por Cambio-ST-DISP,Cambio por dispositivo de RBMovil,Solicitan Minidatafono Nuevo o por Cambio-ST-DISP
+1,1,1,2,3,Teclado Bloqueado-ST-DISP,Teclado Bloqueado,Teclado Bloqueado-ST-DISP
+1,1,1,2,3,Transac no se ve en PTLF (SDP-12)-ST-DISP,No viaja la transacción al sistema central,Transacción no se visualiza en PTLF (SDP-12)-ST-DISP
+1,1,1,2,3,Upload Started-ST-DISP,En el cierre muestra el mensaje debido a la Memoria del datafono llena. Progamar al Asesor.,Upload Started-ST-DISP
+1,1,1,2,3,Desplazamiento 1-CB-DISP,12 días Visitas Bimensual,Desplazamiento 1-CB-DISP
+1,1,1,2,3,Desplazamiento 2-CB-DISP,25 días Visita Mensual,Desplazamiento 2-CB-DISP
+2,1,1,2,3,Desplazamiento 3-CB-DISP,52 días Visita Bimestral,Desplazamiento 3-CB-DISP
+2,1,1,2,3,Desplazamiento 4-CB-DISP,78 días Visita Trimestral,Desplazamiento 4-CB-DISP
+2,1,1,2,3,Desplazamiento 5-CB-DISP,156 días Visita Semestral,Desplazamiento 5-CB-DISP
+2,1,1,2,3,Desplazamiento 6-CB-DISP,312 días Visita Anual,Desplazamiento 6-CB-DISP
+2,1,1,2,3,Avantel Falla en Comunicacion-DISP,Sin comunicación conectando. Motivo: puede tener reverso pendiente. Reiniciar equipo. Hacer prueba de comunicación.,Avantel Falla en Comunicacion-DISP
+2,1,1,2,3,Claro Comcel Falla en Comunicación-DISP,Mensaje: Sin comunicación conectando. Motivo: puede tener reverso pendiente. Reiniciar equipo. Hacer prueba de comunicación,Claro Comcel Falla en Comunicación-DISP
+2,1,1,2,3,DIAL Falla en Comunicación-DISP,POS Sin tono mensaje: Error Reintente CE (Hypercom) sin comunicación conectando o procesando. Puede tener reverso pendiente. Revisar Linea Telefonico conexiones y,DIAL Falla en Comunicación-DISP
+2,1,1,2,3,Habilitacion Caja Teff-DISP,Solicitud de Habilitacion Caja Tef directamente en el comercio.,Habilitacion Caja Teff-DISP
+2,1,1,2,3,Movistar Falla en Comunicación-DISP,Mensaje: Sin comunicación conectando. Motivo: puede tener reverso pendiente. Reiniciar equipo. Hacer prueba de comunicación.,Movistar Falla en Comunicación-DISP
+2,1,1,2,3,TCP IP Falla en Comunicación-DISP,Mensaje: Error Socker Error TCPIP Sin comunicación Concectando Procesando. Motivo: Cable de Red desconcetado Fallo de Red  Puede tener reverso pendiente. Revisar conexiones estado de los cables. Verificar con comunicaciones estado del punto. ,TCP IP Falla en Comunicación-DISP
+2,1,1,2,3,Tigo Falla en Comunicación-DISP,Mensaje: Sin comunicación conectando. Motivo: puede tener reverso pendiente. Reiniciar equipo. Hacer prueba de comunicación,Tigo Falla en Comunicación-DISP
+2,1,1,2,3,Cambio Razon Social-CB-DISP,Reconfiguracion por cambio de razon social,Cambio Razon Social-CB-DISP
+2,1,1,2,3,Mapa teclado-CB-DISP,Se da instrucción para salir (Botón rojo) de opción o se desconfigura y no sale,Mapa teclado-CB-DISP
+2,1,1,2,3,Configuración del POS-CB-DISP,Sin funcionalidad CB / Configuración Base 24 o PAN virtual Mixto mal inicializado.,Configuración del POS-CB-DISP
+2,1,1,2,3,Gestión de Claves-CB-DISP,Cambio y/o olvido de clave. El CB no puede ingresar por error en Clave. Configuran clave al PAN Virtual,Gestión de Claves-CB-DISP
+2,1,1,2,3,Lector barras Scanner desc o dañado-CB-DISP,Daño del lector de código de Barras,Lector barras Scanner desc o dañado-CB-DISP
+2,1,1,2,3,Conexiones-CB-DISP,Cables mal conectados o dañados /medio de comunicación sin servicio,Conexiones-CB-DISP
+2,1,1,2,3,Configuracion y o Parametrizacion-CB-DISP,Cambio de: fecha Hora PBX IVA cambio y/o olvido de clave,Configuracion y o Parametrizacion-CB-DISP
+2,1,1,2,3,Error LLT unathorize-Alert-0223-0325CB-DISP,Mensaje de la pantalla: Alert Interuption y/o mensaje 0223 0233. Error LLT (por mala manipulación del teclado o pico de voltaje) - Reiniciar equipo no funciona programar.,Error LLT unathorize-Alert-Interuption 0223-0325CB-DISP
+2,1,1,2,3,Error Sim Locked o no SIM GPRS-CB-DISP,Daño en el chip o Sim Card del datafono,Error Sim Locked o no SIM GPRS-CB-DISP
+2,1,1,2,3,Flash Full-CB-DISP,Memoria del datafono llena. Programar al Asesor.,Flash Full-CB-DISP
+2,1,1,2,3,Fuente de Poder o Bateria-CB-DISP,(GPRS Bluetooth) Daño de la fuente Batería o sus accesorios,Fuente de Poder o Bateria-CB-DISP
+2,1,1,2,3,Impresora-CB-DISP,Motivos: Imprime lento y/o no imprime formato desconfigurado daños fisicos Pita cuando imprime,Impresora-CB-DISP
+2,1,1,2,3,Inicializar y o Cambio de version Terminal-CB-DISP,Por: error ISSL Error Aux Leal  transaccion invalida en solicitud papelería POS Cambio medio de comunicación No acepta Medio de pago  terminal sin inicializar cambio,Inicializar y o Cambio de version Terminal-CB-DISP
+2,1,1,2,3,Instalar Datafono Ciudad-CB-DISP,Solicitud de Instalación nuevo Datafono en la ciudad,Instalar Datafono Ciudad-CB-DISP
+2,1,1,2,3,Instalar Datafono Periferia-CB-DISP,Solicitud de Instalación nuevo Datafono en periferia,Instalar Datafono Periferia-CB-DISP
+2,1,1,2,3,Lector de Banda-Chip dañado lee tarjetaCB-DISP,Daño en Lector del POS: Chip o Banda o tarjeta deteriorada,Lector de Banda o Chip dañado o no lee tarjeta-CB-DISP
+2,1,1,2,3,Mantenimiento Preventivo Datafono-CB-DISP,Solicitud de Mantenimiento preventivo en datafono.,Mantenimiento Preventivo Datafono-CB-DISP
+1,1,1,2,3,No permite el ingreso al menú de desc-DISP,la opción no está activa en el datafono,No permite el ingreso al menú de descuentos-DISP
+1,1,1,2,3,POS Prende Se Apaga o No prende-CB-DISP,Datafono bien bien conectado pero se apaga y se prende o definitivamente no prende,POS Prende Se Apaga o No prende-CB-DISP
+1,1,1,2,3,Proceso Sacar o Borrar Reverso-DISP,Se debe monitorear en PTLF / Generar saldo o prueba comunicación / No genero reverso (Visualizar en PTLF)/ se puede o no borrar (Asignar Asesor),Proceso Sacar o Borrar Reverso-DISP
+1,1,1,2,3,Rechazo transacciones Emisor RBM-CB-DISP,Mensaje pantalla del POS: No existe comprobante Pin Offline o Firma Electrónica Monto invalido tarjeta Restringida. En PTL verifique el reponder  3 RBM 5 Banco 7 Franquicia etc.,Rechazo transacciones Emisor RBM o Franquicia-CB-DISP
+1,1,1,2,3,Rechazo General-CB-DISP,Por: medio de pago sin habilitar Fecha de posteo invalida perdida de llave (TDebito) O declina la entidad,Rechazo General-CB-DISP
+1,1,1,2,3,Retiro de Accesorios-CB-DISP,Solicitan el retiro de los Accesorios que corresponden al CB.,Retiro de Accesorios-CB-DISP
+1,1,1,2,3,Teclado Bloqueado-CB-DISP,Teclado Bloqueado,Teclado Bloqueado-CB-DISP
+1,1,1,2,3,Transac no se ve PTLF (SDP-12)-CB-DISP,No viaja la transacción al sistema central,Transacción no se visualiza en PTLF (SDP-12)-CB-DISP
+1,1,1,2,3,Upload Started-CB-DISP,En el cierre muestra el mensaje debido a la Memoria del datafono llena. Progamar al Asesor.,Upload Started-CB-DISP
+1,1,1,2,3,ENTREGA POS-Retiro Datafono en Otra Direccion-DISP,El comercio solicita retirar el Datáfono en otra dirección diferente a la del punto de venta.,ENTREGA POS-Retiro Datafono en Otra Direccion-DISP
+1,1,1,2,3,ENTREGA POS-Retiro Datafono-DISP,Solicitud de Retirar Datafono del Establecimiento.,ENTREGA POS-Retiro Datafono-DISP
+2,1,1,2,3,ENTREGA POS-Retiro PuntoPago-DISP,Solicitud de Retirar de Punto Pago,ENTREGA POS-Retiro PuntoPago-DISP
+2,1,1,2,3,ENTREGA POS-Bajas Ventas-DISP,Ventas muy bajas y no cumple con lo esperado,ENTREGA POS-Bajas Ventas-DISP
+2,1,1,2,3,ENTREGA POS-Cambio de Red-DISP,Cliente prefiere la otra red,ENTREGA POS-Cambio de Red-DISP
+2,1,1,2,3,ENTREGA POS-Carga Tributaria-DISP,Carga tributaria con el datafono o minidatafono.,ENTREGA POS-Carga Tributaria-DISP
+2,1,1,2,3,ENTREGA POS-Cierre de Caja-DISP,El comercio retira del almacen cajas de pago,ENTREGA POS-Cierre de Caja-DISP
+2,1,1,2,3,ENTREGA POS-Comisión Banco-DISP,Al cliente le parece costosa la comisión del Banco,ENTREGA POS-Comisión Banco-DISP
+2,1,1,2,3,ENTREGA POS-Costo Disponibilidad Tecnológica-DISP,Cliente no conforme por el cobro de Disponibilidad Tecnologica,ENTREGA POS-Costo Disponibilidad Tecnológica-DISP
+2,1,1,2,3,ENTREGA POS-Embargo Cuenta-DISP,Cuenta embargada,ENTREGA POS-Embargo Cuenta-DISP
+2,1,1,2,3,ENTREGA POS-Ferias Eventos-DISP,Datafono o MiniDatafono prestado temporalmente,ENTREGA POS-Ferias Eventos-DISP
+2,1,1,2,3,ENTREGA POS-Mal Servicio de RBM-DISP,Inconforme con el servicio de RBM,ENTREGA POS-Mal Servicio de RBM-DISP
+2,1,1,2,3,ENTREGA POS-Otras Cuales-DISP,Documentar motivo del retiro del datáfono,ENTREGA POS-Otras Cuales-DISP
+2,1,1,2,3,ENTREGA MiniDatafono en Otra Direccion-DISP,El comercio solicita retirar el Datáfono en otra dirección diferente a la del punto de venta.,ENTREGA MINI-Retiro MiniDatafono en Otra Direccion-DISP
+2,1,1,2,3,ENTREGA MINI-Retiro MiniDatafono-DISP,Solicitud de Retirar MiniDatafono del Establecimiento.,ENTREGA MINI-Retiro MiniDatafono-DISP
+2,1,1,2,3,ENTREGA MINI-Seguridad Riesgos-DISP,Manejo Inadecuado del Pos,ENTREGA MINI-Seguridad Riesgos-DISP
+2,1,1,2,3,ENTREGA MINI-Bajas Ventas-DISP,Ventas muy bajas y no cumple con lo esperado,ENTREGA MINI-Bajas Ventas-DISP
+2,1,1,2,3,ENTREGA MINI-Cambio de Red-DISP,Cliente prefiere la otra red,ENTREGA MINI-Cambio de Red-DISP
+2,1,1,2,3,ENTREGA MINI-Carga Tributaria-DISP,Carga tributaria con el datafono o minidatafono.,ENTREGA MINI-Carga Tributaria-DISP
+2,1,1,2,3,ENTREGA MINI-Cierre de Caja-DISP,El comercio retira del almacen cajas de pago,ENTREGA MINI-Cierre de Caja-DISP
+2,1,1,2,3,ENTREGA MINI-Comisión Banco-DISP,Al cliente le parece costosa la comisión del Banco,ENTREGA MINI-Comisión Banco-DISP
+2,1,1,2,3,ENTREGA MINI-Costo Disponibilidad Tecnológica-DISP,Cliente no conforme por el cobro de Disponibilidad Tecnologica,ENTREGA MINI-Costo Disponibilidad Tecnológica-DISP
+2,1,1,2,3,ENTREGA MINI-Embargo Cuenta-DISP,Cuenta embargada,ENTREGA MINI-Embargo Cuenta-DISP
+2,1,1,2,3,ENTREGA MINI-Ferias Eventos-DISP,Datafono o MiniDatafono prestado temporalmente,ENTREGA MINI-Ferias Eventos-DISP
+2,1,1,2,3,ENTREGA MINI-Mal Servicio de RBM-DISP,Inconforme con el servicio de RBM,ENTREGA MINI-Mal Servicio de RBM-DISP
+2,1,1,2,3,ENTREGA MINI-Otras Cuales-DISP,Documentar motivo del retiro del datáfono,ENTREGA MINI-Otras Cuales-DISP
+2,1,1,2,3,ENTREGA MINI-Seguridad Riesgos v1-DISP,Manejo Inadecuado del Pos,ENTREGA MINI-Seguridad Riesgos v1-DISP
+2,1,1,2,3,INSTALACIONES-Cambio de datafono-DISP,El establecimiento solicita cambiar tecnologia del datafono.,INSTALACIONES-Cambio de datafono-DISP
+2,1,1,2,3,INSTALACIONES-Instalar Datafono-DISP,Solicitud Instalación a nuevo comercio,INSTALACIONES-Instalar Datafono-DISP
+2,1,1,2,3,INSTALACIONES-Instalar Punto Pago-DISP,Solicitud de instalación de un Punto Pago,INSTALACIONES-Instalar Punto Pago-DISP
+2,1,1,2,3,INSTALACIONES-Alistamiento de Equipos-DISP,Configuración limpieza y validación de accesorios completos de la terminal.,INSTALACIONES-Alistamiento de Equipos-DISP
+2,1,1,2,3,INSTALACIONES-Reubicacion Datafono-DISP,Mover temporalmente el datafono a otro sitio,INSTALACIONES-Reubicacion Datafono-DISP
+2,1,1,2,3,INSTALACIONES-Verificar Placa Datafono-DISP,Se requiere verificar la placa del Datáfono,INSTALACIONES-Verificar Placa Datafono-DISP
+2,1,1,2,3,MINIDATAFONO-Configuracion Celular-DISP,Descargar aplicativo sincronizar lector MIURA,MINIDATAFONO-Configuracion Celular-DISP
+2,1,1,2,3,MINIDATAFONO-Programar Visita Soporte Tecnico-DISP,El cliente necesita soporte tecnico agendar cita.,MINIDATAFONO-Programar Visita Soporte Tecnico-DISP
+1,1,1,2,3,MEDIO DE COM-Instalar Punto Red-DISP,Instalar un punto nuevo de red del punto de pago al rack del comercio.,MEDIO DE COM-Instalar Punto Red-DISP
+1,1,1,2,3,MEDIO DE COM-Revisar Punto Red-DISP,Punto de red existe pero tiene problemas.,MEDIO DE COM-Revisar Punto Red-DISP
+1,1,1,2,3,MULTI POS-VIAJES ÉXITO-No imprime Aprobada-DISP,El datáfono no imprime y fu una Transacción Aprobada,MULTI POS-VIAJES ÉXITO-No imprime Transaccion Aprobada-DISP
+1,1,1,2,3,MULTI POS-VIAJES ÉXITO-No imprime v PTLF-DISP,El datáfono no imprimió el Comprobante y la transacción no se visualiza en PTLF,MULTI POS-VIAJES ÉXITO-No imprime y no se visualzia en PTLF-DISP
+1,1,1,2,3,MULTI POS-VIAJES ÉXITO-Trans Rever-DISP,Se monitorea y se encuentra la transacción reversada,MULTI POS-VIAJES ÉXITO-Transacciones Reversadas-DISP
+1,1,1,2,3,MULTI POS-VIAJES ÉXITO-No imprime Tran Apro-DISP,El datáfono no imprime y fu una Transacción Aprobada,MULTI POS-VIAJES ÉXITO-No imprime y fue una Transaccion Aprobada-DISP
+1,1,1,2,3,MULTI POS-VIAJES ÉXITO-No imprime -DISP,El datáfono no imprimió el Comprobante y la transacción no se visualiza en PTLF,MULTI POS-VIAJES ÉXITO-No imprime y no se visualiza en PTLF-DISP
+1,1,1,2,3,SOLICITUD DATAFONO-Pin Pad -DISP,Instalacion de Pin Pad,SOLICITUD DATAFONO-Pin Pad -DISP
+1,1,1,2,3,SOLICITUD DATAFONO-Punto Pago-DISP,Solicitud de datáfono para pago de servicios públicos.,SOLICITUD DATAFONO-Punto Pago-DISP
+1,1,1,2,3,SOLICITUD DATAFONO-Evento-DISP,Solicitud de datafonos para evento.,SOLICITUD DATAFONO-Evento-DISP
+1,1,1,2,3,SOLICITUD DATAFONO-Ferias-DISP,Solicitud de Datafonos Ferias,SOLICITUD DATAFONO-Ferias-DISP
+2,1,1,2,3,SOLICITUD DATAFONO-Nuevo-DISP,Solicitud de Nuevo Datafono,SOLICITUD DATAFONO-Nuevo-DISP
+2,1,1,2,3,SOLICITUD DATAFONO-Gestión Comercial Bonos-DISP,El comercio está intereasado en adquirir el producto de Bonos.,SOLICITUD DATAFONO-Gestión Comercial Bonos-DISP
+2,1,1,2,3,SOLICITUD DATAFONO-Accesorios Datafonos-DISP,Soportes Modulos Estuches para GPRS Cubre teclado,SOLICITUD DATAFONO-Accesorios Datafonos-DISP
+2,1,1,2,3,PAGO CLICK-Pago Click Terpel-DISP,Pago Click Terpel,PAGO CLICK-Pago Click Terpel-DISP
+2,1,1,2,3,Retiro de Datafono-DISP,Comercio desea entregar el Datafono,Retiro de Datafono-DISP
+2,1,1,2,3,Permiso o Cita para los Asesores 1 Hora-DISP,Este servicio es de uso exclusivo del monitor o administrador  y se usa únicamente para Permisos o Citas autorizadas,Permiso o Cita para los Asesores 1 Hora-DISP
+2,1,1,2,3,Permiso o Cita para los Asesores 2 Hora-DISP,Este servicio es de uso exclusivo del monitor o administrador  y se usa únicamente para Permisos o Citas autorizadas,Permiso o Cita para los Asesores 2 Hora-DISP
+2,1,1,2,3,Permiso o Cita para los Asesores 3 Hora-DISP,Este servicio es de uso exclusivo del monitor o administrador  y se usa únicamente para Permisos o Citas autorizadas,Permiso o Cita para los Asesores 3 Hora-DISP
+1,1,1,2,3,Permiso o Cita para los Asesores 4 Hora-DISP,Este servicio es de uso exclusivo del monitor o administrador  y se usa únicamente para Permisos o Citas autorizadas,Permiso o Cita para los Asesores 4 Hora-DISP
+1,1,1,2,3,Capacitación Operativa del Datafono-ST-DISP,Comercio solicita Capacitación  Operativa del Datafono,Capacitación Operativa del Datafono-ST-DISP
+1,1,1,2,3,TEMAS COMERCIALES-DISP,Todos las solicitudes relacionadas con temas comerciales. este servicio se creo para Rio Negro donde esta el asesor David Gomez Gomez por que la zona es Satélite y el atiende todo,TEMAS COMERCIALES-DISP
+1,1,1,2,3,HYM Soporte Tecnico y Operativo DISP,Instrucciones: 1. Creación del Caso: En el campo descripción de ASDK pegue la ,Soporte Tecnico y Operativo HYM-DISP
+1,1,1,2,3,Información Para Habilitar Producto-DISP,La oficina principal hace la solicitud al area comercial de RBM y /o ya la hizo y aun no tiene el servicio. ,Información Para Habilitar Producto-DISP
+1,1,1,2,3,Srv Papeleria CAC-DISP,caso para enrutar a una asesor AFLS. ,Srv Papeleria CAC-DISP
+1,1,1,2,3,Instalacion SIC-DISP,Instalación SIC,Instalacion SIC-DISP
+1,1,1,2,3,INSTALACION POR ARCHIVO-DISP,Instalacion cargada por archivo de forma masiva,INSTALACION POR ARCHIVO-DISP
+1,1,1,2,3,LifeMiles Cambio de Versión, LifeMiles,LifeMiles Cambio de Versión
+1,1,1,2,3,Soporte Tecnico CB Aval,para uso exclusivo de CB AVAL,Soporte Tecnico CB Aval

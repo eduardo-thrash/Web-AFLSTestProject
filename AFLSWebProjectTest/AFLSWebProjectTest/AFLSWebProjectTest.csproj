@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
   </ItemGroup>
@@ -46,43 +49,40 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="A_MenuInventoryCoded.cs" />
-    <Compile Include="B_CalendarsCoded.cs" />
-    <Compile Include="B_ChronometersCoded.cs" />
-    <Compile Include="B_ModelsCoded.cs" />
-    <Compile Include="C_RelationsCoded.cs" />
-    <Compile Include="C_SLA_UC_OLACoded.cs" />
-    <Compile Include="D_SkillsCoded.cs" />
-    <Compile Include="E_ServicesCoded.cs" />
-    <Compile Include="F_QuickAnswersCoded.cs" />
-    <Compile Include="G_ProvidersCoded.cs" />
-    <Compile Include="G_VehicPositCoded.cs" />
-    <Compile Include="H_ZonesCoded.cs" />
-    <Compile Include="I_MobileUsersCoded.cs" />
-    <Compile Include="J_LicenseCoded.cs" />
-    <Compile Include="K_UserWebGroupsCoded.cs" />
-    <Compile Include="L_CompaniesCoded.cs" />
-    <Compile Include="M_ClientsCoded.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="A_MenuInventory.webtest" />
-    <None Include="B_Calendars.webtest" />
-    <None Include="B_Chronometers.webtest" />
-    <None Include="B_Models.webtest" />
-    <None Include="C_Relations.webtest" />
-    <None Include="C_SLA_UC_OLA.webtest" />
-    <None Include="D_Skills.webtest" />
-    <None Include="E_Services.webtest" />
-    <None Include="F_QuickAnswers.webtest" />
-    <None Include="G_Providers.webtest" />
-    <None Include="G_VehicPosit.webtest" />
-    <None Include="H_Zones.webtest" />
-    <None Include="I_MobileUsers.webtest" />
-    <None Include="J_License.webtest" />
-    <None Include="K_UserWebGroups.webtest" />
-    <None Include="L_Companies.webtest" />
-    <None Include="M_Clients.webtest" />
+    <None Include="App.config" />
+    <None Include="DataWebTest\WebTest\A_MenuInventory.webtest" />
+    <None Include="DataWebTest\WebTest\B_Calendars.webtest" />
+    <None Include="DataWebTest\WebTest\B_Chronometers.webtest" />
+    <None Include="DataWebTest\WebTest\B_Models.webtest" />
+    <None Include="DataWebTest\WebTest\ChronometersData.csv" />
+    <None Include="DataWebTest\WebTest\ClientsWithCompanyData.csv" />
+    <None Include="DataWebTest\WebTest\ClientsWithoutCompanyData.csv" />
+    <None Include="DataWebTest\WebTest\C_Relations.webtest" />
+    <None Include="DataWebTest\WebTest\C_SLA_UC_OLA.webtest" />
+    <None Include="DataWebTest\WebTest\D_Skills.webtest" />
+    <None Include="DataWebTest\WebTest\E_Services.webtest" />
+    <None Include="DataWebTest\WebTest\F_QuickAnswers.webtest" />
+    <None Include="DataWebTest\WebTest\G_Providers.webtest" />
+    <None Include="DataWebTest\WebTest\G_VehicPosit.webtest" />
+    <None Include="DataWebTest\WebTest\H_Zones.webtest" />
+    <None Include="DataWebTest\WebTest\I_MobileUsers.webtest" />
+    <None Include="DataWebTest\WebTest\J_License.webtest" />
+    <None Include="DataWebTest\WebTest\K_UserWebGroups.webtest" />
+    <None Include="DataWebTest\WebTest\L_Companies.webtest" />
+    <None Include="DataWebTest\WebTest\MobileUserData.csv" />
+    <None Include="DataWebTest\WebTest\M_Clients.webtest" />
+    <None Include="DataWebTest\WebTest\ProvidersData.csv" />
+    <None Include="DataWebTest\WebTest\ServiceData.csv" />
+    <None Include="DataWebTest\WebTest\SkillsData.csv" />
+    <None Include="DataWebTest\WebTest\UserActivate.csv" />
+    <None Include="DataWebTest\WebTest\UserLoginAndCreateOrders.csv" />
+    <None Include="DataWebTest\WebTest\UserMailData.csv" />
+    <None Include="DataWebTest\WebTest\ZonesData - Copia %282%29.csv" />
+    <None Include="DataWebTest\WebTest\ZonesData - Copia.csv" />
+    <None Include="DataWebTest\WebTest\ZonesData.csv" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
