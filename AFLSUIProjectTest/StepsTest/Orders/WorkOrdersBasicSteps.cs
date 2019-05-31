@@ -35,6 +35,11 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         private int TicketId;
         private int AdditionalFieldFound = 0;
 
+        private int UserSpecialistId;
+        private int ProviderId;
+        private int ZoneId;
+        private int SkillId;
+
         [Given(@"Tengo un usuario con rol despachador")]
         public void GivenTengoUnUsuarioConRolDespachador()
         {
@@ -65,6 +70,82 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             catch
             {
                 Assert.Fail("Error en consulta SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();");
+            }
+        }
+
+        [Given(@"Existe relación del proveedor de especialista con zona")]
+        public void GivenExisteRelacionDelProveedorDeEspecialistaConZona()
+        {
+            UserSpecialistId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 SP.user_id FROM AFLS_USERS_SPECIALISTS SP JOIN AFW_USERS US ON US.user_id = SP.user_id WHERE US.user_active = 1 ORDER BY NEWID();", 1));
+            ProviderId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 spc_provider_id FROM AFLS_USERS_SPECIALISTS WHERE user_id = " + UserSpecialistId + ";", 1));
+
+            try
+            {
+                CommonQuery.DBSelectAValue("SELECT * FROM AFLS_PROVIDER_ZONE WHERE ProviderId = " + ProviderId + " AND ZoneId = (SELECT zone_id FROM AFLS_ZONES WHERE zone_name = 'Bogota zone');", 1);
+            }
+            catch
+            {
+                try
+                {
+                    Functions.DBInsert("INSERT INTO AFLS_PROVIDER_ZONE (ProviderId ,ZoneId) VALUES (1, (SELECT zone_id FROM AFLS_ZONES WHERE zone_name = 'Bogota zone'));");
+                }
+                catch
+                {
+                    Assert.Fail("Error en script INSERT INTO AFLS_PROVIDER_ZONE (ProviderId ,ZoneId) VALUES (1, (SELECT zone_id FROM AFLS_ZONES WHERE zone_name = 'Bogota zone'));");
+                }
+            }
+        }
+
+        [Given(@"Existe especialista con disponibilidad, habilidad del servicio activa, licencia activa y estado activo")]
+        public void GivenExisteEspecialistaConDisponibilidadHabilidadDelServicioActivaLicenciaActivaYEstadoActivo()
+        {
+            try
+            {
+                SkillId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 skill_id FROM AFLS_SERVICES_SKILLS WHERE service_id = (SELECT serv_id FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "');", 1));
+            }
+            catch
+            {
+                int ServiceId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_id FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "';", 1));
+                SkillId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 skll_id FROM AFLS_SKILLS WHERE skll_isActive = 1", 1));
+
+                Functions.DBInsert("INSERT INTO AFLS_SERVICES_SKILLS (service_id, skill_id ,weight ,required) VALUES (" + ServiceId + ", " + SkillId + ", 2, 0);");
+            }
+
+            try
+            {
+                CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USER_SKILLS WHERE aus_user_id " + UserSpecialistId + " = AND aus_skll_id = " + SkillId + ";", 1);
+            }
+            catch
+            {
+                Functions.DBInsert("INSERT INTO AFLS_USER_SKILLS (aus_user_id ,aus_skll_id ,aus_score ,aus_required) VALUES (" + UserSpecialistId + ", " + SkillId + " ,10, 0);");
+            }
+
+            try
+            {
+                CommonQuery.DBSelectAValue("SELECT * FROM AFW_LICENSES_NAMED WHERE user_id = " + UserSpecialistId + " AND lice_id = (SELECT TOP 1 lice_id FROM AFW_LICENSE ORDER BY 1 DESC);", 1);
+            }
+            catch
+            {
+                int LicenceId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 lice_id FROM AFW_LICENSE ORDER BY 1 DESC;", 1));
+                Functions.DBInsert("INSERT INTO AFW_LICENSES_NAMED (lice_id ,user_id) VALUES (" + LicenceId + ", " + UserSpecialistId + ")");
+            }
+
+            int NumDay = Convert.ToInt32(Day());
+            try
+            {
+                CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USER_AVAILABILITIES WHERE user_id = " + UserSpecialistId + " AND avai_id = (SELECT TOP 1 avai_id FROM AFLS_AVAILABILITIES WHERE avai_day = " + NumDay + ");", 1);
+            }
+            catch
+            {
+                string InitDate = DateTime.Now.ToString("yyyy-MM-dd HH:00:00.000");
+                string EndDate = DateTime.Now.AddHours(2.0).ToString("yyyy-MM-dd HH:00:00.000");
+
+                Functions.DBInsert("INSERT INTO AFLS_AVAILABILITIES (avai_day, avai_hour_start, avai_hour_end) VALUES (" + NumDay + ",'" + InitDate + "','" + EndDate + "');");
+
+                int AvalId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 avai_id FROM AFLS_AVAILABILITIES ORDER BY 1 DESC;", 1));
+                Functions.DBInsert("INSERT INTO AFLS_USER_AVAILABILITIES (user_id ,avai_id) VALUES(" + UserSpecialistId + ", " + AvalId + ");");
+
+                CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USER_AVAILABILITIES WHERE user_id = " + UserSpecialistId + " AND avai_id = (SELECT TOP 1 avai_id FROM AFLS_AVAILABILITIES WHERE avai_day = " + NumDay + ");", 1);
             }
         }
 
@@ -269,6 +350,42 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             Thread.Sleep(2000);
         }
 
+        [When(@"Selecciono Tipo de Orden Emergencia de orden")]
+        public void WhenSeleccionoTipoDeOrdenEmergenciaDeOrden()
+        {
+            UtilAction.Click(WorkordersPage.OptionOrderEmergency);
+        }
+
+        [When(@"Doy click en Tab Asignación de orden")]
+        public void WhenDoyClickEnTabAsignacionDeOrden()
+        {
+            UtilAction.Click(WorkordersPage.AssigmentTab);
+        }
+
+        [When(@"Selecciono tab Asignación Automática")]
+        public void WhenSeleccionoTabAsignacionAutomatica()
+        {
+            UtilAction.Click(WorkordersPage.AutomaticAssigmentTab);
+        }
+
+        [When(@"Selecciono tab Asignación Manual")]
+        public void WhenSeleccionoTabAsignacionManual()
+        {
+            UtilAction.Click(WorkordersPage.ManualAssigmentTab);
+        }
+
+        [When(@"Doy click en Buscar especialista para asignación manual")]
+        public void WhenDoyClickEnBuscarEspecialistaParaAsignacionManual()
+        {
+            UtilAction.Click(WorkordersPage.ManualSpecialistFilter);
+            Thread.Sleep(1);
+            Thread.Sleep(1);
+            Thread.Sleep(1);
+            Thread.Sleep(1);
+            Thread.Sleep(1);
+            Thread.Sleep(1);
+        }
+
         [When(@"Diligencio Dirección de destino de orden dando click en cursor")]
         public void WhenDiligencioDireccionDeDestinoDeOrdenDandoClickEnCursor()
         {
@@ -318,6 +435,45 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         {
             UtilAction.Click(WorkordersPage.Address);
             UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='woMapOrder ui maps']");
+        }
+
+        private string Day()
+        {
+            string dayName = DateTime.Now.DayOfWeek.ToString();
+            string day = null;
+            /*******************/
+            switch (dayName)
+            {
+                case "Monday":
+                    day = "2";
+                    break;
+
+                case "Tuesday":
+                    day = "3";
+                    break;
+
+                case "Wenesday":
+                    day = "4";
+                    break;
+
+                case "Thursday":
+                    day = "5";
+                    break;
+
+                case "Friday":
+                    day = "6";
+                    break;
+
+                case "Saturday":
+                    day = "7";
+                    break;
+
+                case "Sunday":
+                    day = "1";
+                    break;
+            }
+
+            return day;
         }
     }
 }

@@ -61,6 +61,7 @@
 	#And Doy click en Guardar orden
 	#And Doy click en Salir de orden
 
+@Automation
 Scenario: Creación exitosa de orden de trabajo con todos los datos de cliente y solicitante de cita
 	Given Tengo un usuario con rol despachador
 	And Existe un cliente
@@ -78,11 +79,13 @@ Scenario: Creación exitosa de orden de trabajo con todos los datos de cliente y
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
 
-
+@Automation
 Scenario: Creación exitosa de orden de trabajo con datos básicos de cliente
 	Given Tengo un usuario con rol despachador
 	And Existe un cliente sin email, teléfono y compañía asociada
@@ -96,12 +99,42 @@ Scenario: Creación exitosa de orden de trabajo con datos básicos de cliente
 	And Selecciono Tipo de Orden Normal de orden
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
 
-#Scenario: Creación exitosa de orden de trabajo de emergencia con asignación automática
-#
+
+Scenario: Creación exitosa de orden de trabajo de emergencia con asignación automática
+	Given Tengo un usuario con rol despachador
+	And Existe un cliente
+	And Existen servicios asociados al cliente
+	And Existe relación del proveedor de especialista con zona
+	And Existe especialista con disponibilidad, habilidad del servicio activa, licencia activa y estado activo
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Nueva orden
+	And Diligencio y selecciono un cliente de orden
+	And Diligencio campo de solicitante de cita de orden
+	And Diligencio Teléfono de Solicitante de orden
+	And Diligencio Correo de Solicitante de orden
+	And Diligencio Dirección de cita de orden
+	And Diligencio Detalle de la dirección de cita de orden
+	And Diligencio y selecciono servicio de orden
+	And Selecciono Tipo de Orden Emergencia de orden
+	And Diligencio Asunto de orden
+	And Diligencio descripción de orden
+	And Doy click en Tab Asignación de orden
+	And Selecciono tab Asignación Manual
+	And Doy click en Buscar especialista para asignación manual
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
+	And Doy click en Crear orden
+	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Se registra en la tabla AFLS_WORKORDERS la orden con prioridad de emergencia y especialista asignado
+
 #Scenario: Creación exitosa de orden de trabajo de prioridad con asignación automática
 #
 #Scenario: Creación exitosa de orden de trabajo a cliente que tiene compañía asociada

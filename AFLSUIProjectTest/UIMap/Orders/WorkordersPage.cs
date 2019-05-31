@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AFLSUIProjectTest.UIMap.Orders
+﻿namespace AFLSUIProjectTest.UIMap.Orders
 {
     public class WorkordersPage
     {
@@ -39,5 +33,19 @@ namespace AFLSUIProjectTest.UIMap.Orders
         public string Save = "//div[@class='workOrder contentWO']//button[@id='btnSave']";
 
         public string Exit = WOContent + FormNew + "//div[@data-action='normal']";
+
+        #region Tabs
+
+        public string AssigmentTab = "//div[@class='workOrder contentWO']//div[@class='jcarousel']//a[@href='#tabs-2']";
+
+        #endregion
+
+        #region Assigment Section
+
+        public string AutomaticAssigmentTab = "//div[@class='workOrder contentWO']//div[@id='tabs-2']/div[@class='assignment-tabs']/label[@for='autoTab']";
+        public string ManualAssigmentTab = "//div[@class='workOrder contentWO']//div[@id='tabs-2']/div[@class='assignment-tabs']/label[@for='manualTab']";
+        public string ManualSpecialistFilter = "//div[@class='workOrder contentWO']//div[@id='tabs-2']//input[@class='filterBtn']";
+
+        #endregion
     }
 }
