@@ -106,7 +106,7 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Monitor
         {
             UtilAction.Clear(MobileUsersPage.MobileUserAddress, "CssSelector");
             CommonElementsAction.SendKeys_InputText("CssSelector", MobileUsersPage.MobileUserAddress, "CALLE 64 # 5-22 bOGOTA");
-            CommonElementsAction.Click("CssSelector", MobileUsersPage.MobileUserAddressValidate);
+            UtilAction.Click(MobileUsersPage.MobileUserAddressValidate);
             Thread.Sleep(3000);
         }
 
@@ -133,13 +133,11 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Monitor
             ac.MoveToElement(UserMap);
             ac.MoveByOffset(20, 20);
             ac.Click().Build().Perform();
-            
         }
 
         [When(@"diligencio dirección valida de especialista de proveedor click en mapa")]
         public void WhenDiligencioDireccionValidaDeEspecialistaDeProveedorClickEnMapa()
         {
-            
             IWebElement UserMap = CommonHooks.driver.FindElement(By.XPath("//div[@class='users']//div[@id='tabs-1']//div[@id='mapUsersAddress']"));
             Actions ac = new Actions(CommonHooks.driver);
             ac.MoveToElement(UserMap);

@@ -180,9 +180,11 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Creación exitosa de orden de trabajo de emergencia con asignación automática")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
         public virtual void CreacionExitosaDeOrdenDeTrabajoDeEmergenciaConAsignacionAutomatica()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo de emergencia con asignación automática", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo de emergencia con asignación automática", null, new string[] {
+                        "Automation"});
 #line 109
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -226,21 +228,19 @@ this.ScenarioInitialize(scenarioInfo);
 #line 128
  testRunner.And("Doy click en Tab Asignación de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 129
- testRunner.And("Selecciono tab Asignación Manual", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Selecciono tab Asignación Automática", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 130
- testRunner.And("Doy click en Buscar especialista para asignación manual", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 131
  testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 132
+#line 131
  testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 133
+#line 132
  testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 134
+#line 133
  testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 135
+#line 134
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 136
+#line 135
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con prioridad de emergencia y es" +
                     "pecialista asignado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

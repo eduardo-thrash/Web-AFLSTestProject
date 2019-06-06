@@ -1045,7 +1045,6 @@ Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección 
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud de destino, latitud de destino y dirección de destino
 	And Cierro Sesión en la aplicación
-@Automation
 Scenario: CP_AFLS: Mapas > Validación exitosa de control de mapa en dirección de cita para actualización de orden de trabajo al dar click en cursor de validación
 	Given Tengo un usuario con rol despachador
 	And Existe una orden de trabajo en estado abierta

@@ -64,6 +64,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             try
             {
                 ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();", 1);
+                //ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_is_priority_or_emregency = 1 ORDER BY NEWID();", 1);
                 //int RemoveCar = ServiceName.Length - 2;
                 //ServiceName = ServiceName.Remove(1, RemoveCar);
             }
@@ -137,15 +138,15 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             }
             catch
             {
-                string InitDate = DateTime.Now.ToString("yyyy-MM-dd HH:00:00.000");
-                string EndDate = DateTime.Now.AddHours(2.0).ToString("yyyy-MM-dd HH:00:00.000");
+                string InitDate = DateTime.Now.ToString("yyyy-MM-dd 08:00:00.000");
+                string EndDate = DateTime.Now.AddHours(2.0).ToString("yyyy-MM-dd 14:00:00.000");
 
                 Functions.DBInsert("INSERT INTO AFLS_AVAILABILITIES (avai_day, avai_hour_start, avai_hour_end) VALUES (" + NumDay + ",'" + InitDate + "','" + EndDate + "');");
 
                 int AvalId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 avai_id FROM AFLS_AVAILABILITIES ORDER BY 1 DESC;", 1));
                 Functions.DBInsert("INSERT INTO AFLS_USER_AVAILABILITIES (user_id ,avai_id) VALUES(" + UserSpecialistId + ", " + AvalId + ");");
 
-                CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USER_AVAILABILITIES WHERE user_id = " + UserSpecialistId + " AND avai_id = (SELECT TOP 1 avai_id FROM AFLS_AVAILABILITIES WHERE avai_day = " + NumDay + ");", 1);
+                CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USER_AVAILABILITIES WHERE user_id = " + UserSpecialistId + " AND avai_id = (SELECT TOP 1 avai_id FROM AFLS_AVAILABILITIES WHERE avai_day = " + NumDay + " ORDER BY 1 DESC);", 1);
             }
         }
 
@@ -320,6 +321,12 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConTicket_IdLongitudLatitudYDireccion()
         {
             CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_longitude IS NOT NULL AND work_latitude IS NOT NULL AND work_address IS NOT NULL;", 1);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con prioridad de emergencia y especialista asignado")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConPrioridadDeEmergenciaYEspecialistaAsignado()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " ANDwork_attendant IS NOT NULL AND work_priority = 1;", 1);
         }
 
         [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud de destino, latitud de destino y dirección de destino")]

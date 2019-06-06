@@ -105,7 +105,7 @@ Scenario: Creación exitosa de orden de trabajo con datos básicos de cliente
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
 
-
+@Automation
 Scenario: Creación exitosa de orden de trabajo de emergencia con asignación automática
 	Given Tengo un usuario con rol despachador
 	And Existe un cliente
@@ -126,8 +126,7 @@ Scenario: Creación exitosa de orden de trabajo de emergencia con asignación au
 	And Diligencio Asunto de orden
 	And Diligencio descripción de orden
 	And Doy click en Tab Asignación de orden
-	And Selecciono tab Asignación Manual
-	And Doy click en Buscar especialista para asignación manual
+	And Selecciono tab Asignación Automática
 	And Selecciono el Tab de campos adicionales de orden de trabajo
 	And Diligencio campos adicionales de orden de trabajo
 	And Doy click en Crear orden

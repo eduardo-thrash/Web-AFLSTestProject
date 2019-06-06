@@ -47,8 +47,7 @@ namespace AFLSUIProjectTest.StepsTest.AFLS
                                                         + ", 4.6507338"
                                                         + ", -74.0632001"
                                                         + ", 'CO- COlombia, BR - Brasil'"
-                                                        + ", 1)"
-                                                        + "GO");
+                                                        + ", 1)");
             }
 
             if (FindCOuntry == 0)

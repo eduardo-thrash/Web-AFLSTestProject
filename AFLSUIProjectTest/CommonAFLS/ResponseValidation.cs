@@ -302,7 +302,6 @@ namespace AFLSUIProjectTest.CommonAFLS
                             Assert.Fail(TextMessage);
                             StaleElement = true;
                         }
-                        
                     }
                     catch (Exception e)
                     {
@@ -346,7 +345,7 @@ namespace AFLSUIProjectTest.CommonAFLS
         {
             string TicketNumber = "";
             int Counter = 0;
-            int MaxInteractions = 30;
+            int MaxInteractions = 60;
             string TextMessage;
             bool StaleElement = false;
 
