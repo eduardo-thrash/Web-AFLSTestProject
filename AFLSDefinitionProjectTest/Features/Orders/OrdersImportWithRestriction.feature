@@ -103,3 +103,64 @@ Scenario: CP_AFLS: Ordenes > Importación > Importación exitosa de ordenes con 
 	And Al terminar la importación se muestra un mapa centrado con las coordenadas validadas correctamente
 	And Al revisar la orden de trabajo se muestra con los datos diligenciados en el archivo, proveedor y con restricción
 	And Al revisar la tabla AFLS_WORKORDERS, el campo work_restriction_info refleja arreglo de restricción con nombre de especialista y Id
+
+Scenario: CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción de especialista con proveedor inactivo
+	Given Tengo usuario con rol despachador
+	And tengo especialistas activos, con licencia y con habilidades para el servicio
+	And El proveedor que puede atender la orden esta inactivo
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Ordenes
+	And Selecciono importación de ordenes
+	And Cargo archivo configurado con datos diligenciados diligenciando nombre de especialista de proveedor inactivo en restricción 
+	Then No importan las ordenes de trabajo exitosamente
+	And Se muestra una barra de progreso con los registros importados, fallidos y restantes
+	And Al terminar la importación se muestra un mapa centrado con las coordenadas validadas correctamente
+	And Se muestra un botón para descargar el archivo si contiene registro con error y un botón para cerrar el mapa
+	And Al descargar el archivo y abrirlo se muestran los registros no importados con mensaje de no hay proveedores disponibles para la orden
+
+Scenario: CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción de especialista sin proveedor asociado a zona
+	Given Tengo usuario con rol despachador
+	And tengo especialistas activos, con licencia y con habilidades para el servicio
+	And El proveedor que puede atender el servicio no esta asociado a la zona
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Ordenes
+	And Selecciono importación de ordenes
+	And Cargo archivo configurado con datos diligenciados diligenciando nombre de especialista de proveedor que no esta asociado a la zona
+	Then No importan las ordenes de trabajo exitosamente
+	And Se muestra una barra de progreso con los registros importados, fallidos y restantes
+	And Al terminar la importación se muestra un mapa centrado con las coordenadas validadas correctamente
+	And Se muestra un botón para descargar el archivo si contiene registro con error y un botón para cerrar el mapa
+	And Al descargar el archivo y abrirlo se muestran los registros no importados con mensaje de no hay proveedores disponibles para la orden
+
+
+Scenario: CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción de especialista sin proveedor asociado a servicio
+	Given Tengo usuario con rol despachador
+	And tengo especialistas activos, con licencia y con habilidades para el servicio
+	And El proveedor que puede atender en la zona no tiene el servicio asociado
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Ordenes
+	And Selecciono importación de ordenes
+	And Cargo archivo configurado con datos diligenciados diligenciando nombre de especialista de proveedor que no esta asociado al servicio
+	Then No importan las ordenes de trabajo exitosamente
+	And Se muestra una barra de progreso con los registros importados, fallidos y restantes
+	And Al terminar la importación se muestra un mapa centrado con las coordenadas validadas correctamente
+	And Se muestra un botón para descargar el archivo si contiene registro con error y un botón para cerrar el mapa
+	And Al descargar el archivo y abrirlo se muestran los registros no importados con mensaje de no hay proveedores disponibles para la orden
+
+Scenario: CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción de especialista sin zona
+	Given Tengo usuario con rol despachador
+	And tengo especialistas activos, con licencia y con habilidades para el servicio
+	And La dirección de la orden no tiene zona
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Ordenes
+	And Selecciono importación de ordenes
+	And Cargo archivo configurado con datos diligenciados diligenciando nombre de especialista y dirección sin zona
+	Then No importan las ordenes de trabajo exitosamente
+	And Se muestra una barra de progreso con los registros importados, fallidos y restantes
+	And Al terminar la importación se muestra un mapa centrado con las coordenadas validadas correctamente
+	And Se muestra un botón para descargar el archivo si contiene registro con error y un botón para cerrar el mapa
+	And Al descargar el archivo y abrirlo se muestran los registros no importados con mensaje de no hay zona para la dirección

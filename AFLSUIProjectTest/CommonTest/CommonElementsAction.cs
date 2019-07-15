@@ -1144,7 +1144,6 @@ namespace CommonTest.CommonTest
     {
         public static void Click(string Element, string Locator = "XPath", double TimeDefault = 3, int MaxInteractions = 5)
         {
-            Thread.Sleep(1000);
             int CounterClick = 0;
             bool StaleElement = false;
             while (!StaleElement)

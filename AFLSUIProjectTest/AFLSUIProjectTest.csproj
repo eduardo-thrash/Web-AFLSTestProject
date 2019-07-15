@@ -105,6 +105,7 @@
     <Compile Include="CommonTest\CommonElementsAction.cs" />
     <Compile Include="CommonTest\CommonHooks.cs" />
     <Compile Include="CommonTest\CommonQuery.cs" />
+    <Compile Include="CommonTest\CommonUtilAction.cs" />
     <Compile Include="CommonTest\SystemTask.cs" />
     <Compile Include="Features\AFLS\AFLSMaps.feature.cs">
       <AutoGen>True</AutoGen>

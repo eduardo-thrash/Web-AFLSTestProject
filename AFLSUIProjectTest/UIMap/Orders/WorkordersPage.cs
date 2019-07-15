@@ -37,6 +37,8 @@
         #region Tabs
 
         public string AssigmentTab = "//div[@class='workOrder contentWO']//div[@class='jcarousel']//a[@href='#tabs-2']";
+        public string AdditionalFieldTab = "//div[@class='workOrder contentWO']//div[@class='jcarousel']//a[@href='#tabs-9']";
+        public string RelationTab = "//div[@class='workOrder contentWO']//div[@class='jcarousel']//a[@href='#tabs-13']";
 
         #endregion
 
@@ -45,6 +47,16 @@
         public string AutomaticAssigmentTab = "//div[@class='workOrder contentWO']//div[@id='tabs-2']/div[@class='assignment-tabs']/label[@for='autoTab']";
         public string ManualAssigmentTab = "//div[@class='workOrder contentWO']//div[@id='tabs-2']/div[@class='assignment-tabs']/label[@for='manualTab']";
         public string ManualSpecialistFilter = "//div[@class='workOrder contentWO']//div[@id='tabs-2']//input[@class='filterBtn']";
+
+        #endregion
+
+        #region relation Section
+
+        public string RelationNew = "//div[@class='workOrder contentWO']//div[@id='tabs-13']//input[@id='btnAdd']";
+        public string RelationType = "//div[@class='workOrder contentWO']//div[@id='tabs-13']//div[@id='Relation']/div/a[@class='dd-selected']";
+        public string RelationOptionsType = "//div[@id='Relation']/ul/li/a/label[@class='dd-option-text']";
+
+        public string RelationOrder = "//div[@class='workOrder contentWO']//div[@id='tabs-13']//div[@class='row inputSearch']/input[@class='_searchOrder searchOrder ui-autocomplete-input']";
 
         #endregion
     }

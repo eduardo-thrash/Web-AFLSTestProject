@@ -238,6 +238,21 @@ namespace AFLSUIProjectTest.CommonAFLS
             }
         }
 
+        public void DBUpdate(string Query)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = ConfigurationManager.AppSettings["DatabaseConnection"];
+
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand(Query, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public void ErrorFindOnPage()
         {
             int count = 10;

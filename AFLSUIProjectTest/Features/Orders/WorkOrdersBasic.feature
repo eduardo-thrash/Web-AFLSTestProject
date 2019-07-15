@@ -84,7 +84,7 @@ Scenario: Creación exitosa de orden de trabajo con todos los datos de cliente y
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
-
+	And Cierro Sesión en la aplicación
 @Automation
 Scenario: Creación exitosa de orden de trabajo con datos básicos de cliente
 	Given Tengo un usuario con rol despachador
@@ -104,12 +104,12 @@ Scenario: Creación exitosa de orden de trabajo con datos básicos de cliente
 	And Doy click en Crear orden
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
-
+	And Cierro Sesión en la aplicación
 @Automation
 Scenario: Creación exitosa de orden de trabajo de emergencia con asignación automática
 	Given Tengo un usuario con rol despachador
 	And Existe un cliente
-	And Existen servicios asociados al cliente
+	And Existen servicios asociados al cliente habilitados para ordenes de emergencia
 	And Existe relación del proveedor de especialista con zona
 	And Existe especialista con disponibilidad, habilidad del servicio activa, licencia activa y estado activo
 	When Accedo a la aplicación
@@ -133,23 +133,213 @@ Scenario: Creación exitosa de orden de trabajo de emergencia con asignación au
 	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
 	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
 	And Se registra en la tabla AFLS_WORKORDERS la orden con prioridad de emergencia y especialista asignado
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: Creación exitosa de orden de trabajo de prioridad con asignación automática
+	Given Tengo un usuario con rol despachador
+	And Existe un cliente
+	And Existen servicios asociados al cliente habilitados para ordenes de emergencia
+	And Existe relación del proveedor de especialista con zona
+	And Existe especialista con disponibilidad, habilidad del servicio activa, licencia activa y estado activo
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Nueva orden
+	And Diligencio y selecciono un cliente de orden
+	And Diligencio campo de solicitante de cita de orden
+	And Diligencio Teléfono de Solicitante de orden
+	And Diligencio Correo de Solicitante de orden
+	And Diligencio Dirección de cita de orden
+	And Diligencio Detalle de la dirección de cita de orden
+	And Diligencio y selecciono servicio de orden
+	And Selecciono Tipo de Orden Prioritaria de orden
+	And Diligencio Asunto de orden
+	And Diligencio descripción de orden
+	And Doy click en Tab Asignación de orden
+	And Selecciono tab Asignación Automática
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
+	And Doy click en Crear orden
+	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Se registra en la tabla AFLS_WORKORDERS la orden con prioridad de prioridad y especialista asignado
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: Creación exitosa de orden de trabajo a cliente que tiene compañía asociada
+	Given Tengo un usuario con rol despachador
+	And Existe un cliente con compañía asociada
+	And Existen servicios asociados al cliente
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Nueva orden
+	And Diligencio y selecciono un cliente de orden
+	And Diligencio Dirección de cita de orden
+	And Diligencio y selecciono servicio de orden
+	And Diligencio Asunto de orden
+	And Diligencio descripción de orden
+	And Doy click en Tab Asignación de orden
+	And Selecciono tab Asignación Automática
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
+	And Doy click en Crear orden
+	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: Creación exitosa de orden de trabajo a cliente que no tiene compañía asociada
+	Given Tengo un usuario con rol despachador
+	And Existe un cliente sin compañía asociada
+	And Existen servicios asociados al cliente
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Nueva orden
+	And Diligencio y selecciono un cliente de orden
+	And Diligencio Dirección de cita de orden
+	And Diligencio y selecciono servicio de orden
+	And Diligencio Asunto de orden
+	And Diligencio descripción de orden
+	And Doy click en Tab Asignación de orden
+	And Selecciono tab Asignación Automática
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
+	And Doy click en Crear orden
+	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: Creación exitosa de orden de trabajo con servicio tipo estándar
+	Given Tengo un usuario con rol despachador
+	And Existe un cliente sin compañía asociada
+	And Existen servicios asociados al cliente de tipo estándar
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Nueva orden
+	And Diligencio y selecciono un cliente de orden
+	And Diligencio Dirección de cita de orden
+	And Diligencio y selecciono servicio de tipo estándar
+	And Diligencio Asunto de orden
+	And Diligencio descripción de orden
+	And Doy click en Tab Asignación de orden
+	And Selecciono tab Asignación Automática
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
+	And Doy click en Crear orden
+	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: Creación exitosa de orden de trabajo con servicio tipo desplazamiento
+	Given Tengo un usuario con rol despachador
+	And Existe un cliente sin compañía asociada
+	And Existen servicios asociados al cliente de tipo desplazamiento
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Nueva orden
+	And Diligencio y selecciono un cliente de orden
+	And Diligencio Dirección de cita de orden
+	And Diligencio y selecciono servicio de tipo desplazamiento	
+	And Diligencio Asunto de orden
+	And Diligencio Dirección de destino de orden
+	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
+	And Doy click en Crear orden
+	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección de cita y longitud, latitud y dirección de destino
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: Creación exitosa de orden de trabajo con servicio tipo asignación directa
+	Given Tengo un usuario con rol despachador
+	And Existe un cliente
+	And Existen servicios de tipo asignación directa asociados al cliente
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Nueva orden
+	And Diligencio y selecciono un cliente de orden
+	And Diligencio campo de solicitante de cita de orden
+	And Diligencio Teléfono de Solicitante de orden
+	And Diligencio Correo de Solicitante de orden
+	And Diligencio Dirección de cita de orden
+	And Diligencio Detalle de la dirección de cita de orden
+	And Diligencio y selecciono servicio de orden de tipo asignación directa
+	And Diligencio Asunto de orden
+	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
+	And Doy click en Crear orden
+	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: Creación exitosa de orden de trabajo con servicio tipo distribución publica
+	Given Tengo un usuario con rol despachador
+	And Existe un cliente
+	And Existen servicios de tipo distribución publica asociados al cliente
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Nueva orden
+	And Diligencio y selecciono un cliente de orden
+	And Diligencio campo de solicitante de cita de orden
+	And Diligencio Teléfono de Solicitante de orden
+	And Diligencio Correo de Solicitante de orden
+	And Diligencio Dirección de cita de orden
+	And Diligencio Detalle de la dirección de cita de orden
+	And Diligencio y selecciono servicio de orden de tipo distribución publica
+	And Diligencio Asunto de orden
+	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
+	And Doy click en Crear orden
+	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Cierro Sesión en la aplicación
+@Automation
+Scenario: Creación exitosa de orden de trabajo con inventario completo y tareas
+	Given Tengo un usuario con rol despachador
+	And Existe un cliente
+	And Existen servicios asociados al cliente con inventario completo y tareas
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Nueva orden
+	And Diligencio y selecciono un cliente de orden
+	And Diligencio Dirección de cita de orden
+	And Diligencio Detalle de la dirección de cita de orden
+	And Diligencio y selecciono servicio de orden
+	And Selecciono Tipo de Orden Normal de orden
+	And Diligencio Asunto de orden
+	And Diligencio descripción de orden
+	And Selecciono el Tab de campos adicionales de orden de trabajo
+	And Diligencio campos adicionales de orden de trabajo
+	And Doy click en Crear orden
+	Then se muestra mensaje indicando que se creo la orden de trabajo correctamente
+	And Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección
+	And Se registra en la tabla AFLS_WORKORDER_TASKS las tareas del servicio relacionadas a la orden
+	And Se registra en la tabla AFLS_WORKORDERS_STOCK_PRODUCTS los productos del servicio relacionadas a la orden
+	And Cierro Sesión en la aplicación
 
-#Scenario: Creación exitosa de orden de trabajo de prioridad con asignación automática
-#
-#Scenario: Creación exitosa de orden de trabajo a cliente que tiene compañía asociada
-#
-#Scenario: Creación exitosa de orden de trabajo a cliente que no tiene compañía asociada
-#
-#Scenario: Creación exitosa de orden de trabajo con servicio tipo estándar
-#
-#Scenario: Creación exitosa de orden de trabajo con servicio tipo desplazamiento
-#
-#Scenario: Creación exitosa de orden de trabajo con servicio tipo asignación directa
-#
-#Scenario: Creación exitosa de orden de trabajo con servicio tipo distribución publica
-#
+Scenario: Creación exitosa de orden de trabajo con relación de sucesión a orden abierta
+	Given Tengo un usuario con rol despachador
+	And Existe un cliente
+	And Existen servicios asociados al cliente
+	And existen ordenes en estado abierto para relacionar
+	When Accedo a la aplicación
+	And Realizo Login con usuario rol despachador
+	And Accedo a ítem Nueva orden
+	#And Diligencio y selecciono un cliente de orden
+	#And Diligencio Dirección de cita de orden
+	#And Diligencio Detalle de la dirección de cita de orden
+	#And Diligencio y selecciono servicio de orden
+	#And Diligencio Asunto de orden
+	#And Diligencio descripción de orden
+	#And Selecciono el Tab de campos adicionales de orden de trabajo
+	#And Diligencio campos adicionales de orden de trabajo
+	And Doy click en Tab Relaciones de orden
+	And Doy click en nueva relación en orden
+	And Selecciono relación de tipo sucesión
+	And Selecciono relación de tipo vinculo
+	And Diligencio y selecciono orden a relacionar
+
 #Scenario: Creación exitosa de orden de trabajo con asignación manual a especialista
-#
+
 #Scenario: Creación exitosa de orden de trabajo de tipo emergencia con asignación manual a especialista
 #
 #Scenario: Creación exitosa de orden de trabajo de tipo prioridad con asignación manual a especialista
@@ -159,3 +349,5 @@ Scenario: Creación exitosa de orden de trabajo de emergencia con asignación au
 #Scenario: Creación exitosa de orden de trabajo con asignación por restricción de especialista
 #
 #Scenario: Creación exitosa de orden de trabajo con asignación por restricción de fecha
+
+#Scenario: Creación de orden de trabajo asociado a servicio con inventario completo y tareas 

@@ -382,6 +382,186 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción d" +
+            "e especialista con proveedor inactivo")]
+        public virtual void CP_AFLSOrdenesImportacionImportacionFallidaDeOrdenesConRestriccionDeEspecialistaConProveedorInactivo()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción d" +
+                    "e especialista con proveedor inactivo", null, ((string[])(null)));
+#line 107
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 108
+ testRunner.Given("Tengo usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 109
+ testRunner.And("tengo especialistas activos, con licencia y con habilidades para el servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 110
+ testRunner.And("El proveedor que puede atender la orden esta inactivo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 111
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 112
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 113
+ testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 114
+ testRunner.And("Selecciono importación de ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 115
+ testRunner.And("Cargo archivo configurado con datos diligenciados diligenciando nombre de especia" +
+                    "lista de proveedor inactivo en restricción", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 116
+ testRunner.Then("No importan las ordenes de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 117
+ testRunner.And("Se muestra una barra de progreso con los registros importados, fallidos y restant" +
+                    "es", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 118
+ testRunner.And("Al terminar la importación se muestra un mapa centrado con las coordenadas valida" +
+                    "das correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 119
+ testRunner.And("Se muestra un botón para descargar el archivo si contiene registro con error y un" +
+                    " botón para cerrar el mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 120
+ testRunner.And("Al descargar el archivo y abrirlo se muestran los registros no importados con men" +
+                    "saje de no hay proveedores disponibles para la orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción d" +
+            "e especialista sin proveedor asociado a zona")]
+        public virtual void CP_AFLSOrdenesImportacionImportacionFallidaDeOrdenesConRestriccionDeEspecialistaSinProveedorAsociadoAZona()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción d" +
+                    "e especialista sin proveedor asociado a zona", null, ((string[])(null)));
+#line 122
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 123
+ testRunner.Given("Tengo usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 124
+ testRunner.And("tengo especialistas activos, con licencia y con habilidades para el servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 125
+ testRunner.And("El proveedor que puede atender el servicio no esta asociado a la zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 126
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 127
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 128
+ testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 129
+ testRunner.And("Selecciono importación de ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 130
+ testRunner.And("Cargo archivo configurado con datos diligenciados diligenciando nombre de especia" +
+                    "lista de proveedor que no esta asociado a la zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 131
+ testRunner.Then("No importan las ordenes de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 132
+ testRunner.And("Se muestra una barra de progreso con los registros importados, fallidos y restant" +
+                    "es", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 133
+ testRunner.And("Al terminar la importación se muestra un mapa centrado con las coordenadas valida" +
+                    "das correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 134
+ testRunner.And("Se muestra un botón para descargar el archivo si contiene registro con error y un" +
+                    " botón para cerrar el mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 135
+ testRunner.And("Al descargar el archivo y abrirlo se muestran los registros no importados con men" +
+                    "saje de no hay proveedores disponibles para la orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción d" +
+            "e especialista sin proveedor asociado a servicio")]
+        public virtual void CP_AFLSOrdenesImportacionImportacionFallidaDeOrdenesConRestriccionDeEspecialistaSinProveedorAsociadoAServicio()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción d" +
+                    "e especialista sin proveedor asociado a servicio", null, ((string[])(null)));
+#line 138
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 139
+ testRunner.Given("Tengo usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 140
+ testRunner.And("tengo especialistas activos, con licencia y con habilidades para el servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 141
+ testRunner.And("El proveedor que puede atender en la zona no tiene el servicio asociado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 142
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 143
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 144
+ testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 145
+ testRunner.And("Selecciono importación de ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 146
+ testRunner.And("Cargo archivo configurado con datos diligenciados diligenciando nombre de especia" +
+                    "lista de proveedor que no esta asociado al servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 147
+ testRunner.Then("No importan las ordenes de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 148
+ testRunner.And("Se muestra una barra de progreso con los registros importados, fallidos y restant" +
+                    "es", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 149
+ testRunner.And("Al terminar la importación se muestra un mapa centrado con las coordenadas valida" +
+                    "das correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 150
+ testRunner.And("Se muestra un botón para descargar el archivo si contiene registro con error y un" +
+                    " botón para cerrar el mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 151
+ testRunner.And("Al descargar el archivo y abrirlo se muestran los registros no importados con men" +
+                    "saje de no hay proveedores disponibles para la orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción d" +
+            "e especialista sin zona")]
+        public virtual void CP_AFLSOrdenesImportacionImportacionFallidaDeOrdenesConRestriccionDeEspecialistaSinZona()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CP_AFLS: Ordenes > Importación > Importación fallida de ordenes con restricción d" +
+                    "e especialista sin zona", null, ((string[])(null)));
+#line 153
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 154
+ testRunner.Given("Tengo usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 155
+ testRunner.And("tengo especialistas activos, con licencia y con habilidades para el servicio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 156
+ testRunner.And("La dirección de la orden no tiene zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 157
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 158
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 159
+ testRunner.And("Accedo a ítem Ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 160
+ testRunner.And("Selecciono importación de ordenes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 161
+ testRunner.And("Cargo archivo configurado con datos diligenciados diligenciando nombre de especia" +
+                    "lista y dirección sin zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 162
+ testRunner.Then("No importan las ordenes de trabajo exitosamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 163
+ testRunner.And("Se muestra una barra de progreso con los registros importados, fallidos y restant" +
+                    "es", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 164
+ testRunner.And("Al terminar la importación se muestra un mapa centrado con las coordenadas valida" +
+                    "das correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 165
+ testRunner.And("Se muestra un botón para descargar el archivo si contiene registro con error y un" +
+                    " botón para cerrar el mapa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 166
+ testRunner.And("Al descargar el archivo y abrirlo se muestran los registros no importados con men" +
+                    "saje de no hay zona para la dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebTest1Coded.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="WebTest1.webtest">

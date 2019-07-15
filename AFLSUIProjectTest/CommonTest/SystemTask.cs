@@ -8,6 +8,7 @@ namespace CommonTest.CommonTest
     [TestClass]
     public class SystemTask
     {
+        [TestMethod]
         public void KillChromeDriver()
         {
             int a = 0;

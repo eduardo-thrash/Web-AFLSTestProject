@@ -32,13 +32,18 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         private string ClientName;
         private string UserDispatcher;
         private string ServiceName;
+        private int ServiceId;
+        private int Product_Id;
         private int TicketId;
+        private int WorkId;
         private int AdditionalFieldFound = 0;
 
         private int UserSpecialistId;
         private int ProviderId;
         private int ZoneId;
         private int SkillId;
+
+        private int RelationTicketId;
 
         [Given(@"Tengo un usuario con rol despachador")]
         public void GivenTengoUnUsuarioConRolDespachador()
@@ -49,13 +54,25 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         [Given(@"Existe un cliente sin email, teléfono y compañía asociada")]
         public void GivenExisteUnClienteSinEmailTelefonoYCompaniaAsociada()
         {
-            ClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 URS.user_name FROM AFLS_USERS_CLIENTS CLI JOIN AFW_USERS URS ON CLI.user_id = URS.user_id WHERE URS.user_active = 1 AND urs.user_phone1 IS NULL AND URS.user_email IS NULL AND  CLI.comp_id IS NULL ORDER BY NEWID()", 1);
+            ClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 URS.user_name FROM AFLS_USERS_CLIENTS CLI JOIN AFW_USERS URS ON CLI.user_id = URS.user_id WHERE URS.user_active = 1 AND urs.user_phone1 IS NULL AND URS.user_email IS NULL AND  CLI.comp_id IS NULL ORDER BY NEWID();", 1);
         }
 
         [Given(@"Existe un cliente")]
         public void GivenExisteUnCliente()
         {
-            ClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 URS.user_name FROM AFLS_USERS_CLIENTS CLI JOIN AFW_USERS URS ON CLI.user_id = URS.user_id WHERE URS.user_active = 1 ORDER BY NEWID()", 1);
+            ClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 URS.user_name FROM AFLS_USERS_CLIENTS CLI JOIN AFW_USERS URS ON CLI.user_id = URS.user_id WHERE URS.user_active = 1 ORDER BY NEWID();", 1);
+        }
+
+        [Given(@"Existe un cliente con compañía asociada")]
+        public void GivenExisteUnClienteConCompaniaAsociada()
+        {
+            ClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 URS.user_name FROM AFLS_USERS_CLIENTS CLI JOIN AFW_USERS URS ON CLI.user_id = URS.user_id WHERE URS.user_active = 1 AND CLI.comp_id IS NOT NULL ORDER BY NEWID();", 1);
+        }
+
+        [Given(@"Existe un cliente sin compañía asociada")]
+        public void GivenExisteUnClienteSinCompaniaAsociada()
+        {
+            ClientName = CommonQuery.DBSelectAValue("SELECT TOP 1 URS.user_name FROM AFLS_USERS_CLIENTS CLI JOIN AFW_USERS URS ON CLI.user_id = URS.user_id WHERE URS.user_active = 1 AND CLI.comp_id IS NULL ORDER BY NEWID();", 1);
         }
 
         [Given(@"Existen servicios asociados al cliente")]
@@ -64,13 +81,101 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             try
             {
                 ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();", 1);
-                //ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_is_priority_or_emregency = 1 ORDER BY NEWID();", 1);
-                //int RemoveCar = ServiceName.Length - 2;
-                //ServiceName = ServiceName.Remove(1, RemoveCar);
             }
             catch
             {
                 Assert.Fail("Error en consulta SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();");
+            }
+        }
+
+        [Given(@"existen ordenes en estado abierto para relacionar")]
+        public void GivenExistenOrdenesEnEstadoAbiertoParaRelacionar()
+        {
+            RelationTicketId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 ticket_id FROM AFLS_WORKORDERS WHERE stat_id = 1 AND work_id <> (SELECT ari_source FROM AFLS_RELATION_ITEMS) AND work_id <> (SELECT ari_target FROM AFLS_RELATION_ITEMS) ORDER BY NEWID();", 1));
+        }
+
+        [Given(@"Existen servicios asociados al cliente con inventario completo y tareas")]
+        public void GivenExistenServiciosAsociadosAlClienteConInventarioCompletoYTareas()
+        {
+            try
+            {
+                ServiceName = CommonQuery.DBSelectMoreValue("SELECT SER.serv_name, COUNT(TIPOCERO.prod_id) AS [COUNT_TIPOCERO],COUNT(TIPOUNO.prod_id) AS [COUNT_TIPOUNO] FROM AFLS_SERVICES SER INNER JOIN AFLS_STOCK_SERVICE_PRODUCTS PRO ON SER.serv_id = PRO.serv_id INNER JOIN AFLS_SERVICE_TASKS ST ON ST.stask_service_id= SER.serv_id LEFT OUTER JOIN ( SELECT PROD_ID, PROD_DESCRIPTION FROM AFLS_STOCK_PRODUCTS WHERE prod_TYPE=0 ) TIPOCERO ON PRO.prod_id= TIPOCERO.PROD_ID LEFT OUTER JOIN ( SELECT PROD_ID, PROD_DESCRIPTION FROM AFLS_STOCK_PRODUCTS WHERE prod_TYPE=1 ) TIPOUNO ON PRO.prod_id= TIPOUNO.PROD_ID GROUP BY SER.serv_name HAVING COUNT(TIPOUNO.prod_id) <>0 AND COUNT(TIPOCERO.prod_id) <>0;", 0);
+                ServiceId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_id FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "';", 1));
+            }
+            catch
+            {
+                if (ServiceName == null)
+                {
+                    ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();", 1);
+                    ServiceId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT serv_id FROM AFLS_SERVICES WHERE serv_name = '" + ServiceName + "';", 1));
+                }
+                //Identifico si tiene inventario único. si no, relaciono producto único al servicio
+                try
+                {
+                    CommonQuery.DBSelectAValue("SELECT TOP 1 SER.serv_name FROM AFLS_SERVICES SER INNER JOIN AFLS_STOCK_SERVICE_PRODUCTS PRO ON SER.serv_id = PRO.serv_id WHERE PRO.prod_id = (SELECT TOP 1 prod_id FROM AFLS_STOCK_PRODUCTS WHERE prod_type = 1) AND SER.serv_name = '" + ServiceName + "' ORDER BY NEWID();", 1);
+                }
+                catch
+                {
+                    Product_Id = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 prod_id FROM AFLS_STOCK_PRODUCTS WHERE prod_type = 1", 1));
+                    Functions.DBInsert("INSERT INTO AFLS_STOCK_SERVICE_PRODUCTS (srsp_quantity,srsp_required,serv_id,prod_id) VALUES (1,1," + ServiceId + "," + Product_Id + ");");
+                    CommonQuery.DBSelectAValue("SELECT TOP 1 SER.serv_name FROM AFLS_SERVICES SER INNER JOIN AFLS_STOCK_SERVICE_PRODUCTS PRO ON SER.serv_id = PRO.serv_id WHERE PRO.prod_id = (SELECT TOP 1 prod_id FROM AFLS_STOCK_PRODUCTS WHERE prod_type = 1) AND SER.serv_name = '" + ServiceName + "' ORDER BY NEWID();", 1);
+                }
+                //Identifico si tiene inventario cantidad. si no, relaciono producto cantidad al servicio
+                try
+                {
+                    CommonQuery.DBSelectAValue("SELECT TOP 1 SER.serv_name FROM AFLS_SERVICES SER INNER JOIN AFLS_STOCK_SERVICE_PRODUCTS PRO ON SER.serv_id = PRO.serv_id WHERE PRO.prod_id = (SELECT TOP 1 prod_id FROM AFLS_STOCK_PRODUCTS WHERE prod_type = 0) AND SER.serv_name = '" + ServiceName + "' ORDER BY NEWID();", 1);
+                }
+                catch
+                {
+                    Product_Id = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 prod_id FROM AFLS_STOCK_PRODUCTS WHERE prod_type = 0", 1));
+                    Functions.DBInsert("INSERT INTO AFLS_STOCK_SERVICE_PRODUCTS (srsp_quantity,srsp_required,serv_id,prod_id) VALUES (1,1," + ServiceId + "," + Product_Id + ");");
+                    CommonQuery.DBSelectAValue("SELECT TOP 1 SER.serv_name FROM AFLS_SERVICES SER INNER JOIN AFLS_STOCK_SERVICE_PRODUCTS PRO ON SER.serv_id = PRO.serv_id WHERE PRO.prod_id = (SELECT TOP 1 prod_id FROM AFLS_STOCK_PRODUCTS WHERE prod_type = 0) AND SER.serv_name = '" + ServiceName + "' ORDER BY NEWID();", 1);
+                }
+                //Identifico si tiene tareas. si no, relaciono tarea al servicio
+                try
+                {
+                    CommonQuery.DBSelectAValue("SELECT TOP 1 SER.serv_name FROM AFLS_SERVICES SER INNER JOIN AFLS_SERVICE_TASKS TAS ON SER.serv_id = TAS.stask_service_id AND SER.serv_name = '" + ServiceName + "' ORDER BY NEWID();", 1);
+                }
+                catch
+                {
+                    Functions.DBInsert("INSERT INTO AFLS_SERVICE_TASKS (stask_description, stask_service_id, stask_order) VALUES ('tarea de servicio inicial'," + ServiceId + ",1);");
+                    CommonQuery.DBSelectAValue("SELECT TOP 1 SER.serv_name FROM AFLS_SERVICES SER INNER JOIN AFLS_SERVICE_TASKS TAS ON SER.serv_id = TAS.stask_service_id AND SER.serv_name = '" + ServiceName + "' ORDER BY NEWID();", 1);
+                }
+            }
+        }
+
+        [Given(@"Existen servicios asociados al cliente de tipo estándar")]
+        public void GivenExistenServiciosAsociadosAlClienteDeTipoEstandar()
+        {
+            try
+            {
+                ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_type = 2 ORDER BY NEWID();", 1);
+            }
+            catch
+            {
+                Assert.Fail("Error en consulta SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_type = 2 ORDER BY NEWID();");
+            }
+        }
+
+        [Given(@"Existen servicios asociados al cliente habilitados para ordenes de emergencia")]
+        public void GivenExistenServiciosAsociadosAlClienteHabilitadosParaOrdenesDeEmergencia()
+        {
+            try
+            {
+                ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 and serv_is_priority_or_emregency = 1 ORDER BY NEWID();", 1);
+            }
+            catch
+            {
+                try
+                {
+                    ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES;", 1);
+                    Functions.DBUpdate("UPDATE AFLS_SERVICES SET serv_is_priority_or_emregency = 1 WHERE serv_name = '" + ServiceName + "';");
+                    ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 ORDER BY NEWID();", 1);
+                }
+                catch
+                {
+                    Assert.Fail("Error en script UPDATE AFLS_SERVICES SET serv_is_priority_or_emregency = 1 WHERE serv_name = '" + ServiceName + "';");
+                }
             }
         }
 
@@ -114,7 +219,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
 
             try
             {
-                CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USER_SKILLS WHERE aus_user_id " + UserSpecialistId + " = AND aus_skll_id = " + SkillId + ";", 1);
+                CommonQuery.DBSelectAValue("SELECT * FROM AFLS_USER_SKILLS WHERE aus_user_id = " + UserSpecialistId + " AND aus_skll_id = " + SkillId + ";", 1);
             }
             catch
             {
@@ -156,12 +261,36 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             try
             {
                 ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_type = 1 ORDER BY NEWID();", 1);
-                //int RemoveCar = ServiceName.Length - 2;
-                //ServiceName = ServiceName.Remove(RemoveCar, 2);
             }
             catch
             {
                 Assert.Fail("Error en consulta SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_type = 2 ORDER BY NEWID();");
+            }
+        }
+
+        [Given(@"Existen servicios de tipo asignación directa asociados al cliente")]
+        public void GivenExistenServiciosDeTipoAsignacionDirectaAsociadosAlCliente()
+        {
+            try
+            {
+                ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_provider_assignment_type = 1 ORDER BY NEWID();", 1);
+            }
+            catch
+            {
+                Assert.Fail("Error en consulta SELECT SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_provider_assignment_type = 1 ORDER BY NEWID();");
+            }
+        }
+
+        [Given(@"Existen servicios de tipo distribución publica asociados al cliente")]
+        public void GivenExistenServiciosDeTipoDistribucionPublicaAsociadosAlCliente()
+        {
+            try
+            {
+                ServiceName = CommonQuery.DBSelectAValue("SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_provider_assignment_type = 2 ORDER BY NEWID();", 1);
+            }
+            catch
+            {
+                Assert.Fail("Error en consulta SELECT TOP 1 serv_name FROM AFLS_SERVICES WHERE serv_default = 1 AND serv_provider_assignment_type = 2 ORDER BY NEWID();");
             }
         }
 
@@ -183,6 +312,13 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         public void WhenDiligencioDireccionDeCitaDeOrden()
         {
             CommonElementsAction.EnterAfterSendKeys_InputText("XPath", WorkordersPage.Address, "calle 64 # 5-22 Bogota Colombia");
+            Thread.Sleep(2000);
+        }
+
+        [When(@"Diligencio Dirección de destino de orden")]
+        public void WhenDiligencioDireccionDeDestinoDeOrden()
+        {
+            CommonElementsAction.EnterAfterSendKeys_InputText("XPath", WorkordersPage.AddressEndPoint, "calle 49 # 9 - 53 Bogota Colombia");
             Thread.Sleep(2000);
         }
 
@@ -217,6 +353,34 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             Thread.Sleep(2000);
         }
 
+        [When(@"Diligencio y selecciono servicio de tipo estándar")]
+        public void WhenDiligencioYSeleccionoServicioDeTipoEstandar()
+        {
+            UtilAction.Select_ComboboxAutocomplete(WorkordersPage.ServiceName, ServiceName, "a");
+            Thread.Sleep(2000);
+        }
+
+        [When(@"Diligencio y selecciono servicio de tipo desplazamiento")]
+        public void WhenDiligencioYSeleccionoServicioDeTipoDesplazamiento()
+        {
+            UtilAction.Select_ComboboxAutocomplete(WorkordersPage.ServiceName, ServiceName, "a");
+            Thread.Sleep(2000);
+        }
+
+        [When(@"Diligencio y selecciono servicio de orden de tipo asignación directa")]
+        public void WhenDiligencioYSeleccionoServicioDeOrdenDeTipoAsignacionDirecta()
+        {
+            UtilAction.Select_ComboboxAutocomplete(WorkordersPage.ServiceName, ServiceName, "a");
+            Thread.Sleep(2000);
+        }
+
+        [When(@"Diligencio y selecciono servicio de orden de tipo distribución publica")]
+        public void WhenDiligencioYSeleccionoServicioDeOrdenDeTipoDistribucionPublica()
+        {
+            UtilAction.Select_ComboboxAutocomplete(WorkordersPage.ServiceName, ServiceName, "a");
+            Thread.Sleep(2000);
+        }
+
         [When(@"Selecciono Tipo de Orden Normal de orden")]
         public void WhenSeleccionoTipoDeOrdenNormalDeOrden()
         {
@@ -245,10 +409,78 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             }
             catch
             {
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
 
                 UtilAction.Click("//div[@class='workOrder contentWO']//a[@class='jcarousel-control-next']");
                 UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='jcarousel']//a[@href='#tabs-9']");
+            }
+        }
+
+        [When(@"Doy click en Tab Relaciones de orden")]
+        public void WhenDoyClickEnTabRelacionesDeOrden()
+        {
+            try
+            {
+                UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='jcarousel']//a[@href='#tabs-13']");
+            }
+            catch
+            {
+                Thread.Sleep(1000);
+                try
+                {
+                    UtilAction.Click("//div[@class='workOrder contentWO']//a[@class='jcarousel-control-next']");
+                    UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='jcarousel']//a[@href='#tabs-13']");
+                }
+                catch
+                {
+                    Thread.Sleep(1000);
+                    UtilAction.Click("//div[@class='workOrder contentWO']//a[@class='jcarousel-control-next']");
+                    UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='jcarousel']//a[@href='#tabs-13']");
+                }
+            }
+        }
+
+        [When(@"Doy click en nueva relación en orden")]
+        public void WhenDoyClickEnNuevaRelacionEnOrden()
+        {
+            UtilAction.Click(WorkordersPage.RelationNew);
+        }
+
+        [When(@"Selecciono relación de tipo sucesión")]
+        public void WhenSeleccionoRelacionDeTipoSucesion()
+        {
+            UtilAction.SelectDropDownList(WorkordersPage.RelationType, CommonQuery.DBSelectAValue("SELECT TOP 1 ar_name FROM AFLS_RELATIONSHIP WHERE art_id = 1 ORDER BY NEWID();", 1), "label");
+        }
+
+        [When(@"Selecciono relación de tipo vinculo")]
+        public void WhenSeleccionoRelacionDeTipoVinculo()
+        {
+            try
+            {
+                UtilAction.SelectDropDownList(WorkordersPage.RelationType, CommonQuery.DBSelectAValue("SELECT TOP 1 ar_name FROM AFLS_RELATIONSHIP WHERE art_id = 2 ORDER BY NEWID();", 1), "label");
+            }
+            catch
+            {
+            }
+        }
+
+        [When(@"Diligencio y selecciono orden a relacionar")]
+        public void WhenDiligencioYSeleccionoOrdenARelacionar()
+        {
+            try
+            {
+                UtilAction.Click(WorkordersPage.RelationOrder);
+                UtilAction.SendKeys(WorkordersPage.RelationOrder, RelationTicketId.ToString());
+
+                CommonHooks.driver.FindElement(By.XPath("//ul/li/a[@class='item ui-corner-all']/span[@class='row ticketId']"));
+                Thread.Sleep(1);
+                Thread.Sleep(1);
+                UtilAction.Click("//ul[2]/li/a/span[3]");
+                Thread.Sleep(1);
+                Thread.Sleep(1);
+            }
+            catch (Exception e)
+            {
             }
         }
 
@@ -321,12 +553,41 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConTicket_IdLongitudLatitudYDireccion()
         {
             CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_longitude IS NOT NULL AND work_latitude IS NOT NULL AND work_address IS NOT NULL;", 1);
+            WorkId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT work_id FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + ";", 1));
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDER_TASKS las tareas del servicio relacionadas a la orden")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDER_TASKSLasTareasDelServicioRelacionadasALaOrden()
+        {
+            int CantTaskWO = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFLS_WORKORDER_TASKS WHERE wtask_work_id = " + WorkId + ";", 1));
+            int CantTaskService = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFLS_SERVICE_TASKS WHERE stask_service_id = " + ServiceId + ";", 1));
+            Assert.AreEqual(CantTaskWO, CantTaskService);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS_STOCK_PRODUCTS los productos del servicio relacionadas a la orden")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERS_STOCK_PRODUCTSLosProductosDelServicioRelacionadasALaOrden()
+        {
+            int CantProductWO = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT COUNT(*) FROM AFLS_WORKORDERS_STOCK_PRODUCTS WHERE work_id = " + WorkId + ";", 1));
+            int CantProductServ = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT SUM(srsp_quantity) FROM AFLS_STOCK_SERVICE_PRODUCTS WHERE serv_id = " + ServiceId + ";", 1));
+            Assert.AreEqual(CantProductWO, CantProductServ);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud y dirección de cita y longitud, latitud y dirección de destino")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConTicket_IdLongitudLatitudYDireccionDeCitaYLongitudLatitudYDireccionDeDestino()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_longitude IS NOT NULL AND work_latitude IS NOT NULL AND work_address IS NOT NULL AND work_end_longitude IS NOT NULL AND work_end_latitude IS NOT NULL AND work_end_address IS NOT NULL;", 1);
         }
 
         [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con prioridad de emergencia y especialista asignado")]
         public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConPrioridadDeEmergenciaYEspecialistaAsignado()
         {
-            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " ANDwork_attendant IS NOT NULL AND work_priority = 1;", 1);
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_attendant IS NOT NULL AND work_priority = 1;", 1);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con prioridad de prioridad y especialista asignado")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConPrioridadDePrioridadYEspecialistaAsignado()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_attendant IS NOT NULL AND work_priority = 2;", 1);
         }
 
         [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud de destino, latitud de destino y dirección de destino")]
@@ -361,6 +622,12 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         public void WhenSeleccionoTipoDeOrdenEmergenciaDeOrden()
         {
             UtilAction.Click(WorkordersPage.OptionOrderEmergency);
+        }
+
+        [When(@"Selecciono Tipo de Orden Prioritaria de orden")]
+        public void WhenSeleccionoTipoDeOrdenPrioritariaDeOrden()
+        {
+            UtilAction.Click(WorkordersPage.OptionOrderPriority);
         }
 
         [When(@"Doy click en Tab Asignación de orden")]

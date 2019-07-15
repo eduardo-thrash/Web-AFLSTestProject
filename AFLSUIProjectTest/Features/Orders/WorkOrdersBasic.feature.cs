@@ -125,6 +125,8 @@ this.ScenarioInitialize(scenarioInfo);
 #line 86
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 87
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -174,6 +176,8 @@ this.ScenarioInitialize(scenarioInfo);
 #line 106
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
                     " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 107
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -193,7 +197,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 111
  testRunner.And("Existe un cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 112
- testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Existen servicios asociados al cliente habilitados para ordenes de emergencia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 113
  testRunner.And("Existe relación del proveedor de especialista con zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 114
@@ -243,6 +247,498 @@ this.ScenarioInitialize(scenarioInfo);
 #line 135
  testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con prioridad de emergencia y es" +
                     "pecialista asignado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 136
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creación exitosa de orden de trabajo de prioridad con asignación automática")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
+        public virtual void CreacionExitosaDeOrdenDeTrabajoDePrioridadConAsignacionAutomatica()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo de prioridad con asignación automática", null, new string[] {
+                        "Automation"});
+#line 138
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 139
+ testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 140
+ testRunner.And("Existe un cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 141
+ testRunner.And("Existen servicios asociados al cliente habilitados para ordenes de emergencia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 142
+ testRunner.And("Existe relación del proveedor de especialista con zona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 143
+ testRunner.And("Existe especialista con disponibilidad, habilidad del servicio activa, licencia a" +
+                    "ctiva y estado activo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 144
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 145
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 146
+ testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 147
+ testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 148
+ testRunner.And("Diligencio campo de solicitante de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 149
+ testRunner.And("Diligencio Teléfono de Solicitante de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 150
+ testRunner.And("Diligencio Correo de Solicitante de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 151
+ testRunner.And("Diligencio Dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 152
+ testRunner.And("Diligencio Detalle de la dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 153
+ testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 154
+ testRunner.And("Selecciono Tipo de Orden Prioritaria de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 155
+ testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 156
+ testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 157
+ testRunner.And("Doy click en Tab Asignación de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 158
+ testRunner.And("Selecciono tab Asignación Automática", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 159
+ testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 160
+ testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 161
+ testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 162
+ testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 163
+ testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
+                    " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 164
+ testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con prioridad de prioridad y esp" +
+                    "ecialista asignado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 165
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creación exitosa de orden de trabajo a cliente que tiene compañía asociada")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
+        public virtual void CreacionExitosaDeOrdenDeTrabajoAClienteQueTieneCompaniaAsociada()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo a cliente que tiene compañía asociada", null, new string[] {
+                        "Automation"});
+#line 167
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 168
+ testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 169
+ testRunner.And("Existe un cliente con compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 170
+ testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 171
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 172
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 173
+ testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 174
+ testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 175
+ testRunner.And("Diligencio Dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 176
+ testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 177
+ testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 178
+ testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 179
+ testRunner.And("Doy click en Tab Asignación de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 180
+ testRunner.And("Selecciono tab Asignación Automática", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 181
+ testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 182
+ testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 183
+ testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 184
+ testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 185
+ testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
+                    " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 186
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creación exitosa de orden de trabajo a cliente que no tiene compañía asociada")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
+        public virtual void CreacionExitosaDeOrdenDeTrabajoAClienteQueNoTieneCompaniaAsociada()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo a cliente que no tiene compañía asociada", null, new string[] {
+                        "Automation"});
+#line 188
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 189
+ testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 190
+ testRunner.And("Existe un cliente sin compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 191
+ testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 192
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 193
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 194
+ testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 195
+ testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 196
+ testRunner.And("Diligencio Dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 197
+ testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 198
+ testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 199
+ testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 200
+ testRunner.And("Doy click en Tab Asignación de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 201
+ testRunner.And("Selecciono tab Asignación Automática", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 202
+ testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 203
+ testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 204
+ testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 205
+ testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 206
+ testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
+                    " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 207
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creación exitosa de orden de trabajo con servicio tipo estándar")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
+        public virtual void CreacionExitosaDeOrdenDeTrabajoConServicioTipoEstandar()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo con servicio tipo estándar", null, new string[] {
+                        "Automation"});
+#line 209
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 210
+ testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 211
+ testRunner.And("Existe un cliente sin compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 212
+ testRunner.And("Existen servicios asociados al cliente de tipo estándar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 213
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 214
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 215
+ testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 216
+ testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 217
+ testRunner.And("Diligencio Dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 218
+ testRunner.And("Diligencio y selecciono servicio de tipo estándar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 219
+ testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 220
+ testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 221
+ testRunner.And("Doy click en Tab Asignación de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 222
+ testRunner.And("Selecciono tab Asignación Automática", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 223
+ testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 224
+ testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 225
+ testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 226
+ testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 227
+ testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
+                    " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 228
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creación exitosa de orden de trabajo con servicio tipo desplazamiento")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
+        public virtual void CreacionExitosaDeOrdenDeTrabajoConServicioTipoDesplazamiento()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo con servicio tipo desplazamiento", null, new string[] {
+                        "Automation"});
+#line 230
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 231
+ testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 232
+ testRunner.And("Existe un cliente sin compañía asociada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 233
+ testRunner.And("Existen servicios asociados al cliente de tipo desplazamiento", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 234
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 235
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 236
+ testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 237
+ testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 238
+ testRunner.And("Diligencio Dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 239
+ testRunner.And("Diligencio y selecciono servicio de tipo desplazamiento", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 240
+ testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 241
+ testRunner.And("Diligencio Dirección de destino de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 242
+ testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 243
+ testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 244
+ testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 245
+ testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 246
+ testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 247
+ testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
+                    " y dirección de cita y longitud, latitud y dirección de destino", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 248
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creación exitosa de orden de trabajo con servicio tipo asignación directa")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
+        public virtual void CreacionExitosaDeOrdenDeTrabajoConServicioTipoAsignacionDirecta()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo con servicio tipo asignación directa", null, new string[] {
+                        "Automation"});
+#line 250
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 251
+ testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 252
+ testRunner.And("Existe un cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 253
+ testRunner.And("Existen servicios de tipo asignación directa asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 254
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 255
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 256
+ testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 257
+ testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 258
+ testRunner.And("Diligencio campo de solicitante de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 259
+ testRunner.And("Diligencio Teléfono de Solicitante de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 260
+ testRunner.And("Diligencio Correo de Solicitante de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 261
+ testRunner.And("Diligencio Dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 262
+ testRunner.And("Diligencio Detalle de la dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 263
+ testRunner.And("Diligencio y selecciono servicio de orden de tipo asignación directa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 264
+ testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 265
+ testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 266
+ testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 267
+ testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 268
+ testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 269
+ testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 270
+ testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
+                    " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 271
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creación exitosa de orden de trabajo con servicio tipo distribución publica")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
+        public virtual void CreacionExitosaDeOrdenDeTrabajoConServicioTipoDistribucionPublica()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo con servicio tipo distribución publica", null, new string[] {
+                        "Automation"});
+#line 273
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 274
+ testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 275
+ testRunner.And("Existe un cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 276
+ testRunner.And("Existen servicios de tipo distribución publica asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 277
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 278
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 279
+ testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 280
+ testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 281
+ testRunner.And("Diligencio campo de solicitante de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 282
+ testRunner.And("Diligencio Teléfono de Solicitante de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 283
+ testRunner.And("Diligencio Correo de Solicitante de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 284
+ testRunner.And("Diligencio Dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 285
+ testRunner.And("Diligencio Detalle de la dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 286
+ testRunner.And("Diligencio y selecciono servicio de orden de tipo distribución publica", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 287
+ testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 288
+ testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 289
+ testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 290
+ testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 291
+ testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 292
+ testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 293
+ testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
+                    " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 294
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creación exitosa de orden de trabajo con inventario completo y tareas")]
+        [NUnit.Framework.CategoryAttribute("Automation")]
+        public virtual void CreacionExitosaDeOrdenDeTrabajoConInventarioCompletoYTareas()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo con inventario completo y tareas", null, new string[] {
+                        "Automation"});
+#line 296
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 297
+ testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 298
+ testRunner.And("Existe un cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 299
+ testRunner.And("Existen servicios asociados al cliente con inventario completo y tareas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 300
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 301
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 302
+ testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 303
+ testRunner.And("Diligencio y selecciono un cliente de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 304
+ testRunner.And("Diligencio Dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 305
+ testRunner.And("Diligencio Detalle de la dirección de cita de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 306
+ testRunner.And("Diligencio y selecciono servicio de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 307
+ testRunner.And("Selecciono Tipo de Orden Normal de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 308
+ testRunner.And("Diligencio Asunto de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 309
+ testRunner.And("Diligencio descripción de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 310
+ testRunner.And("Selecciono el Tab de campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 311
+ testRunner.And("Diligencio campos adicionales de orden de trabajo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 312
+ testRunner.And("Doy click en Crear orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 313
+ testRunner.Then("se muestra mensaje indicando que se creo la orden de trabajo correctamente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 314
+ testRunner.And("Se registra en la tabla AFLS_WORKORDERS la orden con ticket_id, longitud, latitud" +
+                    " y dirección", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 315
+ testRunner.And("Se registra en la tabla AFLS_WORKORDER_TASKS las tareas del servicio relacionadas" +
+                    " a la orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 316
+ testRunner.And("Se registra en la tabla AFLS_WORKORDERS_STOCK_PRODUCTS los productos del servicio" +
+                    " relacionadas a la orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 317
+ testRunner.And("Cierro Sesión en la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creación exitosa de orden de trabajo con relación de sucesión a orden abierta")]
+        public virtual void CreacionExitosaDeOrdenDeTrabajoConRelacionDeSucesionAOrdenAbierta()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creación exitosa de orden de trabajo con relación de sucesión a orden abierta", null, ((string[])(null)));
+#line 319
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 320
+ testRunner.Given("Tengo un usuario con rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 321
+ testRunner.And("Existe un cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 322
+ testRunner.And("Existen servicios asociados al cliente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 323
+ testRunner.And("existen ordenes en estado abierto para relacionar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 324
+ testRunner.When("Accedo a la aplicación", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 325
+ testRunner.And("Realizo Login con usuario rol despachador", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 326
+ testRunner.And("Accedo a ítem Nueva orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 335
+ testRunner.And("Doy click en Tab Relaciones de orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 336
+ testRunner.And("Doy click en nueva relación en orden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 337
+ testRunner.And("Selecciono relación de tipo sucesión", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 338
+ testRunner.And("Selecciono relación de tipo vinculo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 339
+ testRunner.And("Diligencio y selecciono orden a relacionar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

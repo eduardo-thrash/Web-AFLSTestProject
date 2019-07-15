@@ -55,5 +55,36 @@ namespace CommonTest.CommonTest
 
             return Value;
         }
+
+        public static string DBSelectMoreValue(string Query, int Column)
+        {
+            string Value = null;
+
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = ConfigurationManager.AppSettings["DatabaseConnection"];
+
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand(Query, conn))
+                {
+                    try
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            Value = String.Format("{0}", reader[Column]);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Assert.Fail(e.Message);
+                    }
+                }
+            }
+
+            return Value;
+        }
     }
 }
