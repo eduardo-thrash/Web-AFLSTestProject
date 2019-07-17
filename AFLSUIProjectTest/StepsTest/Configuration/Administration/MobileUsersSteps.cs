@@ -5,6 +5,7 @@ using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -372,14 +373,42 @@ namespace AFLSUIProjectTest.StepsTest.Configuration.Administration
         [Then(@"Se muestra mensaje indicando que el correo se envió satisfactoriamente")]
         public void ThenSeMuestraMensajeIndicandoQueElCorreoSeEnvioSatisfactoriamente()
         {
+            int Second = 3;
+            int Interactions = 20;
+            bool StaleElement = false;
+            int Timeout = 0;
+
             MessagesElements MessagesElements = new MessagesElements();
             MessagesCopies MessagesCopies = new MessagesCopies();
 
-            IList<IWebElement> Messsages = CommonHooks.driver.FindElements(By.XPath(MessagesElements.ResponseElement));
+            StaleElement = false;
+            while (!StaleElement)
+            {
+                try
+                {
+                    WebDriverWait DisplayedWait = new WebDriverWait(CommonHooks.driver, TimeSpan.FromSeconds(Second));
+                    DisplayedWait.Until(d => d.FindElement(By.XPath("//div[@id='growls']//[@class='growl-message']")));
+
+                    IWebElement ElementWait = CommonHooks.driver.FindElement(By.XPath("//div[@id='growls']//[@class='growl-message']"));
+                    Assert.IsTrue(ElementWait.Displayed);
+                    StaleElement = true;
+                }
+                catch
+                {
+                    Timeout++;
+                    if (Timeout == Interactions)
+                        Assert.Fail("Element not found");
+                }
+            }
+
+            IList<IWebElement> Messsages = CommonHooks.driver.FindElements(By.XPath("//div[@id='growls']/div/div[@class='growl-message']"));
 
             foreach (IWebElement Elements in Messsages)
             {
-                string TextMessage = Elements.Text;
+                string TextMessage = null;
+
+                TextMessage = Elements.Text;
+
                 try
                 {
                     Assert.IsTrue(TextMessage.Contains(MessagesCopies.SuccessMailSendToSpecialist));

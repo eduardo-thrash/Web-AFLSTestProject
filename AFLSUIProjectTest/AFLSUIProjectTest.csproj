@@ -105,7 +105,7 @@
     <Compile Include="CommonTest\CommonElementsAction.cs" />
     <Compile Include="CommonTest\CommonHooks.cs" />
     <Compile Include="CommonTest\CommonQuery.cs" />
-    <Compile Include="CommonTest\CommonUtilAction.cs" />
+    <Compile Include="CommonTest\ElementsUtilAction.cs" />
     <Compile Include="CommonTest\SystemTask.cs" />
     <Compile Include="Features\AFLS\AFLSMaps.feature.cs">
       <AutoGen>True</AutoGen>
@@ -126,6 +126,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProviderAlerts.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Android\Inventory\InventorySearch.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventorySearch.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\AssistMe\AssistMeRegister.feature.cs">
       <AutoGen>True</AutoGen>
@@ -526,6 +531,10 @@
     <None Include="Features\Alerts\ProviderAlerts.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ProviderAlerts.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Android\Inventory\InventorySearch.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>InventorySearch.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\AssistMe\AssistMeRegister.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

@@ -1,4 +1,6 @@
-﻿namespace AFLSUIProjectTest.UIMap.Orders
+﻿using OpenQA.Selenium;
+
+namespace AFLSUIProjectTest.UIMap.Orders
 {
     public class WorkordersPage
     {
@@ -46,7 +48,23 @@
 
         public string AutomaticAssigmentTab = "//div[@class='workOrder contentWO']//div[@id='tabs-2']/div[@class='assignment-tabs']/label[@for='autoTab']";
         public string ManualAssigmentTab = "//div[@class='workOrder contentWO']//div[@id='tabs-2']/div[@class='assignment-tabs']/label[@for='manualTab']";
+        public string RestrictionAssigmentTab = "//div[@class='workOrder contentWO']//div[@id='tabs-2']/div[@class='assignment-tabs']/label[@for='restrictionTab']";
+
         public string ManualSpecialistFilter = "//div[@class='workOrder contentWO']//div[@id='tabs-2']//input[@class='filterBtn']";
+        public static By ManualSpecialistCard = By.XPath("//div[@class='list-box']//div[@class='itemContainer']");
+
+        public static By CheckProviderRestriction = By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-2']//div[@class='criteria-box']//label[@for='woProvCheck']");
+        public static By ProviderRestrictionList = By.XPath("//div[@id='provRestrictionSelect']//a[@class='dd-selected']");
+        public static By CheckSpecialistRestriction = By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-2']//div[@class='criteria-box']//label[@for='woSpecialistCheck']");
+        public static By SpecialistRestrictionList = By.XPath("//div[@class='criteria-element']//input[@name='SpecialistSearch']");
+        public static By CheckStartDateRestriction = By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-2']//div[@class='criteria-box']//label[@for='woDateStartCheck']");
+        public static By StartDateRestrictionControl = By.XPath("//div[@class='criteria-element']//input[@name='restrictionDate']");
+        public static By CheckTimeofDayRestriction = By.XPath("//div[@class='workOrder contentWO']//div[@id='tabs-2']//div[@class='criteria-box']//label[@for='woTimeofDayCheck']");
+        public static string CheckTimeofDayRestrictionString = "//div[@class='workOrder contentWO']//div[@id='tabs-2']//div[@class='criteria-box']//label[@for='woTimeofDayCheck']";
+
+        public static By TimeofDayRestrictionMorning = By.XPath("//div[@id='tabs-2']//div[@class='criteria-element']//label[@for='_1']");
+        public static By TimeofDayRestrictionAfternoon = By.XPath("//div[@id='tabs-2']//div[@class='criteria-element']//label[@for='_2']");
+        public static By TimeofDayRestrictionNight = By.XPath("//div[@id='tabs-2']//div[@class='criteria-element']//label[@for='_3']");
 
         #endregion
 

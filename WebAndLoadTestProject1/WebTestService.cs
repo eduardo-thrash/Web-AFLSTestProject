@@ -20,7 +20,7 @@ namespace WebAndLoadTestProject1
     public class WebTestService : WebTest
     {
         string Url = "http://localhost";
-        string Instance = "/AFLS/";
+        string Instance = "/AFLS_V99/";
 
         public WebTestService()
         {
@@ -51,18 +51,18 @@ namespace WebAndLoadTestProject1
             }
 
             #region Access Url
-            WebTestRequest request1 = new WebTestRequest("http://localhost/AFLS/");
-            request1.ExpectedResponseUrl = "http://localhost/AFLS/LogOn";
+            WebTestRequest request1 = new WebTestRequest(Url+Instance);
+            request1.ExpectedResponseUrl = Url+Instance+"LogOn";
             yield return request1;
             request1 = null;
             #endregion Access Url
 
             #region LogOn
-            WebTestRequest request2 = new WebTestRequest("http://localhost/AFLS/Account/LogOn");
+            WebTestRequest request2 = new WebTestRequest(Url + Instance+"Account/LogOn");
             request2.Method = "POST";
             request2.Headers.Add(new WebTestRequestHeader("Accept", "*/*"));
             request2.Headers.Add(new WebTestRequestHeader("X-Requested-With", "XMLHttpRequest"));
-            request2.Headers.Add(new WebTestRequestHeader("Referer", "http://localhost/AFLS/LogOn"));
+            request2.Headers.Add(new WebTestRequestHeader("Referer", Url+ Instance+"LogOn"));
             StringHttpBody request2Body = new StringHttpBody();
             request2Body.ContentType = "application/json";
             request2Body.InsertByteOrderMark = false;
@@ -85,11 +85,11 @@ namespace WebAndLoadTestProject1
 
             for (; this.ExecuteConditionalRule(conditionalRuleService);)
             {               
-                WebTestRequest requestService = new WebTestRequest("http://localhost/AFLS/Services/Save");
+                WebTestRequest requestService = new WebTestRequest(Url + Instance+"Services/Save");
                 requestService.Method = "POST";
                 requestService.Headers.Add(new WebTestRequestHeader("Accept", "application/json, text/javascript, */*; q=0.01"));
                 requestService.Headers.Add(new WebTestRequestHeader("X-Requested-With", "XMLHttpRequest"));
-                requestService.Headers.Add(new WebTestRequestHeader("Referer", "http://localhost/AFLS/"));
+                requestService.Headers.Add(new WebTestRequestHeader("Referer", Url+ Instance));
                 StringHttpBody requestServiceBody = new StringHttpBody();
                 requestServiceBody.ContentType = "application/json";
                 requestServiceBody.InsertByteOrderMark = false;

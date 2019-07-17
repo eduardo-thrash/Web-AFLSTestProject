@@ -49,6 +49,7 @@ namespace CommonTest.CommonTest
                             break;
                     }
                 }
+                conn.Dispose();
             }
 
             Value = Convert.ToString(Result);

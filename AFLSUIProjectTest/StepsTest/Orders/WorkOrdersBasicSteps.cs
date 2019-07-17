@@ -4,6 +4,7 @@ using AFLSUIProjectTest.UIMap;
 using AFLSUIProjectTest.UIMap.AFLS;
 using AFLSUIProjectTest.UIMap.Messages;
 using AFLSUIProjectTest.UIMap.Orders;
+using CommonTest;
 using CommonTest.CommonTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -39,9 +40,15 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         private int AdditionalFieldFound = 0;
 
         private int UserSpecialistId;
+        private string UserSpecialistName;
         private int ProviderId;
+        private string ProviderName;
         private int ZoneId;
         private int SkillId;
+
+        private DateTime MoreDays;
+
+        private int IdTypeRelation;
 
         private int RelationTicketId;
 
@@ -91,7 +98,7 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         [Given(@"existen ordenes en estado abierto para relacionar")]
         public void GivenExistenOrdenesEnEstadoAbiertoParaRelacionar()
         {
-            RelationTicketId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 ticket_id FROM AFLS_WORKORDERS WHERE stat_id = 1 AND work_id <> (SELECT ari_source FROM AFLS_RELATION_ITEMS) AND work_id <> (SELECT ari_target FROM AFLS_RELATION_ITEMS) ORDER BY NEWID();", 1));
+            RelationTicketId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT TOP 1 ticket_id FROM AFLS_WORKORDERS WHERE stat_id = 1 AND work_id <> (SELECT TOP 1 ari_source FROM AFLS_RELATION_ITEMS) AND work_id <> (SELECT TOP 1 ari_target FROM AFLS_RELATION_ITEMS) ORDER BY NEWID();", 1));
         }
 
         [Given(@"Existen servicios asociados al cliente con inventario completo y tareas")]
@@ -556,6 +563,57 @@ namespace AFLSUIProjectTest.StepsTest.Orders
             WorkId = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT work_id FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + ";", 1));
         }
 
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con información de proveedor en campo work_restriction_info")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConInformacionDeProveedorEnCampoWork_Restriction_Info()
+        {
+            CommonQuery.DBSelectAValue("SELECT work_restriction_info FROM AFLS_WORKORDERS WHERE work_restriction_info = '{\"ProviderId\":" + ProviderId + ",\"ProviderName\":\"" + ProviderName + "\",\"WorkCenterName\":null,\"WorkCenterId\":null,\"AttentionStartDate\":null,\"WorkDayId\":null}' AND ticket_id = " + TicketId + ";", 1);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con información de especialista en campo work_restriction_info")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConInformacionDeEspecialistaEnCampoWork_Restriction_Info()
+        {
+            CommonQuery.DBSelectAValue("SELECT work_restriction_info FROM AFLS_WORKORDERS WHERE work_restriction_info = '{\"ProviderId\":null,\"ProviderName\":null,\"WorkCenterName\":\"" + UserSpecialistName + "\",\"WorkCenterId\":" + UserSpecialistId + ",\"AttentionStartDate\":null,\"WorkDayId\":null}' AND ticket_id = " + TicketId + ";", 1);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con información de fecha en campo work_restriction_info y fecha en campo work_restriction_assignment_start_date")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConInformacionDeFechaEnCampoWork_Restriction_InfoYFechaEnCampoWork_Restriction_Assignment_Start_Date()
+        {
+            string Date = MoreDays.ToString("yyyy-MM-dd") + "T05:00:00.000Z";
+            CommonQuery.DBSelectAValue("SELECT work_restriction_info FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_restriction_info = '{\"ProviderId\":null,\"ProviderName\":null,\"WorkCenterName\":null,\"WorkCenterId\":null,\"AttentionStartDate\":\"" + Date + "\",\"WorkDayId\":null}' AND work_restriction_assignment_start_date IS NOT NULL", 1);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con información de jornada mañana en campo work_restriction_info")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConInformacionDeJornadaEnCampoWork_Restriction_Info()
+        {
+            CommonQuery.DBSelectAValue("SELECT work_restriction_info FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_restriction_info = '{\"ProviderId\":null,\"ProviderName\":null,\"WorkCenterName\":null,\"WorkCenterId\":null,\"AttentionStartDate\":null,\"WorkDayId\":\"1\"}';", 1);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con información de jornada tarde en campo work_restriction_info")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConInformacionDeJornadaTardeEnCampoWork_Restriction_Info()
+        {
+            CommonQuery.DBSelectAValue("SELECT work_restriction_info FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_restriction_info = '{\"ProviderId\":null,\"ProviderName\":null,\"WorkCenterName\":null,\"WorkCenterId\":null,\"AttentionStartDate\":null,\"WorkDayId\":\"2\"}';", 1);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con información de jornada noche en campo work_restriction_info")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConInformacionDeJornadaNocheEnCampoWork_Restriction_Info()
+        {
+            CommonQuery.DBSelectAValue("SELECT work_restriction_info FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_restriction_info = '{\"ProviderId\":null,\"ProviderName\":null,\"WorkCenterName\":null,\"WorkCenterId\":null,\"AttentionStartDate\":null,\"WorkDayId\":\"3\"}';", 1);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_RELATION_ITEMS el campo ari_source con ticket de orden creada y ari_target con ticket de orden relacionada de tipo sucesión")]
+        public void ThenSeRegistraEnLaTablaAFLS_RELATION_ITEMSElCampoAri_SourceConTicketDeOrdenCreadaYAri_TargetConTicketDeOrdenRelacionadaDeTipoSucesion()
+        {
+            IdTypeRelation = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT ar_id FROM AFLS_RELATION_ITEMS WHERE ari_source = " + TicketId + " AND ari_target = " + RelationTicketId + ";", 1));
+            CommonQuery.DBSelectAValue("SELECT ar_id FROM AFLS_RELATIONSHIP WHERE art_id = 1 AND ar_id = " + IdTypeRelation + ";", 1);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_RELATION_ITEMS el campo ari_source con ticket de orden creada y ari_target con ticket de orden relacionada de tipo vinculo\.")]
+        public void ThenSeRegistraEnLaTablaAFLS_RELATION_ITEMSElCampoAri_SourceConTicketDeOrdenCreadaYAri_TargetConTicketDeOrdenRelacionadaDeTipoVinculo_()
+        {
+            IdTypeRelation = Convert.ToInt32(CommonQuery.DBSelectAValue("SELECT ar_id FROM AFLS_RELATION_ITEMS WHERE ari_source = " + TicketId + " AND ari_target = " + RelationTicketId + ";", 1));
+            CommonQuery.DBSelectAValue("SELECT ar_id FROM AFLS_RELATIONSHIP WHERE art_id = 2 AND ar_id = " + IdTypeRelation + ";", 1);
+        }
+
         [Then(@"Se registra en la tabla AFLS_WORKORDER_TASKS las tareas del servicio relacionadas a la orden")]
         public void ThenSeRegistraEnLaTablaAFLS_WORKORDER_TASKSLasTareasDelServicioRelacionadasALaOrden()
         {
@@ -582,6 +640,12 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConPrioridadDeEmergenciaYEspecialistaAsignado()
         {
             CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_attendant IS NOT NULL AND work_priority = 1;", 1);
+        }
+
+        [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con asignación manual y especialista asignado")]
+        public void ThenSeRegistraEnLaTablaAFLS_WORKORDERSLaOrdenConAsignacionManualYEspecialistaAsignado()
+        {
+            CommonQuery.DBSelectAValue("SELECT * FROM AFLS_WORKORDERS WHERE ticket_id = " + TicketId + " AND work_attendant IS NOT NULL AND work_assignment_type = 1;", 1);
         }
 
         [Then(@"Se registra en la tabla AFLS_WORKORDERS la orden con prioridad de prioridad y especialista asignado")]
@@ -652,12 +716,43 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         public void WhenDoyClickEnBuscarEspecialistaParaAsignacionManual()
         {
             UtilAction.Click(WorkordersPage.ManualSpecialistFilter);
-            Thread.Sleep(1);
-            Thread.Sleep(1);
-            Thread.Sleep(1);
-            Thread.Sleep(1);
-            Thread.Sleep(1);
-            Thread.Sleep(1);
+        }
+
+        [When(@"Selecciono tab Asignación por Restricción")]
+        public void WhenSeleccionoTabAsignacionPorRestriccion()
+        {
+            UtilAction.Click(WorkordersPage.RestrictionAssigmentTab);
+            Thread.Sleep(5000);
+        }
+
+        [When(@"Selecciono check Proveedor en restricción")]
+        public void WhenSeleccionoCheckProveedorEnRestriccion()
+        {
+            ElementsUtilAction.Click(WorkordersPage.CheckProviderRestriction);
+        }
+
+        [When(@"Selecciono check Especialista en restricción")]
+        public void WhenSeleccionoCheckEspecialistaEnRestriccion()
+        {
+            ElementsUtilAction.Click(WorkordersPage.CheckSpecialistRestriction);
+        }
+
+        [When(@"Selecciono check Fecha Inicial en restricción")]
+        public void WhenSeleccionoCheckFechaInicialEnRestriccion()
+        {
+            ElementsUtilAction.Click(WorkordersPage.CheckStartDateRestriction);
+        }
+
+        [When(@"Selecciono check Jornada en restricción")]
+        public void WhenSeleccionoCheckJornadaEnRestriccion()
+        {
+            ElementsUtilAction.Click(WorkordersPage.CheckTimeofDayRestriction);
+        }
+
+        [When(@"Selecciono un especialista del listado resultante")]
+        public void WhenSeleccionoUnEspecialistaDelListadoResultante()
+        {
+            ElementsUtilAction.Click(WorkordersPage.ManualSpecialistCard);
         }
 
         [When(@"Diligencio Dirección de destino de orden dando click en cursor")]
@@ -709,6 +804,58 @@ namespace AFLSUIProjectTest.StepsTest.Orders
         {
             UtilAction.Click(WorkordersPage.Address);
             UtilAction.Click("//div[@class='workOrder contentWO']//div[@class='woMapOrder ui maps']");
+        }
+
+        [When(@"Diligencio y selecciono un proveedor para restricción")]
+        public void WhenDiligencioYSeleccionoUnProveedorParaRestriccion()
+        {
+            ProviderName = CommonQuery.DBSelectAValue("SELECT Name FROM AFLS_PROVIDERS WHERE ProviderId = " + ProviderId + ";", 1);
+            ElementsUtilAction.SelectDropDownList(WorkordersPage.ProviderRestrictionList, ProviderName, "label");
+        }
+
+        [When(@"Diligencio y selecciono un especialista para restricción")]
+        public void WhenDiligencioYSeleccionoUnEspecialistaParaRestriccion()
+        {
+            UserSpecialistName = CommonQuery.DBSelectAValue("SELECT user_name FROM AFW_USERS WHERE user_id = " + UserSpecialistId + ";", 1);
+            ElementsUtilAction.Select_ComboboxAutocomplete(WorkordersPage.SpecialistRestrictionList, UserSpecialistName, "a");
+        }
+
+        [When(@"Diligencio y selecciono una fecha para restricción")]
+        public void WhenDiligencioYSeleccionoUnaFechaParaRestriccion()
+        {
+            ElementsUtilAction.Click(WorkordersPage.StartDateRestrictionControl);
+            Thread.Sleep(2000);
+
+            DateTime Now = DateTime.Now;
+            MoreDays = Now.AddDays(2);
+
+            string NewDay = MoreDays.Day.ToString();
+
+            IList<IWebElement> list = CommonHooks.driver.FindElements(By.XPath("//div[@class='xdsoft_datepicker active']/div[@class='xdsoft_calendar']/table/tbody/tr/td/div[contains(text(),'17')]"));
+            foreach (IWebElement item in list)
+            {
+                string TextDay = item.Text;
+                if (TextDay == NewDay)
+                    item.Click();
+            }
+        }
+
+        [When(@"Diligencio y selecciono jornada mañana para restricción")]
+        public void WhenDiligencioYSeleccionoJornadaMananaParaRestriccion()
+        {
+            ElementsUtilAction.Click(WorkordersPage.TimeofDayRestrictionMorning);
+        }
+
+        [When(@"Diligencio y selecciono jornada tarde para restricción")]
+        public void WhenDiligencioYSeleccionoJornadaTardeParaRestriccion()
+        {
+            ElementsUtilAction.Click(WorkordersPage.TimeofDayRestrictionAfternoon);
+        }
+
+        [When(@"Diligencio y selecciono jornada noche para restricción")]
+        public void WhenDiligencioYSeleccionoJornadaNocheParaRestriccion()
+        {
+            ElementsUtilAction.Click(WorkordersPage.TimeofDayRestrictionNight);
         }
 
         private string Day()
